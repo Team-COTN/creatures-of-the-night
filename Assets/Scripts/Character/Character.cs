@@ -20,8 +20,13 @@ public class Character : MonoBehaviour
     public CharacterDashState DashState;
     public CharacterSwitchDashState SwitchDashState;
     public CharacterJumpParryState JumpParryState;
+    
+    //[Header("Events")] 
+    public static event Action<string> CharacterStateChange;
+    public static void AddCharacterStateObserver(Action<string> observer) { CharacterStateChange += observer; }
+    public static void RemoveCharacterStateObserver(Action<string> observer) { CharacterStateChange -= observer; }
 
-
+    
     [Header("Debug")]
     public bool ShowEnteredStateDebugLog;
     public bool ShowGroundedCollisionBox;
@@ -217,18 +222,21 @@ public class Character : MonoBehaviour
         bool isMoving = Mathf.Abs(direction.x) > MovementData.moveThreshold;
         if (isMoving)
         {
+            CharacterStateChange.Invoke("Move");
             CheckForFlip(direction);
             float targetVelocity = direction.x * MovementData.maxWalkSpeed;
             HorizontalVelocity = Mathf.Lerp(HorizontalVelocity, targetVelocity, acceleration * Time.deltaTime);
         }
         else
         {
+            CharacterStateChange.Invoke("Idle");
             HorizontalVelocity = Mathf.Lerp(HorizontalVelocity, 0f, deceleration * Time.deltaTime);
         }
     }
     
     public void Dash(Vector2 direction, float velocity)
     {
+        CharacterStateChange.Invoke("Dash");
         CheckForFlip(direction);
         HorizontalVelocity = direction.x * velocity;
         SetVerticalVelocity(0);
@@ -329,6 +337,7 @@ public class Character : MonoBehaviour
 
     public void Jump()
     {
+        CharacterStateChange.Invoke("Jump");
         SetVerticalVelocity(MovementData.InitialJumpVelocity);
         IsJumping = true;
         IsFastFalling = false;
@@ -344,6 +353,8 @@ public class Character : MonoBehaviour
     
     public void Land()
     {
+        //may make a land animation
+        CharacterStateChange.Invoke("Idle");
         SetVerticalVelocity(0);
         IsJumping = false;
         IsFastFalling = false;
@@ -351,6 +362,7 @@ public class Character : MonoBehaviour
     
     public void JumpParry()
     {
+        CharacterStateChange.Invoke("JumpParry");
         SetVerticalVelocity(MovementData.InitialJumpVelocity);
         // IsJumpParrying = true;
         IsFastFalling = false;
