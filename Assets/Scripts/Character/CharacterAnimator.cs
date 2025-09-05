@@ -49,38 +49,4 @@ public class CharacterAnimator : MonoBehaviour
         Debug.Log("Play Animation");
     }
 
-    public void OnEnable()
-    {
-        // AddControlsObserver(Action<> PlayAnimation);
-    }
-
-    public void PlayAnimation()
-    {
-        Debug.Log("Play Animation");
-    }
-
-    public void OnEnable()
-    {
-        // AddControlsObserver(Action<> PlayAnimation);
-    }
-
-    public void PlayAnimation()
-    {
-        Debug.Log("Play Animation");
-    }
-
-    public void OnEnable()
-    {
-        // AddControlsObserver(Action<> PlayAnimation);
-    }
-
-    public void PlayAnimation()
-    {
-        Debug.Log("Play Animation");
-    }
-
-    public void OnEnable()
-    {
-        // AddControlsObserver(Action<> PlayAnimation);
-    }
 }

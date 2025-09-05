@@ -36,12 +36,10 @@ public class Character : MonoBehaviour
     
     //#region Events
     
-    public static event Action<> StateChanged;
+    public static event Action<string> StateChanged;
 
-    public static void AddControlsObserver(Action<> observer) { StateChanged += observer; }
-    public static void AddControlsObserver(Action<> observer) { StateChanged -= observer; }
-    
-    
+    public static void AddControlsObserver(Action<string> observer) { StateChanged += observer; }
+    public static void RemoveControlsObserver(Action<string> observer) { StateChanged -= observer; }
 
     private void Awake()
     {
