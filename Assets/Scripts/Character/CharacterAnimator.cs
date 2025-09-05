@@ -43,4 +43,14 @@ public class CharacterAnimator : MonoBehaviour
     {
         Character.RemoveCharacterStateObserver(Animate);
     }
+
+    public void PlayAnimation()
+    {
+        Debug.Log("Play Animation");
+    }
+
+    public void OnEnable()
+    {
+        // AddControlsObserver(Action<> PlayAnimation);
+    }
 }

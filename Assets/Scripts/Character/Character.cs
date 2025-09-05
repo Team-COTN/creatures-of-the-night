@@ -34,6 +34,15 @@ public class Character : MonoBehaviour
 
     #endregion
     
+    //#region Events
+    
+    public static event Action<> StateChanged;
+
+    public static void AddControlsObserver(Action<> observer) { StateChanged += observer; }
+    public static void AddControlsObserver(Action<> observer) { StateChanged -= observer; }
+    
+    
+
     private void Awake()
     {
         StateMachine = new CharacterStateMachine();
