@@ -17,7 +17,7 @@ public class CharacterAnimator : MonoBehaviour
 
     void Animate(string stateName)
     {
-        if (stateName == "Idle")
+        if (stateName == "Idle" && (!animator.GetCurrentAnimatorStateInfo(0).IsName("Idle Animation")))
         {
             animator.SetTrigger("Idle");
         }
@@ -32,6 +32,10 @@ public class CharacterAnimator : MonoBehaviour
         else if (stateName == "JumpParry")
         {
             animator.SetTrigger("JumpParry");
+        }
+        else if (stateName == "Slash")
+        {
+            animator.SetTrigger("Slash");
         }
     }
     

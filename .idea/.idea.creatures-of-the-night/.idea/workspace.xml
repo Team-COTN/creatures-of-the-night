@@ -6,10 +6,21 @@
   <component name="ChangeListManager">
     <list default="true" id="7ce13912-67e6-4a88-8346-8139efd49c3f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.creatures-of-the-night/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.creatures-of-the-night/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/InputSystem_Actions.inputactions" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/InputSystem_Actions.inputactions" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Character.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Character.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/CollectableExample.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/CollectableExample.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Character/Character.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Character/Character.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Character/CharacterAnimator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Character/CharacterAnimator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CharacterInteractions/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CharacterInteractions/Enemy.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Data/CharacterMovementData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Data/CharacterMovementData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Data/New Character Movement Data.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Data/New Character Movement Data.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Input/InputManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Input/InputManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/States/CharacterIdleState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/States/CharacterIdleState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/States/CharacterJumpState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/States/CharacterJumpState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/States/CharacterWalkState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/States/CharacterWalkState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Settings/Input/MyInputActions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/Input/MyInputActions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Settings/Input/MyInputActions.inputactions" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/Input/MyInputActions.inputactions" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +34,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/89527d299cb64ba88f87240781b415e51ea400/07/63b6b731/GameObject.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Camera/CameraZone.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/SFXManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.2d.tilemap@e08379fa62fd/Editor/GridEditorUtility.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.cinemachine@b66fdb7cd1f2/Runtime/Behaviours/CinemachineConfiner2D.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.cinemachine@b66fdb7cd1f2/Runtime/Components/CinemachinePositionComposer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.core@79d3abb9adf1/Runtime/Camera/CameraSwitcher.cs" root0="SKIP_HIGHLIGHTING" />
@@ -43,7 +55,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;12-Trigger-Player-Animations&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;33-Slash-Attackk&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -145,6 +157,7 @@
       <workItem from="1755746021744" duration="4000" />
       <workItem from="1756143409767" duration="600000" />
       <workItem from="1756921235705" duration="3030000" />
+      <workItem from="1757131044223" duration="2179000" />
     </task>
     <servers />
   </component>

@@ -1,4 +1,5 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 using Object = System.Object;
 
@@ -10,6 +11,9 @@ public class Character : MonoBehaviour
     public CharacterMovementData MovementData;
     public Rigidbody2D rb;
     public Collider2D col;
+    public Collider2D parryCollider2D;
+    public Collider2D attackCollider2D;
+
     
     [Header("State Machine")]
     public CharacterStateMachine StateMachine;
@@ -20,6 +24,8 @@ public class Character : MonoBehaviour
     public CharacterDashState DashState;
     public CharacterSwitchDashState SwitchDashState;
     public CharacterJumpParryState JumpParryState;
+    public CharacterSlashState SlashState;
+
     
     //[Header("Events")] 
     public static event Action<string> CharacterStateChange;
@@ -34,13 +40,13 @@ public class Character : MonoBehaviour
 
     #endregion
     
-    //#region Events
-    
+    #region Events
     public static event Action<string> StateChanged;
 
     public static void AddControlsObserver(Action<string> observer) { StateChanged += observer; }
     public static void RemoveControlsObserver(Action<string> observer) { StateChanged -= observer; }
 
+    #endregion
     private void Awake()
     {
         StateMachine = new CharacterStateMachine();
@@ -50,6 +56,7 @@ public class Character : MonoBehaviour
         JumpState = new CharacterJumpState(this);
         DashState = new CharacterDashState(this);
         SwitchDashState = new CharacterSwitchDashState(this);
+        SlashState = new CharacterSlashState(this);
         JumpParryState = new CharacterJumpParryState(this);
     }
     
@@ -103,6 +110,7 @@ public class Character : MonoBehaviour
     private RaycastHit2D _ceilingHit;
     public bool IsTouchingCeiling { get; private set; }
     public bool InParryZone { get; private set; }
+    
     public bool AttackParried { get; private set; }
 
 
@@ -130,12 +138,12 @@ public class Character : MonoBehaviour
         }
         #endregion
     }
-
+    
     public void CheckForParryableObject()
     {
         float radius = .5f;
-        Vector2 playerColOrigin = col.bounds.center;
-        Collider2D[] otherCol = Physics2D.OverlapCircleAll(playerColOrigin, radius, ~0);
+        Vector2 parryColOrigin = parryCollider2D.bounds.center;
+        Collider2D[] otherCol = Physics2D.OverlapCircleAll(parryColOrigin, radius, ~0);
         InParryZone = false;
         for (int i = 0; i < otherCol.Length; i++)
         {
@@ -414,6 +422,33 @@ public class Character : MonoBehaviour
     }
     
     #endregion
+    
+    #endregion
+    
+    #region Combat
+    
+    public void Slash()
+    {
+        CharacterStateChange.Invoke("Slash");
+        Debug.Log("Pressed slash");
+
+        float radius = .5f;
+        
+        //need to find if the player has a weapon in hand
+        //if no weapon, the arm of the character is the weapon
+        Vector2 weaponColOrigin = attackCollider2D.bounds.center;
+        Collider2D[] otherCol = Physics2D.OverlapCircleAll(weaponColOrigin, radius, ~0);
+        for (int i = 0; i < otherCol.Length; i++)
+        {
+            Debug.Log("****Some Object Collided..");
+
+            if (otherCol[i].gameObject.TryGetComponent(out IDamagable damagable))
+            {
+                Debug.Log("****Damagable Object Collided!");
+                damagable.TakeDamage(1);
+            }
+        }
+    }
     
     #endregion
 }
