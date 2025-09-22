@@ -15,6 +15,10 @@ public class CharacterWalkState : CharacterState
     private bool DashInputPressed => InputManager.GetDashWasPressedThisFrame();
     private bool CanDash => _character.DashCooldown <= 0;
     
+    public override void StateEnter()
+    {
+        _character.StateChangeEvent(_character, "Move");
+    }
     public override void StateUpdate()
     {
         base.StateUpdate();

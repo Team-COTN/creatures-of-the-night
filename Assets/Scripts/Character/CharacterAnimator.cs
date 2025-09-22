@@ -3,49 +3,59 @@ using UnityEngine;
 
 public class CharacterAnimator : MonoBehaviour
 {
+    private Character character;
     private GameObject playerVisual;
     private Animator animator;
 
     private void Awake()
     {
-        //player = GameObject.FindGameObjectWithTag("Player");
-        //animator = player.GetComponentInChildren<Animator>();
-        
+        character = GameObject.FindGameObjectWithTag("Player").GetComponent<Character>();
         playerVisual = this.gameObject;
         animator = playerVisual.GetComponent<Animator>();
     }
 
     void Animate(string stateName)
     {
-        if (stateName == "Idle" && (!animator.GetCurrentAnimatorStateInfo(0).IsName("Idle Animation")))
+        bool jumping = false;
+        if (stateName == "Jump")
         {
-            animator.SetTrigger("Idle");
+            animator.SetTrigger("Jump");
+            jumping = true;
         }
         else if (stateName == "Move")
         {
             animator.SetTrigger("Move");
         }
-        else if (stateName == "Jump")
-        {
-            animator.SetTrigger("Jump");
-        }
         else if (stateName == "JumpParry")
         {
             animator.SetTrigger("JumpParry");
+        }
+        else if (stateName == "Air" && !jumping)
+        {
+            animator.SetTrigger("Air");
         }
         else if (stateName == "Slash")
         {
             animator.SetTrigger("Slash");
         }
+        else if (stateName == "Idle" && (!animator.GetCurrentAnimatorStateInfo(0).IsName("Idle Animation")))
+        {
+            animator.SetTrigger("Idle");
+        }
+
+        // if (animator.GetCurrentAnimatorStateInfo(0).IsName("Jump"))
+        // {
+        //     jumping = false;
+        // }
     }
     
     private void OnEnable()
     {
-        Character.AddCharacterStateObserver(Animate);
+        character.AddCharacterStateObserver(Animate);
     }
     private void OnDisable()
     {
-        Character.RemoveCharacterStateObserver(Animate);
+        character.RemoveCharacterStateObserver(Animate);
     }
 
     public void PlayAnimation()

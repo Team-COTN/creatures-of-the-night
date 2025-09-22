@@ -17,6 +17,11 @@ public class CharacterIdleState : CharacterState
     private bool SlashInputPressed => InputManager.GetSlashWasPressedThisFrame();
 
     
+    public override void StateEnter()
+    {
+        _character.StateChangeEvent(_character, "Idle");
+    }
+
     public override void StateUpdate()
     {
         base.StateUpdate();

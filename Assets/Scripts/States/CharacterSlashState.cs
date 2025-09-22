@@ -14,6 +14,6 @@ public class CharacterSlashState : CharacterState
         base.StateEnter();
         _character.Slash();
         _stateMachine.ChangeState(_character.IdleState);
+        _character.StateChangeEvent(_character, "Slash");
     }
-
 }

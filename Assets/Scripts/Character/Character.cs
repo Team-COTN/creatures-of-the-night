@@ -28,9 +28,9 @@ public class Character : MonoBehaviour
 
     
     //[Header("Events")] 
-    public static event Action<string> CharacterStateChange;
-    public static void AddCharacterStateObserver(Action<string> observer) { CharacterStateChange += observer; }
-    public static void RemoveCharacterStateObserver(Action<string> observer) { CharacterStateChange -= observer; }
+    public event Action<string> CharacterStateChange;
+    public void AddCharacterStateObserver(Action<string> observer) { CharacterStateChange += observer; }
+    public void RemoveCharacterStateObserver(Action<string> observer) { CharacterStateChange -= observer; }
 
     
     [Header("Debug")]
@@ -46,6 +46,12 @@ public class Character : MonoBehaviour
     public static void AddControlsObserver(Action<string> observer) { StateChanged += observer; }
     public static void RemoveControlsObserver(Action<string> observer) { StateChanged -= observer; }
 
+    public void StateChangeEvent(Character obj, string state)
+    {
+        obj.CharacterStateChange.Invoke(state);
+    }
+    
+    
     #endregion
     private void Awake()
     {
