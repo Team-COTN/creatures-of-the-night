@@ -15,4 +15,6 @@ public class InputManager : MonoBehaviour
     public static bool GetJumpWasReleasedThisFrame() => _inputActions.Character.Jump.WasReleasedThisFrame();
     public static bool GetDashWasPressedThisFrame() => _inputActions.Character.Dash.WasPressedThisFrame();
     public static bool GetSwitchdashWasPressedThisFrame() => _inputActions.Character.Switchdash.WasPressedThisFrame();
+    public static bool GetSlashWasPressedThisFrame() => _inputActions.Character.Slash.WasPressedThisFrame();
+
 }   

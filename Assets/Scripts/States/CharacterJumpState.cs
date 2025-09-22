@@ -8,18 +8,13 @@ public class CharacterJumpState : CharacterState
     public CharacterJumpState(Character character) : base(character)
     {
     }
-    
+
     public override void StateEnter()
     {
         base.StateEnter();
         _character.Jump();
         _stateMachine.ChangeState(_character.AirState);
-    }
-
-    public override void StateUpdate()
-    {
-        base.StateUpdate();
-        // if (JumpInputPressed && CanJumpParry) _stateMachine.ChangeState(_character.JumpParryState);
+        _character.StateChangeEvent(_character, "Jump");
     }
 
     public override void StateFixedUpdate()
