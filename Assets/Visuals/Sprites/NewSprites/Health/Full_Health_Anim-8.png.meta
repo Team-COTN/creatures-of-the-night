@@ -759,7 +759,33 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Full_Health_Anim-8_0: -6512940133976183245
+      Full_Health_Anim-8_1: 3084667437437978943
+      Full_Health_Anim-8_10: 1775016345777639125
+      Full_Health_Anim-8_11: -2719581882492420524
+      Full_Health_Anim-8_12: 8488687514676495786
+      Full_Health_Anim-8_13: -6474224971230495765
+      Full_Health_Anim-8_14: 1868180869577297965
+      Full_Health_Anim-8_15: -8111465838460978051
+      Full_Health_Anim-8_16: 5713436929223122307
+      Full_Health_Anim-8_17: -8552316165067337263
+      Full_Health_Anim-8_18: -8875112253418076354
+      Full_Health_Anim-8_19: -2061484016323434463
+      Full_Health_Anim-8_2: -7715106486742274290
+      Full_Health_Anim-8_20: 8782070630006814034
+      Full_Health_Anim-8_21: 434727412767645232
+      Full_Health_Anim-8_22: 6265970530722117432
+      Full_Health_Anim-8_23: 293556027281164380
+      Full_Health_Anim-8_24: 657172570392345844
+      Full_Health_Anim-8_25: -8905950570450311002
+      Full_Health_Anim-8_3: -3577288218352450794
+      Full_Health_Anim-8_4: -4560368293672279924
+      Full_Health_Anim-8_5: 8180777809818561893
+      Full_Health_Anim-8_6: -2509953120276541707
+      Full_Health_Anim-8_7: 2700123740822230962
+      Full_Health_Anim-8_8: 2049086214161566488
+      Full_Health_Anim-8_9: 1031933625059656985
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

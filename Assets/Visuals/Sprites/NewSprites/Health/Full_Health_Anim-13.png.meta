@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Full_Health_Anim-13_0: 665736138240628536
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

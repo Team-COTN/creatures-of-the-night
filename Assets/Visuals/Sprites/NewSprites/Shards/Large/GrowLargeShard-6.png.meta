@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      GrowLargeShard-6_0: 7500229561481502949
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

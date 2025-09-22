@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      GrowSmallShard-4_0: -6345460773550145310
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
