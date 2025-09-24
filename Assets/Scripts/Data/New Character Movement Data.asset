@@ -29,7 +29,8 @@ MonoBehaviour:
   switchdashDuration: 0.2
   switchdashDistance: 3.5
   switchdashCooldown: 0.15
-  jumpHeight: 3
+  jumpHeight: 4
+  jumpParryHeight: 4.5
   timeTillJumpApex: 0.5
   gravityOnReleaseMultiplier: 2
   apexThreshold: 0.97
