@@ -16,6 +16,10 @@ public class CharacterAirState : CharacterState
     private bool DashInputPressed => InputManager.GetDashWasPressedThisFrame();
     private bool CanDash => _character.DashCooldown <= 0;
 
+    public override void StateEnter()
+    {
+        _character.StateChangeEvent(_character, "Air");
+    }
     public override void StateUpdate()
     {
         base.StateUpdate();

@@ -14,7 +14,14 @@ public class CharacterIdleState : CharacterState
     private bool CanJumpParry => _character.CanJumpParry();
     private bool DashInputPressed => InputManager.GetDashWasPressedThisFrame();
     private bool CanDash => _character.DashCooldown <= 0;
+    private bool SlashInputPressed => InputManager.GetSlashWasPressedThisFrame();
+
     
+    public override void StateEnter()
+    {
+        _character.StateChangeEvent(_character, "Idle");
+    }
+
     public override void StateUpdate()
     {
         base.StateUpdate();
@@ -22,6 +29,7 @@ public class CharacterIdleState : CharacterState
         else if (IsFalling) _stateMachine.ChangeState(_character.AirState);
         else if (JumpInputPressed && CanJump) _stateMachine.ChangeState(_character.JumpState);
         else if (JumpInputPressed && CanJumpParry) _stateMachine.ChangeState(_character.JumpParryState);
+        else if (SlashInputPressed) _stateMachine.ChangeState(_character.SlashState);
         else if (IsMoving) _stateMachine.ChangeState(_character.WalkState);
     }
 
