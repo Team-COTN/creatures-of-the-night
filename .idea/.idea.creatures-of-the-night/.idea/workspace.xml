@@ -7,8 +7,7 @@
     <list default="true" id="7ce13912-67e6-4a88-8346-8139efd49c3f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.creatures-of-the-night/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.creatures-of-the-night/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/elcie_work/LightGlow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/elcie_work/LightGlow.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/VineLight.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/VineLight.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -142,7 +141,7 @@
       <workItem from="1755720489688" duration="3470000" />
       <workItem from="1755746021744" duration="4000" />
       <workItem from="1756143409767" duration="600000" />
-      <workItem from="1758862615676" duration="2230000" />
+      <workItem from="1758862615676" duration="2841000" />
     </task>
     <servers />
   </component>

@@ -3,40 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
-
+[RequireComponent(typeof(Light2D))]
+[RequireComponent(typeof(Collider2D))]
 public class VineLight : MonoBehaviour
 {
     [SerializeField] Light2D vinePointLight;
-    //[SerializeField] GameObject vinePointLight;
 
-    // Start is called before the first frame update
     void Start()
     {
-            vinePointLight.pointLightOuterRadius = 2;
+            vinePointLight.pointLightOuterRadius = .2f;
     }
-
-    // Update is called once per frame
-    void Update()
+    
+    private void OnTriggerExit2D(Collider2D other)
     {
-
+        if (other.attachedRigidbody.TryGetComponent(out Character character))
+        {
+            vinePointLight.pointLightOuterRadius = 3f;
+        }
     }
 
-
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        /*
-        Debug.Log("Entered Collision");
-        if (other.TryGetComponent(out Character character))
-        {
-            Debug.Log("Character triggered");
-        }
-        */
-        
-        if (other.CompareTag("Player"))
-        {
-            Debug.Log("Entered Player Collision");
-            vinePointLight.pointLightOuterRadius = 25;
-        }
-        
-    }
 }
