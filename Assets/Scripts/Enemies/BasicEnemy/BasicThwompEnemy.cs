@@ -6,10 +6,10 @@ namespace Enemies.BasicEnemy
 
     [RequireComponent(typeof(Collider2D))]
     [RequireComponent(typeof(Rigidbody2D))]
-    public class BasicEmptyEnemy : BasicEnemyStateMachineBase
+    public class BasicThwompEnemy : BasicEnemyStateMachineBase
     {
 
-  
+
         // EXAMPLE OVERRIDES - Uncomment and modify as needed:
         // If you decide to use Awake, Update, or FixedUpdate, ALWAYS call base method first, like this:
         // protected override void Awake()
@@ -17,7 +17,35 @@ namespace Enemies.BasicEnemy
         //     base.Awake();
         //     // Add any custom setup logic here
         // }
-      
+
+        protected override void Awake()
+        {
+            base.Awake();
+
+        }
+
+        protected override void OnCloseRangeEnter()
+        {
+
+        }
+
+        protected override bool CanDetectPlayer()
+        {
+            if (!Player) return false;
+
+            var distanceToPlayer = Vector3.Distance(transform.position, Player.position);
+            if (distanceToPlayer > detectionRange) return false;
+            if (!detectionLosRequired) return true;
+    
+            var directionToPlayer = Player.position - transform.position;
+            var hit = Physics2D.Raycast(transform.position, directionToPlayer, distanceToPlayer, lineOfSightBlockers);
+    
+            // If nothing blocks our line of sight, or our raycast hits our player, then we can see the player
+            bool canSeePlayer = !hit || hit.collider?.attachedRigidbody?.transform == Player;
+            return canSeePlayer;
+        }
+        
+
 
 
         /*protected override void OnFarRangeStateExit()
@@ -27,7 +55,7 @@ namespace Enemies.BasicEnemy
 
 
 
-    
+
 
         // IDLE STATE OVERRIDES:
         // protected override void OnIdleStateEnter() { } // Called once when entering idle

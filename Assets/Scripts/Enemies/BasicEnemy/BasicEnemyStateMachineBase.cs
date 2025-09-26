@@ -25,8 +25,8 @@ namespace Enemies.BasicEnemy
         [SerializeField] private bool debugLogStateChanges = true;
         
         [Header("Basic Enemy Settings")]
-        [SerializeField] private float detectionRange = 5.5f;
-        [SerializeField] private bool detectionLosRequired = true;
+        [SerializeField] protected float detectionRange = 5.5f;
+        [SerializeField] protected bool detectionLosRequired = true;
         [SerializeField] protected LayerMask lineOfSightBlockers;
         [SerializeField] private float closeRange = 2f;
         protected Transform Player;
