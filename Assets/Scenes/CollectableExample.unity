@@ -844,7 +844,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-<<<<<<< HEAD
 --- !u!1 &744240831
 GameObject:
   m_ObjectHideFlags: 0
@@ -1218,13 +1217,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-=======
---- !u!1 &650885643 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8760550010042435280, guid: 5e9dccfa30b4d1249b88b73a237437c7, type: 3}
-  m_PrefabInstance: {fileID: 316286869651772783}
-  m_PrefabAsset: {fileID: 0}
->>>>>>> main
 --- !u!1 &914179462
 GameObject:
   m_ObjectHideFlags: 0
@@ -2219,13 +2211,8 @@ SceneRoots:
   - {fileID: 353963869}
   - {fileID: 163263056}
   - {fileID: 532338512}
-<<<<<<< HEAD
-  - {fileID: 760657201}
-  - {fileID: 744240836}
-=======
   - {fileID: 2092573187}
   - {fileID: 183138702}
   - {fileID: 316286869651772783}
   - {fileID: 2039930250}
   - {fileID: 1190272492}
->>>>>>> main
