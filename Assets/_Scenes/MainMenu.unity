@@ -241,11 +241,11 @@ MonoBehaviour:
   loadingBar: {fileID: 1891237190}
   objectsToHide: []
   persist:
-    sceneAsset: {fileID: 102900000, guid: c81c18c0957c5e647ade366770153229, type: 3}
-    sceneName: LoadingScenesExample
+    _sceneAsset: {fileID: 102900000, guid: c81c18c0957c5e647ade366770153229, type: 3}
+    _sceneName: LoadingScenesExample
   scene1:
-    sceneAsset: {fileID: 102900000, guid: 8c9cfa26abfee488c85f1582747f6a02, type: 3}
-    sceneName: SampleScene
+    _sceneAsset: {fileID: 102900000, guid: 7e31d23b72bd65841ab72270c8f9f9a4, type: 3}
+    _sceneName: Load2nd
 --- !u!1 &435011102
 GameObject:
   m_ObjectHideFlags: 0
