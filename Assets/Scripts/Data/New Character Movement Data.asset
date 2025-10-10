@@ -24,10 +24,10 @@ MonoBehaviour:
   groundAcceleration: 50
   groundDeceleration: 50
   dashDuration: 0.2
-  dashDistance: 3
+  dashDistance: 2.5
   dashCooldown: 0.5
   switchdashDuration: 0.2
-  switchdashDistance: 3.5
+  switchdashDistance: 4
   switchdashCooldown: 0.15
   jumpHeight: 5
   jumpParryHeight: 4.5
