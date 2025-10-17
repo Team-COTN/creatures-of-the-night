@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7ce13912-67e6-4a88-8346-8139efd49c3f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.creatures-of-the-night/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.creatures-of-the-night/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SceneLoadTrigger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SceneLoadTrigger.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/LoadingScenesExample.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/LoadingScenesExample.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/MainMenu.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
-    </list>
+    <list default="true" id="7ce13912-67e6-4a88-8346-8139efd49c3f" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -157,6 +151,7 @@
       <workItem from="1758945606580" duration="601000" />
       <workItem from="1759338244089" duration="11765000" />
       <workItem from="1759514347073" duration="3481000" />
+      <workItem from="1759859445757" duration="5209000" />
     </task>
     <servers />
   </component>
