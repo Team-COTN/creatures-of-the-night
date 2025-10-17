@@ -2,26 +2,36 @@ using UnityEngine;
 
 public class HealthUI : MonoBehaviour
 {
+    //gets access to funcitons declared in the CharacterInteractions class through an instance of that class
+    private CharacterInteractions characterInteractions;
+    public Animator healthAnimator;
+    private void OnEnable()
+    {
+        characterInteractions.AddCharacterDamagedObserver(TakeDamage);
+    }
+    private void OnDisable()
+    {
+        characterInteractions.RemoveCharacterDamagedObserver(TakeDamage);
+    }
 
-    public int maxHealth = 100;
-    public int currentHealth;
-    public Animator Health;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    // maxHealth is already defined and updated in CharacterInteractions
+    /*
     void Start()
     {
         currentHealth = maxHealth;
     }
+    */
 
-    public void TakeDamage(int amount)
+    public void TakeDamage(int characterHealth)
     {
-        currentHealth -= amount;
-
-        if (Health != null)
+        if (healthAnimator != null)
         {
-            Health.SetTrigger("Damage1");
+            healthAnimator.SetTrigger("Damage1");
         }
 
-        if (currentHealth <= 0)
+        //the characterhealth is already defined in the CharacterInteractions class.
+        //when CharacterDamaged is invoked, we pass in the "currentHealth" as an argument
+        if (characterHealth <= 0)
         {
             Die();
         }
