@@ -1,14 +1,18 @@
+using System.Collections;
+using System.Numerics;
+using System.Runtime.InteropServices.WindowsRuntime;
+using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 
 namespace Enemies.BasicEnemy
 {
 
 
-    [RequireComponent(typeof(Collider2D))]
-    [RequireComponent(typeof(Rigidbody2D))]
+
     public class BasicThwompEnemy : BasicEnemyStateMachineBase
     {
-
+        private bool triggerReady = true;
 
         // EXAMPLE OVERRIDES - Uncomment and modify as needed:
         // If you decide to use Awake, Update, or FixedUpdate, ALWAYS call base method first, like this:
@@ -18,31 +22,63 @@ namespace Enemies.BasicEnemy
         //     // Add any custom setup logic here
         // }
 
-        protected override void Awake()
-        {
-            base.Awake();
 
+
+
+
+
+
+
+
+
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+
+            Debug.Log("Entered Collision");
+
+            if (other.attachedRigidbody.TryGetComponent(out Character charater) && triggerReady)
+            {
+                Debug.Log("Character triggered");
+
+                StartCoroutine(Transformation());
+
+
+            }
         }
 
-        protected override void OnCloseRangeEnter()
+        private IEnumerator Transformation()
         {
+            triggerReady = false;
+            float realTime = 0f;
+            float duration = .5f;
+            UnityEngine.Vector3 startPos = transform.position;
+            UnityEngine.Vector3 destination = startPos + new UnityEngine.Vector3(0f, -6f, 0f);
 
-        }
+            while (realTime < duration)
+            {
+                //float t = Mathf.SmoothStep(0, 1, realTime / duration);
+                float t = (realTime / duration) * (realTime / duration);
+                transform.position = UnityEngine.Vector3.Lerp(startPos, destination, t);
+                realTime += Time.deltaTime;
+                yield return null;
+            }
+       
 
-        protected override bool CanDetectPlayer()
-        {
-            if (!Player) return false;
+            yield return new WaitForSeconds(2f);
+            realTime = 0f;
+            duration = 1.5f;
+            startPos = transform.position;
+            destination = startPos + new UnityEngine.Vector3(0f, 6f, 0f);
 
-            var distanceToPlayer = Vector3.Distance(transform.position, Player.position);
-            if (distanceToPlayer > detectionRange) return false;
-            if (!detectionLosRequired) return true;
-    
-            var directionToPlayer = Player.position - transform.position;
-            var hit = Physics2D.Raycast(transform.position, directionToPlayer, distanceToPlayer, lineOfSightBlockers);
-    
-            // If nothing blocks our line of sight, or our raycast hits our player, then we can see the player
-            bool canSeePlayer = !hit || hit.collider?.attachedRigidbody?.transform == Player;
-            return canSeePlayer;
+            while (realTime < duration)
+            {
+                transform.position = UnityEngine.Vector3.Lerp(startPos, destination, realTime / duration);
+                realTime += Time.deltaTime;
+                yield return null;
+            }
+            
+            triggerReady = true;
+
         }
         
 
