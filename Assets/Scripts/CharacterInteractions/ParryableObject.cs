@@ -27,6 +27,8 @@ public class ParryableObject : MonoBehaviour, IParryable
         {
             Debug.Log("Oh man, I got parried!");
             parryableNow = false;
+            //hit --> grey
+            //after, smoothly transition from blue --> grey. 
             //make parryableNow false until a certain time has elapsed. 
         }
     }
