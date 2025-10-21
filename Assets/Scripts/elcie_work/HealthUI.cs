@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class HealthUI : MonoBehaviour
 {
-    //gets access to funcitons declared in the CharacterInteractions class through an instance of that class
+    //gets access to functions declared in the CharacterInteractions class through an instance of that class
     private CharacterInteractions characterInteractions;
     public Animator healthAnimator;
     private void OnEnable()

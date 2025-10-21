@@ -155,11 +155,11 @@ public class Character : MonoBehaviour
         {
             if (otherCol[i].gameObject.TryGetComponent(out IParryable parryable))
             {
-                // if (parryable.ParryableNow)
-                // {
+                if(parryable.GetParryableNowState())
+                {
                     Debug.Log("Parryable Object Collided!");
                     InParryZone = true;
-                // }
+                }
             }
         }
     }
