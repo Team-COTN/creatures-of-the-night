@@ -15,7 +15,7 @@ public class CameraZone : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.attachedRigidbody.CompareTag("Player"))
         {
             cam.Priority = priority;
         }
@@ -23,7 +23,7 @@ public class CameraZone : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.attachedRigidbody.CompareTag("Player"))
         {
             cam.Priority = 0;
         }

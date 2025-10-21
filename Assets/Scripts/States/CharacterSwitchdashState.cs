@@ -14,6 +14,7 @@ public class CharacterSwitchDashState : CharacterState
         base.StateEnter();
         _character.InitializeSwitchDashTimer();
         _dashDirection = _character.IsFacingRight ? Vector2.left : Vector2.right;
+        _character.StateChangeEvent(_character, "SwitchDash");
     }
 
     public override void StateUpdate()

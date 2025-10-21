@@ -6,7 +6,6 @@ public class CharacterMovementData : ScriptableObject
 {
     [Header("Grounded/Collisions Checks")]
     public LayerMask groundLayer;
-    public LayerMask parryableLayer;
     [Range(0.5f, 1f)] public float groundDetectionRayWidth = 1f;
     public float groundDetectionRayLength = 0.02f;
     [Range(0.5f, 1f)] public float ceilingDetectionRayWidth = 1f;
@@ -29,6 +28,7 @@ public class CharacterMovementData : ScriptableObject
     
     [Header("Jumping and Falling")]
     public float jumpHeight = 6.5f;
+    public float jumpParryHeight = 4.5f;
     public float timeTillJumpApex = 0.35f;
     [Range(0.01f, 5f)] public float gravityOnReleaseMultiplier = 2f;
     [Range(0.5f, 1f)] public float apexThreshold = 0.97f;
