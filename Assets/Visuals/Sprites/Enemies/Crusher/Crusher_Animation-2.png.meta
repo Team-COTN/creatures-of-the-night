@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: 5fb5608fd948dbc439758e0969dedd9e
+guid: a81023ec25ed3b64498d4fe727e955be
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1661320555121549061
-    second: 3de6b743-c573-4a92-9515-96a7efd87279_0
+      213: -531673279570240887
+    second: Crusher_Animation-2_0
+  - first:
+      213: 5641805110559347004
+    second: Crusher_Animation-2_1
+  - first:
+      213: 7952382382278316183
+    second: Crusher_Animation-2_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +52,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -100,137 +106,67 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 3de6b743-c573-4a92-9515-96a7efd87279_0
+      name: Crusher_Animation-2_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 1500
-        width: 2000
-        height: 1500
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline:
-      - - {x: 3000, y: 1500}
-        - {x: -3000, y: 1500}
-        - {x: -3000, y: -1500}
-        - {x: 3000, y: -1500}
-      physicsShape: []
-      tessellationDetail: 0.59
-      bones: []
-      spriteID: 50f131a2e323e0710800000000000000
-      internalID: 1661320555121549061
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 3de6b743-c573-4a92-9515-96a7efd87279_1
-      rect:
-        serializedVersion: 2
-        x: 2000
-        y: 1500
-        width: 2000
-        height: 1500
+        y: 86
+        width: 383
+        height: 391
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 02b0e1f4b719a234c9ea54343be80422
-      internalID: 1618461716
+      spriteID: 98a16aa18fd1f98f0800000000000000
+      internalID: -531673279570240887
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 3de6b743-c573-4a92-9515-96a7efd87279_2
+      name: Crusher_Animation-2_1
       rect:
         serializedVersion: 2
-        x: 4000
-        y: 1500
-        width: 2000
-        height: 1500
+        x: 143
+        y: 465
+        width: 19
+        height: 13
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 02404901a47c283479de9fb9fefd8c12
-      internalID: -501074530
+      spriteID: c319fd24bd7bb4e40800000000000000
+      internalID: 5641805110559347004
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 3de6b743-c573-4a92-9515-96a7efd87279_3
+      name: Crusher_Animation-2_2
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 2000
-        height: 1500
+        x: 201
+        y: 411
+        width: 49
+        height: 98
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 69d71c816547490439882c681b4da141
-      internalID: 470126670
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 3de6b743-c573-4a92-9515-96a7efd87279_4
-      rect:
-        serializedVersion: 2
-        x: 2000
-        y: 0
-        width: 2000
-        height: 1500
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4f9d26be4ae64754e85bbad3cac80462
-      internalID: -109280422
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 3de6b743-c573-4a92-9515-96a7efd87279_5
-      rect:
-        serializedVersion: 2
-        x: 4000
-        y: 0
-        width: 2000
-        height: 1500
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 698243e11fb50224ba0e621125a323ca
-      internalID: -34640966
+      spriteID: 79016c5a4a98c5e60800000000000000
+      internalID: 7952382382278316183
       vertices: []
       indices: 
       edges: []
@@ -239,7 +175,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 1aa5f00d160d7d445a32a66a15fdd3c6
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -247,18 +183,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceOnImport
-        value: False
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":2000.0,"y":1500.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+      entries: []
     nameFileIdTable:
-      3de6b743-c573-4a92-9515-96a7efd87279_0: 1661320555121549061
-      3de6b743-c573-4a92-9515-96a7efd87279_1: 1618461716
-      3de6b743-c573-4a92-9515-96a7efd87279_2: -501074530
-      3de6b743-c573-4a92-9515-96a7efd87279_3: 470126670
-      3de6b743-c573-4a92-9515-96a7efd87279_4: -109280422
-      3de6b743-c573-4a92-9515-96a7efd87279_5: -34640966
+      Crusher_Animation-2_0: -531673279570240887
+      Crusher_Animation-2_1: 5641805110559347004
+      Crusher_Animation-2_2: 7952382382278316183
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
