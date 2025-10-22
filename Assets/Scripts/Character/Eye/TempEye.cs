@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Rendering.Universal; //for 2D light
 // using System.Collections;
@@ -10,13 +11,16 @@ using UnityEngine.Rendering.Universal; //for 2D light
 //will need to be updated once heirarchical state machine is completed
 public class TempEye : MonoBehaviour
 {
-    private float Xoffset = .4f;
-    private float Yoffset = 1.4f;
-    [SerializeField] Transform playerTransform;
-    private float circleRangeMin = 8;
-    private float circleRangeMax = 10;
-    private float eyeSpeed = 20;
+    private Transform playerTransform;
+    bool eyeWasPressedThisFrame => InputManager.GetEyeWasPressedThisFrame();
     bool enableEyeControls = false;
+    private float Xoffset = 3f;
+    private float Yoffset = 1f;
+    public float circleRangeMin = 80;
+    public float circleRangeMax = 100;
+    private float eyeSpeed = 20;
+    string eyeState;
+    string[] eyeStates = new string[] {"idle", "scry"};
     public float smoothness = 50f;
 
     [SerializeField] Light2D eyePointLight;
@@ -25,13 +29,15 @@ public class TempEye : MonoBehaviour
 
     void Start()
     {
+        playerTransform = GameObject.FindWithTag("Player").transform;
+        eyeState = eyeStates[0];
         spriteRenderer = GetComponent<SpriteRenderer>();
         eyePointLight.pointLightOuterRadius = 3;
 
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (eyeWasPressedThisFrame)
         {
             enableEyeControls = !enableEyeControls;
         }
@@ -67,7 +73,7 @@ public class TempEye : MonoBehaviour
             // Move the eye using player input, eye speed, and the determined speed multiplier
             transform.Translate(playerInput * eyeSpeed * speedMultiplier * Time.deltaTime);
         }
-        if (!enableEyeControls)
+        if (eyeState == eyeStates[0])
         {
             eyePointLight.pointLightOuterRadius = 3;
 

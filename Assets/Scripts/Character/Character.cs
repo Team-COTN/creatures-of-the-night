@@ -25,6 +25,7 @@ public class Character : MonoBehaviour
     public CharacterSwitchDashState SwitchDashState;
     public CharacterJumpParryState JumpParryState;
     public CharacterSlashState SlashState;
+    public CharacterEyeState EyeState;
 
     
     //[Header("Events")] 
@@ -64,6 +65,8 @@ public class Character : MonoBehaviour
         SwitchDashState = new CharacterSwitchDashState(this);
         SlashState = new CharacterSlashState(this);
         JumpParryState = new CharacterJumpParryState(this);
+        EyeState = new CharacterEyeState(this);
+
     }
     
     private void Start()

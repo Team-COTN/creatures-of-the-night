@@ -136,6 +136,15 @@ public partial class @MyInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Eye"",
+                    ""type"": ""Button"",
+                    ""id"": ""3ab07aac-53ba-4a3b-8073-466925a5603a"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -336,6 +345,28 @@ public partial class @MyInputActions: IInputActionCollection2, IDisposable
                     ""action"": ""Slash"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7b33b2db-a512-4869-ad94-7c9c24052e38"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Eye"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""aa019170-dc08-480b-af75-7c48e5c46f20"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Eye"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -349,6 +380,7 @@ public partial class @MyInputActions: IInputActionCollection2, IDisposable
         m_Character_Dash = m_Character.FindAction("Dash", throwIfNotFound: true);
         m_Character_Switchdash = m_Character.FindAction("Switchdash", throwIfNotFound: true);
         m_Character_Slash = m_Character.FindAction("Slash", throwIfNotFound: true);
+        m_Character_Eye = m_Character.FindAction("Eye", throwIfNotFound: true);
     }
 
     ~@MyInputActions()
@@ -434,6 +466,7 @@ public partial class @MyInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Character_Dash;
     private readonly InputAction m_Character_Switchdash;
     private readonly InputAction m_Character_Slash;
+    private readonly InputAction m_Character_Eye;
     /// <summary>
     /// Provides access to input actions defined in input action map "Character".
     /// </summary>
@@ -465,6 +498,10 @@ public partial class @MyInputActions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Character/Slash".
         /// </summary>
         public InputAction @Slash => m_Wrapper.m_Character_Slash;
+        /// <summary>
+        /// Provides access to the underlying input action "Character/Eye".
+        /// </summary>
+        public InputAction @Eye => m_Wrapper.m_Character_Eye;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -506,6 +543,9 @@ public partial class @MyInputActions: IInputActionCollection2, IDisposable
             @Slash.started += instance.OnSlash;
             @Slash.performed += instance.OnSlash;
             @Slash.canceled += instance.OnSlash;
+            @Eye.started += instance.OnEye;
+            @Eye.performed += instance.OnEye;
+            @Eye.canceled += instance.OnEye;
         }
 
         /// <summary>
@@ -532,6 +572,9 @@ public partial class @MyInputActions: IInputActionCollection2, IDisposable
             @Slash.started -= instance.OnSlash;
             @Slash.performed -= instance.OnSlash;
             @Slash.canceled -= instance.OnSlash;
+            @Eye.started -= instance.OnEye;
+            @Eye.performed -= instance.OnEye;
+            @Eye.canceled -= instance.OnEye;
         }
 
         /// <summary>
@@ -607,5 +650,12 @@ public partial class @MyInputActions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnSlash(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Eye" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnEye(InputAction.CallbackContext context);
     }
 }

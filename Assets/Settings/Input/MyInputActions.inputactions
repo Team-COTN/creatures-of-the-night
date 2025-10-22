@@ -1,4 +1,5 @@
 {
+    "version": 1,
     "name": "MyInputActions",
     "maps": [
         {
@@ -45,6 +46,15 @@
                     "name": "Slash",
                     "type": "Button",
                     "id": "34ae643c-b02b-40b9-a5f0-2791bbbd5517",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Eye",
+                    "type": "Button",
+                    "id": "3ab07aac-53ba-4a3b-8073-466925a5603a",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -247,6 +257,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "Slash",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7b33b2db-a512-4869-ad94-7c9c24052e38",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Eye",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "aa019170-dc08-480b-af75-7c48e5c46f20",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Eye",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
