@@ -1,10 +1,17 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.VFX;
 
 //Alex needs to work on this script
 public class ParryableObject : MonoBehaviour, IParryable
 {
     private Character character;
     public bool parryableNow;
+
+    [SerializeField] private SpriteRenderer mySprite;
+
+    [SerializeField] private VisualEffect burstVFX;
+    
 
     private void Awake()
     {
@@ -27,10 +34,33 @@ public class ParryableObject : MonoBehaviour, IParryable
         {
             Debug.Log("Oh man, I got parried!");
             parryableNow = false;
+
+            StartCoroutine(ParryCooldown());
+
             //hit --> grey
             //after, smoothly transition from blue --> grey. 
             //make parryableNow false until a certain time has elapsed. 
         }
+    }
+    
+    IEnumerator ParryCooldown()
+    {
+        Debug.Log("coroutine on");
+
+        float duration = 5f;
+        float realTime = 0f;
+
+        mySprite.color = Color.black;
+        burstVFX.SendEvent("OnParry");
+        while (realTime < duration)
+        {
+            mySprite.color = Color.Lerp(Color.black, Color.white, realTime / duration);
+            realTime += Time.deltaTime;
+            yield return null;
+        }
+        parryableNow = true;
+        Debug.Log("I retire");
+
     }
     
     public bool GetParryableNowState()
