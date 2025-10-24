@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class CharacterSwitchDashState : CharacterState
 {
+    private bool EyeWasPressedThisFrame => InputManager.GetEyeWasPressedThisFrame();
+
     public CharacterSwitchDashState(Character character) : base(character)
     {
     }
@@ -24,6 +26,8 @@ public class CharacterSwitchDashState : CharacterState
         {
             _stateMachine.ChangeState(_character.IdleState);
         }
+        else if (EyeWasPressedThisFrame) _stateMachine.ChangeState(_character.EyeState);
+
     }
 
     public override void StateFixedUpdate()

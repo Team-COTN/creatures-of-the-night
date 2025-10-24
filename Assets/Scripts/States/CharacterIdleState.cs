@@ -15,6 +15,7 @@ public class CharacterIdleState : CharacterState
     private bool DashInputPressed => InputManager.GetDashWasPressedThisFrame();
     private bool CanDash => _character.DashCooldown <= 0;
     private bool SlashInputPressed => InputManager.GetSlashWasPressedThisFrame();
+    private bool EyeWasPressedThisFrame => InputManager.GetEyeWasPressedThisFrame();
 
     
     public override void StateEnter()
@@ -31,6 +32,7 @@ public class CharacterIdleState : CharacterState
         else if (JumpInputPressed && CanJumpParry) _stateMachine.ChangeState(_character.JumpParryState);
         else if (SlashInputPressed) _stateMachine.ChangeState(_character.SlashState);
         else if (IsMoving) _stateMachine.ChangeState(_character.WalkState);
+        else if (EyeWasPressedThisFrame) _stateMachine.ChangeState(_character.EyeState);
     }
 
     public override void StateFixedUpdate()
