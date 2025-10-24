@@ -1,39 +1,37 @@
 using System;
 using UnityEngine;
 using UnityEngine.Rendering.Universal; //for 2D light
-// using System.Collections;
-// using System.Collections.Generic;
-// using TMPro;
-// using Unity.VisualScripting;
-// using UnityEngine;
 
 //reimplementing eye from old demo
 //will need to be updated once heirarchical state machine is completed
 public class TempEye : MonoBehaviour
 {
     private Transform playerTransform;
-    bool eyeWasPressedThisFrame => InputManager.GetEyeWasPressedThisFrame();
-    bool enableEyeControls = false;
-    public float Xoffset = 3f;
-    public float Yoffset = 1f;
-    public float circleRangeMin = 80;
-    public float circleRangeMax = 100;
-    private float eyeSpeed = 20;
-    string eyeState;
-    string[] eyeStates = new string[] {"idle", "scry"};
-    public float smoothness = 50f;
-
+    private bool eyeWasPressedThisFrame => InputManager.GetEyeWasPressedThisFrame();
+    private bool enableEyeControls = false;
+    private float Xoffset = 2.03f;
+    private float Yoffset = 0.98f;
+    private float circleRangeMin = 8f;
+    private float circleRangeMax = 10f;
+    private float eyeSpeed = 10f;
+    private float smoothness = 50f;
+    private float minLightRadius = 2.5f;
+    private float maxLightRadius = 7f;
+    private float transitionSpeed = 1f;
+    
     [SerializeField] Light2D eyePointLight;
 
     private SpriteRenderer spriteRenderer;
+    
+    public event Action<Transform> CharacterEyeStateChange;
+    public void AddEyeStateChangeObserver(Action<Transform> observer) { CharacterEyeStateChange += observer; }
+    public void RemoveEyeStateChangeObserver(Action<Transform> observer) { CharacterEyeStateChange -= observer; }
 
     void Start()
     {
         playerTransform = GameObject.FindWithTag("Player").transform;
-        eyeState = eyeStates[0];
         spriteRenderer = GetComponent<SpriteRenderer>();
-        eyePointLight.pointLightOuterRadius = 3;
-
+        eyePointLight.pointLightOuterRadius = minLightRadius;
     }
     private void Update()
     {
@@ -41,19 +39,20 @@ public class TempEye : MonoBehaviour
         {
             enableEyeControls = !enableEyeControls;
         }
-
-
+        
+        // spotlight.intensity = Mathf.Lerp(spotlight.intensity, targetIntensity, Time.deltaTime * transitionSpeed);
+        
         if (enableEyeControls)
         {
-            eyePointLight.pointLightOuterRadius = 7;
-
+            CharacterEyeStateChange?.Invoke(transform);
+            eyePointLight.pointLightOuterRadius = Mathf.Lerp(eyePointLight.pointLightOuterRadius, maxLightRadius, Time.deltaTime * transitionSpeed);
+            
             // Enable the sprite renderer
             if (spriteRenderer != null)
                 spriteRenderer.enabled = true;
-
+        
             // Obtain raw player input
             Vector2 playerInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-
             // Calculate the difference vector from the player to the eye
             Vector2 delta = playerTransform.position - transform.position;
 
@@ -75,7 +74,8 @@ public class TempEye : MonoBehaviour
         }
         if (!enableEyeControls)
         {
-            eyePointLight.pointLightOuterRadius = 3;
+            CharacterEyeStateChange?.Invoke(playerTransform);
+            eyePointLight.pointLightOuterRadius = Mathf.Lerp(eyePointLight.pointLightOuterRadius, minLightRadius, Time.deltaTime * transitionSpeed);
 
             // Disable the sprite renderer
             if (spriteRenderer != null)

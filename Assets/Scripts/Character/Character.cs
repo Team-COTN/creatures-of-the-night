@@ -13,7 +13,6 @@ public class Character : MonoBehaviour
     public Collider2D col;
     public Collider2D parryCollider2D;
     public Collider2D attackCollider2D;
-
     
     [Header("State Machine")]
     public CharacterStateMachine StateMachine;
@@ -51,8 +50,7 @@ public class Character : MonoBehaviour
     {
         obj.CharacterStateChange.Invoke(state);
     }
-    
-    
+
     #endregion
     private void Awake()
     {
