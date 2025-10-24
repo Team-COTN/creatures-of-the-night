@@ -8,14 +8,19 @@ public class ParryableObject : MonoBehaviour, IParryable
     private Character character;
     public bool parryableNow;
 
+    private Color originalColor;
+
     [SerializeField] private SpriteRenderer mySprite;
 
     [SerializeField] private VisualEffect burstVFX;
+
+    public Color parryColor = new Color(72f, 75f, 85f);
     
 
     private void Awake()
     {
         character = GameObject.FindGameObjectWithTag("Player").GetComponent<Character>();
+        originalColor = mySprite.color;
     }
 
     private void OnEnable()
@@ -54,7 +59,7 @@ public class ParryableObject : MonoBehaviour, IParryable
         burstVFX.SendEvent("OnParry");
         while (realTime < duration)
         {
-            mySprite.color = Color.Lerp(Color.black, Color.white, realTime / duration);
+            mySprite.color = Color.Lerp(parryColor, originalColor, realTime / duration);
             realTime += Time.deltaTime;
             yield return null;
         }

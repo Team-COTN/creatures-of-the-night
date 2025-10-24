@@ -70,6 +70,7 @@ public class Character : MonoBehaviour
     private void Start()
     {
         StateMachine.InitializeDefaultState(IdleState);
+
     }
     
     private void Update()
