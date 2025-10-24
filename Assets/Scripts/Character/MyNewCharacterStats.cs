@@ -8,7 +8,7 @@ public class MyNewCharacterStats : ScriptableObject
     public float jumpHeight;
     public float jumpTime;
     public float jumpParryHeight;
-    public float jumpParyTime;
+    public float jumpParryTime;
     public LayerMask collisionLayerMask;
     public float collisionCheckDistance = 0.02f;
    
