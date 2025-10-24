@@ -4,6 +4,7 @@ public class CharacterJumpState : CharacterState
 {
     private bool JumpInputPressed => InputManager.GetJumpWasPressedThisFrame() || _character.JumpBufferTimer > 0;
     private bool CanJumpParry => _character.CanJumpParry();
+    private bool EyeWasPressedThisFrame => InputManager.GetEyeWasPressedThisFrame();
 
     public CharacterJumpState(Character character) : base(character)
     {
@@ -15,6 +16,10 @@ public class CharacterJumpState : CharacterState
         _character.Jump();
         _stateMachine.ChangeState(_character.AirState);
         _character.StateChangeEvent(_character, "Jump");
+    }
+    public override void StateUpdate()
+    {
+        if (EyeWasPressedThisFrame) _stateMachine.ChangeState(_character.EyeState);
     }
 
     public override void StateFixedUpdate()
