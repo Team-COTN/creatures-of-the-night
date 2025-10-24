@@ -14,8 +14,8 @@ public class TempEye : MonoBehaviour
     private Transform playerTransform;
     bool eyeWasPressedThisFrame => InputManager.GetEyeWasPressedThisFrame();
     bool enableEyeControls = false;
-    private float Xoffset = 3f;
-    private float Yoffset = 1f;
+    public float Xoffset = 3f;
+    public float Yoffset = 1f;
     public float circleRangeMin = 80;
     public float circleRangeMax = 100;
     private float eyeSpeed = 20;
@@ -73,7 +73,7 @@ public class TempEye : MonoBehaviour
             // Move the eye using player input, eye speed, and the determined speed multiplier
             transform.Translate(playerInput * eyeSpeed * speedMultiplier * Time.deltaTime);
         }
-        if (eyeState == eyeStates[0])
+        if (!enableEyeControls)
         {
             eyePointLight.pointLightOuterRadius = 3;
 
