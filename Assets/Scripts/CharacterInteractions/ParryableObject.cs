@@ -5,6 +5,7 @@ using UnityEngine.VFX;
 //Alex needs to work on this script
 public class ParryableObject : MonoBehaviour, IParryable
 {
+    public float duration = 1f;
     private Character character;
     public bool parryableNow;
 
@@ -46,8 +47,6 @@ public class ParryableObject : MonoBehaviour, IParryable
     IEnumerator ParryCooldown()
     {
         Debug.Log("coroutine on");
-
-        float duration = 5f;
         float realTime = 0f;
 
         mySprite.color = Color.black;
