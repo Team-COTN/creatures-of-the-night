@@ -1,15 +1,19 @@
+using System.Collections;
+using System.Numerics;
+using System.Runtime.InteropServices.WindowsRuntime;
+using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 
 namespace Enemies.BasicEnemy
 {
 
 
-    [RequireComponent(typeof(Collider2D))]
-    [RequireComponent(typeof(Rigidbody2D))]
-    public class BasicEmptyEnemy : BasicEnemyStateMachineBase
-    {
 
-  
+    public class BasicThwompEnemy : BasicEnemyStateMachineBase
+    {
+        private bool triggerReady = true;
+
         // EXAMPLE OVERRIDES - Uncomment and modify as needed:
         // If you decide to use Awake, Update, or FixedUpdate, ALWAYS call base method first, like this:
         // protected override void Awake()
@@ -17,7 +21,67 @@ namespace Enemies.BasicEnemy
         //     base.Awake();
         //     // Add any custom setup logic here
         // }
-      
+
+
+
+
+
+
+
+
+
+
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+
+            Debug.Log("Entered Collision");
+
+            if (other.attachedRigidbody.TryGetComponent(out Character charater) && triggerReady)
+            {
+                Debug.Log("Character triggered");
+
+                StartCoroutine(Transformation());
+
+
+            }
+        }
+
+        private IEnumerator Transformation()
+        {
+            triggerReady = false;
+            float realTime = 0f;
+            float duration = .5f;
+            UnityEngine.Vector3 startPos = transform.position;
+            UnityEngine.Vector3 destination = startPos + new UnityEngine.Vector3(0f, -6f, 0f);
+
+            while (realTime < duration)
+            {
+                //float t = Mathf.SmoothStep(0, 1, realTime / duration);
+                float t = (realTime / duration) * (realTime / duration);
+                transform.position = UnityEngine.Vector3.Lerp(startPos, destination, t);
+                realTime += Time.deltaTime;
+                yield return null;
+            }
+       
+
+            yield return new WaitForSeconds(2f);
+            realTime = 0f;
+            duration = 1.5f;
+            startPos = transform.position;
+            destination = startPos + new UnityEngine.Vector3(0f, 6f, 0f);
+
+            while (realTime < duration)
+            {
+                transform.position = UnityEngine.Vector3.Lerp(startPos, destination, realTime / duration);
+                realTime += Time.deltaTime;
+                yield return null;
+            }
+            
+            triggerReady = true;
+
+        }
+        
+
 
 
         /*protected override void OnFarRangeStateExit()
@@ -27,7 +91,7 @@ namespace Enemies.BasicEnemy
 
 
 
-    
+
 
         // IDLE STATE OVERRIDES:
         // protected override void OnIdleStateEnter() { } // Called once when entering idle

@@ -3,13 +3,20 @@ using UnityEngine;
 namespace Enemies.BasicEnemy
 {
 
-
     [RequireComponent(typeof(Collider2D))]
     [RequireComponent(typeof(Rigidbody2D))]
-    public class BasicEmptyEnemy : BasicEnemyStateMachineBase
+    public class BasicCaster : BasicEnemyStateMachineBase
     {
 
-  
+        public float moveSpeed;
+        private Collider2D col;
+        private Rigidbody2D rb;
+
+
+        private bool retreat = false;
+        public Vector3 jumpForce = new Vector2(300, 300);
+        private float retreatCooldown = 0f;
+
         // EXAMPLE OVERRIDES - Uncomment and modify as needed:
         // If you decide to use Awake, Update, or FixedUpdate, ALWAYS call base method first, like this:
         // protected override void Awake()
@@ -17,16 +24,64 @@ namespace Enemies.BasicEnemy
         //     base.Awake();
         //     // Add any custom setup logic here
         // }
-      
+        protected override void Awake()
+        {
+            base.Awake();
+            rb = GetComponent<Rigidbody2D>();
+            col = GetComponent<Collider2D>();
 
+        }
+
+        protected override void FixedUpdate()
+        {
+            base.FixedUpdate();
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, IsGrounded() ? 0 : rb.linearVelocity.y + Physics2D.gravity.y * Time.deltaTime);
+
+           if (!retreat)
+            {
+                retreatCooldown = retreatCooldown + Time.deltaTime;
+                if (retreatCooldown >= 3f)
+                {
+                    retreatCooldown = 0f;
+                    retreat = true;
+                }
+            }
+
+        }
+
+        protected override void OnFarRangeStateFixedUpdate()
+        {
+            Vector2 moveDir = Player.position.x >= transform.position.x ? Vector3.right : Vector3.left;
+
+            rb.linearVelocity = new Vector2(moveDir.x * moveSpeed, rb.linearVelocity.y);
+        }
 
         /*protected override void OnFarRangeStateExit()
         {
             rb.linearVelocity = new Vector2(0f, rb.linearVelocity.y);
         }*/
 
+        protected override void OnCloseRangeFixedUpdate()
+        {
+            Vector2 moveDir = Player.position.x >= transform.position.x ? Vector3.right : Vector3.left;
+            //rb.linearVelocity = new Vector2(moveDir.x * -moveSpeed, rb.linearVelocity.y);
+            if (retreat & IsGrounded())
+            {
+                rb.AddForce(jumpForce);
+                retreat = false;
+            }
+        }
 
+        private bool IsGrounded()
+        {
+            Vector2 boxCastOrigin = new Vector2(col.bounds.center.x, col.bounds.min.y);
 
+            Vector2 boxCastSize = new Vector2(col.bounds.size.x, 0.01f);
+
+            bool hit = Physics2D.BoxCast(boxCastOrigin, boxCastSize, 0f, Vector2.down, 0.01f, LayerMask.GetMask("Environment"));
+
+            return hit;
+        }
     
 
         // IDLE STATE OVERRIDES:
