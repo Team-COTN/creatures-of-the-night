@@ -6,11 +6,14 @@ using UnityEngine.Rendering.Universal; //for 2D light
 //will need to be updated once heirarchical state machine is completed
 public class TempEye : MonoBehaviour
 {
+    private Character character;
     private Transform playerTransform;
     private bool eyeWasPressedThisFrame => InputManager.GetEyeWasPressedThisFrame();
     private bool enableEyeControls = false;
     private float Xoffset = 2.03f;
     private float Yoffset = 0.98f;
+    private float XoffsetLeft = 1.26f;
+
     private float circleRangeMin = 8f;
     private float circleRangeMax = 10f;
     private float eyeSpeed = 10f;
@@ -29,7 +32,8 @@ public class TempEye : MonoBehaviour
 
     void Start()
     {
-        playerTransform = GameObject.FindWithTag("Player").transform;
+        character = GameObject.FindGameObjectWithTag("Player").GetComponent<Character>();
+        playerTransform = character.transform;
         spriteRenderer = GetComponent<SpriteRenderer>();
         eyePointLight.pointLightOuterRadius = minLightRadius;
     }
@@ -83,8 +87,13 @@ public class TempEye : MonoBehaviour
 
             if (playerTransform != null)
             {
+                //by default assume the player is facing right
                 Vector2 offset = new Vector2(Xoffset, Yoffset);
-
+                if (!character.IsFacingRight)
+                {
+                    Debug.Log("Facing Left");
+                    offset = new Vector2(XoffsetLeft, Yoffset);
+                }
                 // Set the position of this GameObject to the reference GameObject's position plus the offset
                 Vector2 targetPosition = (Vector2)playerTransform.position + offset;
                 transform.position = Vector2.Lerp(transform.position, targetPosition, smoothness * Time.deltaTime);
