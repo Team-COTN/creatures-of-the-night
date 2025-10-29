@@ -6,7 +6,7 @@ using UnityEngine.VFX;
 public class ParryableObject : MonoBehaviour, IParryable
 {
     private Character character;
-    public bool parryableNow;
+    public bool parryableNow = true;
 
     private Color originalColor;
 
@@ -22,37 +22,25 @@ public class ParryableObject : MonoBehaviour, IParryable
         character = GameObject.FindGameObjectWithTag("Player").GetComponent<Character>();
         originalColor = mySprite.color;
     }
+    
 
-    private void OnEnable()
+    public void Parry()
     {
-        parryableNow = true;
-        character.AddCharacterStateObserver(Parry);
-    }
-    private void OnDisable()
-    {
-        character.AddCharacterStateObserver(Parry);
-    }
+        Debug.Log("Oh man, I got parried!");
+        parryableNow = false;
 
-    public void Parry(string charState)
-    {
-        if (charState == "JumpParry")
-        {
-            Debug.Log("Oh man, I got parried!");
-            parryableNow = false;
+        StartCoroutine(ParryCooldown());
 
-            StartCoroutine(ParryCooldown());
-
-            //hit --> grey
-            //after, smoothly transition from blue --> grey. 
-            //make parryableNow false until a certain time has elapsed. 
-        }
+        //hit --> grey
+        //after, smoothly transition from blue --> grey. 
+        //make parryableNow false until a certain time has elapsed. 
     }
     
     IEnumerator ParryCooldown()
     {
         Debug.Log("coroutine on");
 
-        float duration = 5f;
+        float duration = 2f;
         float realTime = 0f;
 
         mySprite.color = Color.black;
