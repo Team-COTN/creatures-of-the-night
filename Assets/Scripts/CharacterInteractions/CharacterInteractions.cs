@@ -1,6 +1,5 @@
 using UnityEngine;
 using System;
-using UnityEditor.Experimental.GraphView;
 using System.Collections; //events 
 
 public class CharacterInteractions : MonoBehaviour, IDamagable, ICharacter

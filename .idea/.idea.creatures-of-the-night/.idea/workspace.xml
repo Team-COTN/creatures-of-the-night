@@ -6,37 +6,18 @@
   <component name="ChangeListManager">
     <list default="true" id="34d767e2-3a25-4e05-adc4-202298aca86f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.creatures-of-the-night/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.creatures-of-the-night/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Health/Damaged1.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Health/Damaged1.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Health/Health.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Health/Health.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Health/Health_Idle.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Health/Health_Idle.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Character.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Character.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/ParryableObject.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/ParryableObject.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Win/Not Won.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Win/Not Won.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Win/Win.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Win/Win.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Win/Won.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Win/Won.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Eye.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Eye.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Character/Character.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Character/Character.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Character/Eye/TempEye.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Character/Eye/TempEye.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/CharacterInteractions/CharacterInteractions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CharacterInteractions/CharacterInteractions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemies/BasicEnemy/BasicThwompEnemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemies/BasicEnemy/BasicThwompEnemy.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/elcie_work/ElcieEnemy.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/elcie_work/ElcieEnemy.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/elcie_work/HealthUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/elcie_work/HealthUI.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/elcie_work/HealthUI.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/elcie_work/HealthUI.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/elcie_work/LightGlow.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/elcie_work/LightGlow.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Visuals/Sprites/Health/Full_Health_Anim-1.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Health/Full_Health_Anim-1.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Visuals/Sprites/Health/Full_Health_Anim-10.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Health/Full_Health_Anim-10.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Visuals/Sprites/Health/Full_Health_Anim-11.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Health/Full_Health_Anim-11.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Visuals/Sprites/Health/Full_Health_Anim-12.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Health/Full_Health_Anim-12.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Visuals/Sprites/Health/Full_Health_Anim-13.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Health/Full_Health_Anim-13.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Visuals/Sprites/Health/Full_Health_Anim-14.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Health/Full_Health_Anim-14.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Visuals/Sprites/Health/Full_Health_Anim-15.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Health/Full_Health_Anim-15.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Visuals/Sprites/Health/Full_Health_Anim-2.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Health/Full_Health_Anim-2.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Visuals/Sprites/Health/Full_Health_Anim-3.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Health/Full_Health_Anim-3.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Visuals/Sprites/Health/Full_Health_Anim-4.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Health/Full_Health_Anim-4.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Visuals/Sprites/Health/Full_Health_Anim-5.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Health/Full_Health_Anim-5.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Visuals/Sprites/Health/Full_Health_Anim-6.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Health/Full_Health_Anim-6.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Visuals/Sprites/Health/Full_Health_Anim-7.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Health/Full_Health_Anim-7.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Visuals/Sprites/Health/Full_Health_Anim-8.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Health/Full_Health_Anim-8.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Visuals/Sprites/Health/Full_Health_Anim-9.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Health/Full_Health_Anim-9.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/EnemyTest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/EnemyTest.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Settings/UniversalRP.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/UniversalRP.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UniversalRenderPipelineGlobalSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UniversalRenderPipelineGlobalSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Oct/OctoberDemo.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/Oct/OctoberDemo.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,6 +35,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CharacterProjectileSpawner.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/SFXManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/States/CharacterEyeState.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/ReplayGame.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.cinemachine@b66fdb7cd1f2/Runtime/Behaviours/CinemachineConfiner2D.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.cinemachine@b66fdb7cd1f2/Runtime/Components/CinemachinePositionComposer.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -134,7 +116,8 @@
       <workItem from="1761761587688" duration="3044000" />
       <workItem from="1761767780304" duration="2250000" />
       <workItem from="1761785619600" duration="6560000" />
-      <workItem from="1761806605723" duration="851000" />
+      <workItem from="1761806605723" duration="1980000" />
+      <workItem from="1761863205613" duration="3282000" />
     </task>
     <servers />
   </component>

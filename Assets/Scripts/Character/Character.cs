@@ -1,9 +1,5 @@
 using System;
-using System.Text;
-using Unity.VisualScripting;
-using UnityEditor.Build;
 using UnityEngine;
-using Object = System.Object;
 
 public class Character : MonoBehaviour, ICharacter
 {
