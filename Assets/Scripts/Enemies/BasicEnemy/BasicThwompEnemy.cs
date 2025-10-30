@@ -36,7 +36,7 @@ namespace Enemies.BasicEnemy
 
             Debug.Log("Entered Collision");
 
-            if (other.attachedRigidbody.TryGetComponent(out Character charater) && triggerReady)
+            if (other.attachedRigidbody.TryGetComponent(out Character character) && triggerReady)
             {
                 Debug.Log("Character triggered");
 

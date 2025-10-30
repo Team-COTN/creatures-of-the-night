@@ -5,8 +5,38 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="34d767e2-3a25-4e05-adc4-202298aca86f" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.creatures-of-the-night/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.creatures-of-the-night/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Health/Damaged1.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Health/Damaged1.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Health/Health.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Health/Health.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Health/Health_Idle.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Health/Health_Idle.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Character.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Character.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/ParryableObject.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/ParryableObject.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Character/Character.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Character/Character.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Character/Eye/TempEye.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Character/Eye/TempEye.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CharacterInteractions/CharacterInteractions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CharacterInteractions/CharacterInteractions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemies/BasicEnemy/BasicThwompEnemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemies/BasicEnemy/BasicThwompEnemy.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/elcie_work/ElcieEnemy.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/elcie_work/ElcieEnemy.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/elcie_work/HealthUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/elcie_work/HealthUI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/elcie_work/HealthUI.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/elcie_work/HealthUI.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/elcie_work/LightGlow.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/elcie_work/LightGlow.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Visuals/Sprites/Health/Full_Health_Anim-1.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Health/Full_Health_Anim-1.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Visuals/Sprites/Health/Full_Health_Anim-10.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Health/Full_Health_Anim-10.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Visuals/Sprites/Health/Full_Health_Anim-11.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Health/Full_Health_Anim-11.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Visuals/Sprites/Health/Full_Health_Anim-12.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Health/Full_Health_Anim-12.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Visuals/Sprites/Health/Full_Health_Anim-13.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Health/Full_Health_Anim-13.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Visuals/Sprites/Health/Full_Health_Anim-14.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Health/Full_Health_Anim-14.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Visuals/Sprites/Health/Full_Health_Anim-15.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Health/Full_Health_Anim-15.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Visuals/Sprites/Health/Full_Health_Anim-2.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Health/Full_Health_Anim-2.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Visuals/Sprites/Health/Full_Health_Anim-3.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Health/Full_Health_Anim-3.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Visuals/Sprites/Health/Full_Health_Anim-4.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Health/Full_Health_Anim-4.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Visuals/Sprites/Health/Full_Health_Anim-5.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Health/Full_Health_Anim-5.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Visuals/Sprites/Health/Full_Health_Anim-6.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Health/Full_Health_Anim-6.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Visuals/Sprites/Health/Full_Health_Anim-7.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Health/Full_Health_Anim-7.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Visuals/Sprites/Health/Full_Health_Anim-8.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Health/Full_Health_Anim-8.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Visuals/Sprites/Health/Full_Health_Anim-9.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Health/Full_Health_Anim-9.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/EnemyTest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/EnemyTest.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +49,8 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/89527d299cb64ba88f87240781b415e51ea400/07/63b6b731/GameObject.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Character/Eye/TempEye.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/CharacterInteractions/LightGlow.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/CharacterInteractions/StayGlow.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CharacterProjectileSpawner.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/SFXManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/States/CharacterEyeState.cs" root0="FORCE_HIGHLIGHTING" />
@@ -34,18 +66,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "OctoberDemo",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;OctoberDemo&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\6000.1.7f1\Editor\Unity.exe" />
@@ -99,6 +131,10 @@
       <option name="presentableId" value="Default" />
       <updated>1761147476357</updated>
       <workItem from="1761147478792" duration="14346000" />
+      <workItem from="1761761587688" duration="3044000" />
+      <workItem from="1761767780304" duration="2250000" />
+      <workItem from="1761785619600" duration="6560000" />
+      <workItem from="1761806605723" duration="851000" />
     </task>
     <servers />
   </component>

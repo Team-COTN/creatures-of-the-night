@@ -5,7 +5,7 @@ using UnityEditor.Build;
 using UnityEngine;
 using Object = System.Object;
 
-public class Character : MonoBehaviour
+public class Character : MonoBehaviour, ICharacter
 {
     #region Properties & References
     

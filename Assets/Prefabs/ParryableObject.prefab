@@ -285,7 +285,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 727c53e242753cb4584dfd5c5f7cbfed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parryableNow: 0
+  parryableNow: 1
   mySprite: {fileID: 948729185889755749}
   burstVFX: {fileID: 4418229002745982926}
   parryColor: {r: 0.4716981, g: 0.38714844, b: 0.4360902, a: 1}
