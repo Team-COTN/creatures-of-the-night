@@ -347,8 +347,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   origin: {fileID: 1035640572}
   radius: 0.5
-  rotationSpeed: 100
-  duration: 1.5
+  maxRotSpeed: 100
+  minRotSpeed: 20
+  slowingFactor: 1
+  duration: 2
 --- !u!1 &193610621
 GameObject:
   m_ObjectHideFlags: 0
