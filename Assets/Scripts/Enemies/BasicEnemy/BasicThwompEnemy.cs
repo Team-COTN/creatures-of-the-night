@@ -12,6 +12,7 @@ namespace Enemies.BasicEnemy
 
     public class BasicThwompEnemy : BasicEnemyStateMachineBase
     {
+        public Animator Crusher;
         private bool triggerReady = true;
 
         // EXAMPLE OVERRIDES - Uncomment and modify as needed:
@@ -33,8 +34,22 @@ namespace Enemies.BasicEnemy
 
         private void OnTriggerEnter2D(Collider2D other)
         {
+            if (Crusher != null)
+            {
+            Crusher.SetTrigger("Crusher_Idle");
+            }
 
-            Debug.Log("Entered Collision");
+                Crusher.SetTrigger("Crusher_Anime");
+                // healthAnimator.SetTrigger("Health_Idle2");
+                Crusher.SetTrigger("Reverse_Idle");
+            
+                Crusher.SetTrigger("Reverse_Anim");
+            {
+                
+            }
+
+
+                Debug.Log("Entered Collision");
 
             if (other.attachedRigidbody.TryGetComponent(out Character character) && triggerReady)
             {
