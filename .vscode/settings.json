@@ -66,5 +66,5 @@
     "explorer.fileNesting.patterns": {
         "*.sln": "*.csproj"
     },
-    "dotnet.defaultSolution": "creatures of the darkness.sln"
+    "dotnet.defaultSolution": "creatures-of-the-night.sln"
 }

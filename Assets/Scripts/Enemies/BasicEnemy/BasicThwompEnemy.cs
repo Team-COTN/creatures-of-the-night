@@ -14,6 +14,7 @@ namespace Enemies.BasicEnemy
     {
         public Animator Crusher;
         private bool triggerReady = true;
+        public float distanceDown = 6f;
 
         // EXAMPLE OVERRIDES - Uncomment and modify as needed:
         // If you decide to use Awake, Update, or FixedUpdate, ALWAYS call base method first, like this:
@@ -29,30 +30,24 @@ namespace Enemies.BasicEnemy
 
 
 
+        void IdleAnim()
+        {
+            Crusher.SetTrigger("Reverse_Anim");
+        }
 
 
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (Crusher != null)
-            {
-            Crusher.SetTrigger("Crusher_Idle");
-            }
-
-                Crusher.SetTrigger("Crusher_Anime");
-                // healthAnimator.SetTrigger("Health_Idle2");
-                Crusher.SetTrigger("Reverse_Idle");
-            
-                Crusher.SetTrigger("Reverse_Anim");
-            {
-                
-            }
-
 
                 Debug.Log("Entered Collision");
 
             if (other.attachedRigidbody.TryGetComponent(out Character character) && triggerReady)
             {
+                if (Crusher != null)
+                {
+                    Crusher.SetTrigger("Crusher_Anim");
+                }
                 Debug.Log("Character triggered");
 
                 StartCoroutine(Transformation());
@@ -77,14 +72,18 @@ namespace Enemies.BasicEnemy
                 realTime += Time.deltaTime;
                 yield return null;
             }
-       
 
-            yield return new WaitForSeconds(2f);
+
+            yield return new WaitForSeconds(1f);
+            IdleAnim();
+            yield return new WaitForSeconds(1f);
             realTime = 0f;
             duration = 1.5f;
             startPos = transform.position;
-            destination = startPos + new UnityEngine.Vector3(0f, 6f, 0f);
+            destination = startPos + new UnityEngine.Vector3(0f, distanceDown, 0f);
 
+           
+            
             while (realTime < duration)
             {
                 transform.position = UnityEngine.Vector3.Lerp(startPos, destination, realTime / duration);
