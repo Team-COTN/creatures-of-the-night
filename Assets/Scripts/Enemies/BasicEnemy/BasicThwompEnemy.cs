@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Numerics;
 using System.Runtime.InteropServices.WindowsRuntime;
+using NUnit.Framework;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
@@ -14,7 +15,11 @@ namespace Enemies.BasicEnemy
     {
         public Animator Crusher;
         private bool triggerReady = true;
+        private bool isInZone = false;
         public float distanceDown = 6f;
+        private Coroutine crusherCo;
+
+        [SerializeField] private Transform crusherTransformTarget;
 
         // EXAMPLE OVERRIDES - Uncomment and modify as needed:
         // If you decide to use Awake, Update, or FixedUpdate, ALWAYS call base method first, like this:
@@ -34,65 +39,87 @@ namespace Enemies.BasicEnemy
         {
             Crusher.SetTrigger("Reverse_Anim");
         }
+        void CrusherAnim()
+        {
+            Crusher.SetTrigger("Crusher_Anim");
+        }
 
 
 
         private void OnTriggerEnter2D(Collider2D other)
         {
 
-                Debug.Log("Entered Collision");
+            Debug.Log("Entered Collision");
 
             if (other.attachedRigidbody.TryGetComponent(out Character character) && triggerReady)
             {
+                isInZone = true;
+
                 if (Crusher != null)
-                {
-                    Crusher.SetTrigger("Crusher_Anim");
-                }
                 Debug.Log("Character triggered");
 
-                StartCoroutine(Transformation());
+                crusherCo = StartCoroutine(Transformation());
+
+            }
+        }
+
+        private void OnTriggerExit2D(Collider2D other)
+        {
 
 
+
+
+            if (other.attachedRigidbody != null && other.attachedRigidbody.TryGetComponent(out Character character))
+            {
+
+                Debug.Log("EXIT Collision");
+                isInZone = false;
             }
         }
 
         private IEnumerator Transformation()
         {
             triggerReady = false;
-            float realTime = 0f;
-            float duration = .5f;
-            UnityEngine.Vector3 startPos = transform.position;
-            UnityEngine.Vector3 destination = startPos + new UnityEngine.Vector3(0f, -6f, 0f);
-
-            while (realTime < duration)
+            while (isInZone)
             {
-                //float t = Mathf.SmoothStep(0, 1, realTime / duration);
-                float t = (realTime / duration) * (realTime / duration);
-                transform.position = UnityEngine.Vector3.Lerp(startPos, destination, t);
-                realTime += Time.deltaTime;
-                yield return null;
+                float realTime = 0f;
+                float duration = .5f;
+                UnityEngine.Vector3 startPos = crusherTransformTarget.position;
+                UnityEngine.Vector3 destination = startPos + new UnityEngine.Vector3(0f, -distanceDown, 0f);
+
+                CrusherAnim();
+
+
+                while (realTime < duration)
+                {
+                    //float t = Mathf.SmoothStep(0, 1, realTime / duration);
+                    float t = (realTime / duration) * (realTime / duration);
+                    crusherTransformTarget.position = UnityEngine.Vector3.Lerp(startPos, destination, t);
+                    realTime += Time.deltaTime;
+                    yield return null;
+                }
+
+
+                yield return new WaitForSeconds(1f);
+                IdleAnim();
+                yield return new WaitForSeconds(1f);
+                realTime = 0f;
+                duration = 1.5f;
+                startPos = crusherTransformTarget.position;
+                destination = startPos + new UnityEngine.Vector3(0f, distanceDown, 0f);
+
+
+
+                while (realTime < duration)
+                {
+                    crusherTransformTarget.position = UnityEngine.Vector3.Lerp(startPos, destination, realTime / duration);
+                    realTime += Time.deltaTime;
+                    yield return null;
+                }
+
             }
-
-
-            yield return new WaitForSeconds(1f);
-            IdleAnim();
-            yield return new WaitForSeconds(1f);
-            realTime = 0f;
-            duration = 1.5f;
-            startPos = transform.position;
-            destination = startPos + new UnityEngine.Vector3(0f, distanceDown, 0f);
-
-           
-            
-            while (realTime < duration)
-            {
-                transform.position = UnityEngine.Vector3.Lerp(startPos, destination, realTime / duration);
-                realTime += Time.deltaTime;
-                yield return null;
-            }
-            
             triggerReady = true;
-
+            crusherCo = null;
         }
         
 
