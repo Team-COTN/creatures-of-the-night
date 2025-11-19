@@ -8,8 +8,11 @@ public class TempEye : MonoBehaviour
 {
     private Character character;
     private Transform playerTransform;
+    public Collider illuminetRicochetCollider;
     private bool eyeWasPressedThisFrame => InputManager.GetEyeWasPressedThisFrame();
+    private bool IlluminetRicochetWasPressedThisFrame => InputManager.GetIlluminetRicochetWasPressedThisFrame();
     private bool enableEyeControls = false;
+    private bool enableIlluminetRicochet = false;
     private float Xoffset = 2.03f;
     private float Yoffset = 0.98f;
     private float XoffsetLeft = 1.26f;
@@ -44,8 +47,6 @@ public class TempEye : MonoBehaviour
             enableEyeControls = !enableEyeControls;
         }
         
-        // spotlight.intensity = Mathf.Lerp(spotlight.intensity, targetIntensity, Time.deltaTime * transitionSpeed);
-        
         if (enableEyeControls)
         {
             CharacterEyeStateChange?.Invoke(transform);
@@ -75,6 +76,18 @@ public class TempEye : MonoBehaviour
 
             // Move the eye using player input, eye speed, and the determined speed multiplier
             transform.Translate(playerInput * eyeSpeed * speedMultiplier * Time.deltaTime);
+            
+            //IlluminetRicochet logic
+            if (IlluminetRicochetWasPressedThisFrame)
+            {
+                enableIlluminetRicochet = !enableIlluminetRicochet;
+                Debug.Log("IlluminetRicochetWasPressedThisFrame");
+            }
+
+            if (enableIlluminetRicochet)
+                illuminetRicochetCollider.enabled = true;
+            if (!enableEyeControls)
+                illuminetRicochetCollider.enabled = false;
         }
         if (!enableEyeControls)
         {

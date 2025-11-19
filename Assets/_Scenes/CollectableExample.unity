@@ -834,7 +834,7 @@ MonoBehaviour:
   lineOfSightBlockers:
     serializedVersion: 2
     m_Bits: 0
-  attackRange: 2
+  closeRange: 2
 --- !u!50 &744240833
 Rigidbody2D:
   serializedVersion: 5
@@ -1654,7 +1654,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1487784035
 MonoBehaviour:
   m_ObjectHideFlags: 0
