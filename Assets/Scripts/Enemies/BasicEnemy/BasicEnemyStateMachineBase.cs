@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEditor;
+using TMPro;
 
 namespace Enemies.BasicEnemy
 {
@@ -31,6 +32,11 @@ namespace Enemies.BasicEnemy
         [SerializeField] private float closeRange = 2f;
         protected Transform Player;
 
+        protected Rigidbody2D rb;
+        private bool isKnockedBack = false;
+        protected float kbForce = 100f;
+        protected float kbDuration = 0.3f;
+
         protected EnemyStateBase IdleState;
         protected EnemyStateBase FarRangeState;//chase chase
         protected EnemyStateBase CloseRangeState;//attack attack
@@ -43,6 +49,9 @@ namespace Enemies.BasicEnemy
         {
             Player = GameObject.FindGameObjectWithTag("Player")?.transform;
             if (Player == null) Debug.LogWarning($"No GameObject with tag 'Player' found. Enemy state transitions may not work.");
+
+            rb = GetComponent<Rigidbody2D>();
+
 
             IdleState = CreateIdleState();
             FarRangeState = CreateFarRangeState();
@@ -102,6 +111,8 @@ namespace Enemies.BasicEnemy
     
             // If nothing blocks our line of sight, or our raycast hits our player, then we can see the player
             bool canSeePlayer = !hit || hit.collider?.attachedRigidbody?.transform == Player;
+
+            GetComponent<Rigidbody2D>().AddForce(Vector2.right);
             return canSeePlayer;
         }
 
@@ -109,6 +120,30 @@ namespace Enemies.BasicEnemy
         {
             float distanceToPlayer = (!Player) ? float.MaxValue : Vector3.Distance(transform.position, Player.position);
             return distanceToPlayer <= closeRange;
+        }
+
+        public virtual void EnemyDamaged()
+        {
+            if (Player != null && !isKnockedBack)
+            {
+                Vector2 kbDirection = (transform.position - Player.position).normalized;
+
+                rb.AddForce(kbDirection * kbForce, ForceMode2D.Impulse);
+
+                StartCoroutine(KBCoroutine());
+            }
+        }
+
+        private System.Collections.IEnumerator KBCoroutine()
+        {
+            isKnockedBack = true;
+
+            yield return new WaitForSeconds(kbDuration);
+
+            isKnockedBack = false;
+
+            rb.linearVelocity = Vector2.zero;
+
         }
         
         private class DefaultIdleState : EnemyStateBase

@@ -21,7 +21,7 @@ namespace Enemies.BasicEnemy
         [Tooltip("How fast this enemy moves horizontally when chasing the player")]
         public float movementSpeed = 2f;
 
-        private Rigidbody2D rb;
+        //private Rigidbody2D rb;
         private Collider2D col;
 
         protected override void Awake()
@@ -67,6 +67,14 @@ namespace Enemies.BasicEnemy
         protected override void OnFarRangeStateExit()
         {
             rb.linearVelocity = new Vector2(0f, rb.linearVelocity.y); // Stop horizontal movement
+        }
+
+        void OnTriggerEnter2D(Collider2D other)
+        {
+            if (other.attachedRigidbody.TryGetComponent(out Character charater))
+            {
+                EnemyDamaged();
+            }
         }
 
         /// <summary>
