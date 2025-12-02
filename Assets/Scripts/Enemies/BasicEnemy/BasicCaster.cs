@@ -10,7 +10,7 @@ namespace Enemies.BasicEnemy
 
         public float moveSpeed;
         private Collider2D col;
-        private Rigidbody2D rb;
+        //private Rigidbody2D rb;
 
 
         private bool retreat = false;

@@ -34,7 +34,7 @@ namespace Enemies.BasicEnemy
 
         protected Rigidbody2D rb;
         private bool isKnockedBack = false;
-        protected float kbForce = 100f;
+        protected float kbForce = 200f;
         protected float kbDuration = 0.3f;
 
         protected EnemyStateBase IdleState;
@@ -122,29 +122,7 @@ namespace Enemies.BasicEnemy
             return distanceToPlayer <= closeRange;
         }
 
-        public virtual void EnemyDamaged()
-        {
-            if (Player != null && !isKnockedBack)
-            {
-                Vector2 kbDirection = (transform.position - Player.position).normalized;
-
-                rb.AddForce(kbDirection * kbForce, ForceMode2D.Impulse);
-
-                StartCoroutine(KBCoroutine());
-            }
-        }
-
-        private System.Collections.IEnumerator KBCoroutine()
-        {
-            isKnockedBack = true;
-
-            yield return new WaitForSeconds(kbDuration);
-
-            isKnockedBack = false;
-
-            rb.linearVelocity = Vector2.zero;
-
-        }
+        
         
         private class DefaultIdleState : EnemyStateBase
         {
@@ -271,6 +249,32 @@ namespace Enemies.BasicEnemy
                 }
             }
         }
+
+        public virtual void EnemyDamaged()
+        {
+            if (Player != null && !isKnockedBack)
+            {
+                Vector2 kbDirection = (transform.position - Player.position).normalized;
+
+                rb.AddForce(kbDirection * kbForce, ForceMode2D.Impulse);
+
+               //StartCoroutine(KBCoroutine());
+            }
+        }
+
+       /* private System.Collections.IEnumerator KBCoroutine()
+        {
+            isKnockedBack = true;
+
+            yield return new WaitForSeconds(kbDuration);
+
+            isKnockedBack = false;
+
+            rb.linearVelocity = Vector2.zero;
+
+            currentState?.FixedUpdate(this);
+
+        }*/
 
         protected virtual void OnDrawGizmos()
         {

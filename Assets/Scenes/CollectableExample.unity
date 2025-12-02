@@ -1221,6 +1221,7 @@ MonoBehaviour:
     m_Bits: 0
   closeRange: 2
   movementSpeed: 2
+  KBDuration: 0.7
 --- !u!50 &760657198
 Rigidbody2D:
   serializedVersion: 5
@@ -1364,8 +1365,8 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &760657202
-BoxCollider2D:
+--- !u!60 &760657202
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1398,7 +1399,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0.21133333}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.28866667}
@@ -1408,8 +1409,12 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.008708239, y: 0.908272}
+      - {x: -0.7351227, y: -0.393166}
+      - {x: 0.70899785, y: -0.39316553}
+  m_UseDelaunayMesh: 0
 --- !u!1 &894422803
 GameObject:
   m_ObjectHideFlags: 0

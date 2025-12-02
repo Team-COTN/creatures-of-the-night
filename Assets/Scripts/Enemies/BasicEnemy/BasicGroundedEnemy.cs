@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 namespace Enemies.BasicEnemy
@@ -24,6 +25,9 @@ namespace Enemies.BasicEnemy
         //private Rigidbody2D rb;
         private Collider2D col;
 
+        private bool knockbacking = false;
+        public float KBDuration = 0.7f;
+
         protected override void Awake()
         {
             // Always call base method first. This method sets up the state machine
@@ -46,6 +50,7 @@ namespace Enemies.BasicEnemy
 
             // Apply gravity when airborne, reset when grounded
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, IsGrounded() ? 0 : rb.linearVelocity.y + Physics2D.gravity.y * Time.deltaTime);
+
         }
 
         /// <summary>
@@ -54,11 +59,15 @@ namespace Enemies.BasicEnemy
         /// </summary>
         protected override void OnFarRangeStateFixedUpdate()
         {
-            // Get direction to player
-            Vector2 moveDir = Player.position.x >= transform.position.x ? Vector3.right : Vector3.left; 
+            if (!knockbacking)
+            {
+                // Get direction to player
+                Vector2 moveDir = Player.position.x >= transform.position.x ? Vector3.right : Vector3.left; 
             
-            // Move toward player
-            rb.linearVelocity = new Vector2(moveDir.x * movementSpeed, rb.linearVelocity.y); 
+                // Move toward player
+                rb.linearVelocity = new Vector2(moveDir.x * movementSpeed, rb.linearVelocity.y);
+            }
+             
         }
 
         /// <summary>
@@ -66,19 +75,28 @@ namespace Enemies.BasicEnemy
         /// </summary>
         protected override void OnFarRangeStateExit()
         {
-            rb.linearVelocity = new Vector2(0f, rb.linearVelocity.y); // Stop horizontal movement
+            if (!knockbacking)
+            {
+                rb.linearVelocity = new Vector2(0f, rb.linearVelocity.y); // Stop horizontal movement
+            }
+            
         }
 
         void OnTriggerEnter2D(Collider2D other)
         {
             if (other.attachedRigidbody.TryGetComponent(out Character charater))
             {
+
                 EnemyDamaged();
+                knockbacking = true;
+                WaitSec();
+                knockbacking = false;
+                
             }
         }
 
         /// <summary>
-        /// Ground detection using BoxCast checking for any colliders on the "Environment" layer. Hardcoded for simplicity :)
+        /// Ground detection using BoxCast checking for any colliders on the "Environment" layer. Hardcoded for simplicity :/
         /// </summary>
         private bool IsGrounded()
         {
@@ -93,6 +111,11 @@ namespace Enemies.BasicEnemy
             
             // Return hit result as a boolean
             return hit;
+        }
+
+        IEnumerator WaitSec()
+        {
+            yield return new WaitForSeconds(kbDuration);
         }
 
         // EXAMPLE OVERRIDES - Uncomment and modify as needed:
