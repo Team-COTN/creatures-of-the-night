@@ -12,7 +12,6 @@ public class CharacterDashState : CharacterState
     private bool JumpInputPressed => InputManager.GetJumpWasPressedThisFrame();
     private bool CanJumpParry => _character.CanJumpParry();
     private bool EyeWasPressedThisFrame => InputManager.GetEyeWasPressedThisFrame();
-
     
     public override void StateEnter()
     {

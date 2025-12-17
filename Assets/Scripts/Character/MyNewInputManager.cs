@@ -13,4 +13,7 @@ public class MyNewInputManager : MonoBehaviour
     public static bool GetJumpWasPressedThisFrame() => _inputActions.Character.Jump.WasPressedThisFrame();
     public static bool GetJumpIsPressed() => _inputActions.Character.Jump.IsPressed();
     public static bool GetJumpWasReleasedThisFrame() => _inputActions.Character.Jump.WasReleasedThisFrame();
+    public static bool GetDialogueWasPressedThisFrame() => _inputActions.Character.Dialogue.WasPressedThisFrame();
+    
+
 }

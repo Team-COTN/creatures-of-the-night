@@ -145,6 +145,15 @@ public partial class @MyInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Dialogue"",
+                    ""type"": ""Button"",
+                    ""id"": ""415d43d1-c903-431a-b482-8715c1e0b55b"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -367,6 +376,17 @@ public partial class @MyInputActions: IInputActionCollection2, IDisposable
                     ""action"": ""Eye"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7ce034ea-161e-4dc9-b630-fb19a948787b"",
+                    ""path"": ""<Keyboard>/p"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Dialogue"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -381,6 +401,7 @@ public partial class @MyInputActions: IInputActionCollection2, IDisposable
         m_Character_Switchdash = m_Character.FindAction("Switchdash", throwIfNotFound: true);
         m_Character_Slash = m_Character.FindAction("Slash", throwIfNotFound: true);
         m_Character_Eye = m_Character.FindAction("Eye", throwIfNotFound: true);
+        m_Character_Dialogue = m_Character.FindAction("Dialogue", throwIfNotFound: true);
     }
 
     ~@MyInputActions()
@@ -467,6 +488,7 @@ public partial class @MyInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Character_Switchdash;
     private readonly InputAction m_Character_Slash;
     private readonly InputAction m_Character_Eye;
+    private readonly InputAction m_Character_Dialogue;
     /// <summary>
     /// Provides access to input actions defined in input action map "Character".
     /// </summary>
@@ -502,6 +524,10 @@ public partial class @MyInputActions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Character/Eye".
         /// </summary>
         public InputAction @Eye => m_Wrapper.m_Character_Eye;
+        /// <summary>
+        /// Provides access to the underlying input action "Character/Dialogue".
+        /// </summary>
+        public InputAction @Dialogue => m_Wrapper.m_Character_Dialogue;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -546,6 +572,9 @@ public partial class @MyInputActions: IInputActionCollection2, IDisposable
             @Eye.started += instance.OnEye;
             @Eye.performed += instance.OnEye;
             @Eye.canceled += instance.OnEye;
+            @Dialogue.started += instance.OnDialogue;
+            @Dialogue.performed += instance.OnDialogue;
+            @Dialogue.canceled += instance.OnDialogue;
         }
 
         /// <summary>
@@ -575,6 +604,9 @@ public partial class @MyInputActions: IInputActionCollection2, IDisposable
             @Eye.started -= instance.OnEye;
             @Eye.performed -= instance.OnEye;
             @Eye.canceled -= instance.OnEye;
+            @Dialogue.started -= instance.OnDialogue;
+            @Dialogue.performed -= instance.OnDialogue;
+            @Dialogue.canceled -= instance.OnDialogue;
         }
 
         /// <summary>
@@ -657,5 +689,12 @@ public partial class @MyInputActions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnEye(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Dialogue" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnDialogue(InputAction.CallbackContext context);
     }
 }
