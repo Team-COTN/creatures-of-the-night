@@ -8,7 +8,7 @@ public class TempEye : MonoBehaviour
 {
     private Character character;
     private Transform playerTransform;
-    public Collider illuminetRicochetCollider;
+    public Collider2D illuminetRicochetCollider;
     private bool eyeWasPressedThisFrame => InputManager.GetEyeWasPressedThisFrame();
     private bool IlluminetRicochetWasPressedThisFrame => InputManager.GetIlluminetRicochetWasPressedThisFrame();
     private bool enableEyeControls = false;
@@ -79,14 +79,11 @@ public class TempEye : MonoBehaviour
             
             //IlluminetRicochet logic
             if (IlluminetRicochetWasPressedThisFrame)
-            {
                 enableIlluminetRicochet = !enableIlluminetRicochet;
-                Debug.Log("IlluminetRicochetWasPressedThisFrame");
-            }
 
             if (enableIlluminetRicochet)
                 illuminetRicochetCollider.enabled = true;
-            if (!enableEyeControls)
+            if (!enableIlluminetRicochet)
                 illuminetRicochetCollider.enabled = false;
         }
         if (!enableEyeControls)
