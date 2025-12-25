@@ -28,8 +28,9 @@ namespace Enemies.BasicEnemy
         {
             // Always call base method first. This method sets up the state machine
             base.Awake();
-            
+
             // Grab the components on our enemy
+            
             rb = GetComponent<Rigidbody2D>();
             col = GetComponent<Collider2D>();
         }
@@ -51,7 +52,7 @@ namespace Enemies.BasicEnemy
         /// Overriding the "OnChaseStateFixedUpdate" function to add the "chasing" behavior.
         /// We do all of our physics logic in "FixedUpdate" instead of "Update" 
         /// </summary>
-        protected override void OnChaseStateFixedUpdate()
+        protected override void OnFarRangeStateFixedUpdate()
         {
             // Get direction to player
             Vector2 moveDir = Player.position.x >= transform.position.x ? Vector3.right : Vector3.left; 
@@ -63,7 +64,7 @@ namespace Enemies.BasicEnemy
         /// <summary>
         /// Overriding the "OnChaseStateExit" to stop moving towards the player
         /// </summary>
-        protected override void OnChaseStateExit()
+        protected override void OnFarRangeStateExit()
         {
             rb.linearVelocity = new Vector2(0f, rb.linearVelocity.y); // Stop horizontal movement
         }
