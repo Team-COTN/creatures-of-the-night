@@ -95,8 +95,6 @@ public class TempEye : MonoBehaviour
                     eyeAnimator.SetTrigger("Illuminate");
                     check = false;
                 }
-            // if (eyeAnimator.GetCurrentAnimatorStateInfo(0).IsName("IlluminateBoundary"))
-                //     check = false;
             }
 
             if (!enableIlluminetRicochet)
@@ -109,7 +107,12 @@ public class TempEye : MonoBehaviour
         {
             CharacterEyeStateChange?.Invoke(playerTransform);
             eyePointLight.pointLightOuterRadius = Mathf.Lerp(eyePointLight.pointLightOuterRadius, minLightRadius, Time.deltaTime * transitionSpeed);
-
+            
+            //don't let eye states persist
+            enableIlluminetRicochet = false;
+            illuminetRicochetCollider.enabled = false;
+            check = true;
+            
             // Disable the sprite renderer
             if (spriteRenderer != null)
                 spriteRenderer.enabled = false;
@@ -120,7 +123,6 @@ public class TempEye : MonoBehaviour
                 Vector2 offset = new Vector2(Xoffset, Yoffset);
                 if (!character.IsFacingRight)
                 {
-                    Debug.Log("Facing Left");
                     offset = new Vector2(XoffsetLeft, Yoffset);
                 }
                 // Set the position of this GameObject to the reference GameObject's position plus the offset

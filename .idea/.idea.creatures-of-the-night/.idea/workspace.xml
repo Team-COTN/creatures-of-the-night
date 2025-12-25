@@ -6,76 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="34d767e2-3a25-4e05-adc4-202298aca86f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.creatures-of-the-night/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.creatures-of-the-night/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Die Creen.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Die Creen/Alive.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Die Creen/Alive.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Die Creen/Dead.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Die Creen/Dead.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Die Creen/Die creen Animator.controller" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Die Creen/Die creen Animator.controller.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Enemies.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Enemies/Crusher.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Enemies/Crusher/CrusherTest.controller" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Enemies/Crusher/CrusherTest.controller.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Enemies/Crusher/CrusherTriggered.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Enemies/Crusher/CrusherTriggered.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Health.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Health/Black.controller" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Health/Black.controller.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Health/BlackFadeIn.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Health/BlackFadeIn.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Health/BlackOpaque.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Health/BlackOpaque.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Health/BlackTransparent.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Health/BlackTransparent.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Health/Damaged1.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Health/Damaged1.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Health/Damaged2.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Health/Damaged2.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Health/Die (1).png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Health/Die (1).png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Health/DieFadeIn.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Health/DieFadeIn.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Health/DieOpaque.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Health/DieOpaque.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Health/DiePic.controller" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Health/DiePic.controller.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Health/DieTransparent.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Health/DieTransparent.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Health/Health.controller" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Health/Health.controller.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Health/Health_Idle.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Health/Health_Idle.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Health/Health_Idle2.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Health/Health_Idle2.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Player.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Player/AbilityIndicators.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Player/AbilityIndicators/AbilityIndicators.controller" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Player/AbilityIndicators/AbilityIndicators.controller.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Player/Attack (Rough) Animation.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Player/Attack (Rough) Animation.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Player/Ben Animation.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Player/Ben Animation.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Player/Idle Animation.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Player/Idle Animation.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Player/Jump.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Player/Jump.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Player/Player 1.controller" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Player/Player 1.controller.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Win.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Win/Not Won.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Win/Not Won.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Win/Win.controller" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Win/Win.controller.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Win/Won.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Win/Won.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Mats.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Samples.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Pf For Testing.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Pf For Testing.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Character/Eye/IlluminetRicochetCollider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Character/Eye/IlluminetRicochetCollider.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Character/Eye/TempEye.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Character/Eye/TempEye.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/IlluminetRicochetExample.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/IlluminetRicochetExample.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Character/Eye/TempEye.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Character/Eye/TempEye.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/CollectableExample.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/CollectableExample.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,18 +41,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;54-Temporary-Eye-Ability&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "47-Illuminet-Ricochet",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="$PROJECT_DIR$/Builds\2D 6 Test.exe" />

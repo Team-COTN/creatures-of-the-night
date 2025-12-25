@@ -1,17 +1,19 @@
+using System;
 using Unity.VisualScripting;
 using UnityEngine;
 
 public class IlluminetRicochetCollider : MonoBehaviour
 {
+
+    private Collider2D _collider;
     void OnTriggerEnter2D(Collider2D other)
     {
         //when entering, turn trigger OFF (making it solid)
-        Debug.Log("Thing bumped");
         if (other.gameObject.layer == LayerMask.NameToLayer("NonComposite") && other.isTrigger)
-        {
-            Debug.Log("NonCompositE bumped");
+        {            
+            _collider = other;
             other.isTrigger = false;
-
+            other.GetComponent<GlowOutline>().Glow();
         }
     }
 
@@ -20,14 +22,16 @@ public class IlluminetRicochetCollider : MonoBehaviour
         //when exiting, turn trigger ON (making it pass-through)
         if (other.gameObject.layer == LayerMask.NameToLayer("NonComposite") && !other.isTrigger)
         {
-            Debug.Log("NonCompositE eexited");
             other.isTrigger = true;
+            other.GetComponent<GlowOutline>().Dim();
+
         }
     }
 
-    // void OnTriggerExit2D(Collider2D other)
-    // {
-    //     if (other.gameObject.layer == LayerMask.NameToLayer("NonComposite") && !other.enabled)
-    //         other.enabled = true;
-    // }
+    private void OnDisable()
+    {   
+        _collider.isTrigger = true;
+        _collider.GetComponent<GlowOutline>().Dim();
+    }
+
 }
