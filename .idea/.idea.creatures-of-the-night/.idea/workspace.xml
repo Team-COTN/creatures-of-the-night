@@ -74,6 +74,8 @@
       <change beforePath="$PROJECT_DIR$/Assets/Samples.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Character/Eye/TempEye.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Character/Eye/TempEye.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Scenes/IlluminetRicochetExample.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/IlluminetRicochetExample.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Character/Eye/TempEye.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Character/Eye/TempEye.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/CollectableExample.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/CollectableExample.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,7 +112,7 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;47-Illuminet-Ricochet&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;54-Temporary-Eye-Ability&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
@@ -179,18 +181,7 @@
       <option name="presentableId" value="Default" />
       <updated>1761147476357</updated>
       <workItem from="1761147478792" duration="14346000" />
-      <workItem from="1761761587688" duration="3044000" />
-      <workItem from="1761767780304" duration="2250000" />
-      <workItem from="1761785619600" duration="6560000" />
-      <workItem from="1761806605723" duration="1980000" />
-      <workItem from="1761863205613" duration="3282000" />
-      <workItem from="1763572069657" duration="596000" />
-      <workItem from="1763580635755" duration="603000" />
-      <workItem from="1764708864022" duration="2602000" />
-      <workItem from="1765390732210" duration="6326000" />
-      <workItem from="1765994007835" duration="6499000" />
-      <workItem from="1766444535412" duration="618000" />
-      <workItem from="1766620947645" duration="1400000" />
+      <workItem from="1761502329615" duration="567000" />
     </task>
     <servers />
   </component>
