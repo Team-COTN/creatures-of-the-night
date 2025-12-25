@@ -5,192 +5,75 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="34d767e2-3a25-4e05-adc4-202298aca86f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Movee.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Movee.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Pf For Testing.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Pf For Testing.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Prefab.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Prefab.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Samples.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_0.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_0.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_1.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_1.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_10.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_10.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_11.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_11.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_12.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_12.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_13.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_13.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_14.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_14.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_15.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_15.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_16.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_16.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_17.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_17.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_18.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_18.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_19.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_19.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_2.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_2.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_20.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_20.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_21.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_21.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_22.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_22.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_23.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_23.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_24.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_24.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_25.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_25.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_26.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_26.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_27.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_27.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_28.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_28.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_29.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_29.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_3.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_3.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_30.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_30.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_31.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_31.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_32.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_32.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_33.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_33.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_34.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_34.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_35.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_35.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_36.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_36.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_37.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_37.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_38.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_38.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_39.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_39.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_4.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_4.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_40.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_40.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_41.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_41.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_42.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_42.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_43.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_43.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_44.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_44.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_45.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_45.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_46.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_46.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_47.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_47.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_48.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_48.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_49.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_49.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_5.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_5.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_50.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_50.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_51.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_51.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_52.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_52.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_53.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_53.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_54.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_54.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_55.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_55.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_56.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_56.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_57.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_57.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_58.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_58.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_59.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_59.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_6.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_6.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_60.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_60.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_61.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_61.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_62.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_62.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_63.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_63.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_64.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_64.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_65.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_65.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_66.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_66.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_67.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_67.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_68.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_68.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_69.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_69.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_7.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_7.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_70.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_70.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_71.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_71.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_72.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_72.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_73.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_73.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_74.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_74.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_75.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_75.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_76.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_76.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_8.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_8.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_9.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/Screenshot 2025-11-21 101227_9.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/TempPalletforIlluminateRicochet.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Temp/TempPalletforIlluminateRicochet.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Tilemap/2D Tilemap Extras.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Tilemap/2D Tilemap Extras/4.3.1.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Tilemap/2D Tilemap Extras/4.3.1/Dungeon Rule Tile.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Tilemap/2D Tilemap Extras/4.3.1/Dungeon Rule Tile/Sprites.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Tilemap/2D Tilemap Extras/4.3.1/Dungeon Rule Tile/Sprites/Dungeon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Tilemap/2D Tilemap Extras/4.3.1/Dungeon Rule Tile/Sprites/Dungeon.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Tilemap/2D Tilemap Extras/4.3.1/Dungeon Rule Tile/Tiles.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Tilemap/2D Tilemap Extras/4.3.1/Dungeon Rule Tile/Tiles/Dungeon.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Tilemap/2D Tilemap Extras/4.3.1/Dungeon Rule Tile/Tiles/Dungeon.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Tilemap/Ill.Rich..prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Visuals/Tilemap/Ill.Rich..prefab.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.creatures-of-the-night/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.creatures-of-the-night/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Eye.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Eye.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Character/Eye/IlluminetRicochetCollider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Character/Eye/IlluminetRicochetCollider.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Die Creen.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Die Creen/Alive.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Die Creen/Alive.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Die Creen/Dead.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Die Creen/Dead.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Die Creen/Die creen Animator.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Die Creen/Die creen Animator.controller.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Enemies.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Enemies/Crusher.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Enemies/Crusher/CrusherTest.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Enemies/Crusher/CrusherTest.controller.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Enemies/Crusher/CrusherTriggered.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Enemies/Crusher/CrusherTriggered.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Health.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Health/Black.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Health/Black.controller.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Health/BlackFadeIn.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Health/BlackFadeIn.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Health/BlackOpaque.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Health/BlackOpaque.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Health/BlackTransparent.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Health/BlackTransparent.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Health/Damaged1.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Health/Damaged1.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Health/Damaged2.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Health/Damaged2.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Health/Die (1).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Health/Die (1).png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Health/DieFadeIn.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Health/DieFadeIn.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Health/DieOpaque.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Health/DieOpaque.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Health/DiePic.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Health/DiePic.controller.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Health/DieTransparent.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Health/DieTransparent.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Health/Health.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Health/Health.controller.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Health/Health_Idle.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Health/Health_Idle.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Health/Health_Idle2.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Health/Health_Idle2.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Player.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Player/AbilityIndicators.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Player/AbilityIndicators/AbilityIndicators.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Player/AbilityIndicators/AbilityIndicators.controller.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Player/Attack (Rough) Animation.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Player/Attack (Rough) Animation.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Player/Ben Animation.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Player/Ben Animation.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Player/Idle Animation.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Player/Idle Animation.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Player/Jump.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Player/Jump.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Player/Player 1.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Player/Player 1.controller.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Win.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Win/Not Won.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Win/Not Won.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Win/Win.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Win/Win.controller.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Win/Won.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Win/Won.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mats.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Samples.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Character/Eye/TempEye.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Character/Eye/TempEye.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Visuals/Sprites/Cave/Rocks/PlainRock.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Visuals/Sprites/Cave/Rocks/PlainRock.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Scenes/IlluminetRicochetExample.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/IlluminetRicochetExample.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/TemporaryEyeExample.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/TemporaryEyeExample.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -307,6 +190,7 @@
       <workItem from="1765390732210" duration="6326000" />
       <workItem from="1765994007835" duration="6499000" />
       <workItem from="1766444535412" duration="618000" />
+      <workItem from="1766620947645" duration="1400000" />
     </task>
     <servers />
   </component>

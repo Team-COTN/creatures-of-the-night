@@ -7,6 +7,7 @@ using UnityEngine.Rendering.Universal; //for 2D light
 public class TempEye : MonoBehaviour
 {
     private Character character;
+    private Animator eyeAnimator;
     private Transform playerTransform;
     public Collider2D illuminetRicochetCollider;
     private bool eyeWasPressedThisFrame => InputManager.GetEyeWasPressedThisFrame();
@@ -24,6 +25,8 @@ public class TempEye : MonoBehaviour
     private float minLightRadius = 2.5f;
     private float maxLightRadius = 7f;
     private float transitionSpeed = 1f;
+
+    private bool check = true;
     
     [SerializeField] Light2D eyePointLight;
 
@@ -39,6 +42,7 @@ public class TempEye : MonoBehaviour
         playerTransform = character.transform;
         spriteRenderer = GetComponent<SpriteRenderer>();
         eyePointLight.pointLightOuterRadius = minLightRadius;
+        eyeAnimator = this.gameObject.GetComponentInChildren<Animator>();
     }
     private void Update()
     {
@@ -82,9 +86,24 @@ public class TempEye : MonoBehaviour
                 enableIlluminetRicochet = !enableIlluminetRicochet;
 
             if (enableIlluminetRicochet)
+            {
                 illuminetRicochetCollider.enabled = true;
+
+                //animator
+                if (check)
+                {
+                    eyeAnimator.SetTrigger("Illuminate");
+                    check = false;
+                }
+            // if (eyeAnimator.GetCurrentAnimatorStateInfo(0).IsName("IlluminateBoundary"))
+                //     check = false;
+            }
+
             if (!enableIlluminetRicochet)
+            {
                 illuminetRicochetCollider.enabled = false;
+                check = true;
+            }
         }
         if (!enableEyeControls)
         {
