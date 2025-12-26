@@ -1,18 +1,21 @@
 using UnityEngine;
 
+[RequireComponent(typeof(BoxCollider2D))]
 public class NPC : MonoBehaviour
 {
     DialogueManager dialogueScript;
-    Dialogue dialogue;
+    public Dialogue dialogue;
     public bool triggerDialogue = false;
-
+    
     private void OnTriggerEnter2D(Collider2D other)
-        {
-            if (other.attachedRigidbody.TryGetComponent(out Character character))
-            {
-                FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+    {
+        Debug.Log("Start Dia?");
 
-                // dialogueScript.StartDialogue;
-            }
+        if (other.attachedRigidbody && other.attachedRigidbody.TryGetComponent(out Character character))
+        {
+            Debug.Log("StartDialogue");
+            FindFirstObjectByType<DialogueManager>().StartDialogue(dialogue);
+
         }
+    }
 }
