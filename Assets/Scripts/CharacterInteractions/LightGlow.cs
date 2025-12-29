@@ -43,7 +43,7 @@ public class LightGlow : MonoBehaviour
         }
     }
     
-    public void Dim() => targetIntensity = dimIntensity;   
-    public void Glow() => targetIntensity = brightIntensity;
+    private void Dim() => targetIntensity = dimIntensity;   
+    private void Glow() => targetIntensity = brightIntensity;
 
 }

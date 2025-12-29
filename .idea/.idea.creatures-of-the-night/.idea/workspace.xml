@@ -6,13 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="34d767e2-3a25-4e05-adc4-202298aca86f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.creatures-of-the-night/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.creatures-of-the-night/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Character/Eye/TempEye.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Character/Eye/TempEye.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Input/InputManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Input/InputManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CharacterInteractions/LightGlow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CharacterInteractions/LightGlow.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/elcie_work/DialogueBox.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/elcie_work/DialogueBox.controller" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/elcie_work/DialogueManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/elcie_work/DialogueManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/elcie_work/NPC.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/elcie_work/NPC.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Settings/Input/MyInputActions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/Input/MyInputActions.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Settings/Input/MyInputActions.inputactions" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/Input/MyInputActions.inputactions" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Oct/OctoberDemo.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/Oct/OctoberDemo.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,7 +23,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/../../../../../../Program Files/Unity/Hub/Editor/6000.1.7f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.render-pipelines.core/Samples~/Common/Scripts/RequiredSettings/IRequiredSetting.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../../Program Files/Unity/Hub/Editor/6000.1.7f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.render-pipelines.core/Samples~/Common/Scripts/RequiredSettings/IRequiredSetting.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/89527d299cb64ba88f87240781b415e51ea400/07/63b6b731/GameObject.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Character/Eye/TempEye.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CharacterInteractions/LightGlow.cs" root0="FORCE_HIGHLIGHTING" />
@@ -35,6 +35,7 @@
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.cinemachine@b66fdb7cd1f2/Runtime/Behaviours/CinemachineConfiner2D.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.cinemachine@b66fdb7cd1f2/Runtime/Components/CinemachinePositionComposer.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
+  <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 3
@@ -44,19 +45,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "58-Dialogue",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;58-Dialogue&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+    <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="$PROJECT_DIR$/Builds\2D 6 Test.exe" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="C:\Users\Luket\Documents\_Unity\COTN\creatures-of-the-night\Builds" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\6000.1.7f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-projectPath C:\Users\Luket\Documents\_Unity\COTN\creatures-of-the-night -debugCodeOptimization" />
@@ -110,12 +119,14 @@
       <updated>1761147476357</updated>
       <workItem from="1761147478792" duration="14346000" />
       <workItem from="1761502329615" duration="567000" />
+      <workItem from="1766972834076" duration="6805000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
   <component name="UnityProjectDiscoverer">
     <option name="hasUnityReference" value="true" />
