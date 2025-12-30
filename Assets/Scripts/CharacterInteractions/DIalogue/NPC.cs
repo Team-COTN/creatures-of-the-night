@@ -4,9 +4,7 @@ using TMPro;
 [RequireComponent(typeof(BoxCollider2D))]
 public class NPC : MonoBehaviour
 {
-    //stored Conversation
-    DialogueManager dialogueScript;
-    public Dialogue dialogue;
+    [SerializeField] private NPC_SO_Base _npcSO;
     
     //Talk indicators
     private Renderer npcRenderer;
@@ -18,8 +16,11 @@ public class NPC : MonoBehaviour
 
     private bool DialogueWasPressedThisFrame => InputManager.GetDialogueWasPressedThisFrame();
 
+    private DialogueManager _dialogueManager;
+    
     void Awake()
     {
+        _dialogueManager = ServiceLocator.Get<DialogueManager>();
         talkText.gameObject.SetActive(false);
         
         //this NPC's sprite
@@ -61,7 +62,7 @@ public class NPC : MonoBehaviour
                 }
                 else
                 {
-                    FindFirstObjectByType<DialogueManager>().StartDialogue(dialogue);
+                    FindFirstObjectByType<DialogueManager>().StartDialogue(_npcSO);
                 }
             }
 
@@ -75,31 +76,4 @@ public class NPC : MonoBehaviour
             inNpcRange = false;
         }
     }
-
-
-    public void TriggerDialogueOff()
-    {
-        /*
-        if (GetDialogueWasPressedThisFrame)
-        {
-            //if dialogue is not done, make it play the next sentence
-            //if it is the last sentence,
-                //make it go away
-                // FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
-            //     if (InputManager.GetJumpWasPressedThisFrame())
-            // {
-            //     Debug.Log("got input");
-            // }
-        }
-        */
-    }
-    
-    // private void OnTriggerEnter2D(Collider2D other)
-    // {
-    //     if (other.attachedRigidbody && other.attachedRigidbody.TryGetComponent(out Character character))
-    //     {
-    //         Debug.Log("StartDialogue");
-    //         FindFirstObjectByType<DialogueManager>().StartDialogue(dialogue);
-    //     }
-    // }
 }

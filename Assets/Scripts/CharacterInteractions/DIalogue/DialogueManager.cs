@@ -18,14 +18,15 @@ public class DialogueManager : MonoBehaviour
         sentences = new Queue<string>();
     }
 
-    public void StartDialogue(Dialogue dialogue)
+    public void StartDialogue(NPC_SO_Base npcSoBase)
     {
         isTalking = true;
         animator.SetBool("isOpen", true);
-        nameText.text = dialogue.name;
+        nameText.text = npcSoBase.dialogue.name;
         sentences.Clear();
 
-        foreach (string sentence in dialogue.sentences)
+        //remember the fix! I can use the sentences from the dialogue class with npcSoBase.dialogue.sentences. twice removed derivation!
+        foreach (string sentence in npcSoBase.dialogue.sentences)
         {
             sentences.Enqueue(sentence);
         }
