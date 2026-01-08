@@ -15,14 +15,6 @@ public class HealthUI : MonoBehaviour
         characterInteractions.RemoveCharacterDamagedObserver(TakeDamage);
     }
 
-    // maxHealth is already defined and updated in CharacterInteractions
-    /*
-    void Start()
-    {
-        currentHealth = maxHealth;
-    }
-    */
-
     public void TakeDamage(int characterHealth)
     {
         if (healthAnimator != null)
@@ -33,7 +25,6 @@ public class HealthUI : MonoBehaviour
         if (characterHealth == 2)
         {
             healthAnimator.SetTrigger("Damaged1");
-            // healthAnimator.SetTrigger("Health_Idle2");
         }
         else if (characterHealth == 1)
         {
@@ -50,7 +41,6 @@ public class HealthUI : MonoBehaviour
 
     void Die()
     {
-        Debug.Log("You died.");
         dieScreenAnimator.SetTrigger("Die");
         Destroy(gameObject);
     }
