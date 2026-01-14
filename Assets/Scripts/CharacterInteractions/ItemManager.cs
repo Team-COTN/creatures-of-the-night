@@ -1,10 +1,10 @@
+using System;
 using UnityEngine;
 
 public class ItemManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    int orbCount = 0;
-
+    private int orbCount;
+    
     public void Collect(CollectableSOBase collectable)
     {
         if (collectable is CollectableOrbSO orb)
@@ -16,6 +16,7 @@ public class ItemManager : MonoBehaviour
     void IncrementOrbCount(int orbAmount)
     {
         orbCount += orbAmount;
+        Debug.Log(orbCount);
         //update UI elemnt to = orbCount
     }
 }
