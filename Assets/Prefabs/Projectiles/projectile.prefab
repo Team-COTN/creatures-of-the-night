@@ -28,7 +28,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.7933534, w: 0.6087614}
   m_LocalPosition: {x: -1.8811519, y: 0.018300567, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
+  m_LocalScale: {x: 0.17, y: 0.17, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -56,7 +56,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -74,8 +74,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 2014961435
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: -1838976134974096500, guid: 25286065a3655fd4080d92d3e149e394, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -100,5 +100,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6abcbf2eef49db34eb63fd52fc9da574, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 8760550010042435280}
-  projectileSpeed: 3
+  transitionSpeed: 100
+  idleTarget: {fileID: 0}
+  shootTarget: {fileID: 0}
+  Xoffset: 0.03
+  Yoffset: 0
