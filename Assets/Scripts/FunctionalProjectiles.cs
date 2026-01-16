@@ -15,6 +15,8 @@ public class FunctionalProjectiles : MonoBehaviour
 
 
     //gets instantiated on slash attack (button click)
+    //A Shard will need to be assigned a projectile. The Large Shard should always go 1st and only enabled shards should be assigned. BUT can have more than 2 shards in total enabled
+
     private void OnEnable()
     {
         character = GameObject.FindGameObjectWithTag("Player").GetComponent<Character>();
@@ -23,8 +25,10 @@ public class FunctionalProjectiles : MonoBehaviour
     
     void Update()
     {
+        
+        //wait until attack animation done? May or may not need bc transition speed
         transform.position += transform.forward * projectileSpeed * Time.deltaTime;
     }
     
-    //on wall colision go back in queue
+    //on wall colision go back in queue (and FX)
 }
