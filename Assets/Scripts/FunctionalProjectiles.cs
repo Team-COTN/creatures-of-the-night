@@ -7,27 +7,23 @@ using UnityEngine;
 //just adjust functionality depending on abilities unlocked
 public class FunctionalProjectiles : MonoBehaviour
 {
-    private Character character;
     public float projectileSpeed;
-    public float Xoffset;
-    public float Yoffset;
-    private Vector2 offset;
+    private bool enabledVar = false;
 
 
     //gets instantiated on slash attack (button click)
     //A Shard will need to be assigned a projectile. The Large Shard should always go 1st and only enabled shards should be assigned. BUT can have more than 2 shards in total enabled
 
-    private void OnEnable()
-    {
-        character = GameObject.FindGameObjectWithTag("Player").GetComponent<Character>();
-        transform.position = character.transform.position += (Vector3)(new Vector2(Xoffset, Yoffset));
-    }
-    
+    private void OnEnable() { enabledVar = true; }
+    private void OnDisable() { enabledVar = false; }
+
     void Update()
     {
-        
-        //wait until attack animation done? May or may not need bc transition speed
-        transform.position += transform.forward * projectileSpeed * Time.deltaTime;
+        if (enabledVar)
+        {
+            //wait until attack animation done? May or may not need bc transition speed
+            transform.position += transform.right * projectileSpeed * Time.deltaTime;
+        }
     }
     
     //on wall colision go back in queue (and FX)
