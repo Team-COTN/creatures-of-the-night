@@ -100,8 +100,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6abcbf2eef49db34eb63fd52fc9da574, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transitionSpeed: 100
-  idleTarget: {fileID: 0}
-  shootTarget: {fileID: 0}
-  Xoffset: 0.03
-  Yoffset: 0
+  transitionSpeed: 15
+  target: {fileID: 0}
