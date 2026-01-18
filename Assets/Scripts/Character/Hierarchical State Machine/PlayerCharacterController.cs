@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEditor;
 using System.Linq;
 
 namespace HSM
@@ -12,15 +13,9 @@ namespace HSM
         public Vector2 velocity;
         private string lastPath;
         public bool IsFacingRight = true;
+        public bool debugInfoPanel = true;
+        public float debugInfoPanelHeight = 10f;
         
-        [Header("Grounded/Collisions Checks")]
-        public LayerMask groundLayer;
-        public LayerMask parryableLayer;
-        [Range(0.5f, 1f)] public float groundDetectionRayWidth = 1f;
-        public float groundDetectionRayLength = 0.02f;
-        [Range(0.5f, 1f)] public float ceilingDetectionRayWidth = 1f;
-        public float ceilingDetectionRayLength = 0.02f;
-
         [Header("Walking")]
         [Range(0f, 1f)] public float moveThreshold = 0.25f;
         [Range(1f, 100f)] public float maxWalkSpeed = 12.5f;
@@ -76,8 +71,6 @@ namespace HSM
         private void Update()
         {
             machine.Tick(Time.deltaTime);
-            var path = StatePath(machine.Root.Leaf());
-            Debug.Log($"Path: {path}");
         }
         
         private void FixedUpdate()
@@ -86,11 +79,6 @@ namespace HSM
             motor.Move(velocity * Time.fixedDeltaTime);
         }
         
-        static string StatePath(State s)
-        {
-            return string.Join(" > ", s.PathToRoot().Reverse().Select(n => n.GetType().Name));
-        }
-
         public void SetVerticalVelocity(float value)
         {
             velocity = new Vector2(velocity.x, value);
@@ -112,5 +100,27 @@ namespace HSM
         }
         
         public bool grounded => motor.IsGrounded();
+        
+#if UNITY_EDITOR
+        protected virtual void OnDrawGizmos()
+        {
+            if (!debugInfoPanel) return;
+
+            // Create Info Panel text
+            var debugInfoPanelText = "";
+            
+            // Add State name to Debug Info
+            if (Application.isPlaying)
+            {
+                var statePath = string.Join(" > ", machine.Root.Leaf().PathToRoot().Reverse().Skip(1).Select(n => n.GetType().Name));
+                debugInfoPanelText += statePath ?? "NULL ERROR";
+            }
+            
+            // Draw Info Panel
+            GUIStyle centeredStyle = GUI.skin.GetStyle("Label");
+            centeredStyle.alignment = TextAnchor.LowerCenter;
+            Handles.Label(transform.position + Vector3.up * debugInfoPanelHeight, debugInfoPanelText, centeredStyle);
+        }
+#endif
     }
 }
