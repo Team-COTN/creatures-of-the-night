@@ -45,7 +45,7 @@ namespace HSM
                 return Machine.GetState<Jump>();
             }
 
-            if (!player.grounded)
+            if (!player.Grounded)
             {
                 Machine.GetState<PlayerRoot>().coyoteTimer = player.jumpCoyoteTime;
                 return Machine.GetState<Airborne>();
@@ -120,9 +120,9 @@ namespace HSM
             {
                 // Flip the player to the correct direction
                 bool movingRight = input > 0;
-                if (player.IsFacingRight != movingRight)
+                if (player.isFacingRight != movingRight)
                 {
-                    player.IsFacingRight = movingRight;
+                    player.isFacingRight = movingRight;
                     player.transform.Rotate(0f, movingRight ? 180f : -180f, 0f);
                 }
 
@@ -178,7 +178,7 @@ namespace HSM
 
         protected override State GetNextState()
         {
-            if (player.grounded)
+            if (player.Grounded)
             {
                 return Machine.GetState<Grounded>();
             }
@@ -209,9 +209,9 @@ namespace HSM
             {
                 // Flip the player to the correct direction
                 bool movingRight = input > 0;
-                if (player.IsFacingRight != movingRight)
+                if (player.isFacingRight != movingRight)
                 {
-                    player.IsFacingRight = movingRight;
+                    player.isFacingRight = movingRight;
                     player.transform.Rotate(0f, movingRight ? 180f : -180f, 0f);
                 }
 
@@ -282,9 +282,9 @@ namespace HSM
             {
                 // Flip the player to the correct direction
                 bool movingRight = input > 0;
-                if (player.IsFacingRight != movingRight)
+                if (player.isFacingRight != movingRight)
                 {
-                    player.IsFacingRight = movingRight;
+                    player.isFacingRight = movingRight;
                     player.transform.Rotate(0f, movingRight ? 180f : -180f, 0f);
                 }
 

@@ -8,11 +8,11 @@ namespace HSM
     public class PlayerCharacterController : MonoBehaviour
     {
         public PhysicsMotor motor;
-        private StateMachine machine;
+        public StateMachine machine;
         private State root;
         public Vector2 velocity;
         private string lastPath;
-        public bool IsFacingRight = true;
+        public bool isFacingRight = true;
         public bool debugInfoPanel = true;
         public float debugInfoPanelHeight = 10f;
         
@@ -29,7 +29,6 @@ namespace HSM
         public float switchdashDuration = .2f;
         public float switchdashDistance = 3.5f;
         public float switchdashCooldown = 0.15f;
-
         
         [Header("Jumping and Falling")]
         public float jumpHeight = 6.5f;
@@ -79,6 +78,8 @@ namespace HSM
             motor.Move(velocity * Time.fixedDeltaTime);
         }
         
+        public bool Grounded => motor.IsGrounded();
+        
         public void SetVerticalVelocity(float value)
         {
             velocity = new Vector2(velocity.x, value);
@@ -98,8 +99,12 @@ namespace HSM
         {
             velocity += new Vector2(value, 0);
         }
+
+        public void OnPlayerEnterCutsceneState(State s)
+        {
+            Debug.Log("Player entered printed from outside Root");
+        }
         
-        public bool grounded => motor.IsGrounded();
         
 #if UNITY_EDITOR
         protected virtual void OnDrawGizmos()
