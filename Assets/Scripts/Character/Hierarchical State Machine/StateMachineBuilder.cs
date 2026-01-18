@@ -15,8 +15,9 @@ namespace HSM
 
         public StateMachine Build()
         {
-            var m = new StateMachine(root);
-            Wire(root, m, new HashSet<State>());
+            var visited = new HashSet<State>();
+            var m = new StateMachine(root, visited);
+            Wire(root, m, visited);
             return m;
         }
 

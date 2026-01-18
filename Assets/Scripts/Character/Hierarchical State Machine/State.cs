@@ -44,7 +44,7 @@ namespace HSM
             State t = GetNextState();
             if (t != null)
             {
-                Machine.Sequencer.RequestTransition(this, t);
+                Machine.ChangeState(this, t);
                 return;
             }
             if (ActiveChild != null) ActiveChild.Update(deltaTime);

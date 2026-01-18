@@ -40,15 +40,15 @@ namespace HSM
 
         protected override State GetNextState()
         {
-            if (InputManager.GetJumpWasPressedThisFrame() || ((PlayerRoot)Parent).jumpBufferTimer > 0)
+            if (InputManager.GetJumpWasPressedThisFrame() || Machine.GetState<PlayerRoot>().jumpBufferTimer > 0)
             {
-                return ((PlayerRoot)Parent).Airborne.Jump;
+                return Machine.GetState<Jump>();
             }
 
             if (!player.grounded)
             {
-                ((PlayerRoot)Parent).coyoteTimer = player.jumpCoyoteTime;
-                return ((PlayerRoot)Parent).Airborne;
+                Machine.GetState<PlayerRoot>().coyoteTimer = player.jumpCoyoteTime;
+                return Machine.GetState<Airborne>();
             }
             
             return null;
@@ -73,7 +73,7 @@ namespace HSM
         {
             if (Mathf.Abs(InputManager.GetMovement().x) > 0.1f)
             {
-                return ((Grounded)Parent).Move;
+                return Machine.GetState<Move>();
             }
             
             return null;
@@ -100,7 +100,7 @@ namespace HSM
         {
             if (Mathf.Abs(InputManager.GetMovement().x) <= 0.1f)
             {
-                return ((Grounded)Parent).Idle;
+                return Machine.GetState<Idle>();
             }
 
             return null;
@@ -155,12 +155,12 @@ namespace HSM
         {
             if (InputManager.GetJumpWasPressedThisFrame())
             {
-                ((PlayerRoot)Parent).jumpBufferTimer = player.jumpBufferTime;
+                Machine.GetState<PlayerRoot>().jumpBufferTimer = player.jumpBufferTime;
             }
             
-            else if (((PlayerRoot)Parent).jumpBufferTimer > 0)
+            else if (Machine.GetState<PlayerRoot>().jumpBufferTimer > 0)
             {
-                ((PlayerRoot)Parent).jumpBufferTimer -= deltaTime;
+                Machine.GetState<PlayerRoot>().jumpBufferTimer -= deltaTime;
             }
         }
     }
@@ -180,12 +180,12 @@ namespace HSM
         {
             if (player.grounded)
             {
-                return ((PlayerRoot)((Airborne)Parent).Parent).Grounded;
+                return Machine.GetState<Grounded>();
             }
 
-            if (InputManager.GetJumpWasPressedThisFrame() && ((PlayerRoot)((Airborne)Parent).Parent).coyoteTimer > 0)
+            if (InputManager.GetJumpWasPressedThisFrame() && Machine.GetState<PlayerRoot>().coyoteTimer > 0)
             {
-                return ((Airborne)Parent).Jump;
+                return Machine.GetState<Jump>();
             }
 
             return null;
@@ -196,9 +196,10 @@ namespace HSM
             // Gather inputs
             input = InputManager.GetMovement().x;
             isMoving = Mathf.Abs(input) > 0.25f;
-            if (((PlayerRoot)((Airborne)Parent).Parent).coyoteTimer > 0)
-                ((PlayerRoot)((Airborne)Parent).Parent).coyoteTimer -= deltaTime;
-            
+            if (Machine.GetState<PlayerRoot>().coyoteTimer > 0)
+            {
+                Machine.GetState<PlayerRoot>().coyoteTimer -= deltaTime;
+            }
         }
         
         protected override void OnFixedUpdate(float fixedDeltaTime)
@@ -246,7 +247,7 @@ namespace HSM
         {
             if (player.velocity.y < 0)
             {
-                return ((Airborne)Parent).Fall;
+                return Machine.GetState<Fall>();
             }
             
             return null;
@@ -258,8 +259,8 @@ namespace HSM
             apexTimer = 0f;
             jumpTimer = 0f;
             jumpCancel = false;
-            ((PlayerRoot)((Airborne)Parent).Parent).jumpBufferTimer = 0;
-            ((PlayerRoot)((Airborne)Parent).Parent).coyoteTimer = 0;
+            Machine.GetState<PlayerRoot>().jumpBufferTimer = 0;
+            Machine.GetState<PlayerRoot>().coyoteTimer = 0;
         }
 
         protected override void OnUpdate(float deltaTime)
@@ -269,7 +270,9 @@ namespace HSM
             isMoving = Mathf.Abs(input) > 0.25f;
             jumpTimer += deltaTime;
             if (!jumpCancel && !InputManager.GetJumpIsPressed())
+            {
                 jumpCancel = true;
+            }
         }
         
         protected override void OnFixedUpdate(float fixedDeltaTime)
