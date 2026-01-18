@@ -8,10 +8,9 @@ namespace HSM
     public class PlayerCharacterController : MonoBehaviour
     {
         public PhysicsMotor motor;
-        public StateMachine machine;
+        public StateMachine Machine;
         private State root;
         public Vector2 velocity;
-        private string lastPath;
         public bool isFacingRight = true;
         public bool debugInfoPanel = true;
         public float debugInfoPanelHeight = 10f;
@@ -64,17 +63,17 @@ namespace HSM
         {
             root = new PlayerRoot(null, this);
             var builder = new StateMachineBuilder(root);
-            machine = builder.Build();
+            Machine = builder.Build();
         }
         
         private void Update()
         {
-            machine.Tick(Time.deltaTime);
+            Machine.Tick(Time.deltaTime);
         }
         
         private void FixedUpdate()
         {
-            machine.FixedTick(Time.fixedDeltaTime);
+            Machine.FixedTick(Time.fixedDeltaTime);
             motor.Move(velocity * Time.fixedDeltaTime);
         }
         
@@ -99,11 +98,6 @@ namespace HSM
         {
             velocity += new Vector2(value, 0);
         }
-
-        public void OnPlayerEnterCutsceneState(State s)
-        {
-            Debug.Log("Player entered printed from outside Root");
-        }
         
         
 #if UNITY_EDITOR
@@ -117,8 +111,8 @@ namespace HSM
             // Add State name to Debug Info
             if (Application.isPlaying)
             {
-                var statePath = string.Join(" > ", machine.Root.Leaf().PathToRoot().Reverse().Skip(1).Select(n => n.GetType().Name));
-                debugInfoPanelText += statePath ?? "NULL ERROR";
+                var statePath = string.Join(" > ", Machine.Root.Leaf().PathToRoot().Reverse().Skip(1).Select(n => n.GetType().Name));
+                debugInfoPanelText += statePath;
             }
             
             // Draw Info Panel
