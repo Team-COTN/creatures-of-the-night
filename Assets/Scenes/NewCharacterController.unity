@@ -317,19 +317,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   motor: {fileID: 400350094}
   velocity: {x: 0, y: 0}
-  IsFacingRight: 1
+  isFacingRight: 1
   debugInfoPanel: 1
   debugInfoPanelHeight: 1.75
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  parryableLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  groundDetectionRayWidth: 1
-  groundDetectionRayLength: 0.02
-  ceilingDetectionRayWidth: 1
-  ceilingDetectionRayLength: 0.02
   moveThreshold: 0.25
   maxWalkSpeed: 5
   groundAcceleration: 5
@@ -1373,7 +1363,7 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
---- !u!43 &2039299929
+--- !u!43 &1746974962
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1589,7 +1579,7 @@ MonoBehaviour:
     rid: 6088874570689019905
   m_ShadowCastingSource: 2
   m_ShadowMesh:
-    m_Mesh: {fileID: 2039299929}
+    m_Mesh: {fileID: 1746974962}
     m_LocalBounds:
       m_Center: {x: 0, y: 0, z: 0}
       m_Extent: {x: 0.4900055, y: 0.4900055, z: 0}
