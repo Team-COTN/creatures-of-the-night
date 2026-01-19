@@ -71,7 +71,7 @@ namespace HSM
 
         protected override State GetNextState()
         {
-            if (Mathf.Abs(InputManager.GetMovement().x) > player.locomotionData.moveThreshold)
+            if (Mathf.Abs(InputManager.GetMovement().x) > player.locomotionData.movementInputThreshold)
             {
                 return Machine.GetState<Move>();
             }
@@ -98,7 +98,7 @@ namespace HSM
 
         protected override State GetNextState()
         {
-            if (Mathf.Abs(InputManager.GetMovement().x) <= player.locomotionData.moveThreshold)
+            if (Mathf.Abs(InputManager.GetMovement().x) <= player.locomotionData.movementInputThreshold)
             {
                 return Machine.GetState<Idle>();
             }
@@ -110,7 +110,7 @@ namespace HSM
         {
             // Gather inputs
             input = InputManager.GetMovement().x;
-            isMoving = Mathf.Abs(input) > player.locomotionData.moveThreshold;
+            isMoving = Mathf.Abs(input) > player.locomotionData.movementInputThreshold;
         }
 
         protected override void OnFixedUpdate(float fixedDeltaTime)
@@ -195,7 +195,7 @@ namespace HSM
         {
             // Gather inputs
             input = InputManager.GetMovement().x;
-            isMoving = Mathf.Abs(input) > player.locomotionData.moveThreshold;
+            isMoving = Mathf.Abs(input) > player.locomotionData.movementInputThreshold;
             if (Machine.GetState<PlayerRoot>().CoyoteTimer > 0)
             {
                 Machine.GetState<PlayerRoot>().CoyoteTimer -= deltaTime;
@@ -265,7 +265,7 @@ namespace HSM
         {
             // Gather inputs
             input = InputManager.GetMovement().x;
-            isMoving = Mathf.Abs(input) > player.locomotionData.moveThreshold;
+            isMoving = Mathf.Abs(input) > player.locomotionData.movementInputThreshold;
             if (!jumpCancel && !InputManager.GetJumpIsPressed())
             {
                 jumpCancel = true;
