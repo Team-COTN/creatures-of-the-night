@@ -9,8 +9,8 @@ namespace HSM
         public readonly Grounded Grounded;
         public readonly Airborne Airborne;
 
-        public float jumpBufferTimer;
-        public float coyoteTimer;
+        public float JumpBufferTimer;
+        public float CoyoteTimer;
 
         public PlayerRoot(StateMachine m, PlayerCharacterController player) : base(m, null)
         {
@@ -40,14 +40,14 @@ namespace HSM
 
         protected override State GetNextState()
         {
-            if (InputManager.GetJumpWasPressedThisFrame() || Machine.GetState<PlayerRoot>().jumpBufferTimer > 0)
+            if (InputManager.GetJumpWasPressedThisFrame() || Machine.GetState<PlayerRoot>().JumpBufferTimer > 0)
             {
                 return Machine.GetState<Jump>();
             }
 
             if (!player.Grounded)
             {
-                Machine.GetState<PlayerRoot>().coyoteTimer = player.jumpCoyoteTime;
+                Machine.GetState<PlayerRoot>().CoyoteTimer = player.jumpCoyoteTime;
                 return Machine.GetState<Airborne>();
             }
             
@@ -155,12 +155,12 @@ namespace HSM
         {
             if (InputManager.GetJumpWasPressedThisFrame())
             {
-                Machine.GetState<PlayerRoot>().jumpBufferTimer = player.jumpBufferTime;
+                Machine.GetState<PlayerRoot>().JumpBufferTimer = player.jumpBufferTime;
             }
             
-            else if (Machine.GetState<PlayerRoot>().jumpBufferTimer > 0)
+            else if (Machine.GetState<PlayerRoot>().JumpBufferTimer > 0)
             {
-                Machine.GetState<PlayerRoot>().jumpBufferTimer -= deltaTime;
+                Machine.GetState<PlayerRoot>().JumpBufferTimer -= deltaTime;
             }
         }
     }
@@ -183,7 +183,7 @@ namespace HSM
                 return Machine.GetState<Grounded>();
             }
 
-            if (InputManager.GetJumpWasPressedThisFrame() && Machine.GetState<PlayerRoot>().coyoteTimer > 0)
+            if (InputManager.GetJumpWasPressedThisFrame() && Machine.GetState<PlayerRoot>().CoyoteTimer > 0)
             {
                 return Machine.GetState<Jump>();
             }
@@ -196,9 +196,9 @@ namespace HSM
             // Gather inputs
             input = InputManager.GetMovement().x;
             isMoving = Mathf.Abs(input) > 0.25f;
-            if (Machine.GetState<PlayerRoot>().coyoteTimer > 0)
+            if (Machine.GetState<PlayerRoot>().CoyoteTimer > 0)
             {
-                Machine.GetState<PlayerRoot>().coyoteTimer -= deltaTime;
+                Machine.GetState<PlayerRoot>().CoyoteTimer -= deltaTime;
             }
         }
         
@@ -232,7 +232,6 @@ namespace HSM
     {
         readonly PlayerCharacterController player;
         private float apexTimer;
-        private float jumpTimer;
         private float input;
         private bool isMoving;
         private bool jumpCancel;
@@ -257,10 +256,9 @@ namespace HSM
         {
             player.SetVerticalVelocity(player.InitialJumpVelocity);
             apexTimer = 0f;
-            jumpTimer = 0f;
             jumpCancel = false;
-            Machine.GetState<PlayerRoot>().jumpBufferTimer = 0;
-            Machine.GetState<PlayerRoot>().coyoteTimer = 0;
+            Machine.GetState<PlayerRoot>().JumpBufferTimer = 0;
+            Machine.GetState<PlayerRoot>().CoyoteTimer = 0;
         }
 
         protected override void OnUpdate(float deltaTime)
@@ -268,7 +266,6 @@ namespace HSM
             // Gather inputs
             input = InputManager.GetMovement().x;
             isMoving = Mathf.Abs(input) > 0.25f;
-            jumpTimer += deltaTime;
             if (!jumpCancel && !InputManager.GetJumpIsPressed())
             {
                 jumpCancel = true;

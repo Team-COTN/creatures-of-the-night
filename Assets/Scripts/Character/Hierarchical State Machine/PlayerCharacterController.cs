@@ -64,6 +64,8 @@ namespace HSM
             root = new PlayerRoot(null, this);
             var builder = new StateMachineBuilder(root);
             Machine = builder.Build();
+            
+            Machine.OnStateEntered<Jump>(OnPlayerJump);
         }
         
         private void Update()
@@ -97,6 +99,11 @@ namespace HSM
         public void IncrementHorizontalVelocity(float value)
         {
             velocity += new Vector2(value, 0);
+        }
+
+        public void OnPlayerJump()
+        {
+            Debug.Log("Jump");
         }
         
         

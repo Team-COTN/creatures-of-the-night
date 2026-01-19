@@ -115,55 +115,55 @@ namespace HSM
     
     public static class StateMachineExtensions
     {
-        public static void OnStateEntered<T>(this StateMachine machine, Action<T> handler) 
+        public static void OnStateEntered<T>(this StateMachine machine, Action handler) 
             where T : State
         {
             machine.StateEntered += (sender, e) =>
             {
                 if (e.State is T state)
                 {
-                    handler(state);
+                    handler();
                 }
             };
         }
         
-        public static void OnStateExited<T>(this StateMachine machine, Action<T> handler) 
+        public static void OnStateExited<T>(this StateMachine machine, Action handler) 
             where T : State
         {
             machine.StateExited += (sender, e) =>
             {
                 if (e.State is T state)
                 {
-                    handler(state);
+                    handler();
                 }
             };
         }
         
-        public static void OnStateChangedTo<T>(this StateMachine machine, Action<T> handler) 
+        public static void OnStateChangedTo<T>(this StateMachine machine, Action handler) 
             where T : State
         {
             machine.StateChanged += (sender, e) =>
             {
                 if (e.To is T state)
                 {
-                    handler(state);
+                    handler();
                 }
             };
         }
         
-        public static void OnStateChangedFrom<T>(this StateMachine machine, Action<T> handler) 
+        public static void OnStateChangedFrom<T>(this StateMachine machine, Action handler) 
             where T : State
         {
             machine.StateChanged += (sender, e) =>
             {
                 if (e.From is T state)
                 {
-                    handler(state);
+                    handler();
                 }
             };
         }
         
-        public static void OnStateChangedFromTo<TFrom, TTo>(this StateMachine machine, Action<TFrom, TTo> handler) 
+        public static void OnStateChangedFromTo<TFrom, TTo>(this StateMachine machine, Action handler) 
             where TFrom : State
             where TTo : State
         {
@@ -171,7 +171,7 @@ namespace HSM
             {
                 if (e.From is TFrom fromState && e.To is TTo toState)
                 {
-                    handler(fromState, toState);
+                    handler();
                 }
             };
         }
