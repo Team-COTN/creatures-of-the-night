@@ -12,6 +12,10 @@ public class CharacterProjectileSpawner : MonoBehaviour
     private VisualProjectiles smallCharacterProjectile;
     private float largeProjectileReloadTimer = 0.1f;
     private float smallProjectileReloadTimer = 0.1f;
+    public float largeCharacterProjectileRotationOffset;
+    public float smallCharacterProjectileRotationOffset;
+
+
     
     void Awake()
     {
@@ -33,7 +37,7 @@ public class CharacterProjectileSpawner : MonoBehaviour
     void ShootLargeProjectile()
     {
         Transform projectile = objectPooler.SpawnFromPool("FunctionalProjectile", projectileSpawnPoint.transform.position, Quaternion.identity).transform;
-        largeCharacterProjectile.SetTarget(projectile);
+        largeCharacterProjectile.SetTarget(projectile, largeCharacterProjectileRotationOffset);
         largeCharacterProjectile = null;
         largeProjectileReloadTimer = projectileReloadTime;
     }
@@ -41,7 +45,7 @@ public class CharacterProjectileSpawner : MonoBehaviour
     void ShootSmallProjectile()
     {
         Transform projectile = objectPooler.SpawnFromPool("FunctionalProjectile", projectileSpawnPoint.transform.position, Quaternion.identity).transform;
-        smallCharacterProjectile.SetTarget(projectile);
+        smallCharacterProjectile.SetTarget(projectile, smallCharacterProjectileRotationOffset);
         smallCharacterProjectile = null;
         smallProjectileReloadTimer = projectileReloadTime;
     }
