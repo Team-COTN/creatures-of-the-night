@@ -4,38 +4,36 @@ using UnityEngine;
 public class CharacterProjectileSpawner : MonoBehaviour
 {
     private ObjectPooler objectPooler;
-    private Character character;
     [SerializeField] private Transform largeProjectileIdleTarget;
     [SerializeField] private Transform smallProjectileIdleTarget;
     [SerializeField] private Transform projectileSpawnPoint;
     [SerializeField] private float projectileReloadTime = 2f;
     private VisualProjectiles largeCharacterProjectile;
     private VisualProjectiles smallCharacterProjectile;
-    private float largeProjectileReloadTimer = 0f;
-    private float smallProjectileReloadTimer = 0f;
+    private float largeProjectileReloadTimer = 0.1f;
+    private float smallProjectileReloadTimer = 0.1f;
     
     void Awake()
     {
         objectPooler = ServiceLocator.Get<ObjectPooler>();
-        character = GameObject.FindGameObjectWithTag("Player").GetComponent<Character>();
     }
     
     void SpawnNewLargeProjectile()
     {
         largeCharacterProjectile = objectPooler.SpawnFromPool("LargeShard", largeProjectileIdleTarget.position, Quaternion.identity).GetComponent<VisualProjectiles>();
-        largeCharacterProjectile.target = largeProjectileIdleTarget;
+        largeCharacterProjectile.SetTarget(largeProjectileIdleTarget);
     }
 
     void SpawnNewSmallProjectile()
     {
         smallCharacterProjectile = objectPooler.SpawnFromPool("SmallShard", largeProjectileIdleTarget.position, Quaternion.identity).GetComponent<VisualProjectiles>();
-        smallCharacterProjectile.target = smallProjectileIdleTarget;
+        smallCharacterProjectile.SetTarget(smallProjectileIdleTarget);
     }
     
     void ShootLargeProjectile()
     {
         Transform projectile = objectPooler.SpawnFromPool("FunctionalProjectile", projectileSpawnPoint.transform.position, Quaternion.identity).transform;
-        largeCharacterProjectile.target = projectile;
+        largeCharacterProjectile.SetTarget(projectile);
         largeCharacterProjectile = null;
         largeProjectileReloadTimer = projectileReloadTime;
     }
@@ -43,7 +41,7 @@ public class CharacterProjectileSpawner : MonoBehaviour
     void ShootSmallProjectile()
     {
         Transform projectile = objectPooler.SpawnFromPool("FunctionalProjectile", projectileSpawnPoint.transform.position, Quaternion.identity).transform;
-        smallCharacterProjectile.target = projectile;
+        smallCharacterProjectile.SetTarget(projectile);
         smallCharacterProjectile = null;
         smallProjectileReloadTimer = projectileReloadTime;
     }

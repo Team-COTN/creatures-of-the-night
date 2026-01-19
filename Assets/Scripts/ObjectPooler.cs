@@ -3,8 +3,6 @@ using UnityEngine;
 
 public class ObjectPooler : MonoBehaviour
 {
-    public int objPriority; //Priority of OBJECT not priority of POOL
-
     //these are the attributes pool objects have
     [System.Serializable]
     public class Pool
@@ -37,7 +35,7 @@ public class ObjectPooler : MonoBehaviour
     }
 
     //actually spawn the object (visible) with specific pos. 
-    public GameObject SpawnFromPool(string tag, Vector2 position, Quaternion rotation, int objPriority = 0)
+    public GameObject SpawnFromPool(string tag, Vector2 position, Quaternion rotation)
     {
         if (!poolDictionary.ContainsKey(tag))
         {
@@ -49,10 +47,6 @@ public class ObjectPooler : MonoBehaviour
         poolObject.SetActive(true);
         poolObject.transform.position = position;
         poolObject.transform.rotation = rotation;
-        
-        
-        // poolObject.id = objID;
-
         
         poolDictionary[tag].Enqueue(poolObject);
         

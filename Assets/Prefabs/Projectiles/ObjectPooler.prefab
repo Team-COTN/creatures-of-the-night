@@ -44,10 +44,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e98d48463c3599499e09cdec15ffe97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objPriority: 0
   pools:
   - tag: LargeShard
     prefab: {fileID: 8760550010042435280, guid: 5e9dccfa30b4d1249b88b73a237437c7, type: 3}
-    size: 5
+    size: 30
   - tag: SmallShard
     prefab: {fileID: 4259814520928381057, guid: 85518ccba2afc974bbf45b1631f5e281, type: 3}
-    size: 5
+    size: 30
+  - tag: FunctionalProjectile
+    prefab: {fileID: 8585289360280582780, guid: 37b16ff4101bb68469b752ba74722298, type: 3}
+    size: 60

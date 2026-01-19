@@ -6,20 +6,15 @@ using UnityEngine.UIElements;
 
 public class VisualProjectiles : MonoBehaviour
 {
-    public float transitionSpeed;
+    private float transitionSpeed = 60f;
     public Transform target;
-    
-    //OnObjectSpawn
-    public void OnEnable()
-    {
-        // play grow animation
-        // target = idle player target (need to animate) 
-    }
-    
-    // public void OnDisable() { objectLaunched = false; }
 
-    public void Update()
+    private void OnDisable() { target = null; }
+    public void SetTarget(Transform t) { target = t; }
+    
+    private void Update()
     {
-        transform.position = Vector3.Lerp(transform.position, target.position, Time.deltaTime * transitionSpeed);
+        if (target != null)
+            transform.position = Vector3.Lerp(transform.position, target.position, Time.deltaTime * transitionSpeed);
     }
 }

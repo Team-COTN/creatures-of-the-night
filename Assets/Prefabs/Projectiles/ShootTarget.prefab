@@ -47,8 +47,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectileSpeed: 1
-  Xoffset: 0
-  Yoffset: 0
 --- !u!58 &3320844059805239557
 CircleCollider2D:
   m_ObjectHideFlags: 0
