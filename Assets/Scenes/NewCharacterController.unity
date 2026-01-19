@@ -119,63 +119,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &274934376
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4383035392077590799, guid: 4d93d5bc8b931fa478827d994f55d53b, type: 3}
-      propertyPath: m_Name
-      value: Character
-      objectReference: {fileID: 0}
-    - target: {fileID: 5960488417293777489, guid: 4d93d5bc8b931fa478827d994f55d53b, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.00495
-      objectReference: {fileID: 0}
-    - target: {fileID: 5960488417293777489, guid: 4d93d5bc8b931fa478827d994f55d53b, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5960488417293777489, guid: 4d93d5bc8b931fa478827d994f55d53b, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5960488417293777489, guid: 4d93d5bc8b931fa478827d994f55d53b, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5960488417293777489, guid: 4d93d5bc8b931fa478827d994f55d53b, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5960488417293777489, guid: 4d93d5bc8b931fa478827d994f55d53b, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5960488417293777489, guid: 4d93d5bc8b931fa478827d994f55d53b, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5960488417293777489, guid: 4d93d5bc8b931fa478827d994f55d53b, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5960488417293777489, guid: 4d93d5bc8b931fa478827d994f55d53b, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5960488417293777489, guid: 4d93d5bc8b931fa478827d994f55d53b, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 4d93d5bc8b931fa478827d994f55d53b, type: 3}
 --- !u!1 &400350089
 GameObject:
   m_ObjectHideFlags: 0
@@ -190,7 +133,7 @@ GameObject:
   - component: {fileID: 400350094}
   - component: {fileID: 400350097}
   m_Layer: 0
-  m_Name: New Character
+  m_Name: Character
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -318,28 +261,9 @@ MonoBehaviour:
   motor: {fileID: 400350094}
   velocity: {x: 0, y: 0}
   isFacingRight: 1
+  locomotionData: {fileID: 11400000, guid: d8ab63eb9aef2c34fbf91ea9d087f2c1, type: 2}
   debugInfoPanel: 1
   debugInfoPanelHeight: 1.75
-  moveThreshold: 0.25
-  maxWalkSpeed: 5
-  groundAcceleration: 5
-  groundDeceleration: 20
-  dashDuration: 0.5
-  dashDistance: 1
-  dashCooldown: 1
-  switchdashDuration: 0.2
-  switchdashDistance: 3.5
-  switchdashCooldown: 0.15
-  jumpHeight: 3
-  timeTillJumpApex: 0.5
-  timeToJumpCancel: 0.25
-  gravityOnReleaseMultiplier: 2
-  apexThreshold: 0.97
-  apexHangTime: 0.05
-  jumpBufferTime: 0.2
-  jumpCoyoteTime: 0.2
-  airHorizontalAcceleration: 50
-  airHorizontalDeceleration: 50
 --- !u!1001 &515092343
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1363,7 +1287,7 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
---- !u!43 &1746974962
+--- !u!43 &1849588549
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1579,7 +1503,7 @@ MonoBehaviour:
     rid: 6088874570689019905
   m_ShadowCastingSource: 2
   m_ShadowMesh:
-    m_Mesh: {fileID: 1746974962}
+    m_Mesh: {fileID: 1849588549}
     m_LocalBounds:
       m_Center: {x: 0, y: 0, z: 0}
       m_Extent: {x: 0.4900055, y: 0.4900055, z: 0}
@@ -1678,7 +1602,6 @@ SceneRoots:
   - {fileID: 924479247}
   - {fileID: 1482519955}
   - {fileID: 515092343}
-  - {fileID: 274934376}
   - {fileID: 400350093}
   - {fileID: 2062249518}
   - {fileID: 1535135248}

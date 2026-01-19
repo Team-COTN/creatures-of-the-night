@@ -7,57 +7,19 @@ namespace HSM
 {
     public class PlayerCharacterController : MonoBehaviour
     {
+        [Header("References")]
         public PhysicsMotor motor;
         public StateMachine Machine;
         private State root;
         public Vector2 velocity;
         public bool isFacingRight = true;
+
+        [Header("Settings")]
+        public CharacterLocomotionData locomotionData;
+        
+        [Header("Debug")]
         public bool debugInfoPanel = true;
         public float debugInfoPanelHeight = 10f;
-        
-        [Header("Walking")]
-        [Range(0f, 1f)] public float moveThreshold = 0.25f;
-        [Range(1f, 100f)] public float maxWalkSpeed = 12.5f;
-        [Range(0.25f, 50f)] public float groundAcceleration = 5f;
-        [Range(0.25f, 50f)] public float groundDeceleration = 20f;
-
-        [Header("Dashing")]
-        public float dashDuration = 0.5f;
-        public float dashDistance = 1.0f;
-        public float dashCooldown = 1f;
-        public float switchdashDuration = .2f;
-        public float switchdashDistance = 3.5f;
-        public float switchdashCooldown = 0.15f;
-        
-        [Header("Jumping and Falling")]
-        public float jumpHeight = 6.5f;
-        public float timeTillJumpApex = 0.35f;
-        public float timeToJumpCancel = 0.25f;
-        [Range(0.01f, 5f)] public float gravityOnReleaseMultiplier = 2f;
-        [Range(0.5f, 1f)] public float apexThreshold = 0.97f;
-        [Range(0.01f, 1f)] public float apexHangTime = 0.075f;
-        
-        [Header("Jump Buffer and Coyote Time")]
-        [Range(0f, 1f)] public float jumpBufferTime = 0.125f;
-        [Range(0f, 1f)] public float jumpCoyoteTime = 0.1f;
-        
-        [Header("Air Movement")]
-        [Range(0.25f, 50f)] public float airHorizontalAcceleration = 5f;
-        [Range(0.25f, 50f)] public float airHorizontalDeceleration = 20f;
-        
-        private const float JumpHeightCompensationFactor = 1.054f;
-        public float Gravity { get; private set; }
-        public float InitialJumpVelocity { get; private set; }
-        private float AdjustedJumpHeight { get; set; }
-        
-        private void OnValidate() => CalculateJumpStats();
-        private void OnEnable() => CalculateJumpStats();
-        private void CalculateJumpStats()
-        {
-            AdjustedJumpHeight = jumpHeight * JumpHeightCompensationFactor;
-            Gravity = -(2f * AdjustedJumpHeight) / Mathf.Pow(timeTillJumpApex, 2f);
-            InitialJumpVelocity = Mathf.Abs(Gravity) * timeTillJumpApex;
-        }
         
         private void Awake()
         {

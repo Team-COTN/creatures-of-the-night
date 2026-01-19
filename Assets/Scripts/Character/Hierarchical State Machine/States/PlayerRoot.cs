@@ -47,7 +47,7 @@ namespace HSM
 
             if (!player.Grounded)
             {
-                Machine.GetState<PlayerRoot>().CoyoteTimer = player.jumpCoyoteTime;
+                Machine.GetState<PlayerRoot>().CoyoteTimer = player.locomotionData.jumpCoyoteTime;
                 return Machine.GetState<Airborne>();
             }
             
@@ -71,7 +71,7 @@ namespace HSM
 
         protected override State GetNextState()
         {
-            if (Mathf.Abs(InputManager.GetMovement().x) > 0.1f)
+            if (Mathf.Abs(InputManager.GetMovement().x) > player.locomotionData.moveThreshold)
             {
                 return Machine.GetState<Move>();
             }
@@ -98,7 +98,7 @@ namespace HSM
 
         protected override State GetNextState()
         {
-            if (Mathf.Abs(InputManager.GetMovement().x) <= 0.1f)
+            if (Mathf.Abs(InputManager.GetMovement().x) <= player.locomotionData.moveThreshold)
             {
                 return Machine.GetState<Idle>();
             }
@@ -110,7 +110,7 @@ namespace HSM
         {
             // Gather inputs
             input = InputManager.GetMovement().x;
-            isMoving = Mathf.Abs(input) > 0.25f;
+            isMoving = Mathf.Abs(input) > player.locomotionData.moveThreshold;
         }
 
         protected override void OnFixedUpdate(float fixedDeltaTime)
@@ -126,7 +126,7 @@ namespace HSM
                     player.transform.Rotate(0f, movingRight ? 180f : -180f, 0f);
                 }
 
-                float targetVelocity = input * player.maxWalkSpeed;
+                float targetVelocity = input * player.locomotionData.maxWalkSpeed;
                 player.SetHorizontalVelocity(targetVelocity);
             }
             else
@@ -155,7 +155,7 @@ namespace HSM
         {
             if (InputManager.GetJumpWasPressedThisFrame())
             {
-                Machine.GetState<PlayerRoot>().JumpBufferTimer = player.jumpBufferTime;
+                Machine.GetState<PlayerRoot>().JumpBufferTimer = player.locomotionData.jumpBufferTime;
             }
             
             else if (Machine.GetState<PlayerRoot>().JumpBufferTimer > 0)
@@ -195,7 +195,7 @@ namespace HSM
         {
             // Gather inputs
             input = InputManager.GetMovement().x;
-            isMoving = Mathf.Abs(input) > 0.25f;
+            isMoving = Mathf.Abs(input) > player.locomotionData.moveThreshold;
             if (Machine.GetState<PlayerRoot>().CoyoteTimer > 0)
             {
                 Machine.GetState<PlayerRoot>().CoyoteTimer -= deltaTime;
@@ -215,7 +215,7 @@ namespace HSM
                     player.transform.Rotate(0f, movingRight ? 180f : -180f, 0f);
                 }
 
-                float targetVelocity = input * player.maxWalkSpeed;
+                float targetVelocity = input * player.locomotionData.maxWalkSpeed;
                 player.SetHorizontalVelocity(targetVelocity);
             }
             else
@@ -224,7 +224,7 @@ namespace HSM
             }
             
             // Vertical Movement
-            player.IncrementVerticalVelocity(player.Gravity * 1.25f * fixedDeltaTime);
+            player.IncrementVerticalVelocity(player.locomotionData.Gravity * player.locomotionData.gravityFallMultiplier * fixedDeltaTime);
         }
     }
 
@@ -254,7 +254,7 @@ namespace HSM
 
         protected override void OnEnter()
         {
-            player.SetVerticalVelocity(player.InitialJumpVelocity);
+            player.SetVerticalVelocity(player.locomotionData.InitialJumpVelocity);
             apexTimer = 0f;
             jumpCancel = false;
             Machine.GetState<PlayerRoot>().JumpBufferTimer = 0;
@@ -265,7 +265,7 @@ namespace HSM
         {
             // Gather inputs
             input = InputManager.GetMovement().x;
-            isMoving = Mathf.Abs(input) > 0.25f;
+            isMoving = Mathf.Abs(input) > player.locomotionData.moveThreshold;
             if (!jumpCancel && !InputManager.GetJumpIsPressed())
             {
                 jumpCancel = true;
@@ -285,7 +285,7 @@ namespace HSM
                     player.transform.Rotate(0f, movingRight ? 180f : -180f, 0f);
                 }
 
-                float targetVelocity = input * player.maxWalkSpeed;
+                float targetVelocity = input * player.locomotionData.maxWalkSpeed;
                 player.SetHorizontalVelocity(targetVelocity);
             }
             else
@@ -303,11 +303,11 @@ namespace HSM
             // If we canceled our jump, increase the gravity until we're falling
             else if (jumpCancel)
             {
-                player.IncrementVerticalVelocity(player.Gravity * 3f * fixedDeltaTime);
+                player.IncrementVerticalVelocity(player.locomotionData.Gravity * player.locomotionData.gravityOnReleaseMultiplier * fixedDeltaTime);
             }
             
             // If we hit the apex of our jump, hang in the air a bit
-            else if (player.velocity.y < 0.01f && apexTimer < player.apexHangTime)
+            else if (player.velocity.y < 0.01f && apexTimer < player.locomotionData.apexHangTime)
             {
                 apexTimer += fixedDeltaTime;
                 player.SetVerticalVelocity(0);
@@ -316,7 +316,7 @@ namespace HSM
             // Otherwise conform to gravity like normal
             else
             {
-                player.IncrementVerticalVelocity(player.Gravity * fixedDeltaTime);
+                player.IncrementVerticalVelocity(player.locomotionData.Gravity * fixedDeltaTime);
             }
         }
     }
