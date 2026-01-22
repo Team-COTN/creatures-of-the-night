@@ -46,7 +46,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d61e022d4acae34d8bfefee9250b54c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileSpeed: 1
+  vfx: {fileID: 8356700481409397600, guid: a06d3fcc8168ea840ac952c9f520961e, type: 3}
+  visual: {fileID: 0}
 --- !u!58 &3320844059805239557
 CircleCollider2D:
   m_ObjectHideFlags: 0

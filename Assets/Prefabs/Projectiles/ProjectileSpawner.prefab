@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4733301047393273701}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.60984015, y: -0.28043985, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -44,6 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01543553919f52247994d16d6f4a7ce9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  largeCharacterProjectile: {fileID: 8760550010042435280, guid: 5e9dccfa30b4d1249b88b73a237437c7, type: 3}
-  smallCharacterProjectile: {fileID: 4259814520928381057, guid: 85518ccba2afc974bbf45b1631f5e281, type: 3}
-  projectileTarget: {fileID: 6454677084520875492, guid: b00cc288c39567948bc255d0eda75103, type: 3}
+  largeProjectileIdleTarget: {fileID: 0}
+  smallProjectileIdleTarget: {fileID: 0}
+  projectileSpawnPoint: {fileID: 0}
+  projectileReloadTime: 2
+  largeCharacterProjectileRotationOffset: 295
+  smallCharacterProjectileRotationOffset: 345

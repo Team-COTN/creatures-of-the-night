@@ -12,21 +12,25 @@ public class VisualProjectiles : MonoBehaviour
     private Quaternion rotate;
     private Transform target;
     public bool facingRight;
+    public string projectileTag;
 
     // Quaternion.Euler(0f, facingRight ? 0f : 180f, 0f);
 
-    private void Awake()
-    {
-        character = GameObject.FindGameObjectWithTag("Player").GetComponent<Character>().gameObject;
-    }
+    private void Awake() => character = GameObject.FindGameObjectWithTag("Player").GetComponent<Character>().gameObject;
     
     private void OnDisable() { target = null; }
-    public void SetTarget(Transform t) { target = t; }
-    public void SetTarget(Transform t, float r) 
-    { 
-        target = t; 
-        rotate = Quaternion.Euler(0f, facingRight ? 0f : 180f, r); 
+
+    public bool GetTargetStatus()
+    {
+        if (target == null)
+            return false;
+        else
+            return true;
     }
+
+    public void ReturnToPool() => ServiceLocator.Get<ObjectPooler>().ReturnToPool(projectileTag, gameObject);
+    
+    public void SetTarget(Transform t) { target = t; }
     
     private void Update()
     {
@@ -35,7 +39,7 @@ public class VisualProjectiles : MonoBehaviour
         if (target != null)
         {
             transform.position = Vector3.Lerp(transform.position, target.position, Time.deltaTime * transitionSpeed);
-            transform.rotation = Quaternion.Slerp(transform.rotation, rotate, Time.deltaTime * transitionSpeed);
+            transform.rotation = Quaternion.Slerp(transform.rotation, target.rotation, Time.deltaTime * transitionSpeed);
         }
     }
 }

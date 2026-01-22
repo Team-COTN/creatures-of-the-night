@@ -6,10 +6,18 @@
   <component name="ChangeListManager">
     <list default="true" id="34d767e2-3a25-4e05-adc4-202298aca86f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.creatures-of-the-night/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.creatures-of-the-night/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Projectiles/GrowLargeShard.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Projectiles/GrowLargeShard.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Projectiles/ProjectileSpawner.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Projectiles/ProjectileSpawner.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Projectiles/ShootTarget.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Projectiles/ShootTarget.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Projectiles/Small Projectile Variant.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Projectiles/Small Projectile Variant.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CharacterProjectileSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CharacterProjectileSpawner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CharacterInteractions/EnemieHealth/Hazard.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CharacterInteractions/EnemieHealth/Hazard.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CharacterProjectileSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CharacterInteractions/Projectiles/CharacterProjectileSpawner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CharacterProjectileSpawner.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CharacterInteractions/Projectiles/CharacterProjectileSpawner.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/FunctionalProjectiles.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CharacterInteractions/Projectiles/FunctionalProjectiles.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/FunctionalProjectiles.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CharacterInteractions/Projectiles/FunctionalProjectiles.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ObjectPooler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CharacterInteractions/Projectiles/ObjectPooler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ObjectPooler.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CharacterInteractions/Projectiles/ObjectPooler.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/VisualProjectiles.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/VisualProjectiles.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Oct/OctoberDemo.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/Oct/OctoberDemo.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,6 +135,7 @@
       <workItem from="1768588169094" duration="5874000" />
       <workItem from="1768619918008" duration="6086000" />
       <workItem from="1768787103273" duration="9120000" />
+      <workItem from="1769016055357" duration="14191000" />
     </task>
     <servers />
   </component>
