@@ -1,9 +1,11 @@
-using System;
-using UnityEngine;
-using UnityEditor;
 using System.Linq;
+using HSM;
+using Player.Data;
+using Player.States;
+using UnityEditor;
+using UnityEngine;
 
-namespace HSM
+namespace Player
 {
     public class PlayerCharacterController : MonoBehaviour
     {
@@ -15,7 +17,7 @@ namespace HSM
         public bool isFacingRight = true;
 
         [Header("Settings")]
-        public CharacterLocomotionData locomotionData;
+        public Locomotion locomotionData;
         
         [Header("Debug")]
         public bool debugInfoPanel = true;
@@ -23,11 +25,9 @@ namespace HSM
         
         private void Awake()
         {
-            root = new PlayerRoot(null, this);
+            root = new Root(null, this);
             var builder = new StateMachineBuilder(root);
             Machine = builder.Build();
-            
-            Machine.OnStateEntered<Jump>(OnPlayerJump);
         }
         
         private void Update()
@@ -62,15 +62,9 @@ namespace HSM
         {
             velocity += new Vector2(value, 0);
         }
-
-        public void OnPlayerJump()
-        {
-            Debug.Log("Jump");
-        }
-        
         
 #if UNITY_EDITOR
-        protected virtual void OnDrawGizmos()
+        private void OnDrawGizmos()
         {
             if (!debugInfoPanel) return;
 

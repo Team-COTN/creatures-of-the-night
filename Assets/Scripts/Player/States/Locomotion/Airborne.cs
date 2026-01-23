@@ -1,141 +1,8 @@
-using UnityEditor.Experimental.GraphView;
+using HSM;
 using UnityEngine;
 
-namespace HSM
+namespace Player.States.Locomotion
 {
-    public class PlayerRoot : State
-    {
-        readonly PlayerCharacterController player;
-        public readonly Grounded Grounded;
-        public readonly Airborne Airborne;
-
-        public float JumpBufferTimer;
-        public float CoyoteTimer;
-
-        public PlayerRoot(StateMachine m, PlayerCharacterController player) : base(m, null)
-        {
-            this.player = player;
-            Grounded = new Grounded(m, this, player);
-            Airborne = new Airborne(m, this, player);
-        }
-
-        protected override State GetDefaultChildState() => Grounded;
-        protected override State GetNextState() => null;
-    }
-    
-    public class Grounded : State
-    {
-        readonly PlayerCharacterController player;
-        public readonly Idle Idle; 
-        public readonly Move Move;
-
-        public Grounded(StateMachine m, State parent, PlayerCharacterController player) : base(m, parent)
-        {
-            this.player = player;
-            Idle = new Idle(m, this, player);
-            Move = new Move(m, this, player);
-        }
-
-        protected override State GetDefaultChildState() => Idle;
-
-        protected override State GetNextState()
-        {
-            if (InputManager.GetJumpWasPressedThisFrame() || Machine.GetState<PlayerRoot>().JumpBufferTimer > 0)
-            {
-                return Machine.GetState<Jump>();
-            }
-
-            if (!player.Grounded)
-            {
-                Machine.GetState<PlayerRoot>().CoyoteTimer = player.locomotionData.jumpCoyoteTime;
-                return Machine.GetState<Airborne>();
-            }
-            
-            return null;
-        }
-
-        protected override void OnFixedUpdate(float fixedDeltaTime)
-        {
-            player.SetVerticalVelocity(-0.01f);
-        }
-    }
-    
-    public class Idle : State
-    {
-        readonly PlayerCharacterController player;
-
-        public Idle(StateMachine m, State parent, PlayerCharacterController player) : base(m, parent)
-        {
-            this.player = player;
-        }
-
-        protected override State GetNextState()
-        {
-            if (Mathf.Abs(InputManager.GetMovement().x) > player.locomotionData.movementInputThreshold)
-            {
-                return Machine.GetState<Move>();
-            }
-            
-            return null;
-        }
-        
-        protected override void OnEnter()
-        {
-            player.SetHorizontalVelocity(0f);
-        }
-    }
-
-    public class Move : State
-    {
-        readonly PlayerCharacterController player;
-        private float input;
-        private bool isMoving;
-
-        public Move(StateMachine m, State parent, PlayerCharacterController player) : base(m, parent)
-        {
-            this.player = player;
-        }
-
-        protected override State GetNextState()
-        {
-            if (Mathf.Abs(InputManager.GetMovement().x) <= player.locomotionData.movementInputThreshold)
-            {
-                return Machine.GetState<Idle>();
-            }
-
-            return null;
-        }
-
-        protected override void OnUpdate(float deltaTime)
-        {
-            // Gather inputs
-            input = InputManager.GetMovement().x;
-            isMoving = Mathf.Abs(input) > player.locomotionData.movementInputThreshold;
-        }
-
-        protected override void OnFixedUpdate(float fixedDeltaTime)
-        {
-            // Horizontal Movement
-            if (isMoving)
-            {
-                // Flip the player to the correct direction
-                bool movingRight = input > 0;
-                if (player.isFacingRight != movingRight)
-                {
-                    player.isFacingRight = movingRight;
-                    player.transform.Rotate(0f, movingRight ? 180f : -180f, 0f);
-                }
-
-                float targetVelocity = input * player.locomotionData.maxWalkSpeed;
-                player.SetHorizontalVelocity(targetVelocity);
-            }
-            else
-            {
-                player.SetHorizontalVelocity(0);
-            }
-        }
-    }
-    
     public class Airborne : State
     {
         readonly PlayerCharacterController player;
@@ -143,24 +10,24 @@ namespace HSM
         public readonly Jump Jump;
 
         protected override State GetDefaultChildState() => Fall;
-        
+    
         public Airborne(StateMachine m, State parent, PlayerCharacterController player) : base(m, parent)
         {
             this.player = player;
             this.Fall = new Fall(m, this, player);
             this.Jump = new Jump(m, this, player);
         }
-        
+    
         protected override void OnUpdate(float deltaTime)
         {
             if (InputManager.GetJumpWasPressedThisFrame())
             {
-                Machine.GetState<PlayerRoot>().JumpBufferTimer = player.locomotionData.jumpBufferTime;
+                Machine.GetState<Root>().JumpBufferTimer = player.locomotionData.jumpBufferTime;
             }
-            
-            else if (Machine.GetState<PlayerRoot>().JumpBufferTimer > 0)
+        
+            else if (Machine.GetState<Root>().JumpBufferTimer > 0)
             {
-                Machine.GetState<PlayerRoot>().JumpBufferTimer -= deltaTime;
+                Machine.GetState<Root>().JumpBufferTimer -= deltaTime;
             }
         }
     }
@@ -170,7 +37,7 @@ namespace HSM
         readonly PlayerCharacterController player;
         private float input;
         private bool isMoving;
-        
+    
         public Fall(StateMachine m, State parent, PlayerCharacterController player) : base(m, parent)
         {
             this.player = player;
@@ -183,25 +50,25 @@ namespace HSM
                 return Machine.GetState<Grounded>();
             }
 
-            if (InputManager.GetJumpWasPressedThisFrame() && Machine.GetState<PlayerRoot>().CoyoteTimer > 0)
+            if (InputManager.GetJumpWasPressedThisFrame() && Machine.GetState<Root>().CoyoteTimer > 0)
             {
                 return Machine.GetState<Jump>();
             }
 
             return null;
         }
-        
+    
         protected override void OnUpdate(float deltaTime)
         {
             // Gather inputs
             input = InputManager.GetMovement().x;
             isMoving = Mathf.Abs(input) > player.locomotionData.movementInputThreshold;
-            if (Machine.GetState<PlayerRoot>().CoyoteTimer > 0)
+            if (Machine.GetState<Root>().CoyoteTimer > 0)
             {
-                Machine.GetState<PlayerRoot>().CoyoteTimer -= deltaTime;
+                Machine.GetState<Root>().CoyoteTimer -= deltaTime;
             }
         }
-        
+    
         protected override void OnFixedUpdate(float fixedDeltaTime)
         {
             // Horizontal Movement
@@ -222,7 +89,7 @@ namespace HSM
             {
                 player.SetHorizontalVelocity(0);
             }
-            
+        
             // Vertical Movement
             player.IncrementVerticalVelocity(player.locomotionData.Gravity * player.locomotionData.gravityFallMultiplier * fixedDeltaTime);
         }
@@ -236,19 +103,19 @@ namespace HSM
         private bool isMoving;
         private bool jumpCancel;
         private float jumpCancelVelocity;
-        
+    
         public Jump(StateMachine m, State parent, PlayerCharacterController player) : base(m, parent)
         {
             this.player = player;
         }
-        
+    
         protected override State GetNextState()
         {
             if (player.velocity.y < 0)
             {
                 return Machine.GetState<Fall>();
             }
-            
+        
             return null;
         }
 
@@ -257,8 +124,8 @@ namespace HSM
             player.SetVerticalVelocity(player.locomotionData.InitialJumpVelocity);
             apexTimer = 0f;
             jumpCancel = false;
-            Machine.GetState<PlayerRoot>().JumpBufferTimer = 0;
-            Machine.GetState<PlayerRoot>().CoyoteTimer = 0;
+            Machine.GetState<Root>().JumpBufferTimer = 0;
+            Machine.GetState<Root>().CoyoteTimer = 0;
         }
 
         protected override void OnUpdate(float deltaTime)
@@ -271,7 +138,7 @@ namespace HSM
                 jumpCancel = true;
             }
         }
-        
+    
         protected override void OnFixedUpdate(float fixedDeltaTime)
         {
             // Horizontal Movement
@@ -292,27 +159,27 @@ namespace HSM
             {
                 player.SetHorizontalVelocity(0);
             }
-            
+        
             // Vertical Movement
             // If we bump our head, immediately set ourselves to falling
             if (player.motor.BumpedHead())
             {
                 player.SetVerticalVelocity(-0.01f);
             }
-            
+        
             // If we canceled our jump, increase the gravity until we're falling
             else if (jumpCancel)
             {
                 player.IncrementVerticalVelocity(player.locomotionData.Gravity * player.locomotionData.gravityOnReleaseMultiplier * fixedDeltaTime);
             }
-            
+        
             // If we hit the apex of our jump, hang in the air a bit
             else if (player.velocity.y < 0.01f && apexTimer < player.locomotionData.apexHangTime)
             {
                 apexTimer += fixedDeltaTime;
                 player.SetVerticalVelocity(0);
             }
-            
+        
             // Otherwise conform to gravity like normal
             else
             {
