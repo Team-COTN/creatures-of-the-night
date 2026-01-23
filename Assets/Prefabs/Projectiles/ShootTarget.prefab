@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6945387242236283488}
   - component: {fileID: 3320844059805239557}
   - component: {fileID: 2155508078219234863}
+  - component: {fileID: 443504352790700176}
   m_Layer: 0
   m_Name: ShootTarget
   m_TagString: Untagged
@@ -111,3 +112,16 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 2
+--- !u!114 &443504352790700176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8585289360280582780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d33ca4da7ef49a42bcee17f820dddff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hazardStrength: 1

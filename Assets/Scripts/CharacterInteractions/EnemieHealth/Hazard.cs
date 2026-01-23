@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using System.Collections;
 
-public class Hazard : MonoBehaviour, IShootable
+public class Hazard : MonoBehaviour
 {
     public int hazardStrength = 2;
     

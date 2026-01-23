@@ -1,11 +1,16 @@
 using UnityEngine;
 
-public class Enemy : MonoBehaviour, IDamagable
+public class Enemy : MonoBehaviour, IDamagable, IShootable
 {
-    private int enemyStrength = 1;
+    public int enemyStrength = 1;
+    public int enemyHP = 5;
+    public int damageTaken = 0;
+
     void Update()
     {
-        //enemy behaviour
+        if (enemyHP <= damageTaken)
+            Destroy(this.gameObject);
+
     }
 
     public void OnCollisionEnter2D(Collision2D col)
@@ -16,8 +21,17 @@ public class Enemy : MonoBehaviour, IDamagable
             damagable.TakeDamage(enemyStrength);
     }
 
+    public void TakeShotDamage(int damageAmount)
+    {
+        damageTaken+= damageAmount;
+        Debug.Log("OOF Shot by:" + damageAmount);
+        Debug.Log("Total Damage Taken: " + damageTaken);
+
+    }
+
     public void TakeDamage(int damageAmount)
     {
+        damageTaken+= damageAmount;
         Debug.Log("OOF by:" + damageAmount);
     }
 }

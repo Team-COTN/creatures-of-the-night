@@ -35,9 +35,12 @@ public class FunctionalProjectiles : MonoBehaviour
     //on wall collision go back in queue (and FX)
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.TryGetComponent(out IShootable shootable))
+
+        if (other.gameObject.TryGetComponent<IShootable>(out IShootable shootable))
         {
             Debug.Log("shot " + shootable.GetType().Name);
+            shootable.TakeShotDamage(1);
+
             vfx.SendEvent("Hit");
 
             if (visual)
