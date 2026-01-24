@@ -40,9 +40,10 @@ public class FunctionalProjectiles : MonoBehaviour
         {
             Debug.Log("shot " + shootable.GetType().Name);
             shootable.TakeShotDamage(1);
-
-            vfx.SendEvent("Hit");
-
+            
+            VisualEffect newVFX = Instantiate(vfx, transform.position, transform.rotation).GetComponent<VisualEffect>();
+            newVFX.SendEvent("Hit");
+            
             if (visual)
             {
                 visual.ReturnToPool();

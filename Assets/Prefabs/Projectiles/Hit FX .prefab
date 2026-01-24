@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 53719021314990400}
   - component: {fileID: 8356700481409397600}
   - component: {fileID: 2215719153234903330}
+  - component: {fileID: 3731997969506009855}
   m_Layer: 0
   m_Name: 'Hit FX '
   m_TagString: Untagged
@@ -41,7 +42,7 @@ VisualEffect:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3868939084863845974}
   m_Enabled: 1
-  m_Asset: {fileID: 8926484042661614526, guid: 1ee014c53f333f242a4afd65c155c0bd, type: 3}
+  m_Asset: {fileID: 8926484042661614526, guid: 60fa5e47f985d974880611a74c69b484, type: 3}
   m_InitialEventName: 
   m_InitialEventNameOverriden: 1
   m_StartSeed: 0
@@ -114,3 +115,15 @@ VFXRenderer:
   m_SortingLayerID: -2125141955
   m_SortingLayer: 6
   m_SortingOrder: 0
+--- !u!114 &3731997969506009855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3868939084863845974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8f957cd62f5b574e9edc85a8a7202e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
