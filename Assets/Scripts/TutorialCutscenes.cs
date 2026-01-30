@@ -20,6 +20,7 @@ public class TutorialCutscenes : MonoBehaviour
         {
             tutorialGroup.SetActive(true);
             timeline.Play();
+            Debug.Log("tutorial cutscene triggered entere giiiioo");
             
         }
     }
@@ -29,6 +30,7 @@ public class TutorialCutscenes : MonoBehaviour
         {
             timeline.Stop();
             tutorialGroup.SetActive(false);
+            //https://www.youtube.com/watch?v=Mn3veUb4hA0
         }
     }
 }
