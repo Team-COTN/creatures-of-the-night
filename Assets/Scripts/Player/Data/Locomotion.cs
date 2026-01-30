@@ -24,6 +24,7 @@ namespace Player.Data
         public float dashDistance = 1.0f;
         public float dashDuration = 0.5f;
         public float dashCooldown = 1f;
+        public float airDashHangTime = 0.1f;
     
         [Header("Switch-Dash")]
         public float switchDashDistance = 3.5f;

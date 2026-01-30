@@ -1,3 +1,4 @@
+using DentedPixel;
 using HSM;
 using UnityEngine;
 
@@ -8,23 +9,43 @@ namespace Player.States.Locomotion
         readonly PlayerCharacterController player;
         public readonly Fall Fall;
         public readonly Jump Jump;
+        public readonly AirDash AirDash;
+        public bool CanDash;
 
         protected override State GetDefaultChildState() => Fall;
     
         public Airborne(StateMachine m, State parent, PlayerCharacterController player) : base(m, parent)
         {
             this.player = player;
-            this.Fall = new Fall(m, this, player);
-            this.Jump = new Jump(m, this, player);
+            Fall = new Fall(m, this, player);
+            Jump = new Jump(m, this, player);
+            AirDash = new AirDash(m, this, player);
         }
-    
+
+        protected override State GetNextState()
+        {
+            if (Leaf() == AirDash) return null;
+            
+            if (InputManager.GetDashWasPressedThisFrame() && CanDash)
+            {
+                return AirDash;
+            }
+
+            return null;
+        }
+
+        protected override void OnEnter()
+        {
+            CanDash = true;
+        }
+        
         protected override void OnUpdate(float deltaTime)
         {
             if (InputManager.GetJumpWasPressedThisFrame())
             {
                 Machine.GetState<Root>().JumpBufferTimer = player.locomotionData.jumpBufferTime;
             }
-        
+            
             else if (Machine.GetState<Root>().JumpBufferTimer > 0)
             {
                 Machine.GetState<Root>().JumpBufferTimer -= deltaTime;
@@ -185,6 +206,62 @@ namespace Player.States.Locomotion
             {
                 player.IncrementVerticalVelocity(player.locomotionData.Gravity * fixedDeltaTime);
             }
+        }
+    }
+    
+    public class AirDash : State
+    {
+        readonly PlayerCharacterController player;
+        private float dashTimer;
+        private float input;
+        private bool isMoving;
+        
+        public AirDash(StateMachine m, State parent, PlayerCharacterController player) : base(m, parent)
+        {
+            this.player = player;
+        }
+
+        protected override State GetNextState()
+        {
+            if (dashTimer >= player.locomotionData.dashDuration)
+            {
+                return Machine.GetState<Fall>();
+            }
+            return null;
+        }
+        
+        protected override void OnEnter()
+        {
+            dashTimer = 0f;
+            Machine.GetState<Airborne>().CanDash = false;
+        }
+
+        protected override void OnUpdate(float deltaTime)
+        {
+            // Gather inputs
+            input = InputManager.GetMovement().x;
+            isMoving = Mathf.Abs(input) > player.locomotionData.movementInputThreshold;
+
+            dashTimer += deltaTime;
+        }
+
+        protected override void OnFixedUpdate(float fixedDeltaTime)
+        {
+            // Horizontal Movement
+            var distance = player.locomotionData.dashDistance;
+            var duration = player.locomotionData.dashDuration;
+            var finalVelocity = player.locomotionData.maxWalkSpeed;
+            var initialVelocity = (2 * distance / duration) - finalVelocity;
+            var t = Mathf.Clamp01(dashTimer / player.locomotionData.dashDuration);
+            var velocity = Mathf.Lerp(initialVelocity, finalVelocity, t);
+            var direction = player.isFacingRight ? 1f : -1f;
+            player.SetHorizontalVelocity(velocity * direction);
+            
+            // Vertical Movement
+            if (dashTimer <= player.locomotionData.airDashHangTime)
+                player.SetVerticalVelocity(0f);         
+            else
+                player.IncrementVerticalVelocity(player.locomotionData.Gravity * player.locomotionData.gravityFallMultiplier * fixedDeltaTime);
         }
     }
 }

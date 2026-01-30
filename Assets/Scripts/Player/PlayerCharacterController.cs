@@ -1,9 +1,9 @@
 using System.Linq;
+using UnityEditor;
+using UnityEngine;
 using HSM;
 using Player.Data;
 using Player.States;
-using UnityEditor;
-using UnityEngine;
 
 namespace Player
 {
