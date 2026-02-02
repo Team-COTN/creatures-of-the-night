@@ -75,4 +75,5 @@ crashlytics-build.properties
 /[Aa]ssets/TextMesh Pro
 /[Aa]ssets/LeanTween
 /[Aa]ssets/LocalAssets
+/[Aa]ssets/"Editor Default Resources"
 /[Pp]ackages/com.singularitygroup.hotreload
