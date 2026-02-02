@@ -22,27 +22,31 @@ namespace Player.States.Locomotion
 
         protected override State GetDefaultChildState() => Idle;
 
-        protected override State GetNextState()
+        protected override (State state, string reason) GetNextState()
         {
             // If we're dashing, return null
-            if (Leaf() == Dash) return null;
+            if (Leaf() == Dash) return (null, null);
             
             // If we're not grounded, fall
             if (!player.Grounded)
             {
                 Machine.GetState<Root>().CoyoteTimer = player.locomotionData.jumpCoyoteTime;
-                return Machine.GetState<Fall>();
+                return (Machine.GetState<Fall>(), "Player not grounded");
             }
             
-            // Jump on button press or if there is some time remaining in the jump buffer
-            if (InputManager.GetJumpWasPressedThisFrame() || Machine.GetState<Root>().JumpBufferTimer > 0)
-                return Machine.GetState<Jump>();
+            // Jump on button press
+            if (InputManager.GetJumpWasPressedThisFrame()) 
+                return (Machine.GetState<Jump>(), "Player pressed jump");
+            
+            // Jump if the jump buffer had time remaining
+            if (Machine.GetState<Root>().JumpBufferTimer > 0)
+                return (Machine.GetState<Jump>(), "Jump buffer has time remaining");
 
             // Dash on button press if it's off cooldown
             if (InputManager.GetDashWasPressedThisFrame() && DashCooldownTimer <= 0)
-                return Machine.GetState<Dash>();
+                return (Machine.GetState<Dash>(), "Player pressed dash");
 
-            return null;
+            return (null, null);
         }
 
         protected override void OnEnter()
@@ -77,14 +81,12 @@ namespace Player.States.Locomotion
             this.player = player;
         }
 
-        protected override State GetNextState()
+        protected override (State state, string reason) GetNextState()
         {
             if (Mathf.Abs(InputManager.GetMovement().x) > player.locomotionData.movementInputThreshold)
-            {
-                return Machine.GetState<Move>();
-            }
-        
-            return null;
+                return (Machine.GetState<Move>(), "Player is pressing movement buttons");
+            
+            return (null, null);
         }
     
         protected override void OnEnter()
@@ -104,14 +106,12 @@ namespace Player.States.Locomotion
             this.player = player;
         }
 
-        protected override State GetNextState()
+        protected override (State state, string reason) GetNextState()
         {
             if (Mathf.Abs(InputManager.GetMovement().x) <= player.locomotionData.movementInputThreshold)
-            {
-                return Machine.GetState<Idle>();
-            }
-
-            return null;
+                return (Machine.GetState<Idle>(), "Player is not pressing movement buttons");
+            
+            return (null, null);
         }
 
         protected override void OnUpdate(float deltaTime)
@@ -156,13 +156,18 @@ namespace Player.States.Locomotion
             this.player = player;
         }
 
-        protected override State GetNextState()
+        protected override (State state, string reason) GetNextState()
         {
             if (dashTimer >= player.locomotionData.dashDuration)
             {
-                return isMoving ? Machine.GetState<Move>() : Machine.GetState<Idle>();
+                if (isMoving)
+                    return (Machine.GetState<Move>(), "Player is holding movement button as dash ends");
+
+                else
+                    return (Machine.GetState<Idle>(), "Player is not holding movement button as dash ends");
             }
-            return null;
+    
+            return (null, null);
         }
         
         protected override void OnEnter()

@@ -28,6 +28,7 @@ namespace Player
             root = new Root(null, this);
             var builder = new StateMachineBuilder(root);
             Machine = builder.Build();
+            Machine.debug = true;
         }
         
         private void Update()

@@ -22,16 +22,14 @@ namespace Player.States.Locomotion
             AirDash = new AirDash(m, this, player);
         }
 
-        protected override State GetNextState()
+        protected override (State state, string reason) GetNextState()
         {
-            if (Leaf() == AirDash) return null;
+            if (Leaf() == AirDash) return (null, null);
             
             if (InputManager.GetDashWasPressedThisFrame() && CanDash)
-            {
-                return AirDash;
-            }
+                return (AirDash, "Player pressed dash");
 
-            return null;
+            return (null, null);
         }
 
         protected override void OnEnter()
@@ -64,19 +62,15 @@ namespace Player.States.Locomotion
             this.player = player;
         }
 
-        protected override State GetNextState()
+        protected override (State state, string reason) GetNextState()
         {
             if (player.Grounded)
-            {
-                return Machine.GetState<Grounded>();
-            }
-
+                return (Machine.GetState<Grounded>(), "Player is grounded");
+            
             if (InputManager.GetJumpWasPressedThisFrame() && Machine.GetState<Root>().CoyoteTimer > 0)
-            {
-                return Machine.GetState<Jump>();
-            }
-
-            return null;
+                return (Machine.GetState<Jump>(), "Player pressed jump while Coyote Timer was active");
+            
+            return (null, null);
         }
     
         protected override void OnUpdate(float deltaTime)
@@ -130,14 +124,12 @@ namespace Player.States.Locomotion
             this.player = player;
         }
     
-        protected override State GetNextState()
+        protected override (State state, string reason) GetNextState()
         {
             if (player.velocity.y < 0)
-            {
-                return Machine.GetState<Fall>();
-            }
+                return (Machine.GetState<Fall>(), "Player is moving downward while airborne");
         
-            return null;
+            return (null, null);
         }
 
         protected override void OnEnter()
@@ -221,13 +213,12 @@ namespace Player.States.Locomotion
             this.player = player;
         }
 
-        protected override State GetNextState()
+        protected override (State state, string reason) GetNextState()
         {
             if (dashTimer >= player.locomotionData.dashDuration)
-            {
-                return Machine.GetState<Fall>();
-            }
-            return null;
+                return (Machine.GetState<Fall>(), "Air Dash has ended");
+            
+            return (null, null);
         }
         
         protected override void OnEnter()

@@ -15,7 +15,7 @@ namespace HSM
         }
         
         protected virtual State GetDefaultChildState() => null;
-        protected virtual State GetNextState() => null;
+        protected virtual (State state, string reason) GetNextState() => (state: null, reason: null);
         
         // Lifecycle hooks
         protected virtual void OnEnter() { }
@@ -40,10 +40,10 @@ namespace HSM
         
         internal void Update(float deltaTime)
         {
-            State t = GetNextState();
-            if (t != null)
+            var result = GetNextState();
+            if (result.state != null)
             {
-                Machine.ChangeState(this, t);
+                Machine.ChangeState(this, result.state, result.reason);
                 return;
             }
             if (ActiveChild != null) ActiveChild.Update(deltaTime);

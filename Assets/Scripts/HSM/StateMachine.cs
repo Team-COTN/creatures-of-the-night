@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 
 namespace HSM
 {
@@ -9,6 +10,7 @@ namespace HSM
         public readonly State Root;
         private HashSet<State> states;
         private bool started;
+        public bool debug;
 
         public event EventHandler<StateChangedEventArgs> StateChanged;
         public event EventHandler<StateEventArgs> StateEntered;
@@ -48,9 +50,10 @@ namespace HSM
         }
         
         // Perform the actual switch from 'from' to 'to' by exiting up to the shared ancestor, then entering down to the target
-        public void ChangeState(State from, State to)
+        public void ChangeState(State from, State to, string reason = null)
         {
             if (from == to || from == null || to == null) return;
+            if (debug && reason != null) Debug.Log($"{from} -> {to} -> {reason}");
 
             State lca = Lca(from, to);
             

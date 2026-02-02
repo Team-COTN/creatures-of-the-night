@@ -11,7 +11,7 @@ namespace Player.States
 
         public float JumpBufferTimer;
         public float CoyoteTimer;
-
+        
         public Root(StateMachine m, PlayerCharacterController player) : base(m, null)
         {
             this.player = player;
@@ -20,6 +20,6 @@ namespace Player.States
         }
 
         protected override State GetDefaultChildState() => Grounded;
-        protected override State GetNextState() => null;
+        protected override (State state, string reason) GetNextState() => (null, null);
     }
 }
