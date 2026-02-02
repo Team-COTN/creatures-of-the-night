@@ -11,6 +11,7 @@ public class CharacterDashState : CharacterState
     private Vector2 _dashDirection;
     private bool JumpInputPressed => InputManager.GetJumpWasPressedThisFrame();
     private bool CanJumpParry => _character.CanJumpParry();
+    private bool EyeWasPressedThisFrame => InputManager.GetEyeWasPressedThisFrame();
 
     
     public override void StateEnter()
@@ -18,6 +19,8 @@ public class CharacterDashState : CharacterState
         base.StateEnter();
         _character.InitializeDashTimers();
         _dashDirection = _character.IsFacingRight ? Vector2.right : Vector2.left;
+        _character.StateChangeEvent(_character, "Dash");
+
     }
 
     public override void StateUpdate()
@@ -32,6 +35,8 @@ public class CharacterDashState : CharacterState
         {
             _stateMachine.ChangeState(_character.IdleState);
         }
+        else if (EyeWasPressedThisFrame) _stateMachine.ChangeState(_character.EyeState);
+
     }
     
     public override void StateFixedUpdate()

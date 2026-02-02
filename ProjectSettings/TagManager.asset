@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags: []
+  tags:
+  - Eye
   layers:
   - Default
   - TransparentFX
@@ -41,8 +42,23 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Environment
+  - name: Background back
     uniqueID: 1720784761
+    locked: 0
+  - name: Background middle
+    uniqueID: 1132553207
+    locked: 0
+  - name: Background front
+    uniqueID: 3543243797
+    locked: 0
+  - name: Middle
+    uniqueID: 2014961435
+    locked: 0
+  - name: Foreground middle
+    uniqueID: 2986776243
+    locked: 0
+  - name: Forground front
+    uniqueID: 2169825341
     locked: 0
   m_RenderingLayers:
   - Default

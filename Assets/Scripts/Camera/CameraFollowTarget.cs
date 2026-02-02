@@ -5,14 +5,31 @@ using UnityEngine.Serialization;
 [ExecuteAlways]
 public class CameraFollowTarget : MonoBehaviour
 {
+    private Character character;
+    private TempEye eye;
     Transform _target;
     public bool trackPlayerX = true;
     public bool trackPlayerY = true;
     public bool trackPlayerRot = true;
+    private void OnEnable()
+    {
+        character = GameObject.FindGameObjectWithTag("Player").GetComponent<Character>();
+        eye = GameObject.FindGameObjectWithTag("Eye").GetComponent<TempEye>();
+        eye.AddEyeStateChangeObserver(TrackTarget);
+    }
+    private void OnDisable()
+    {
+        eye.RemoveEyeStateChangeObserver(TrackTarget);
+    }
+
+    public void TrackTarget(Transform target)
+    {
+        _target = target;
+    }
     
     private void Start()
     {
-        _target = GameObject.FindWithTag("Player").transform;
+        TrackTarget(character.transform);
     }
 
     private void Update()

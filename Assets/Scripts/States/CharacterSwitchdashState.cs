@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class CharacterSwitchDashState : CharacterState
 {
+    private bool EyeWasPressedThisFrame => InputManager.GetEyeWasPressedThisFrame();
+
     public CharacterSwitchDashState(Character character) : base(character)
     {
     }
@@ -14,6 +16,7 @@ public class CharacterSwitchDashState : CharacterState
         base.StateEnter();
         _character.InitializeSwitchDashTimer();
         _dashDirection = _character.IsFacingRight ? Vector2.left : Vector2.right;
+        _character.StateChangeEvent(_character, "SwitchDash");
     }
 
     public override void StateUpdate()
@@ -23,6 +26,8 @@ public class CharacterSwitchDashState : CharacterState
         {
             _stateMachine.ChangeState(_character.IdleState);
         }
+        else if (EyeWasPressedThisFrame) _stateMachine.ChangeState(_character.EyeState);
+
     }
 
     public override void StateFixedUpdate()

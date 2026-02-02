@@ -1,14 +1,14 @@
+using System;
 using UnityEngine;
+using System.Collections;
 
 public class Hazard : MonoBehaviour
 {
-    private int hazardStrength = 2;
-
-    public void OnCollisionEnter2D(Collision2D col)
+    public int hazardStrength = 2;
+    
+    public void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("collision Occured");
-        IDamagable damagable = col.collider.GetComponent<IDamagable>();
-        if (damagable != null)
-            damagable.TakeDamage(hazardStrength);
+        if (collision.gameObject.TryGetComponent<IDamagable>(out IDamagable damageable))
+            damageable.TakeDamage(hazardStrength);
     }
 }

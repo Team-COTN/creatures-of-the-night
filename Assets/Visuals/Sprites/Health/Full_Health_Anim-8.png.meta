@@ -1,0 +1,819 @@
+fileFormatVersion: 2
+guid: cc5ba726d058d8c40bc3801f4fe2c2e7
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6512940133976183245
+    second: Full_Health_Anim-8_0
+  - first:
+      213: 3084667437437978943
+    second: Full_Health_Anim-8_1
+  - first:
+      213: -7715106486742274290
+    second: Full_Health_Anim-8_2
+  - first:
+      213: -3577288218352450794
+    second: Full_Health_Anim-8_3
+  - first:
+      213: -4560368293672279924
+    second: Full_Health_Anim-8_4
+  - first:
+      213: 8180777809818561893
+    second: Full_Health_Anim-8_5
+  - first:
+      213: -2509953120276541707
+    second: Full_Health_Anim-8_6
+  - first:
+      213: 2700123740822230962
+    second: Full_Health_Anim-8_7
+  - first:
+      213: 2049086214161566488
+    second: Full_Health_Anim-8_8
+  - first:
+      213: 1031933625059656985
+    second: Full_Health_Anim-8_9
+  - first:
+      213: 1775016345777639125
+    second: Full_Health_Anim-8_10
+  - first:
+      213: -2719581882492420524
+    second: Full_Health_Anim-8_11
+  - first:
+      213: 8488687514676495786
+    second: Full_Health_Anim-8_12
+  - first:
+      213: -6474224971230495765
+    second: Full_Health_Anim-8_13
+  - first:
+      213: 1868180869577297965
+    second: Full_Health_Anim-8_14
+  - first:
+      213: -8111465838460978051
+    second: Full_Health_Anim-8_15
+  - first:
+      213: 5713436929223122307
+    second: Full_Health_Anim-8_16
+  - first:
+      213: -8552316165067337263
+    second: Full_Health_Anim-8_17
+  - first:
+      213: -8875112253418076354
+    second: Full_Health_Anim-8_18
+  - first:
+      213: -2061484016323434463
+    second: Full_Health_Anim-8_19
+  - first:
+      213: 8782070630006814034
+    second: Full_Health_Anim-8_20
+  - first:
+      213: 434727412767645232
+    second: Full_Health_Anim-8_21
+  - first:
+      213: 6265970530722117432
+    second: Full_Health_Anim-8_22
+  - first:
+      213: 293556027281164380
+    second: Full_Health_Anim-8_23
+  - first:
+      213: 657172570392345844
+    second: Full_Health_Anim-8_24
+  - first:
+      213: -8905950570450311002
+    second: Full_Health_Anim-8_25
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Full_Health_Anim-8_0
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 37
+        width: 703
+        height: 758
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33ee6f684736d95a0800000000000000
+      internalID: -6512940133976183245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Full_Health_Anim-8_1
+      rect:
+        serializedVersion: 2
+        x: 860
+        y: 438
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3984bae0b0feca20800000000000000
+      internalID: 3084667437437978943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Full_Health_Anim-8_2
+      rect:
+        serializedVersion: 2
+        x: 868
+        y: 428
+        width: 6
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0f2a65d68f6ee490800000000000000
+      internalID: -7715106486742274290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Full_Health_Anim-8_3
+      rect:
+        serializedVersion: 2
+        x: 870
+        y: 442
+        width: 27
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61389e5915bea5ec0800000000000000
+      internalID: -3577288218352450794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Full_Health_Anim-8_4
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 437
+        width: 23
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c80a5b2e23156b0c0800000000000000
+      internalID: -4560368293672279924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Full_Health_Anim-8_5
+      rect:
+        serializedVersion: 2
+        x: 919
+        y: 440
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56d22ac0316f78170800000000000000
+      internalID: 8180777809818561893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Full_Health_Anim-8_6
+      rect:
+        serializedVersion: 2
+        x: 920
+        y: 435
+        width: 34
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5fe88077feada2dd0800000000000000
+      internalID: -2509953120276541707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Full_Health_Anim-8_7
+      rect:
+        serializedVersion: 2
+        x: 876
+        y: 378
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b7de458c34c87520800000000000000
+      internalID: 2700123740822230962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Full_Health_Anim-8_8
+      rect:
+        serializedVersion: 2
+        x: 883
+        y: 393
+        width: 34
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81b00452e01df6c10800000000000000
+      internalID: 2049086214161566488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Full_Health_Anim-8_9
+      rect:
+        serializedVersion: 2
+        x: 925
+        y: 318
+        width: 22
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91546712a2a225e00800000000000000
+      internalID: 1031933625059656985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Full_Health_Anim-8_10
+      rect:
+        serializedVersion: 2
+        x: 937
+        y: 376
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5de869846ff12a810800000000000000
+      internalID: 1775016345777639125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Full_Health_Anim-8_11
+      rect:
+        serializedVersion: 2
+        x: 943
+        y: 388
+        width: 19
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45e7374dfaa124ad0800000000000000
+      internalID: -2719581882492420524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Full_Health_Anim-8_12
+      rect:
+        serializedVersion: 2
+        x: 954
+        y: 347
+        width: 21
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa50691d150edc570800000000000000
+      internalID: 8488687514676495786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Full_Health_Anim-8_13
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 332
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bebb7d9c0bee626a0800000000000000
+      internalID: -6474224971230495765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Full_Health_Anim-8_14
+      rect:
+        serializedVersion: 2
+        x: 866
+        y: 311
+        width: 23
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d20d5535a9c1de910800000000000000
+      internalID: 1868180869577297965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Full_Health_Anim-8_15
+      rect:
+        serializedVersion: 2
+        x: 880
+        y: 340
+        width: 15
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7c31dadbc84e6f80800000000000000
+      internalID: -8111465838460978051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Full_Health_Anim-8_16
+      rect:
+        serializedVersion: 2
+        x: 920
+        y: 284
+        width: 57
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38d51f4bd943a4f40800000000000000
+      internalID: 5713436929223122307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Full_Health_Anim-8_17
+      rect:
+        serializedVersion: 2
+        x: 957
+        y: 327
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d1945e82c1105980800000000000000
+      internalID: -8552316165067337263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Full_Health_Anim-8_18
+      rect:
+        serializedVersion: 2
+        x: 885
+        y: 308
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e378c498d6445d480800000000000000
+      internalID: -8875112253418076354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Full_Health_Anim-8_19
+      rect:
+        serializedVersion: 2
+        x: 885
+        y: 300
+        width: 11
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12865e895332463e0800000000000000
+      internalID: -2061484016323434463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Full_Health_Anim-8_20
+      rect:
+        serializedVersion: 2
+        x: 894
+        y: 293
+        width: 14
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25572f565be20e970800000000000000
+      internalID: 8782070630006814034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Full_Health_Anim-8_21
+      rect:
+        serializedVersion: 2
+        x: 905
+        y: 297
+        width: 25
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03ed3245746780600800000000000000
+      internalID: 434727412767645232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Full_Health_Anim-8_22
+      rect:
+        serializedVersion: 2
+        x: 858
+        y: 293
+        width: 18
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 837f1c8cff235f650800000000000000
+      internalID: 6265970530722117432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Full_Health_Anim-8_23
+      rect:
+        serializedVersion: 2
+        x: 873
+        y: 270
+        width: 48
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c58c4c7c6abe21400800000000000000
+      internalID: 293556027281164380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Full_Health_Anim-8_24
+      rect:
+        serializedVersion: 2
+        x: 907
+        y: 292
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4fcbd5e88febe1900800000000000000
+      internalID: 657172570392345844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Full_Health_Anim-8_25
+      rect:
+        serializedVersion: 2
+        x: 926
+        y: 275
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a82f155425b76480800000000000000
+      internalID: -8905950570450311002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Full_Health_Anim-8_0: -6512940133976183245
+      Full_Health_Anim-8_1: 3084667437437978943
+      Full_Health_Anim-8_10: 1775016345777639125
+      Full_Health_Anim-8_11: -2719581882492420524
+      Full_Health_Anim-8_12: 8488687514676495786
+      Full_Health_Anim-8_13: -6474224971230495765
+      Full_Health_Anim-8_14: 1868180869577297965
+      Full_Health_Anim-8_15: -8111465838460978051
+      Full_Health_Anim-8_16: 5713436929223122307
+      Full_Health_Anim-8_17: -8552316165067337263
+      Full_Health_Anim-8_18: -8875112253418076354
+      Full_Health_Anim-8_19: -2061484016323434463
+      Full_Health_Anim-8_2: -7715106486742274290
+      Full_Health_Anim-8_20: 8782070630006814034
+      Full_Health_Anim-8_21: 434727412767645232
+      Full_Health_Anim-8_22: 6265970530722117432
+      Full_Health_Anim-8_23: 293556027281164380
+      Full_Health_Anim-8_24: 657172570392345844
+      Full_Health_Anim-8_25: -8905950570450311002
+      Full_Health_Anim-8_3: -3577288218352450794
+      Full_Health_Anim-8_4: -4560368293672279924
+      Full_Health_Anim-8_5: 8180777809818561893
+      Full_Health_Anim-8_6: -2509953120276541707
+      Full_Health_Anim-8_7: 2700123740822230962
+      Full_Health_Anim-8_8: 2049086214161566488
+      Full_Health_Anim-8_9: 1031933625059656985
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

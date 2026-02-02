@@ -15,7 +15,12 @@ public class CharacterAirState : CharacterState
 
     private bool DashInputPressed => InputManager.GetDashWasPressedThisFrame();
     private bool CanDash => _character.DashCooldown <= 0;
+    private bool EyeWasPressedThisFrame => InputManager.GetEyeWasPressedThisFrame();
 
+    public override void StateEnter()
+    {
+        _character.StateChangeEvent(_character, "Air");
+    }
     public override void StateUpdate()
     {
         base.StateUpdate();
@@ -27,6 +32,7 @@ public class CharacterAirState : CharacterState
             _stateMachine.ChangeState(_character.IdleState);
         }
         else if (JumpInputReleased && _character.IsJumping) _character.CancelJumpEarly();
+        else if (EyeWasPressedThisFrame) _stateMachine.ChangeState(_character.EyeState);
     }
 
     public override void StateFixedUpdate()

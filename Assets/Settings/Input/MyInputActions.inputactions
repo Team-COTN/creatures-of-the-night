@@ -1,4 +1,5 @@
 {
+    "version": 1,
     "name": "MyInputActions",
     "maps": [
         {
@@ -36,6 +37,24 @@
                     "name": "Switchdash",
                     "type": "Button",
                     "id": "27954675-e60d-43d9-9fc8-7e27e7682ef6",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Slash",
+                    "type": "Button",
+                    "id": "34ae643c-b02b-40b9-a5f0-2791bbbd5517",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Eye",
+                    "type": "Button",
+                    "id": "3ab07aac-53ba-4a3b-8073-466925a5603a",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -99,6 +118,61 @@
                     "isPartOfComposite": true
                 },
                 {
+                    "name": "Left Joystick",
+                    "id": "03d357e7-4a11-43ca-9f75-6729c7c88e90",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "d3f3810b-3eb5-4409-8820-f2ba45a5ea43",
+                    "path": "<Gamepad>/leftStick/up",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "b73e7360-e7bf-41cf-87f9-2f5fde427162",
+                    "path": "<Gamepad>/leftStick/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "698cfaca-e67b-4e82-b90c-b530141fb52b",
+                    "path": "<Gamepad>/leftStick/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "ea3371e8-8cf4-4df5-8903-d9145df050c1",
+                    "path": "<Gamepad>/leftStick/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
                     "name": "",
                     "id": "bc6843a4-5c8b-47fd-bc07-e6de6484daed",
                     "path": "<Keyboard>/space",
@@ -145,7 +219,7 @@
                 {
                     "name": "",
                     "id": "004d055f-6fda-4f74-80a3-b3f977ba947a",
-                    "path": "<Keyboard>/h",
+                    "path": "<Keyboard>/y",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -156,11 +230,55 @@
                 {
                     "name": "",
                     "id": "cb689fcd-9208-4c16-953f-5630eb93f69e",
-                    "path": "<Gamepad>/buttonWest",
+                    "path": "<Gamepad>/rightShoulder",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Switchdash",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d76a4887-3eed-4d1d-b1c3-c0baa3164f18",
+                    "path": "<Keyboard>/h",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Slash",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "18f97ac1-489a-4276-a176-ae9a0373bb61",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Slash",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7b33b2db-a512-4869-ad94-7c9c24052e38",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Eye",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "aa019170-dc08-480b-af75-7c48e5c46f20",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Eye",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
