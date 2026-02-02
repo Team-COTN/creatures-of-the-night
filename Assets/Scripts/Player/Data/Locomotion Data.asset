@@ -23,7 +23,7 @@ MonoBehaviour:
   gravityFallMultiplier: 1.5
   dashDistance: 3
   dashDuration: 0.2
-  dashCooldown: 1
+  dashCooldown: 0.5
   airDashHangTime: 0.125
   switchDashDistance: 3.5
   switchDashDuration: 0.2
