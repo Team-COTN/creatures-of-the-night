@@ -7,9 +7,13 @@ using UnityEngine.Rendering.Universal; //for 2D light
 public class TempEye : MonoBehaviour
 {
     private Character character;
+    private Animator eyeAnimator;
     private Transform playerTransform;
+    public Collider2D illuminetRicochetCollider;
     private bool eyeWasPressedThisFrame => InputManager.GetEyeWasPressedThisFrame();
+    private bool IlluminetRicochetWasPressedThisFrame => InputManager.GetIlluminetRicochetWasPressedThisFrame();
     private bool enableEyeControls = false;
+    private bool enableIlluminetRicochet = false;
     private float Xoffset = 2.03f;
     private float Yoffset = 0.98f;
     private float XoffsetLeft = 1.26f;
@@ -21,6 +25,8 @@ public class TempEye : MonoBehaviour
     private float minLightRadius = 2.5f;
     private float maxLightRadius = 7f;
     private float transitionSpeed = 1f;
+
+    private bool check = true;
     
     [SerializeField] Light2D eyePointLight;
 
@@ -36,6 +42,7 @@ public class TempEye : MonoBehaviour
         playerTransform = character.transform;
         spriteRenderer = GetComponent<SpriteRenderer>();
         eyePointLight.pointLightOuterRadius = minLightRadius;
+        eyeAnimator = this.gameObject.GetComponentInChildren<Animator>();
     }
     private void Update()
     {
@@ -43,8 +50,6 @@ public class TempEye : MonoBehaviour
         {
             enableEyeControls = !enableEyeControls;
         }
-        
-        // spotlight.intensity = Mathf.Lerp(spotlight.intensity, targetIntensity, Time.deltaTime * transitionSpeed);
         
         if (enableEyeControls)
         {
@@ -75,12 +80,39 @@ public class TempEye : MonoBehaviour
 
             // Move the eye using player input, eye speed, and the determined speed multiplier
             transform.Translate(playerInput * eyeSpeed * speedMultiplier * Time.deltaTime);
+            
+            //IlluminetRicochet logic
+            if (IlluminetRicochetWasPressedThisFrame)
+                enableIlluminetRicochet = !enableIlluminetRicochet;
+
+            if (enableIlluminetRicochet)
+            {
+                illuminetRicochetCollider.enabled = true;
+
+                //animator
+                if (check)
+                {
+                    eyeAnimator.SetTrigger("Illuminate");
+                    check = false;
+                }
+            }
+
+            if (!enableIlluminetRicochet)
+            {
+                illuminetRicochetCollider.enabled = false;
+                check = true;
+            }
         }
         if (!enableEyeControls)
         {
             CharacterEyeStateChange?.Invoke(playerTransform);
             eyePointLight.pointLightOuterRadius = Mathf.Lerp(eyePointLight.pointLightOuterRadius, minLightRadius, Time.deltaTime * transitionSpeed);
-
+            
+            //don't let eye states persist
+            enableIlluminetRicochet = false;
+            illuminetRicochetCollider.enabled = false;
+            check = true;
+            
             // Disable the sprite renderer
             if (spriteRenderer != null)
                 spriteRenderer.enabled = false;
@@ -91,7 +123,6 @@ public class TempEye : MonoBehaviour
                 Vector2 offset = new Vector2(Xoffset, Yoffset);
                 if (!character.IsFacingRight)
                 {
-                    Debug.Log("Facing Left");
                     offset = new Vector2(XoffsetLeft, Yoffset);
                 }
                 // Set the position of this GameObject to the reference GameObject's position plus the offset
