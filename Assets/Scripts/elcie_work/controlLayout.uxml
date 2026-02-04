@@ -1,0 +1,25 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <ui:VisualElement style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Scripts/elcie_work/controllerimg.png?fileID=2800000&amp;guid=3e042ac94f3be4a0c95580b2e03bb51f&amp;type=3#controllerimg&quot;); -unity-background-scale-mode: scale-to-fit; position: relative; top: 120px; left: 120px; align-items: flex-start; justify-content: flex-start; align-self: stretch; flex-direction: column; right: 120px; bottom: 120px;">
+        <ui:Label text="MOVE" name="move" style="-unity-text-align: middle-left; background-position-x: left 0; background-position-y: top 1000px; font-size: 50px; position: absolute; top: 815px; left: 165px; height: 23px;">
+            <ui:VisualElement style="flex-grow: 1; background-color: rgb(0, 0, 0); width: 200px; height: 15px; translate: 150px -80px; rotate: -25deg;" />
+        </ui:Label>
+        <ui:Label text="JUMP" name="jump" style="visibility: visible; background-position-x: left 0; background-position-y: top 0; font-size: 50px; position: absolute; top: 895px; left: 2318px;">
+            <ui:VisualElement style="flex-grow: 1; width: 200px; height: 15px; background-color: rgb(0, 0, 0); translate: -195px -40px; rotate: 25deg;" />
+        </ui:Label>
+        <ui:Label text="SWITCHDASH" name="switchdash" style="background-position-x: left 0; background-position-y: top 0; font-size: 50px; position: absolute; top: -109px; left: 2187px; rotate: 0;">
+            <ui:VisualElement style="flex-grow: 1; width: 200px; height: 15px; background-color: rgb(0, 0, 0); rotate: -35deg; translate: -90px 125px;" />
+        </ui:Label>
+        <ui:Label text="DASH" name="dash" style="background-position-x: left 0; background-position-y: top 0; font-size: 50px; position: absolute; top: 1166px; left: 2083px;">
+            <ui:VisualElement style="flex-grow: 1; background-color: rgb(0, 0, 0); width: 200px; height: 15px; rotate: 25deg; translate: -195px -40px;" />
+        </ui:Label>
+        <ui:Label text="EYE" name="eye" style="background-position-x: left 0; background-position-y: top 0; font-size: 50px; position: absolute; top: 434px; left: 2263px;">
+            <ui:VisualElement style="flex-grow: 1; background-color: rgb(0, 0, 0); width: 200px; height: 15px; rotate: 40deg; scale: 1 1; translate: -150px -70px;" />
+        </ui:Label>
+        <ui:Label text="SLASH" name="slash" style="background-position-x: left 0; background-position-y: top 0; font-size: 50px; position: absolute; top: 659px; left: 1412px; width: 167px;">
+            <ui:VisualElement style="flex-grow: 1; width: 200px; height: 15px; background-color: rgb(0, 0, 0); rotate: -25deg; translate: 150px -50px;" />
+        </ui:Label>
+        <ui:Label text="DIALOGUE" name="dialogue" style="background-position-x: left 0; background-position-y: top 0; font-size: 50px; position: absolute; top: 1201px; left: 1293px;">
+            <ui:VisualElement style="flex-grow: 1; width: 200px; height: 15px; background-color: rgb(14, 14, 14); rotate: 15deg; translate: -198px -30px;" />
+        </ui:Label>
+    </ui:VisualElement>
+</ui:UXML>
