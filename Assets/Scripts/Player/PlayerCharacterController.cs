@@ -7,7 +7,7 @@ using Player.States;
 
 namespace Player
 {
-    public class PlayerCharacterController : MonoBehaviour
+    public class PlayerCharacterController : MonoBehaviour, ICharacter
     {
         [Header("References")]
         public PhysicsMotor motor;

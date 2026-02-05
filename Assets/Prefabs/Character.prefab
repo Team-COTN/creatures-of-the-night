@@ -307,6 +307,7 @@ GameObject:
   - component: {fileID: 1263742525235989398}
   - component: {fileID: 9016228220032507020}
   - component: {fileID: 8093673120030419634}
+  - component: {fileID: 240951465702885810}
   m_Layer: 0
   m_Name: Character
   m_TagString: Player
@@ -365,7 +366,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4383035392077590799}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: de1d728e560f6bf46a3b091752576c3c, type: 3}
   m_Name: 
@@ -390,11 +391,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 899d4105e3fc92d4788de0f70185ea59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  KBForce: {x: 10, y: 10}
-  KBForceBack: {x: -10, y: 10}
   hitColor: {r: 0.8980392, g: 0.03529412, b: 0.101960786, a: 0.6117647}
   playerSprite: {fileID: 2142186841806219454}
   characterHealth: 3
+--- !u!114 &240951465702885810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4383035392077590799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e817fab07698eb74bb3ab996f7ec0df6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  motor: {fileID: 0}
+  velocity: {x: 0, y: 0}
+  isFacingRight: 1
+  locomotionData: {fileID: 11400000, guid: d8ab63eb9aef2c34fbf91ea9d087f2c1, type: 2}
+  debugInfoPanel: 1
+  debugInfoPanelHeight: 1.75
 --- !u!1 &4441440920981646570
 GameObject:
   m_ObjectHideFlags: 0
