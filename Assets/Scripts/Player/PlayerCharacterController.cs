@@ -15,6 +15,11 @@ namespace Player
         private State root;
         public Vector2 velocity;
         public bool isFacingRight = true;
+        
+        //slash
+        [SerializeField] public Collider2D attackCollider2D;
+        //parry
+        [SerializeField] public Collider2D parryCollider2D;
 
         [Header("Settings")]
         public Locomotion locomotionData;

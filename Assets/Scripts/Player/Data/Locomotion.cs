@@ -26,6 +26,9 @@ namespace Player.Data
         public float dashCooldown = 1f;
         public float airDashHangTime = 0.1f;
         
+        [Header("Slash")]
+        public float slashDuration = .5f;
+        
         public float Gravity { get; private set; }
         public float InitialJumpVelocity { get; private set; }
 
