@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class IlluminetRicochetCollider : MonoBehaviour
 {
-
     private Collider2D _collider;
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -29,9 +28,12 @@ public class IlluminetRicochetCollider : MonoBehaviour
     }
 
     private void OnDisable()
-    {   
-        _collider.isTrigger = true;
-        _collider.GetComponent<GlowOutline>().Dim();
+    {
+        if (_collider != null)
+        {
+            _collider.isTrigger = true;
+            _collider.GetComponent<GlowOutline>().Dim();
+        }
     }
 
 }
