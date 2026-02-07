@@ -7,13 +7,11 @@
     <list default="true" id="34d767e2-3a25-4e05-adc4-202298aca86f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.creatures-of-the-night/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.creatures-of-the-night/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/PhysicsMotor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PhysicsMotor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/Eye/EyeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/Eye/EyeController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/Eye/States/EyeRoot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/Eye/States/EyeRoot.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerCharacterController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerCharacterController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/States/Locomotion/Airborne.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/States/Locomotion/Airborne.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/States/Locomotion/Grounded.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/States/Locomotion/Grounded.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/States/Root.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/States/Root.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Scenes/NewCharacterController.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/NewCharacterController.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/Physics2DSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Physics2DSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,6 +122,8 @@
       <workItem from="1770264282492" duration="182000" />
       <workItem from="1770264506544" duration="3053000" />
       <workItem from="1770415793291" duration="12198000" />
+      <workItem from="1770447569894" duration="412000" />
+      <workItem from="1770482239224" duration="5245000" />
     </task>
     <servers />
   </component>

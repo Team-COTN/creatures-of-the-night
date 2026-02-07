@@ -16,6 +16,7 @@ public class PhysicsMotor : MonoBehaviour
     private float _verticalRaySpacing;
     private BoxCollider2D _col;
     private Rigidbody2D _rb;
+    public bool debug;
 
     public bool IsCollidingAbove { get; private set; }
     public bool IsCollidingBelow { get; private set; }
@@ -68,8 +69,11 @@ public class PhysicsMotor : MonoBehaviour
                 IsCollidingLeft = rayDir <= -1 || IsCollidingLeft;
                 IsCollidingRight = rayDir >= 1 || IsCollidingRight;
             }
-            
-            Debug.DrawRay(rayOrigin, Vector2.right * (rayDir * rayLength), hit ? Color.red : Color.white);
+#if UNITY_EDITOR
+            if (debug)
+                Debug.DrawRay(rayOrigin, Vector2.right * (rayDir * rayLength), hit ? Color.red : Color.white);
+#endif
+
         }
     }
 
@@ -91,8 +95,11 @@ public class PhysicsMotor : MonoBehaviour
                 IsCollidingBelow = rayDir <= -1 || IsCollidingBelow;
                 IsCollidingAbove = rayDir >= 1 || IsCollidingAbove;
             }
-            
-            Debug.DrawRay(rayOrigin, Vector2.up * (rayDir * rayLength) , hit ? Color.red : Color.cyan);
+
+#if UNITY_EDITOR
+            if (debug)
+                Debug.DrawRay(rayOrigin, Vector2.up * (rayDir * rayLength) , hit ? Color.red : Color.cyan);
+#endif
         }
     }
 
