@@ -34,6 +34,10 @@ namespace Player.States.Locomotion
                 return (Machine.GetState<Fall>(), "Player not grounded");
             }
             
+            // Control the eye on button press
+            if (InputManager.GetEyeWasPressedThisFrame())
+                return (Machine.GetState<Scrying>(), "Player pressed eye button");
+            
             // Jump on button press
             if (InputManager.GetJumpWasPressedThisFrame()) 
                 return (Machine.GetState<Jump>(), "Player pressed jump");
@@ -159,13 +163,7 @@ namespace Player.States.Locomotion
         protected override (State state, string reason) GetNextState()
         {
             if (dashTimer >= player.locomotionData.dashDuration)
-            {
-                if (isMoving)
-                    return (Machine.GetState<Move>(), "Player is holding movement button as dash ends");
-
-                else
-                    return (Machine.GetState<Idle>(), "Player is not holding movement button as dash ends");
-            }
+                return (Machine.GetState<Idle>(), "Player is done dashing");
     
             return (null, null);
         }

@@ -2,6 +2,8 @@ using System;
 using Unity.VisualScripting;
 using UnityEngine;
 
+[RequireComponent(typeof(BoxCollider2D))]
+[RequireComponent(typeof(Rigidbody2D))]
 public class PhysicsMotor : MonoBehaviour
 {
     public float CollisionPadding = 0.015f;

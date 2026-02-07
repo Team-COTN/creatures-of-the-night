@@ -3,6 +3,7 @@ using UnityEditor;
 using UnityEngine;
 using HSM;
 using Player.Data;
+using Player.Eye;
 using Player.States;
 
 namespace Player
@@ -13,11 +14,13 @@ namespace Player
         public PhysicsMotor motor;
         public StateMachine Machine;
         private State root;
-        public Vector2 velocity;
-        public bool isFacingRight = true;
+        public EyeController eye;
+        public Collider2D slashCollider;
 
         [Header("Settings")]
         public Locomotion locomotionData;
+        public Vector2 velocity;
+        public bool isFacingRight = true;
         
         [Header("Debug")]
         public bool debugInfoPanel = true;
