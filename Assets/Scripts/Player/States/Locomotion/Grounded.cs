@@ -11,6 +11,8 @@ namespace Player.States.Locomotion
         public readonly Move Move;
         public readonly Dash Dash;
         public readonly Slash Slash;
+        public readonly Damaged Damaged;
+
         public float DashCooldownTimer;
         
         public Grounded(StateMachine m, State parent, PlayerCharacterController player) : base(m, parent)
@@ -20,6 +22,7 @@ namespace Player.States.Locomotion
             Move = new Move(m, this, player);
             Dash = new Dash(m, this, player);
             Slash = new Slash(m, this, player);
+            Damaged = new Damaged(m, this, player);
         }
 
         protected override State GetDefaultChildState() => Idle;
@@ -259,4 +262,33 @@ namespace Player.States.Locomotion
         
     }
 
+        
+    public class Damaged : State
+    {
+        readonly PlayerCharacterController player;
+        private float damagedDuration;
+        
+        public Damaged(StateMachine m, State parent, PlayerCharacterController player) : base(m, parent)
+        {
+            this.player = player;
+        }
+
+        protected override (State state, string reason) GetNextState()
+        {
+            if (damagedDuration >= player.locomotionData.damagedDuration)
+            { 
+                return (Machine.GetState<Idle>(), "Player finished being affected by damage");
+            }
+    
+            return (null, null);
+        }
+        
+
+        protected override void OnUpdate(float deltaTime)
+        {
+
+            damagedDuration += deltaTime;
+        }
+        
+    }
 }
