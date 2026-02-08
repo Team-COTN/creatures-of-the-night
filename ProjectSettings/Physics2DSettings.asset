@@ -47,7 +47,7 @@ Physics2DSettings:
   m_MinSubStepFPS: 30
   m_UseSubStepping: 0
   m_UseSubStepContacts: 0
-  m_QueriesHitTriggers: 1
+  m_QueriesHitTriggers: 0
   m_QueriesStartInColliders: 1
   m_CallbacksOnDisable: 1
   m_ReuseCollisionCallbacks: 1

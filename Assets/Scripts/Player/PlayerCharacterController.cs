@@ -3,6 +3,7 @@ using UnityEditor;
 using UnityEngine;
 using HSM;
 using Player.Data;
+using Player.Eye;
 using Player.States;
 
 namespace Player
@@ -13,14 +14,16 @@ namespace Player
         public PhysicsMotor motor;
         public StateMachine Machine;
         private State root;
-        public Vector2 velocity;
-        public bool isFacingRight = true;
+        public EyeController eye;
+        public Collider2D slashCollider;
 
         [Header("Settings")]
         public Locomotion locomotionData;
+        public Vector2 velocity;
+        public bool isFacingRight = true;
         
         [Header("Debug")]
-        public bool debugInfoPanel = true;
+        public bool debug = true;
         public float debugInfoPanelHeight = 10f;
         
         private void Awake()
@@ -28,12 +31,12 @@ namespace Player
             root = new Root(null, this);
             var builder = new StateMachineBuilder(root);
             Machine = builder.Build();
-            Machine.debug = true;
         }
         
         private void Update()
         {
             Machine.Tick(Time.deltaTime);
+            Machine.debug = debug;
         }
         
         private void FixedUpdate()
@@ -42,32 +45,16 @@ namespace Player
             motor.Move(velocity * Time.fixedDeltaTime);
         }
         
+        public void SetVerticalVelocity(float value) => velocity = new Vector2(velocity.x, value);
+        public void IncrementVerticalVelocity(float value) => velocity += new Vector2(0, value);
+        public void SetHorizontalVelocity(float value) => velocity = new Vector2(value, velocity.y);
+        public void IncrementHorizontalVelocity(float value) => velocity += new Vector2(value, 0);
         public bool Grounded => motor.IsGrounded();
-        
-        public void SetVerticalVelocity(float value)
-        {
-            velocity = new Vector2(velocity.x, value);
-        }
 
-        public void IncrementVerticalVelocity(float value)
-        {
-            velocity += new Vector2(0, value);
-        }
-
-        public void SetHorizontalVelocity(float value)
-        {
-            velocity = new Vector2(value, velocity.y);
-        }
-
-        public void IncrementHorizontalVelocity(float value)
-        {
-            velocity += new Vector2(value, 0);
-        }
-        
 #if UNITY_EDITOR
         private void OnDrawGizmos()
         {
-            if (!debugInfoPanel) return;
+            if (!debug) return;
 
             // Create Info Panel text
             var debugInfoPanelText = "";

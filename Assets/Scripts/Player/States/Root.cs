@@ -8,6 +8,7 @@ namespace Player.States
         readonly PlayerCharacterController player;
         public readonly Grounded Grounded;
         public readonly Airborne Airborne;
+        public readonly Scrying Scrying;
 
         public float JumpBufferTimer;
         public float CoyoteTimer;
@@ -17,9 +18,9 @@ namespace Player.States
             this.player = player;
             Grounded = new Grounded(m, this, player);
             Airborne = new Airborne(m, this, player);
+            Scrying = new Scrying(m, this, player);
         }
 
         protected override State GetDefaultChildState() => Grounded;
-        protected override (State state, string reason) GetNextState() => (null, null);
     }
 }
