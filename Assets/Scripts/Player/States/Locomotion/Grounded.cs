@@ -11,10 +11,19 @@ namespace Player.States.Locomotion
         public readonly Move Move;
         public readonly Dash Dash;
         public readonly Slash Slash;
-        public readonly Damaged Damaged;
 
         public float DashCooldownTimer;
+        [SerializeField] CharacterInteractions characterInteractions;
         
+        // private void OnEnable()
+        // {
+        //     characterInteractions.AddCharacterDamagedObserver(TakeDamage);
+        // }
+        // private void OnDisable()
+        // {
+        //     characterInteractions.RemoveCharacterDamagedObserver(TakeDamage);
+        // }
+
         public Grounded(StateMachine m, State parent, PlayerCharacterController player) : base(m, parent)
         {
             this.player = player;
@@ -22,7 +31,6 @@ namespace Player.States.Locomotion
             Move = new Move(m, this, player);
             Dash = new Dash(m, this, player);
             Slash = new Slash(m, this, player);
-            Damaged = new Damaged(m, this, player);
         }
 
         protected override State GetDefaultChildState() => Idle;
@@ -54,7 +62,6 @@ namespace Player.States.Locomotion
             // Slash attack on button press
             if (InputManager.GetSlashWasPressedThisFrame())
                 return (Machine.GetState<Slash>(), "Player pressed slash attack");
-
 
             return (null, null);
         }
@@ -258,36 +265,6 @@ namespace Player.States.Locomotion
             }
 
             slashTimer += deltaTime;
-        }
-        
-    }
-
-        
-    public class Damaged : State
-    {
-        readonly PlayerCharacterController player;
-        private float damagedDuration;
-        
-        public Damaged(StateMachine m, State parent, PlayerCharacterController player) : base(m, parent)
-        {
-            this.player = player;
-        }
-
-        protected override (State state, string reason) GetNextState()
-        {
-            if (damagedDuration >= player.locomotionData.damagedDuration)
-            { 
-                return (Machine.GetState<Idle>(), "Player finished being affected by damage");
-            }
-    
-            return (null, null);
-        }
-        
-
-        protected override void OnUpdate(float deltaTime)
-        {
-
-            damagedDuration += deltaTime;
         }
         
     }

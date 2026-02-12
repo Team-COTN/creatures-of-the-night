@@ -30,7 +30,8 @@ namespace Player.Data
         public float slashDuration = .5f;
 
         [Header("Damage")] 
-        public float damagedDuration = .8f;
+        public float damagedDuration = .4f;
+        public float knockbackDuration = 0.005f;
         
         public float Gravity { get; private set; }
         public float InitialJumpVelocity { get; private set; }

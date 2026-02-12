@@ -4,6 +4,7 @@ using UnityEngine;
 using HSM;
 using Player.Data;
 using Player.States;
+using Player.States.Locomotion;
 
 namespace Player
 {
@@ -16,8 +17,15 @@ namespace Player
         public Vector2 velocity;
         public bool isFacingRight = true;
         
+
+        //damaged
+        public bool characterBeingDamaged = false;
+        public Vector2 _hazardPosition;
+
         //slash
         [SerializeField] public Collider2D attackCollider2D;
+
+        
         //parry
         [SerializeField] public Collider2D parryCollider2D;
 
@@ -25,7 +33,7 @@ namespace Player
         public Locomotion locomotionData;
         
         [Header("Debug")]
-        public bool debugInfoPanel = true;
+        public bool debugInfoPanel = false;
         public float debugInfoPanelHeight = 10f;
         
         private void Awake()
@@ -67,6 +75,12 @@ namespace Player
         public void IncrementHorizontalVelocity(float value)
         {
             velocity += new Vector2(value, 0);
+        }
+
+        public void Damage()
+        {
+            if (Machine.Root.Leaf() != Machine.GetState<Damaged>())
+                characterBeingDamaged = true;
         }
         
 #if UNITY_EDITOR
