@@ -1,9 +1,7 @@
 using System;
-using Unity.VisualScripting;
 using UnityEngine;
-using Object = System.Object;
 
-public class Character : MonoBehaviour
+public class Character : MonoBehaviour, ICharacter
 {
     #region Properties & References
     
@@ -70,6 +68,7 @@ public class Character : MonoBehaviour
     private void Start()
     {
         StateMachine.InitializeDefaultState(IdleState);
+
     }
     
     private void Update()
@@ -148,19 +147,18 @@ public class Character : MonoBehaviour
     
     public void CheckForParryableObject()
     {
+        InParryZone = false;
         float radius = .5f;
         Vector2 parryColOrigin = parryCollider2D.bounds.center;
         Collider2D[] otherCol = Physics2D.OverlapCircleAll(parryColOrigin, radius, ~0);
-        InParryZone = false;
         for (int i = 0; i < otherCol.Length; i++)
         {
             if (otherCol[i].gameObject.TryGetComponent(out IParryable parryable))
             {
-                // if (parryable.ParryableNow)
-                // {
-                    Debug.Log("Parryable Object Collided!");
+                if(parryable.GetParryableNowState())
+                {
                     InParryZone = true;
-                // }
+                }
             }
         }
     }
@@ -381,14 +379,32 @@ public class Character : MonoBehaviour
         IsJumping = false;
         IsFastFalling = false;
     }
-    
+
     public void JumpParry()
     {
-        CharacterStateChange.Invoke("JumpParry");
-        SetVerticalVelocity(MovementData.InitialJumpVelocity);
-        // IsJumpParrying = true;
-        IsFastFalling = false;
-        //JumpParryBufferTimer = 0;
+        bool parried = false;
+        Debug.Log("Jump Parry!");
+        float radius = .5f;
+        Vector2 parryColOrigin = parryCollider2D.bounds.center;
+        Collider2D[] otherCol = Physics2D.OverlapCircleAll(parryColOrigin, radius, ~0);
+        for (int i = 0; i < otherCol.Length; i++)
+        {
+            if (otherCol[i].gameObject.TryGetComponent(out IParryable parryable))
+            {
+                if(parryable.GetParryableNowState())
+                {
+                    parryable.Parry();
+                    parried = true;
+                }
+            }
+        }
+
+        if (parried)
+        {
+            SetVerticalVelocity(MovementData.InitialJumpVelocity);
+            CharacterStateChange.Invoke("JumpParry");
+            IsFastFalling = false;
+        }
     }
 
     
