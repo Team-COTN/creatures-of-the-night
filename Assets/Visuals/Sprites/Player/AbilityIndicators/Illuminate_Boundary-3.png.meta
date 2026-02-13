@@ -1,0 +1,507 @@
+fileFormatVersion: 2
+guid: 62cf4928efbc91145b49f77a89f606fd
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 9078323008145704801
+    second: Illuminate_Boundary-3_0
+  - first:
+      213: 7088154179965752754
+    second: Illuminate_Boundary-3_1
+  - first:
+      213: 3114379580743533355
+    second: Illuminate_Boundary-3_2
+  - first:
+      213: -2158114359846768287
+    second: Illuminate_Boundary-3_3
+  - first:
+      213: -624352467277910332
+    second: Illuminate_Boundary-3_4
+  - first:
+      213: -7400286424281872763
+    second: Illuminate_Boundary-3_5
+  - first:
+      213: 7677516301341271791
+    second: Illuminate_Boundary-3_6
+  - first:
+      213: -1094156538691532719
+    second: Illuminate_Boundary-3_7
+  - first:
+      213: -9086578669882339734
+    second: Illuminate_Boundary-3_8
+  - first:
+      213: 8337532381695329697
+    second: Illuminate_Boundary-3_9
+  - first:
+      213: 7011928047649012738
+    second: Illuminate_Boundary-3_10
+  - first:
+      213: 1040986011116832706
+    second: Illuminate_Boundary-3_11
+  - first:
+      213: -1482974822629945958
+    second: Illuminate_Boundary-3_12
+  - first:
+      213: -6492381088170030755
+    second: Illuminate_Boundary-3_13
+  - first:
+      213: -2514052752677292792
+    second: Illuminate_Boundary-3_14
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 0
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Illuminate_Boundary-3_0
+      rect:
+        serializedVersion: 2
+        x: 772
+        y: 1403
+        width: 19
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 167c7c84daeacfd70800000000000000
+      internalID: 9078323008145704801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Illuminate_Boundary-3_1
+      rect:
+        serializedVersion: 2
+        x: 791
+        y: 1405
+        width: 20
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b51f0a0cae2e5260800000000000000
+      internalID: 7088154179965752754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Illuminate_Boundary-3_2
+      rect:
+        serializedVersion: 2
+        x: 810
+        y: 1403
+        width: 56
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b23c2fd5abf783b20800000000000000
+      internalID: 3114379580743533355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Illuminate_Boundary-3_3
+      rect:
+        serializedVersion: 2
+        x: 591
+        y: 879
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 161f9a48c66dc02e0800000000000000
+      internalID: -2158114359846768287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Illuminate_Boundary-3_4
+      rect:
+        serializedVersion: 2
+        x: 598
+        y: 871
+        width: 20
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4cee24d2dbad557f0800000000000000
+      internalID: -624352467277910332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Illuminate_Boundary-3_5
+      rect:
+        serializedVersion: 2
+        x: 618
+        y: 591
+        width: 427
+        height: 456
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 586888c94b6ec4990800000000000000
+      internalID: -7400286424281872763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Illuminate_Boundary-3_6
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 819
+        width: 11
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe6a7ba16640c8a60800000000000000
+      internalID: 7677516301341271791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Illuminate_Boundary-3_7
+      rect:
+        serializedVersion: 2
+        x: 1402
+        y: 850
+        width: 8
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 158ce96dc66c0d0f0800000000000000
+      internalID: -1094156538691532719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Illuminate_Boundary-3_8
+      rect:
+        serializedVersion: 2
+        x: 1402
+        y: 768
+        width: 12
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6e850ea7dcf5e180800000000000000
+      internalID: -9086578669882339734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Illuminate_Boundary-3_9
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 779
+        width: 9
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a5444ae68dd4b370800000000000000
+      internalID: 8337532381695329697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Illuminate_Boundary-3_10
+      rect:
+        serializedVersion: 2
+        x: 593
+        y: 752
+        width: 26
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20cb7b6986f5f4160800000000000000
+      internalID: 7011928047649012738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Illuminate_Boundary-3_11
+      rect:
+        serializedVersion: 2
+        x: 1022
+        y: 752
+        width: 26
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c705c00343527e00800000000000000
+      internalID: 1040986011116832706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Illuminate_Boundary-3_12
+      rect:
+        serializedVersion: 2
+        x: 872
+        y: 596
+        width: 16
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9d4b46814a6b6be0800000000000000
+      internalID: -1482974822629945958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Illuminate_Boundary-3_13
+      rect:
+        serializedVersion: 2
+        x: 779
+        y: 227
+        width: 57
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5949256ccd66e5a0800000000000000
+      internalID: -6492381088170030755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Illuminate_Boundary-3_14
+      rect:
+        serializedVersion: 2
+        x: 835
+        y: 228
+        width: 35
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 805b31a675a4c1dd0800000000000000
+      internalID: -2514052752677292792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Illuminate_Boundary-3_0: 9078323008145704801
+      Illuminate_Boundary-3_1: 7088154179965752754
+      Illuminate_Boundary-3_10: 7011928047649012738
+      Illuminate_Boundary-3_11: 1040986011116832706
+      Illuminate_Boundary-3_12: -1482974822629945958
+      Illuminate_Boundary-3_13: -6492381088170030755
+      Illuminate_Boundary-3_14: -2514052752677292792
+      Illuminate_Boundary-3_2: 3114379580743533355
+      Illuminate_Boundary-3_3: -2158114359846768287
+      Illuminate_Boundary-3_4: -624352467277910332
+      Illuminate_Boundary-3_5: -7400286424281872763
+      Illuminate_Boundary-3_6: 7677516301341271791
+      Illuminate_Boundary-3_7: -1094156538691532719
+      Illuminate_Boundary-3_8: -9086578669882339734
+      Illuminate_Boundary-3_9: 8337532381695329697
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
