@@ -3,8 +3,9 @@ using UnityEngine;
 public class HealthUI : MonoBehaviour
 {
     //gets access to funcitons declared in the CharacterInteractions class through an instance of that class
-    private CharacterInteractions characterInteractions;
+    public CharacterInteractions characterInteractions;
     public Animator healthAnimator;
+    public Animator dieScreenAnimator;
     private void OnEnable()
     {
         characterInteractions.AddCharacterDamagedObserver(TakeDamage);
@@ -26,7 +27,17 @@ public class HealthUI : MonoBehaviour
     {
         if (healthAnimator != null)
         {
-            healthAnimator.SetTrigger("Damage1");
+            healthAnimator.SetTrigger("Health_Idle");
+        }
+        
+        if (characterHealth == 2)
+        {
+            healthAnimator.SetTrigger("Damaged1");
+            // healthAnimator.SetTrigger("Health_Idle2");
+        }
+        else if (characterHealth == 1)
+        {
+            healthAnimator.SetTrigger("Damaged2");
         }
 
         //the characterhealth is already defined in the CharacterInteractions class.
@@ -40,6 +51,7 @@ public class HealthUI : MonoBehaviour
     void Die()
     {
         Debug.Log("You died.");
+        dieScreenAnimator.SetTrigger("Die");
         Destroy(gameObject);
     }
 }

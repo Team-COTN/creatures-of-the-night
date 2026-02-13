@@ -1,5 +1,14 @@
 {
   "dependencies": {
+    "com.singularitygroup.hotreload": {
+      "version": "file:com.singularitygroup.hotreload",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {
+        "com.unity.ugui": "1.0.0",
+        "com.unity.modules.unitywebrequest": "1.0.0"
+      }
+    },
     "com.unity.2d.animation": {
       "version": "12.0.2",
       "depth": 1,
@@ -86,8 +95,8 @@
       }
     },
     "com.unity.2d.tilemap.extras": {
-      "version": "5.0.1",
-      "depth": 1,
+      "version": "4.3.1",
+      "depth": 0,
       "source": "registry",
       "dependencies": {
         "com.unity.2d.tilemap": "1.0.0",
@@ -152,7 +161,7 @@
         "com.unity.2d.sprite": "1.0.0",
         "com.unity.2d.spriteshape": "12.0.1",
         "com.unity.2d.tilemap": "1.0.0",
-        "com.unity.2d.tilemap.extras": "5.0.1",
+        "com.unity.2d.tilemap.extras": "4.3.1",
         "com.unity.2d.aseprite": "2.0.1"
       }
     },

@@ -25,19 +25,19 @@ namespace Enemies.BasicEnemy
         [SerializeField] private bool debugLogStateChanges = true;
         
         [Header("Basic Enemy Settings")]
-        [SerializeField] private float detectionRange = 5.5f;
-        [SerializeField] private bool detectionLosRequired = true;
+        [SerializeField] protected float detectionRange = 5.5f;
+        [SerializeField] protected bool detectionLosRequired = true;
         [SerializeField] protected LayerMask lineOfSightBlockers;
-        [SerializeField] private float attackRange = 2f;
+        [SerializeField] private float closeRange = 2f;
         protected Transform Player;
 
         protected EnemyStateBase IdleState;
-        protected EnemyStateBase ChaseState;
-        protected EnemyStateBase AttackState;
+        protected EnemyStateBase FarRangeState;//chase chase
+        protected EnemyStateBase CloseRangeState;//attack attack
         
         protected virtual EnemyStateBase CreateIdleState() => new DefaultIdleState();
-        protected virtual EnemyStateBase CreateChaseState() => new DefaultChaseState();
-        protected virtual EnemyStateBase CreateAttackState() => new DefaultAttackState();
+        protected virtual EnemyStateBase CreateFarRangeState() => new DefaultFarRangeState();
+        protected virtual EnemyStateBase CreateCloseRangeState() => new DefaultCloseRangeState();
         
         protected virtual void Awake()
         {
@@ -45,8 +45,8 @@ namespace Enemies.BasicEnemy
             if (Player == null) Debug.LogWarning($"No GameObject with tag 'Player' found. Enemy state transitions may not work.");
 
             IdleState = CreateIdleState();
-            ChaseState = CreateChaseState();
-            AttackState = CreateAttackState();
+            FarRangeState = CreateFarRangeState();
+            CloseRangeState = CreateCloseRangeState();
             ChangeState(IdleState);
         }
         
@@ -71,23 +71,23 @@ namespace Enemies.BasicEnemy
         }
         
         public void ChangeToIdle() => ChangeState(IdleState);
-        public void ChangeToChase() => ChangeState(ChaseState);
-        public void ChangeToAttack() => ChangeState(AttackState);
+        public void ChangeToFarRange() => ChangeState(FarRangeState);
+        public void ChangeToCloseRange() => ChangeState(CloseRangeState);
         
         protected virtual void OnIdleStateEnter() { }
         protected virtual void OnIdleStateUpdate() { }
         protected virtual void OnIdleStateFixedUpdate() { }
         protected virtual void OnIdleStateExit() { }
         
-        protected virtual void OnChaseStateEnter() { }
-        protected virtual void OnChaseStateUpdate() { }
-        protected virtual void OnChaseStateFixedUpdate() { }
-        protected virtual void OnChaseStateExit() { }
+        protected virtual void OnFarRangeStateEnter() { }
+        protected virtual void OnFarRangeStateUpdate() { }
+        protected virtual void OnFarRangeStateFixedUpdate() { }
+        protected virtual void OnFarRangeStateExit() { }
         
-        protected virtual void OnAttackStateEnter() { }
-        protected virtual void OnAttackStateUpdate() { }
-        protected virtual void OnAttackStateFixedUpdate() { }
-        protected virtual void OnAttackStateExit() { }
+        protected virtual void OnCloseRangeEnter() { }
+        protected virtual void OnCloseRangeUpdate() { }
+        protected virtual void OnCloseRangeFixedUpdate() { }
+        protected virtual void OnCloseRangeExit() { }
 
         protected virtual bool CanDetectPlayer()
         {
@@ -108,7 +108,7 @@ namespace Enemies.BasicEnemy
         public virtual bool CanAttackPlayer()
         {
             float distanceToPlayer = (!Player) ? float.MaxValue : Vector3.Distance(transform.position, Player.position);
-            return distanceToPlayer <= attackRange;
+            return distanceToPlayer <= closeRange;
         }
         
         private class DefaultIdleState : EnemyStateBase
@@ -122,7 +122,7 @@ namespace Enemies.BasicEnemy
             {
                 if (enemy.CanDetectPlayer())
                 {
-                    enemy.ChangeToChase();
+                    enemy.ChangeToFarRange();
                     return;
                 }
                 enemy.OnIdleStateUpdate();
@@ -139,63 +139,63 @@ namespace Enemies.BasicEnemy
             }
         }
 
-        private class DefaultChaseState : EnemyStateBase
+        private class DefaultFarRangeState : EnemyStateBase
         {
             public override void Enter(BasicEnemyStateMachineBase enemy)
             {
-                enemy.OnChaseStateEnter();
+                enemy.OnFarRangeStateEnter();
             }
 
             public override void Update(BasicEnemyStateMachineBase enemy)
             {
                 if (enemy.CanAttackPlayer())
                 {
-                    enemy.ChangeToAttack();
+                    enemy.ChangeToCloseRange();
                     return;
                 } else if (!enemy.CanDetectPlayer())
                 {
                     enemy.ChangeToIdle();
                     return;
                 }
-                enemy.OnChaseStateUpdate();
+                enemy.OnFarRangeStateUpdate();
             }
 
             public override void FixedUpdate(BasicEnemyStateMachineBase enemy)
             {
-                enemy.OnChaseStateFixedUpdate();
+                enemy.OnFarRangeStateFixedUpdate();
             }
 
             public override void Exit(BasicEnemyStateMachineBase enemy)
             {
-                enemy.OnChaseStateExit();
+                enemy.OnFarRangeStateExit();
             }
         }
 
-        private class DefaultAttackState : EnemyStateBase
+        private class DefaultCloseRangeState : EnemyStateBase
         {
             public override void Enter(BasicEnemyStateMachineBase enemy)
             {
-                enemy.OnAttackStateEnter();
+                enemy.OnCloseRangeEnter();
             }
 
             public override void Update(BasicEnemyStateMachineBase enemy)
             {
                 if (!enemy.CanAttackPlayer())
                 {
-                    enemy.ChangeToChase();
+                    enemy.ChangeToFarRange();
                     return;
                 }
-                enemy.OnAttackStateUpdate();
+                enemy.OnCloseRangeUpdate();
             }
 
             public override void FixedUpdate(BasicEnemyStateMachineBase enemy)
             {
-                enemy.OnAttackStateFixedUpdate();
+                enemy.OnCloseRangeFixedUpdate();
             }
 
             public override void Exit(BasicEnemyStateMachineBase enemy)
             {
-                enemy.OnAttackStateExit();
+                enemy.OnCloseRangeExit();
             }
         }
         
@@ -205,17 +205,17 @@ namespace Enemies.BasicEnemy
             if (!debugVisuals) return;
             
             // Detection Range
-            if (currentState == IdleState || currentState == ChaseState)
+            if (currentState == IdleState || currentState == FarRangeState)
             {
                 Gizmos.color = Color.yellow;
                 Gizmos.DrawWireSphere(transform.position, detectionRange);
             }
 
             // Close Range
-            if (currentState == ChaseState || currentState == AttackState)
+            if (currentState == FarRangeState || currentState == CloseRangeState)
             {
                 Gizmos.color = Color.red;
-                Gizmos.DrawWireSphere(transform.position, attackRange);
+                Gizmos.DrawWireSphere(transform.position, closeRange);
             }
             
             // Line of Sight
