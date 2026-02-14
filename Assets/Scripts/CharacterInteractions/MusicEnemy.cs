@@ -12,7 +12,7 @@ public class MusicEnemy : MonoBehaviour
     // Example of updating the parameter dynamically (e.g., every frame)
     void Start()
     {
-        BG_Music = FMODUnity.RuntimeManager.CreateInstance("event:/BgMusic");
+        BG_Music = FMODUnity.RuntimeManager.CreateInstance("event:/Bg_Level_2");
     }
     
     void Update()
@@ -20,12 +20,6 @@ public class MusicEnemy : MonoBehaviour
         BG_Music.setParameterByName(parameterName, enemyMode);
     }
 
-    void OnDestroy()
-    {
-        // // Clean up the event instance when the object is destroyed
-        // eventInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
-        // eventInstance.release();
-    }
     public void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.TryGetComponent<IDamagable>(out IDamagable damageable)) ;
