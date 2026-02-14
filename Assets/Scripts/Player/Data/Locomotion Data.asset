@@ -25,3 +25,6 @@ MonoBehaviour:
   dashDuration: 0.2
   dashCooldown: 0.5
   airDashHangTime: 0.125
+  slashDuration: 0.5
+  damagedDuration: 0.4
+  knockbackDuration: 0.05

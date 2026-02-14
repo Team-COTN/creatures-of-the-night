@@ -19,7 +19,7 @@ public class CharacterInteractions : MonoBehaviour, IPlayerDamagable, ICharacter
     
     private void Awake()
     {
-        // characterController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerCharacterController>();
+        characterController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerCharacterController>();
         playerColor = playerSprite.color;
     }
 
