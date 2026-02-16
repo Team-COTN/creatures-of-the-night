@@ -15,14 +15,6 @@ namespace Player.States.Locomotion
         public float DashCooldownTimer;
         [SerializeField] CharacterInteractions characterInteractions;
         
-        // private void OnEnable()
-        // {
-        //     characterInteractions.AddCharacterDamagedObserver(TakeDamage);
-        // }
-        // private void OnDisable()
-        // {
-        //     characterInteractions.RemoveCharacterDamagedObserver(TakeDamage);
-        // }
 
         public Grounded(StateMachine m, State parent, PlayerCharacterController player) : base(m, parent)
         {
