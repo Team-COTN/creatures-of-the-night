@@ -77,6 +77,7 @@ namespace Player.States.Locomotion
                 Collider2D[] otherCol = Physics2D.OverlapCircleAll(parryColOrigin, radius, ~0);
                 for (int i = 0; i < otherCol.Length; i++)
                 {
+                    Debug.Log(otherCol[i].gameObject);
                     if (otherCol[i].gameObject.TryGetComponent(out IParryable parryable))
                     {
                         if(parryable.GetParryableNowState())
@@ -84,7 +85,6 @@ namespace Player.States.Locomotion
                             parryable.Parry();
                             parried = true;
                             canParry = false;
-                            Debug.Log("Player should JumpParry");
                         }
                     }
                 }

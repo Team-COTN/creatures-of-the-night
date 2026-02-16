@@ -3,8 +3,8 @@ using UnityEditor;
 using UnityEngine;
 using HSM;
 using Player.Data;
+using Player.Eye;
 using Player.States;
-using Player.States.Locomotion;
 
 namespace Player
 {
@@ -14,9 +14,10 @@ namespace Player
         public PhysicsMotor motor;
         public StateMachine Machine;
         private State root;
+        public EyeController eye;
         public Vector2 velocity;
         public bool isFacingRight = true;
-        
+
 
         //damaged
         public bool characterBeingDamaged = false;
@@ -33,20 +34,21 @@ namespace Player
         public Locomotion locomotionData;
         
         [Header("Debug")]
-        public bool debugInfoPanel = false;
+        public bool debug = true;
         public float debugInfoPanelHeight = 10f;
         
+
         private void Awake()
         {
             root = new Root(null, this);
             var builder = new StateMachineBuilder(root);
             Machine = builder.Build();
-            Machine.debug = true;
         }
         
         private void Update()
         {
             Machine.Tick(Time.deltaTime);
+            Machine.debug = debug;
         }
         
         private void FixedUpdate()
@@ -55,27 +57,13 @@ namespace Player
             motor.Move(velocity * Time.fixedDeltaTime);
         }
         
+        public void SetVerticalVelocity(float value) => velocity = new Vector2(velocity.x, value);
+        public void IncrementVerticalVelocity(float value) => velocity += new Vector2(0, value);
+        public void SetHorizontalVelocity(float value) => velocity = new Vector2(value, velocity.y);
+        public void IncrementHorizontalVelocity(float value) => velocity += new Vector2(value, 0);
         public bool Grounded => motor.IsGrounded();
-        
-        public void SetVerticalVelocity(float value)
-        {
-            velocity = new Vector2(velocity.x, value);
-        }
 
-        public void IncrementVerticalVelocity(float value)
-        {
-            velocity += new Vector2(0, value);
-        }
 
-        public void SetHorizontalVelocity(float value)
-        {
-            velocity = new Vector2(value, velocity.y);
-        }
-
-        public void IncrementHorizontalVelocity(float value)
-        {
-            velocity += new Vector2(value, 0);
-        }
 
         public void Damage()
         {
@@ -86,7 +74,7 @@ namespace Player
 #if UNITY_EDITOR
         private void OnDrawGizmos()
         {
-            if (!debugInfoPanel) return;
+            if (!debug) return;
 
             // Create Info Panel text
             var debugInfoPanelText = "";
@@ -106,3 +94,4 @@ namespace Player
 #endif
     }
 }
+
