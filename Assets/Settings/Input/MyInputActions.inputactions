@@ -61,6 +61,9 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "Dialogue",
+                    "type": "Button",
+                    "id": "4085418f-deaf-4319-918b-986fc80329d2",
                     "name": "IlluminetRicochet",
                     "type": "Button",
                     "id": "a311f22d-312b-46ec-babe-2c3cbe01936d",
@@ -293,6 +296,12 @@
                 },
                 {
                     "name": "",
+                    "id": "641b610c-3787-443a-a7bd-8ce3a832bb69",
+                    "path": "<Gamepad>/dpad/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Dialogue",
                     "id": "f07667bd-fc2f-43b7-a27c-39dc8ae86583",
                     "path": "<Keyboard>/r",
                     "interactions": "",
