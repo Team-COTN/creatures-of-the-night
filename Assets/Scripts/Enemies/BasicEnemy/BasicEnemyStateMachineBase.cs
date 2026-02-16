@@ -63,7 +63,7 @@ namespace Enemies.BasicEnemy
         private void ChangeState(EnemyStateBase newState)
         {
 #if UNITY_EDITOR
-            if (debugLogStateChanges) Debug.Log($"{name} State Change: {currentState?.GetType().Name ?? "null"} -> {newState?.GetType().Name ?? "null"}");
+            //if (debugLogStateChanges) Debug.Log($"{name} State Change: {currentState?.GetType().Name ?? "null"} -> {newState?.GetType().Name ?? "null"}");
 #endif
             currentState?.Exit(this);
             currentState = newState;

@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Conversations.meta
 guid: d01af0526748447468eb76dcbb395b27
+========
+guid: b1c21c360fe875a498429ebf833a9a1e
+>>>>>>>> main:Assets/Plugins.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

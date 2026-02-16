@@ -150,6 +150,9 @@ public partial class @MyInputActions: IInputActionCollection2, IDisposable
                     ""name"": ""Dialogue"",
                     ""type"": ""Button"",
                     ""id"": ""4085418f-deaf-4319-918b-986fc80329d2"",
+                    ""name"": ""IlluminetRicochet"",
+                    ""type"": ""Button"",
+                    ""id"": ""a311f22d-312b-46ec-babe-2c3cbe01936d"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
@@ -385,6 +388,23 @@ public partial class @MyInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Dialogue"",
+                    ""id"": ""f07667bd-fc2f-43b7-a27c-39dc8ae86583"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""IlluminetRicochet"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1cebae0f-35b5-49f7-90e1-e339e4e321d8"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""IlluminetRicochet"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -402,6 +422,7 @@ public partial class @MyInputActions: IInputActionCollection2, IDisposable
         m_Character_Slash = m_Character.FindAction("Slash", throwIfNotFound: true);
         m_Character_Eye = m_Character.FindAction("Eye", throwIfNotFound: true);
         m_Character_Dialogue = m_Character.FindAction("Dialogue", throwIfNotFound: true);
+        m_Character_IlluminetRicochet = m_Character.FindAction("IlluminetRicochet", throwIfNotFound: true);
     }
 
     ~@MyInputActions()
@@ -489,6 +510,7 @@ public partial class @MyInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Character_Slash;
     private readonly InputAction m_Character_Eye;
     private readonly InputAction m_Character_Dialogue;
+    private readonly InputAction m_Character_IlluminetRicochet;
     /// <summary>
     /// Provides access to input actions defined in input action map "Character".
     /// </summary>
@@ -528,6 +550,9 @@ public partial class @MyInputActions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Character/Dialogue".
         /// </summary>
         public InputAction @Dialogue => m_Wrapper.m_Character_Dialogue;
+        /// Provides access to the underlying input action "Character/IlluminetRicochet".
+        /// </summary>
+        public InputAction @IlluminetRicochet => m_Wrapper.m_Character_IlluminetRicochet;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -575,6 +600,9 @@ public partial class @MyInputActions: IInputActionCollection2, IDisposable
             @Dialogue.started += instance.OnDialogue;
             @Dialogue.performed += instance.OnDialogue;
             @Dialogue.canceled += instance.OnDialogue;
+            @IlluminetRicochet.started += instance.OnIlluminetRicochet;
+            @IlluminetRicochet.performed += instance.OnIlluminetRicochet;
+            @IlluminetRicochet.canceled += instance.OnIlluminetRicochet;
         }
 
         /// <summary>
@@ -607,6 +635,9 @@ public partial class @MyInputActions: IInputActionCollection2, IDisposable
             @Dialogue.started -= instance.OnDialogue;
             @Dialogue.performed -= instance.OnDialogue;
             @Dialogue.canceled -= instance.OnDialogue;
+            @IlluminetRicochet.started -= instance.OnIlluminetRicochet;
+            @IlluminetRicochet.performed -= instance.OnIlluminetRicochet;
+            @IlluminetRicochet.canceled -= instance.OnIlluminetRicochet;
         }
 
         /// <summary>
@@ -691,10 +722,12 @@ public partial class @MyInputActions: IInputActionCollection2, IDisposable
         void OnEye(InputAction.CallbackContext context);
         /// <summary>
         /// Method invoked when associated input action "Dialogue" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// Method invoked when associated input action "IlluminetRicochet" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnDialogue(InputAction.CallbackContext context);
+        void OnIlluminetRicochet(InputAction.CallbackContext context);
     }
 }
