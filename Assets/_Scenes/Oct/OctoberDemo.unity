@@ -20372,14 +20372,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a214d7683f1bce642817b8dd537d74f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fmodEvent:
-    Guid:
-      Data1: 1183204822
-      Data2: 1290515760
-      Data3: 1704459937
-      Data4: 829555325
-    Path: event:/Bg_Level_2
-  intensityParamValue: 0
+  studioEventEmitter: {fileID: 1347581120}
   parameterName: Combat_Intensity
   enemyMode: 0
 --- !u!1001 &2030667001
