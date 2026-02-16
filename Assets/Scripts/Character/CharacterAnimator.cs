@@ -1,15 +1,16 @@
 using System;
+using Player;
 using UnityEngine;
 
 public class CharacterAnimator : MonoBehaviour
 {
-    private Character character;
+    private PlayerCharacterController character;
     private GameObject playerVisual;
     private Animator animator;
 
     private void Awake()
     {
-        character = GameObject.FindGameObjectWithTag("Player").GetComponent<Character>();
+        character = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerCharacterController>();
         playerVisual = this.gameObject;
         animator = playerVisual.GetComponent<Animator>();
     }
@@ -49,14 +50,14 @@ public class CharacterAnimator : MonoBehaviour
         // }
     }
     
-    private void OnEnable()
-    {
-        character.AddCharacterStateObserver(Animate);
-    }
-    private void OnDisable()
-    {
-        character.RemoveCharacterStateObserver(Animate);
-    }
+    // private void OnEnable()
+    // {
+    //     character.AddCharacterStateObserver(Animate);
+    // }
+    // private void OnDisable()
+    // {
+    //     character.RemoveCharacterStateObserver(Animate);
+    // }
 
     public void PlayAnimation()
     {

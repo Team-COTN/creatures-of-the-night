@@ -1,11 +1,12 @@
 using System;
 using UnityEngine;
 using UnityEngine.Serialization;
+using Player;
 
 [ExecuteAlways]
 public class CameraFollowTarget : MonoBehaviour
 {
-    private Character character;
+    private PlayerCharacterController character;
     private TempEye eye;
     Transform _target;
     public bool trackPlayerX = true;
@@ -13,7 +14,7 @@ public class CameraFollowTarget : MonoBehaviour
     public bool trackPlayerRot = true;
     private void OnEnable()
     {
-        character = GameObject.FindGameObjectWithTag("Player").GetComponent<Character>();
+        character = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerCharacterController>();
         eye = GameObject.FindGameObjectWithTag("Eye").GetComponent<TempEye>();
         eye.AddEyeStateChangeObserver(TrackTarget);
     }

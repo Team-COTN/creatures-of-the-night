@@ -8,8 +8,13 @@ namespace Player.States.Locomotion
         readonly PlayerCharacterController player;
         public readonly Fall Fall;
         public readonly Jump Jump;
+        public readonly JumpParry JumpParry;
+        public bool parried = false;
+        public bool canParry = false;
+
         public readonly AirDash AirDash;
         public bool CanDash;
+
 
         protected override State GetDefaultChildState() => Fall;
     
@@ -18,6 +23,7 @@ namespace Player.States.Locomotion
             this.player = player;
             Fall = new Fall(m, this, player);
             Jump = new Jump(m, this, player);
+            JumpParry = new JumpParry(m, this, player);
             AirDash = new AirDash(m, this, player);
         }
 
@@ -27,6 +33,12 @@ namespace Player.States.Locomotion
             
             if (InputManager.GetDashWasPressedThisFrame() && CanDash)
                 return (AirDash, "Player pressed dash");
+
+            if (parried)
+            {
+                parried = false;
+                return (JumpParry, "Player successfully JumpParried");
+            }
 
             return (null, null);
         }
@@ -38,6 +50,7 @@ namespace Player.States.Locomotion
         
         protected override void OnUpdate(float deltaTime)
         {
+
             if (InputManager.GetJumpWasPressedThisFrame())
             {
                 Machine.GetState<Root>().JumpBufferTimer = player.locomotionData.jumpBufferTime;
@@ -47,6 +60,36 @@ namespace Player.States.Locomotion
             {
                 Machine.GetState<Root>().JumpBufferTimer -= deltaTime;
             }
+
+            if (InputManager.GetJumpWasPressedThisFrame())
+            {
+                canParry = true;
+            }
+
+        }
+
+        protected override void OnFixedUpdate(float fixedDeltaTime)
+        {
+            if (canParry)
+            {
+                float radius = 1f;
+                Vector2 parryColOrigin = player.parryCollider2D.bounds.center;
+                Collider2D[] otherCol = Physics2D.OverlapCircleAll(parryColOrigin, radius, ~0);
+                for (int i = 0; i < otherCol.Length; i++)
+                {
+                    Debug.Log(otherCol[i].gameObject);
+                    if (otherCol[i].gameObject.TryGetComponent(out IParryable parryable))
+                    {
+                        if(parryable.GetParryableNowState())
+                        {
+                            parryable.Parry();
+                            parried = true;
+                            canParry = false;
+                        }
+                    }
+                }
+            }
+
         }
     }
 
@@ -200,6 +243,80 @@ namespace Player.States.Locomotion
         }
     }
     
+
+    public class JumpParry : State
+    {
+        readonly PlayerCharacterController player;
+        private float apexTimer;
+        private float input;
+        private bool isMoving;
+    
+        public JumpParry(StateMachine m, State parent, PlayerCharacterController player) : base(m, parent)
+        {
+            this.player = player;
+        }
+    
+        protected override (State state, string reason) GetNextState()
+        {
+            if (player.velocity.y < 0)
+                return (Machine.GetState<Fall>(), "Player is moving downward while airborne (after Jump-Parry)");
+        
+            return (null, null);
+        }
+
+        protected override void OnEnter()
+        {
+            apexTimer = 0f;
+            player.SetVerticalVelocity(player.locomotionData.InitialJumpVelocity);
+        }
+
+        protected override void OnUpdate(float deltaTime)
+        {
+            // Gather inputs
+            input = InputManager.GetMovement().x;
+        }
+    
+        protected override void OnFixedUpdate(float fixedDeltaTime)
+        {
+            // Horizontal Movement
+            if (isMoving)
+            {
+                // Flip the player to the correct direction
+                bool movingRight = input > 0;
+                if (player.isFacingRight != movingRight)
+                {
+                    player.isFacingRight = movingRight;
+                    player.transform.Rotate(0f, movingRight ? 180f : -180f, 0f);
+                }
+
+                float targetVelocity = input * player.locomotionData.maxWalkSpeed;
+                player.SetHorizontalVelocity(targetVelocity);
+            }
+            else
+            {
+                player.SetHorizontalVelocity(0);
+            }
+        
+            // Vertical Movement
+            // If we bump our head, immediately set ourselves to falling
+            if (player.motor.BumpedHead())
+            {
+                player.SetVerticalVelocity(-0.01f);
+            }
+            // If we hit the apex of our jump, hang in the air a bit
+            else if (player.velocity.y < 0.01f && apexTimer < player.locomotionData.apexHangTime)
+            {
+                apexTimer += fixedDeltaTime;
+                player.SetVerticalVelocity(0);
+            }
+            // Otherwise conform to gravity like normal
+            else
+            {
+                player.IncrementVerticalVelocity(player.locomotionData.Gravity * fixedDeltaTime);
+            }
+        }
+    }
+
     public class AirDash : State
     {
         readonly PlayerCharacterController player;

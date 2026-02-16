@@ -8,24 +8,36 @@ using Player.States;
 
 namespace Player
 {
-    public class PlayerCharacterController : MonoBehaviour
+    public class PlayerCharacterController : MonoBehaviour, ICharacter
     {
         [Header("References")]
         public PhysicsMotor motor;
         public StateMachine Machine;
         private State root;
         public EyeController eye;
-        public Collider2D slashCollider;
+        public Vector2 velocity;
+        public bool isFacingRight = true;
+
+
+        //damaged
+        public bool characterBeingDamaged = false;
+        public Vector2 _hazardPosition;
+
+        //slash
+        [SerializeField] public Collider2D attackCollider2D;
+
+        
+        //parry
+        [SerializeField] public Collider2D parryCollider2D;
 
         [Header("Settings")]
         public Locomotion locomotionData;
-        public Vector2 velocity;
-        public bool isFacingRight = true;
         
         [Header("Debug")]
         public bool debug = true;
         public float debugInfoPanelHeight = 10f;
         
+
         private void Awake()
         {
             root = new Root(null, this);
@@ -51,6 +63,14 @@ namespace Player
         public void IncrementHorizontalVelocity(float value) => velocity += new Vector2(value, 0);
         public bool Grounded => motor.IsGrounded();
 
+
+
+        public void Damage()
+        {
+            if (Machine.Root.Leaf() != Machine.GetState<Damaged>())
+                characterBeingDamaged = true;
+        }
+        
 #if UNITY_EDITOR
         private void OnDrawGizmos()
         {
@@ -74,3 +94,4 @@ namespace Player
 #endif
     }
 }
+
