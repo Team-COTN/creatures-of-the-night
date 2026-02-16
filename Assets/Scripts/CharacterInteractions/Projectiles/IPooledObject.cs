@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public interface IPooledObject
+public interface IPooledCharacterObject
 {
     public void OnObjectSpawn()
     {

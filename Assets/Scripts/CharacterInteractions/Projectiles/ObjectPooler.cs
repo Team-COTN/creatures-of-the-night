@@ -4,6 +4,7 @@ using UnityEngine;
 public class ObjectPooler : MonoBehaviour
 {
     //these are the attributes pool objects have
+    [System.Serializable]
     public class Pool
     {
         public string tag;
@@ -34,21 +35,33 @@ public class ObjectPooler : MonoBehaviour
     }
 
     //actually spawn the object (visible) with specific pos. 
-    public GameObject SpawnFromPool(string tag, Vector2 position, Quaternion rotation)
+    public GameObject SpawnFromPool(string objectTag, Vector2 position, Quaternion rotation)
     {
-        if (!poolDictionary.ContainsKey(tag))
+        if (!poolDictionary.ContainsKey(objectTag))
         {
-            Debug.LogWarning("No pool found for tag: " + tag);
+            Debug.LogWarning("No pool found for tag: " + objectTag);
             return null;
         }
         
-        GameObject poolObject = poolDictionary[tag].Dequeue();
+        GameObject poolObject = poolDictionary[objectTag].Dequeue();
         poolObject.SetActive(true);
         poolObject.transform.position = position;
         poolObject.transform.rotation = rotation;
         
-        poolDictionary[tag].Enqueue(poolObject);
+        poolDictionary[objectTag].Enqueue(poolObject);
         
         return poolObject;
+    }
+    
+    public void ReturnToPool(string objectTag, GameObject obj)
+    {
+        if (!poolDictionary.ContainsKey(objectTag))
+        {
+            Debug.LogWarning("No pool found for tag: " + objectTag);
+            return;
+        }
+
+        obj.SetActive(false);
+        poolDictionary[objectTag].Enqueue(obj);
     }
 }
