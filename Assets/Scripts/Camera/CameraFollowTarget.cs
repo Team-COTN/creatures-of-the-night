@@ -1,25 +1,28 @@
 using System;
 using UnityEngine;
 using UnityEngine.Serialization;
+using Player;
+using Player.Eye;
+
 
 [ExecuteAlways]
 public class CameraFollowTarget : MonoBehaviour
 {
-    private Character character;
-    private TempEye eye;
+    private PlayerCharacterController character;
+    private EyeController eye;
     Transform _target;
     public bool trackPlayerX = true;
     public bool trackPlayerY = true;
     public bool trackPlayerRot = true;
     private void OnEnable()
     {
-        character = GameObject.FindGameObjectWithTag("Player").GetComponent<Character>();
-        eye = GameObject.FindGameObjectWithTag("Eye").GetComponent<TempEye>();
-        eye.AddEyeStateChangeObserver(TrackTarget);
+        character = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerCharacterController>();
+        eye = GameObject.FindGameObjectWithTag("Eye").GetComponent<EyeController>();
+        // eye.AddEyeStateChangeObserver(TrackTarget);
     }
     private void OnDisable()
     {
-        eye.RemoveEyeStateChangeObserver(TrackTarget);
+        // eye.RemoveEyeStateChangeObserver(TrackTarget);
     }
 
     public void TrackTarget(Transform target)

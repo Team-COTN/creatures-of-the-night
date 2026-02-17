@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using Unity.Cinemachine;
 using UnityEngine.Serialization;
+using Player;
 
 public class CameraManager : MonoBehaviour
 {
     [Header("Camera Settings")]
-    [SerializeField] private Character character;
+    [SerializeField] private PlayerCharacterController character;
     [SerializeField] private CinemachineCamera defaultCamera;
     
     [Header("Damping Settings")]
@@ -32,14 +33,14 @@ public class CameraManager : MonoBehaviour
     {
         if (_isDampingTransitioning) return;
         
-        bool shouldApplyFallDamping = character.VerticalVelocity < fallVelocityThreshold && !_isFalling;
+        bool shouldApplyFallDamping = character.velocity.y < fallVelocityThreshold && !_isFalling;
         
         if (shouldApplyFallDamping) 
         {
             _isFalling = true;
             TransitionDamping(fallDamping);
         }
-        else if (character.VerticalVelocity >= 0 && _isFalling) 
+        else if (character.velocity.y >= 0 && _isFalling) 
         {
             _isFalling = false;
             TransitionDamping(_defaultDamping);
