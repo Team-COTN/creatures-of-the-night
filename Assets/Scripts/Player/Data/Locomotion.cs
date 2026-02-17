@@ -26,6 +26,15 @@ namespace Player.Data
         public float dashCooldown = 1f;
         public float airDashHangTime = 0.1f;
         
+        [Header("Slash")]
+        public float slashDuration = .5f;
+
+        [Header("Damage")] 
+        
+        public float knockbackForce = 6f;
+        public float damagedDuration = .4f;
+        public float knockbackDuration = 5f;
+        
         public float Gravity { get; private set; }
         public float InitialJumpVelocity { get; private set; }
 

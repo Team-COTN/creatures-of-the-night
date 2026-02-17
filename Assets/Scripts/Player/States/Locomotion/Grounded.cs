@@ -10,14 +10,19 @@ namespace Player.States.Locomotion
         public readonly Idle Idle; 
         public readonly Move Move;
         public readonly Dash Dash;
+        public readonly Slash Slash;
+
         public float DashCooldownTimer;
+        [SerializeField] CharacterInteractions characterInteractions;
         
+
         public Grounded(StateMachine m, State parent, PlayerCharacterController player) : base(m, parent)
         {
             this.player = player;
             Idle = new Idle(m, this, player);
             Move = new Move(m, this, player);
             Dash = new Dash(m, this, player);
+            Slash = new Slash(m, this, player);
         }
 
         protected override State GetDefaultChildState() => Idle;
@@ -49,6 +54,10 @@ namespace Player.States.Locomotion
             // Dash on button press if it's off cooldown
             if (InputManager.GetDashWasPressedThisFrame() && DashCooldownTimer <= 0)
                 return (Machine.GetState<Dash>(), "Player pressed dash");
+            
+            // Slash attack on button press
+            if (InputManager.GetSlashWasPressedThisFrame())
+                return (Machine.GetState<Slash>(), "Player pressed slash attack");
 
             return (null, null);
         }
@@ -201,5 +210,52 @@ namespace Player.States.Locomotion
             else
                 player.IncrementVerticalVelocity(player.locomotionData.Gravity * player.locomotionData.gravityFallMultiplier * fixedDeltaTime);
         }
+    }
+    
+    
+    public class Slash : State
+    {
+        readonly PlayerCharacterController player;
+        private float slashTimer;
+        
+        public Slash(StateMachine m, State parent, PlayerCharacterController player) : base(m, parent)
+        {
+            this.player = player;
+        }
+
+        protected override (State state, string reason) GetNextState()
+        {
+            if (slashTimer >= player.locomotionData.slashDuration)
+            { 
+                return (Machine.GetState<Idle>(), "Player finished grounded slash attack");
+            }
+    
+            return (null, null);
+        }
+        
+
+        protected override void OnUpdate(float deltaTime)
+        {
+            //make damage collider
+            float radius = .5f;
+        
+            //need to find if the player has a weapon in hand
+            //if no weapon, the arm of the character is the weapon
+            Vector2 weaponColOrigin = player.attackCollider2D.bounds.center;
+            Collider2D[] otherCol = Physics2D.OverlapCircleAll(weaponColOrigin, radius, ~0);
+            for (int i = 0; i < otherCol.Length; i++)
+            {
+                Debug.Log("****Some Object Collided..");
+
+                if (otherCol[i].gameObject.TryGetComponent(out IDamagable damagable))
+                {
+                    Debug.Log("****Damagable Object Collided!");
+                    damagable.TakeDamage(1);
+                }
+            }
+
+            slashTimer += deltaTime;
+        }
+        
     }
 }

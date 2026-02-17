@@ -11,7 +11,7 @@ public class CameraTriggerZone : MonoBehaviour
     public void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("TriggerEnter2D");
-        if (collision.TryGetComponent(out Character character))
+        if (collision.TryGetComponent(out ICharacter icharacter))
         {
             Debug.Log("Character triggered");
             cameraManager.SwitchCamera(camera);
@@ -21,7 +21,7 @@ public class CameraTriggerZone : MonoBehaviour
     public void OnTriggerExit2D(Collider2D collision)
     {
         Debug.Log("TriggerExit2D");
-        if (collision.TryGetComponent(out Character character))
+        if (collision.TryGetComponent(out ICharacter icharacter))
             cameraManager.RevertToDefaultCamera();
     }
 }

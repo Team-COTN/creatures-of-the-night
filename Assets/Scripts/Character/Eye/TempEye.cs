@@ -1,4 +1,5 @@
 using System;
+using Player;
 using UnityEngine;
 using UnityEngine.Rendering.Universal; //for 2D light
 
@@ -6,7 +7,7 @@ using UnityEngine.Rendering.Universal; //for 2D light
 //will need to be updated once heirarchical state machine is completed
 public class TempEye : MonoBehaviour
 {
-    private Character character;
+    private PlayerCharacterController character;
     private Animator eyeAnimator;
     private Transform playerTransform;
     public Collider2D illuminetRicochetCollider;
@@ -38,7 +39,7 @@ public class TempEye : MonoBehaviour
 
     void Start()
     {
-        character = GameObject.FindGameObjectWithTag("Player").GetComponent<Character>();
+        character = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerCharacterController>();
         playerTransform = character.transform;
         spriteRenderer = GetComponent<SpriteRenderer>();
         eyePointLight.pointLightOuterRadius = minLightRadius;
@@ -121,10 +122,10 @@ public class TempEye : MonoBehaviour
             {
                 //by default assume the player is facing right
                 Vector2 offset = new Vector2(Xoffset, Yoffset);
-                if (!character.IsFacingRight)
-                {
-                    offset = new Vector2(XoffsetLeft, Yoffset);
-                }
+                // if (!character.IsFacingRight)
+                // {
+                //     offset = new Vector2(XoffsetLeft, Yoffset);
+                // }
                 // Set the position of this GameObject to the reference GameObject's position plus the offset
                 Vector2 targetPosition = (Vector2)playerTransform.position + offset;
                 transform.position = Vector2.Lerp(transform.position, targetPosition, smoothness * Time.deltaTime);

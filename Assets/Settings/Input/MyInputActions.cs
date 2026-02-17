@@ -158,7 +158,7 @@ public partial class @MyInputActions: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""IlluminetRicochet"",
                     ""type"": ""Button"",
-                    ""id"": ""a6406291-24f2-4928-9212-de8837af4fe8"",
+                    ""id"": ""21dbe64f-0ae1-42fc-89e0-db3a29301c13"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
@@ -410,7 +410,7 @@ public partial class @MyInputActions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""f8954284-9355-42a7-9aa8-d7eefcb5fce3"",
+                    ""id"": ""b19a34e5-c731-4562-afe4-d251de025be8"",
                     ""path"": ""<Keyboard>/i"",
                     ""interactions"": """",
                     ""processors"": """",

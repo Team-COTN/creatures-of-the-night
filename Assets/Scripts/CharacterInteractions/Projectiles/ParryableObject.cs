@@ -1,11 +1,12 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.VFX;
+using Player;
 
 //Alex needs to work on this script
 public class ParryableObject : MonoBehaviour, IParryable
 {
-    private Character character;
+    private PlayerCharacterController character;
     public bool parryableNow = true;
 
     private Color originalColor;
@@ -19,7 +20,7 @@ public class ParryableObject : MonoBehaviour, IParryable
 
     private void Awake()
     {
-        character = GameObject.FindGameObjectWithTag("Player").GetComponent<Character>();
+        character = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerCharacterController>();
         originalColor = mySprite.color;
     }
     

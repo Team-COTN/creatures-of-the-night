@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class Character : MonoBehaviour, ICharacter
+public class Character : MonoBehaviour
 {
     #region Properties & References
     
