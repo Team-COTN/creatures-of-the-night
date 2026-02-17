@@ -5,6 +5,7 @@ using HSM;
 using Player.Data;
 using Player.Eye;
 using Player.States;
+using NaughtyAttributes;
 
 namespace Player
 {
@@ -31,6 +32,7 @@ namespace Player
         [SerializeField] public Collider2D parryCollider2D;
 
         [Header("Settings")]
+        [Expandable]
         public Locomotion locomotionData;
         
         [Header("Debug")]
