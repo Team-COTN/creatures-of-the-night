@@ -71,9 +71,51 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
-# Downloaded packages and assets
-/[Aa]ssets/TextMesh Pro
-/[Aa]ssets/LeanTween
+# ----------------------------------------------------------------------------------
+# Custom Assets
+# ----------------------------------------------------------------------------------
+
+# Luke's Local Assets
 /[Aa]ssets/LocalAssets
+
+# ----------------------------------------------------------------------------------
+# Built-in Assets
+# ----------------------------------------------------------------------------------
+
+# Text Mesh Pro
+/[Aa]ssets/TextMesh Pro
+
+# ----------------------------------------------------------------------------------
+# Paid Assets
+# ----------------------------------------------------------------------------------
+
+# Dialogue System for Unity | https://assetstore.unity.com/packages/tools/behavior-ai/dialogue-system-for-unity-11672
+/[Aa]ssets/Editor Default Resources/Dialogue System
+/[Aa]ssets/Plugins/Pixel Crushers
+/[Aa]ssets/Gizmos/DialogueDatabase Icon.png
+/[Aa]ssets/Gizmos/DialogueDatabase Icon.png.meta
+/[Aa]ssets/Gizmos/StringAsset Icon.png
+/[Aa]ssets/Gizmos/StringAsset Icon.png.meta
+/[Aa]ssets/Gizmos/TextTable Icon.png
+/[Aa]ssets/Gizmos/TextTable Icon.png.meta
+
+# Easy Save | https://assetstore.unity.com/packages/p/easy-save-the-complete-save-game-data-serializer-system-768
+/[Aa]ssets/Plugins/Easy Save 3
+
+# Feel | https://assetstore.unity.com/packages/tools/particles-effects/feel-183370
+/[Aa]ssets/Feel
+
+# FMOD | https://assetstore.unity.com/packages/tools/audio/fmod-for-unity-2-03-311497
+/[Aa]ssets/[Pp]lugins/FMOD
+
+# Hot Reload | https://hotreload.net/download
 /[Pp]ackages/com.singularitygroup.hotreload
-/[Aa]ssets/Plugins
+
+# LeanTween | https://assetstore.unity.com/packages/tools/animation/leantween-3595
+/[Aa]ssets/LeanTween
+
+# Naughty Attributes | https://assetstore.unity.com/packages/p/naughtyattributes-129996
+/[Aa]ssets/NaughtyAttributes
+
+# Text Animator for Unity | https://assetstore.unity.com/packages/tools/gui/text-animator-for-unity-ui-toolkit-and-text-mesh-pro-341308
+/[Aa]ssets/[Pp]lugins/Febucci
