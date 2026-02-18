@@ -11,14 +11,14 @@ GameObject:
   - component: {fileID: 39594157925665406}
   - component: {fileID: 2481041752952178063}
   - component: {fileID: 2349918394685750467}
-  - component: {fileID: 7696670283744189448}
+  - component: {fileID: 3189093028767806723}
   m_Layer: 0
   m_Name: LargeProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &39594157925665406
 Transform:
   m_ObjectHideFlags: 0
@@ -29,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.7933534, w: 0.6087614}
   m_LocalPosition: {x: -1.8811519, y: 0.018300567, z: 0}
-  m_LocalScale: {x: 0.17, y: 0.17, z: 1}
+  m_LocalScale: {x: 0.19, y: 0.19, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayerID: 2014961435
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1838976134974096500, guid: 25286065a3655fd4080d92d3e149e394, type: 3}
+  m_Sprite: {fileID: -7367773864822906732, guid: 131cf9603128cf4409bcca27e9080407, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -101,7 +101,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6abcbf2eef49db34eb63fd52fc9da574, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!95 &7696670283744189448
+  facingRight: 0
+  projectileTag: SmallShard
+--- !u!95 &3189093028767806723
 Animator:
   serializedVersion: 7
   m_ObjectHideFlags: 0
@@ -111,7 +113,7 @@ Animator:
   m_GameObject: {fileID: 8760550010042435280}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 7af54cb38ac6b1a40b86516da06abbe6, type: 2}
+  m_Controller: {fileID: 9100000, guid: e45b9add2ada5e24a8032ff902107307, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

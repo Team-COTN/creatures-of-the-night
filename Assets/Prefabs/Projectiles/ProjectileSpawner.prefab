@@ -48,5 +48,3 @@ MonoBehaviour:
   smallProjectileIdleTarget: {fileID: 0}
   projectileSpawnPoint: {fileID: 0}
   projectileReloadTime: 2
-  largeCharacterProjectileRotationOffset: 295
-  smallCharacterProjectileRotationOffset: 345

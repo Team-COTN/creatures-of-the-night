@@ -138,6 +138,15 @@ public partial class @MyInputActions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
+                    ""name"": ""Shoot"",
+                    ""type"": ""Button"",
+                    ""id"": ""a98bb6f5-5077-4125-b752-31a35d9767e5"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
                     ""name"": ""Eye"",
                     ""type"": ""Button"",
                     ""id"": ""3ab07aac-53ba-4a3b-8073-466925a5603a"",
@@ -366,6 +375,28 @@ public partial class @MyInputActions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""fccb4be8-eb6b-46bd-a93a-2fe0b22c5c01"",
+                    ""path"": ""<Keyboard>/t"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Shoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""11f17ab9-3e98-487f-a986-609760f1bcfe"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Shoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""7b33b2db-a512-4869-ad94-7c9c24052e38"",
                     ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
@@ -431,6 +462,7 @@ public partial class @MyInputActions: IInputActionCollection2, IDisposable
         m_Character_Dash = m_Character.FindAction("Dash", throwIfNotFound: true);
         m_Character_Switchdash = m_Character.FindAction("Switchdash", throwIfNotFound: true);
         m_Character_Slash = m_Character.FindAction("Slash", throwIfNotFound: true);
+        m_Character_Shoot = m_Character.FindAction("Shoot", throwIfNotFound: true);
         m_Character_Eye = m_Character.FindAction("Eye", throwIfNotFound: true);
         m_Character_Dialogue = m_Character.FindAction("Dialogue", throwIfNotFound: true);
         m_Character_IlluminetRicochet = m_Character.FindAction("IlluminetRicochet", throwIfNotFound: true);
@@ -519,6 +551,7 @@ public partial class @MyInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Character_Dash;
     private readonly InputAction m_Character_Switchdash;
     private readonly InputAction m_Character_Slash;
+    private readonly InputAction m_Character_Shoot;
     private readonly InputAction m_Character_Eye;
     private readonly InputAction m_Character_Dialogue;
     private readonly InputAction m_Character_IlluminetRicochet;
@@ -553,6 +586,10 @@ public partial class @MyInputActions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Character/Slash".
         /// </summary>
         public InputAction @Slash => m_Wrapper.m_Character_Slash;
+        /// <summary>
+        /// Provides access to the underlying input action "Character/Shoot".
+        /// </summary>
+        public InputAction @Shoot => m_Wrapper.m_Character_Shoot;
         /// <summary>
         /// Provides access to the underlying input action "Character/Eye".
         /// </summary>
@@ -606,6 +643,9 @@ public partial class @MyInputActions: IInputActionCollection2, IDisposable
             @Slash.started += instance.OnSlash;
             @Slash.performed += instance.OnSlash;
             @Slash.canceled += instance.OnSlash;
+            @Shoot.started += instance.OnShoot;
+            @Shoot.performed += instance.OnShoot;
+            @Shoot.canceled += instance.OnShoot;
             @Eye.started += instance.OnEye;
             @Eye.performed += instance.OnEye;
             @Eye.canceled += instance.OnEye;
@@ -641,6 +681,9 @@ public partial class @MyInputActions: IInputActionCollection2, IDisposable
             @Slash.started -= instance.OnSlash;
             @Slash.performed -= instance.OnSlash;
             @Slash.canceled -= instance.OnSlash;
+            @Shoot.started -= instance.OnShoot;
+            @Shoot.performed -= instance.OnShoot;
+            @Shoot.canceled -= instance.OnShoot;
             @Eye.started -= instance.OnEye;
             @Eye.performed -= instance.OnEye;
             @Eye.canceled -= instance.OnEye;
@@ -725,6 +768,13 @@ public partial class @MyInputActions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnSlash(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Shoot" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnShoot(InputAction.CallbackContext context);
         /// <summary>
         /// Method invoked when associated input action "Eye" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>

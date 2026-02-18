@@ -1,4 +1,5 @@
 using System;
+using Player;
 using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -16,7 +17,7 @@ public class VisualProjectiles : MonoBehaviour
 
     // Quaternion.Euler(0f, facingRight ? 0f : 180f, 0f);
 
-    private void Awake() => character = GameObject.FindGameObjectWithTag("Player").GetComponent<Character>().gameObject;
+    private void Awake() => character = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerCharacterController>().gameObject;
     
     private void OnDisable() { target = null; }
 

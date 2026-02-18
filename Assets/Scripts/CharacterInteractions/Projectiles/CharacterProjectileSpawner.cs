@@ -12,7 +12,8 @@ public class CharacterProjectileSpawner : MonoBehaviour
     private VisualProjectiles smallCharacterProjectile;
     private float largeProjectileReloadTimer = 0.1f;
     private float smallProjectileReloadTimer = 0.1f;
-    
+    private bool shootWasPressedThisFrame => InputManager.GetShootWasPressedThisFrame();
+
     void Awake()
     {
         objectPooler = ServiceLocator.Get<ObjectPooler>();
@@ -69,7 +70,7 @@ public class CharacterProjectileSpawner : MonoBehaviour
             SpawnNewSmallProjectile();
 
         
-        if (Input.GetKeyDown(KeyCode.T))
+        if (shootWasPressedThisFrame)
         {
             if (largeCharacterProjectile != null)
                 ShootLargeProjectile();
