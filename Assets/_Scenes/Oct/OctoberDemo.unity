@@ -15019,10 +15019,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: ParryableObject (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 971889411866486560, guid: 6c4b058010ce34840ad5a94823077950, type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4669502639480796126, guid: 6c4b058010ce34840ad5a94823077950, type: 3}
       propertyPath: m_LocalPosition.x
       value: 24.549809
@@ -15062,10 +15058,6 @@ PrefabInstance:
     - target: {fileID: 4669502639480796126, guid: 6c4b058010ce34840ad5a94823077950, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5182159859237949706, guid: 6c4b058010ce34840ad5a94823077950, type: 3}
-      propertyPath: parryableNow
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
