@@ -8,35 +8,17 @@ using UnityEngine;
 namespace Enemies.BasicEnemy
 {
 
-
-
     public class BasicThwompEnemy : BasicEnemyStateMachineBase
     {
         private bool triggerReady = true;
-
-        // EXAMPLE OVERRIDES - Uncomment and modify as needed:
-        // If you decide to use Awake, Update, or FixedUpdate, ALWAYS call base method first, like this:
-        // protected override void Awake()
-        // {
-        //     base.Awake();
-        //     // Add any custom setup logic here
-        // }
-
-
-
-
-
-
-
-
-
 
         private void OnTriggerEnter2D(Collider2D other)
         {
 
             Debug.Log("Entered Collision");
-
-            if (other.attachedRigidbody.TryGetComponent(out Character character) && triggerReady)
+            // if (collision.gameObject.TryGetComponent<IPlayerDamagable>(out IPlayerDamagable playerDamageable))
+            // if (other.attachedRigidbody.TryGetComponent(out Character character) && triggerReady)
+            if (other.attachedRigidbody.TryGetComponent<IPlayerDamagable>(out IPlayerDamagable playerDamageable) && triggerReady)
             {
                 Debug.Log("Character triggered");
 
