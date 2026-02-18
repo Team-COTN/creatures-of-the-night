@@ -4187,6 +4187,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a49bcd0147fd5240b5f1c3d616a1c0b, type: 3}
+--- !u!1 &514493828 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8272177941300549943, guid: 0e3f1428057690146a32937b95426df6, type: 3}
+  m_PrefabInstance: {fileID: 5355463501213122090}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &527140574
 GameObject:
   m_ObjectHideFlags: 0
@@ -11578,6 +11583,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sfxManager: {fileID: 1347581118}
+  _StudioEventEmitter: {fileID: 1347581120}
   _itemManager: {fileID: 1026372307}
   _objectPooler: {fileID: 1626955716}
 --- !u!4 &1096378768
@@ -18398,6 +18404,20 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2876872473372385148, guid: 0e3f1428057690146a32937b95426df6, type: 3}
   m_PrefabInstance: {fileID: 5355463501213122090}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1849179158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 514493828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0c65eee6bb62cf4e86e5cf1fa7a3db0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parameterName: Combat_Intensity
+  enemyMode: 0
 --- !u!1 &1855095952
 GameObject:
   m_ObjectHideFlags: 0
@@ -21737,7 +21757,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8272177941300549943, guid: 0e3f1428057690146a32937b95426df6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1849179158}
   m_SourcePrefab: {fileID: 100100000, guid: 0e3f1428057690146a32937b95426df6, type: 3}
 --- !u!1001 &6274743681995059703
 PrefabInstance:
