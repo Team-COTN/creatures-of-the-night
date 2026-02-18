@@ -274,6 +274,8 @@ namespace Player.States.Locomotion
         {
             // Gather inputs
             input = InputManager.GetMovement().x;
+            isMoving = Mathf.Abs(input) > player.locomotionData.movementInputThreshold;
+
         }
     
         protected override void OnFixedUpdate(float fixedDeltaTime)
