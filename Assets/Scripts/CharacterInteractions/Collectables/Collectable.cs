@@ -25,7 +25,7 @@ public class Collectable : MonoBehaviour
         if (other.attachedRigidbody.gameObject == player)
         {
             Debug.Log("collected");
-            sfxManager.PlaySound(collectableSO.CollectClip);
+            // sfxManager.PlaySound(collectableSO.CollectClip);
             itemManager.Collect(collectableSO);
             Destroy(gameObject); //self destruct
         }
