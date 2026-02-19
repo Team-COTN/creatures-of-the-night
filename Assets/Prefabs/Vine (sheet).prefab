@@ -150,10 +150,10 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.0001
+  m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.3
-  m_GravityScale: 1
+  m_GravityScale: 1.7
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -181,7 +181,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.13099469, y: -3.3510008}
+  m_ConnectedAnchor: {x: 0.13100474, y: -3.3510008}
   m_UseConnectedAnchor: 1
   m_UseMotor: 0
   m_Motor:
@@ -513,10 +513,10 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.0003
+  m_Mass: 3
   m_LinearDamping: 0
   m_AngularDamping: 0.3
-  m_GravityScale: 1
+  m_GravityScale: 1.7
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -702,10 +702,10 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.00015
+  m_Mass: 1.5
   m_LinearDamping: 0
   m_AngularDamping: 0.3
-  m_GravityScale: 1
+  m_GravityScale: 1.7
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -733,7 +733,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.029393246, y: -3.850124}
+  m_ConnectedAnchor: {x: 0.029393246, y: -3.8501139}
   m_UseConnectedAnchor: 1
   m_UseMotor: 0
   m_Motor:
@@ -975,10 +975,10 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.0004
+  m_Mass: 4
   m_LinearDamping: 0
   m_AngularDamping: 0.3
-  m_GravityScale: 1
+  m_GravityScale: 1.7
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -1006,7 +1006,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.13085416, y: -3.8271554}
+  m_ConnectedAnchor: {x: 0.13086419, y: -3.8271654}
   m_UseConnectedAnchor: 1
   m_UseMotor: 0
   m_Motor:
@@ -1164,10 +1164,10 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.0005
+  m_Mass: 5
   m_LinearDamping: 0
   m_AngularDamping: 0.3
-  m_GravityScale: 1
+  m_GravityScale: 1.7
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -1195,7 +1195,7 @@ HingeJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 26.908226, y: -10.841258}
+  m_ConnectedAnchor: {x: 26.908222, y: -10.921257}
   m_UseConnectedAnchor: 1
   m_UseMotor: 0
   m_Motor:
