@@ -5,6 +5,8 @@ using HSM;
 using Player.Data;
 using Player.Eye;
 using Player.States;
+using MoreMountains.Feedbacks;
+using Player.States.Locomotion;
 // using NaughtyAttributes;
 
 namespace Player
@@ -19,6 +21,7 @@ namespace Player
         public Vector2 velocity;
         public bool isFacingRight = true;
 
+        public MMF_Player myParryFeedbacks;
 
         //damaged
         public bool characterBeingDamaged = false;
@@ -45,8 +48,15 @@ namespace Player
             root = new Root(null, this);
             var builder = new StateMachineBuilder(root);
             Machine = builder.Build();
+            
+            Machine.OnStateChangedTo<JumpParry>(OnJumpParry);
         }
         
+        private void OnJumpParry()
+        {
+            myParryFeedbacks.PlayFeedbacks();             
+        }
+
         private void Update()
         {
             Machine.Tick(Time.deltaTime);
