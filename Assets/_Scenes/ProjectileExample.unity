@@ -21466,10 +21466,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crusher Enemy
       objectReference: {fileID: 0}
-    - target: {fileID: 3437540225111398242, guid: 5e940ab20940e914eaf5c01a0fc1de72, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -1.08
-      objectReference: {fileID: 0}
     - target: {fileID: 7953856936535257508, guid: 5e940ab20940e914eaf5c01a0fc1de72, type: 3}
       propertyPath: m_LocalPosition.x
       value: 8.149981
@@ -21914,6 +21910,10 @@ PrefabInstance:
     - target: {fileID: 2876872473372385148, guid: 0e3f1428057690146a32937b95426df6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4308219165400484886, guid: 0e3f1428057690146a32937b95426df6, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8272177941300549943, guid: 0e3f1428057690146a32937b95426df6, type: 3}
       propertyPath: m_Name
