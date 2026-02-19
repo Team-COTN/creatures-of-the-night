@@ -3179,10 +3179,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 741041433}
     m_Modifications:
-    - target: {fileID: 1071477786518431581, guid: b049dd3eabb820b4d82787a86cfcdeb5, type: 3}
-      propertyPath: m_ConnectedAnchor.x
-      value: -0.068002
-      objectReference: {fileID: 0}
     - target: {fileID: 2444161422659601339, guid: b049dd3eabb820b4d82787a86cfcdeb5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 16.777222
@@ -3223,37 +3219,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2515283559512878301, guid: b049dd3eabb820b4d82787a86cfcdeb5, type: 3}
-      propertyPath: m_ConnectedAnchor.x
-      value: 0.13086419
-      objectReference: {fileID: 0}
-    - target: {fileID: 2515283559512878301, guid: b049dd3eabb820b4d82787a86cfcdeb5, type: 3}
-      propertyPath: m_ConnectedAnchor.y
-      value: -3.8271654
-      objectReference: {fileID: 0}
-    - target: {fileID: 5448333823668125904, guid: b049dd3eabb820b4d82787a86cfcdeb5, type: 3}
-      propertyPath: m_ConnectedAnchor.x
-      value: 0.13100474
-      objectReference: {fileID: 0}
-    - target: {fileID: 5448333823668125904, guid: b049dd3eabb820b4d82787a86cfcdeb5, type: 3}
-      propertyPath: m_ConnectedAnchor.y
-      value: -3.3510008
-      objectReference: {fileID: 0}
     - target: {fileID: 5755888430333663184, guid: b049dd3eabb820b4d82787a86cfcdeb5, type: 3}
       propertyPath: m_Name
       value: Vine (sheet)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6664616414406362987, guid: b049dd3eabb820b4d82787a86cfcdeb5, type: 3}
-      propertyPath: m_ConnectedAnchor.y
-      value: -3.8501139
-      objectReference: {fileID: 0}
-    - target: {fileID: 8612198532341918252, guid: b049dd3eabb820b4d82787a86cfcdeb5, type: 3}
-      propertyPath: m_ConnectedAnchor.x
-      value: 26.908222
-      objectReference: {fileID: 0}
-    - target: {fileID: 8612198532341918252, guid: b049dd3eabb820b4d82787a86cfcdeb5, type: 3}
-      propertyPath: m_ConnectedAnchor.y
-      value: -10.921257
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10540,6 +10508,10 @@ PrefabInstance:
       propertyPath: m_ConnectedAnchor.x
       value: 0.13086419
       objectReference: {fileID: 0}
+    - target: {fileID: 2515283559512878301, guid: b049dd3eabb820b4d82787a86cfcdeb5, type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: -3.8271554
+      objectReference: {fileID: 0}
     - target: {fileID: 5448333823668125904, guid: b049dd3eabb820b4d82787a86cfcdeb5, type: 3}
       propertyPath: m_ConnectedAnchor.x
       value: 0.13100474
@@ -13534,7 +13506,7 @@ GameObject:
   - component: {fileID: 1287429156}
   - component: {fileID: 1287429157}
   m_Layer: 0
-  m_Name: Damaged
+  m_Name: JumpParry
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13748,9 +13720,9 @@ MonoBehaviour:
         ExtraBoundRenderers: []
         Mode: 0
         PropertyName: _Tint
-        FlickerDuration: 0.2
+        FlickerDuration: 0.25
         FlickerPeriod: 0.04
-        FlickerColor: {r: 1, g: 0.078431375, b: 0.078431375, a: 1}
+        FlickerColor: {r: 0.31372547, g: 0.7401158, b: 4, a: 1}
         MaterialIndexes: 
         UseMaterialPropertyBlocks: 0
         SpriteRendererTextureProperty: _MainTex
@@ -14695,7 +14667,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a3824d2df4e0294eb97a81be327147d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSource: {fileID: 1347581117}
 --- !u!4 &1347581119
 Transform:
   m_ObjectHideFlags: 0
@@ -17598,6 +17569,10 @@ PrefabInstance:
       propertyPath: m_ConnectedAnchor.x
       value: 0.13086419
       objectReference: {fileID: 0}
+    - target: {fileID: 2515283559512878301, guid: b049dd3eabb820b4d82787a86cfcdeb5, type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: -3.8271554
+      objectReference: {fileID: 0}
     - target: {fileID: 5448333823668125904, guid: b049dd3eabb820b4d82787a86cfcdeb5, type: 3}
       propertyPath: m_ConnectedAnchor.x
       value: 0.13098466
@@ -17613,6 +17588,10 @@ PrefabInstance:
     - target: {fileID: 6664616414406362987, guid: b049dd3eabb820b4d82787a86cfcdeb5, type: 3}
       propertyPath: m_ConnectedAnchor.x
       value: 0.029393246
+      objectReference: {fileID: 0}
+    - target: {fileID: 6664616414406362987, guid: b049dd3eabb820b4d82787a86cfcdeb5, type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: -3.850124
       objectReference: {fileID: 0}
     - target: {fileID: 8612198532341918252, guid: b049dd3eabb820b4d82787a86cfcdeb5, type: 3}
       propertyPath: m_ConnectedAnchor.x
@@ -21487,10 +21466,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crusher Enemy
       objectReference: {fileID: 0}
-    - target: {fileID: 3437540225111398242, guid: 5e940ab20940e914eaf5c01a0fc1de72, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -1.08
-      objectReference: {fileID: 0}
     - target: {fileID: 7953856936535257508, guid: 5e940ab20940e914eaf5c01a0fc1de72, type: 3}
       propertyPath: m_LocalPosition.x
       value: 8.149981
@@ -21936,6 +21911,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4308219165400484886, guid: 0e3f1428057690146a32937b95426df6, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8272177941300549943, guid: 0e3f1428057690146a32937b95426df6, type: 3}
       propertyPath: m_Name
       value: Basic Grounded Enemy (1)
@@ -22128,6 +22107,26 @@ PrefabInstance:
       propertyPath: eye
       value: 
       objectReference: {fileID: 1613456722}
+    - target: {fileID: 240951465702885810, guid: 4d93d5bc8b931fa478827d994f55d53b, type: 3}
+      propertyPath: debug
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 240951465702885810, guid: 4d93d5bc8b931fa478827d994f55d53b, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 7671327424493361596}
+    - target: {fileID: 240951465702885810, guid: 4d93d5bc8b931fa478827d994f55d53b, type: 3}
+      propertyPath: myParryFeedbacks
+      value: 
+      objectReference: {fileID: 1287429157}
+    - target: {fileID: 2142186841806219454, guid: 4d93d5bc8b931fa478827d994f55d53b, type: 3}
+      propertyPath: m_Size.x
+      value: 2.30475
+      objectReference: {fileID: 0}
+    - target: {fileID: 2142186841806219454, guid: 4d93d5bc8b931fa478827d994f55d53b, type: 3}
+      propertyPath: m_Size.y
+      value: 2.87
+      objectReference: {fileID: 0}
     - target: {fileID: 4383035392077590799, guid: 4d93d5bc8b931fa478827d994f55d53b, type: 3}
       propertyPath: m_Name
       value: Character (1)
@@ -22172,6 +22171,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8093673120030419634, guid: 4d93d5bc8b931fa478827d994f55d53b, type: 3}
+      propertyPath: characterController
+      value: 
+      objectReference: {fileID: 7671327424493361598}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -22190,6 +22193,22 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5960488417293777489, guid: 4d93d5bc8b931fa478827d994f55d53b, type: 3}
   m_PrefabInstance: {fileID: 7671327424493361592}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &7671327424493361596 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4832980527137547079, guid: 4d93d5bc8b931fa478827d994f55d53b, type: 3}
+  m_PrefabInstance: {fileID: 7671327424493361592}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7671327424493361598 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 240951465702885810, guid: 4d93d5bc8b931fa478827d994f55d53b, type: 3}
+  m_PrefabInstance: {fileID: 7671327424493361592}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e817fab07698eb74bb3ab996f7ec0df6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

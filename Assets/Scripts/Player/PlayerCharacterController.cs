@@ -21,6 +21,9 @@ namespace Player
         public Vector2 velocity;
         public bool isFacingRight = true;
 
+        [SerializeField] Animator animator;
+
+
         public MMF_Player myParryFeedbacks;
 
         //damaged
@@ -48,14 +51,45 @@ namespace Player
             root = new Root(null, this);
             var builder = new StateMachineBuilder(root);
             Machine = builder.Build();
+
+            Machine.OnStateEntered<Idle>(OnIdle);
+            Machine.OnStateEntered<Grounded>(OnIdle);
+
+            Machine.OnStateEntered<Move>(OnMove);
+            Machine.OnStateEntered<Jump>(OnJump);
+            Machine.OnStateEntered<JumpParry>(OnJumpParry);
             
-            Machine.OnStateChangedTo<JumpParry>(OnJumpParry);
         }
         
+        private void OnIdle()
+        {
+            animator.SetTrigger("Idle");
+        }        
+        private void OnMove()
+        {
+            if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Walk Cycle"))
+            {
+                animator.SetTrigger("Move");
+            }
+        }
+
+        private void OnJump()
+        {
+            animator.SetTrigger("Jump");
+        }
+
         private void OnJumpParry()
         {
-            myParryFeedbacks.PlayFeedbacks();             
+            animator.SetTrigger("JumpParry");
+            myParryFeedbacks.PlayFeedbacks(); 
         }
+
+        private void OnSlash()
+        {
+            animator.SetTrigger("Slash");
+            myParryFeedbacks.PlayFeedbacks(); 
+        }
+
 
         private void Update()
         {
