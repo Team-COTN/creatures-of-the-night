@@ -1,3 +1,4 @@
+using UnityEditor.Media;
 using UnityEngine;
 using UnityEngine.Video;
 
@@ -6,19 +7,22 @@ public class CutsceneManager : MonoBehaviour
     public VideoPlayer videoPlayer;
     public GameObject cutscene;
     bool play = true;
+    public bool playOnAwake;
 
     void Awake()
     {
         if (videoPlayer != null)
         {
-            if (videoPlayer != null)
+            videoPlayer.loopPointReached += OnVideoFinished;
+
+            videoPlayer.prepareCompleted += (player) =>
             {
-                videoPlayer.loopPointReached += OnVideoFinished;
-            }
+                if (playOnAwake) PlayCutscene();
+            };
+
+            videoPlayer.Prepare();
         }
-
-
-        cutscene.SetActive(false); 
+  
     }
     public void PlayCutscene()
     {
@@ -42,6 +46,7 @@ public class CutsceneManager : MonoBehaviour
     
     void OnVideoFinished(VideoPlayer vp)
     {
+        vp.Stop();
         cutscene.SetActive(false);
     }
 }
