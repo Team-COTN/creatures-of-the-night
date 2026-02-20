@@ -58,18 +58,19 @@ namespace HSM
             State lca = Lca(from, to);
             
             // Exit current branch up to (but not including) LCA
-            for (State s = from; s != lca; s = s.Parent)
+            for (State s = from.Leaf(); s != lca; s = s.Parent)
             {
                 s.Exit();
                 StateExited?.Invoke(this, new StateEventArgs(s));
             }
             
-            // Enter target branch from LCA down to target
+            // Enter target branch from LCA down to target's leaf
             var stack = new Stack<State>();
-            for (State s = to; s != lca; s = s.Parent) stack.Push(s);
+            for (State s = to.Leaf(); s != lca; s = s.Parent) stack.Push(s);
             while (stack.Count > 0)
             {
                 var state = stack.Pop();
+                if (state.Parent != null) state.Parent.ActiveChild = state;
                 state.Enter();
                 StateEntered?.Invoke(this, new StateEventArgs(state));
             }

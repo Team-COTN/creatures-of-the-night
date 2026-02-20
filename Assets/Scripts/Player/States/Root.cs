@@ -9,6 +9,7 @@ namespace Player.States
         readonly PlayerCharacterController player;
         public readonly Grounded Grounded;
         public readonly Airborne Airborne;
+        public readonly Scrying Scrying;
         public readonly Damaged Damaged;
 
 
@@ -20,6 +21,7 @@ namespace Player.States
             this.player = player;
             Grounded = new Grounded(m, this, player);
             Airborne = new Airborne(m, this, player);
+            Scrying = new Scrying(m, this, player);
             Damaged = new Damaged(m, this, player);
         }
 
