@@ -66,6 +66,7 @@ namespace Player.Eye
         {
             Machine.Tick(Time.deltaTime);
             Machine.debug = debug;
+            Shader.SetGlobalVector("_ShadowZoneCircleCenter", transform.position);
         }
 
         private void FixedUpdate()
