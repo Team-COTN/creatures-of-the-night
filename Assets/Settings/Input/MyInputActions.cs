@@ -387,7 +387,7 @@ public partial class @MyInputActions: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""11f17ab9-3e98-487f-a986-609760f1bcfe"",
-                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
