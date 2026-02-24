@@ -13,7 +13,7 @@ public class FunctionalProjectiles : MonoBehaviour
     [SerializeField] public VisualEffect vfx;
     private PlayerCharacterController character;
 
-    private float projectileSpeed = 3f;
+    public float projectileSpeed = 3f;
     private bool enabled = false;
     private bool direction;
 
@@ -42,15 +42,9 @@ public class FunctionalProjectiles : MonoBehaviour
         {
             //wait until attack animation done? May or may not need bc transition speed
             if (direction)
-            {
-                Debug.Log("move proj. right");
                 transform.position += transform.right * projectileSpeed * Time.deltaTime;
-            }
             else
-            {
-                Debug.Log("move proj. LEFT");
                 transform.position += transform.right * projectileSpeed * Time.deltaTime * -1f;
-            }
         }
     }
     

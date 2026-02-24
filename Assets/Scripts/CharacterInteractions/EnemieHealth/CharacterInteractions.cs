@@ -3,7 +3,7 @@ using System;
 using System.Collections; //events 
 using Player;
 
-public class CharacterInteractions : MonoBehaviour, IPlayerDamagable, ICharacter
+public class CharacterInteractions : MonoBehaviour, IPlayerDamagable, IPlayerShootable, ICharacter
 {
     private Color playerColor;
     public Color hitColor;
@@ -33,10 +33,24 @@ public class CharacterInteractions : MonoBehaviour, IPlayerDamagable, ICharacter
         StartCoroutine(DamagedColor());
     }
 
+    public void TakeShotDamage(int damageAmount)
+    {
+        characterHealth -= damageAmount;
+        characterController.Damage();
+        CharacterDamaged?.Invoke(characterHealth);
+    }
+    
+
     public void EnterDamage(Vector2 hazardPosition)
     {
         characterController._hazardPosition = hazardPosition;
     }
+
+    // public void EnterShotDamage(Vector2 hazardPosition)
+    // {
+    //     characterController._hazardPosition = hazardPosition;
+    // }
+
     
     IEnumerator DamagedColor()
     {

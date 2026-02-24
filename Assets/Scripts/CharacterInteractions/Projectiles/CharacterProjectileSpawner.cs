@@ -14,10 +14,7 @@ public class CharacterProjectileSpawner : MonoBehaviour
     private float smallProjectileReloadTimer = 0.1f;
     private bool shootWasPressedThisFrame => InputManager.GetShootWasPressedThisFrame();
 
-    void Awake()
-    {
-        objectPooler = ServiceLocator.Get<ObjectPooler>();
-    }
+    void Awake() => objectPooler = ServiceLocator.Get<ObjectPooler>();
     
     void SpawnNewLargeProjectile()
     {
