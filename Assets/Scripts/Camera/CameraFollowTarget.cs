@@ -10,6 +10,7 @@ public class CameraFollowTarget : MonoBehaviour
 {
     private PlayerCharacterController character;
     private EyeController eye;
+    
     Transform _target;
     public bool trackPlayerX = true;
     public bool trackPlayerY = true;
@@ -43,5 +44,10 @@ public class CameraFollowTarget : MonoBehaviour
         
         transform.position = new Vector3(x, y, transform.position.z);
         transform.rotation = Quaternion.Euler(rot);
+
+        if (eye.EyeActive)
+        {
+            TrackTarget(eye.transform);
+        }
     }
 }

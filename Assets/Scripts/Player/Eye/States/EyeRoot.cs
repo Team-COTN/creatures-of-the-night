@@ -137,7 +137,14 @@ namespace Player.Eye.States
             
             // Toggle Ricochet
             if (InputManager.GetIlluminetRicochetWasPressedThisFrame())
+            {
                 eye.ToggleRicochet();
+                if (eye.IlluminateActive)
+                    eye.ActivateRicochet();
+                else if (!eye.IlluminateActive)
+                    eye.DeactivateRicochet();
+
+            }
         }
 
         protected override void OnFixedUpdate(float fixedDeltaTime)

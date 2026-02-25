@@ -10,9 +10,8 @@ public class GlowOutline : MonoBehaviour
 
     void Start()
     {
-        //debug
-        line.startWidth = 0.02f;
-        line.endWidth = 0.02f;
+        line.startWidth = 0.05f;
+        line.endWidth = 0.05f;
 
         line.enabled = false;
         BuildOutline();
@@ -23,7 +22,8 @@ public class GlowOutline : MonoBehaviour
         if (glowing)
         {
             float offset = Time.time * glowSpeed;
-            line.material.SetTextureOffset("_MainTex", new Vector2(offset, 0));
+            // line.material.SetTextureOffset("_BaseMap", new Vector2(offset, 0));
+            // line.material.SetTextureOffset("_MainTex", new Vector2(offset, 0));
         }
     }
     public void Glow()

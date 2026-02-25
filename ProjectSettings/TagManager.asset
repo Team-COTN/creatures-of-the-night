@@ -5,7 +5,6 @@ TagManager:
   serializedVersion: 3
   tags:
   - Eye
-  - TempFloorHazard
   layers:
   - Default
   - TransparentFX
@@ -15,7 +14,7 @@ TagManager:
   - UI
   - Environment
   - NonComposite
-  - SafeGroundCheckpoint
+  - OneWayPlatform
   - 
   - 
   - 

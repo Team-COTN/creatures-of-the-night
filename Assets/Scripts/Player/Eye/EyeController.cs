@@ -15,6 +15,7 @@ namespace Player.Eye
         [SerializeField] private Transform eyeFollowTransform;
         [SerializeField] private Collider2D ricochetCollider;
         [SerializeField] private Light2D eyePointLight;
+        [SerializeField] private Animator eyeAnimator;
 
         [Header("Settings")]
         public float eyeSpeed = 10f;
@@ -38,6 +39,8 @@ namespace Player.Eye
         }
         public float TargetLightRadius => targetLightRadius;
         public bool EyeActive => eyeActive;
+        public bool IlluminateActive;
+
         public LayerMask DefaultCollisionMask => defaultCollisionMask;
         
         // Private variables
@@ -66,6 +69,7 @@ namespace Player.Eye
         {
             Machine.Tick(Time.deltaTime);
             Machine.debug = debug;
+            Shader.SetGlobalVector("_ShadowZoneCircleCenter", transform.position);
         }
 
         private void FixedUpdate()
@@ -77,9 +81,13 @@ namespace Player.Eye
         public void SetVelocity(Vector2 value) => velocity = value;
         public void ActivateEye() => eyeActive = true;
         public void DeactivateEye() => eyeActive = false;
-        public void ActivateRicochet() => ricochetCollider.enabled = true;
+        public void ActivateRicochet()
+        {
+            ricochetCollider.enabled = true;
+            eyeAnimator.SetTrigger("Illuminate");
+        }
         public void DeactivateRicochet() => ricochetCollider.enabled = false;
-        public void ToggleRicochet() => ricochetCollider.enabled = !ricochetCollider.enabled;
+        public void ToggleRicochet() => IlluminateActive = !IlluminateActive;
         public void DimLight() => targetLightRadius = minLightRadius;
         public void BrightenLight() => targetLightRadius = maxLightRadius;
 
