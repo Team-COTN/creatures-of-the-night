@@ -6,7 +6,8 @@ public class SafeGroundCheckpoint : MonoBehaviour
    [SerializeField] private LayerMask isCheckpoint;
 
 
-   public Vector2 safeGroundLocation {get; private set;} = Vector2.zero;
+   public Vector2 safeGroundLocation { get; private set; } = Vector2.zero;
+    // ill use this vector in teleport function in SafeGroundDamaged.cs
 
 
    public Collider2D playerCol;
@@ -26,13 +27,20 @@ public class SafeGroundCheckpoint : MonoBehaviour
    void OnTriggerEnter2D(Collider2D collision)
    {
        //if collision gameobject is withing checkpoint laytermask
+
+
        if ((isCheckpoint.value & (1 << collision.gameObject.layer)) > 0)
        {
-           safeGroundLocation = new Vector2(collision.bounds.center.x, collision.bounds.min.y + safeSpotYOffset);
+           safeGroundLocation = new Vector2
+           (
+               collision.bounds.center.x, 
+               collision.bounds.min.y + safeSpotYOffset
+           );
+            Debug.Log("Touched A collider");
        }
    }
 
-
+    /*
    public void Update()
    {
        if(CharacterInteractions.characterHealth <= 0)
@@ -43,10 +51,7 @@ public class SafeGroundCheckpoint : MonoBehaviour
    public void WarpPlayer()
    {
        transform.position = safeGroundLocation;
-       CharacterInteractions.characterHealth = 3;
-
-
    }
-
+    */
 
 }

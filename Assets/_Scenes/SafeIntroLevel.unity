@@ -1759,7 +1759,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   videoPlayer: {fileID: 1384502421}
   cutscene: {fileID: 1384502420}
-  playOnAwake: 1
+  playOnAwake: 0
 --- !u!4 &656767131
 Transform:
   m_ObjectHideFlags: 0
@@ -3537,7 +3537,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a3824d2df4e0294eb97a81be327147d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSource: {fileID: 1347581117}
 --- !u!4 &1347581119
 Transform:
   m_ObjectHideFlags: 0
