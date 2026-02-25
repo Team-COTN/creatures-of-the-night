@@ -7,6 +7,8 @@ public class SafeGroundDamaged : MonoBehaviour
     public SafeGroundCheckpoint SafeGroundCheckpoint;
     public GameObject player;
 
+    public Animator transition;
+
     private void OnEnable()
     {
         CharacterInteractions.AddCharacterDamagedObserver(TakeDamage);
@@ -22,6 +24,7 @@ public class SafeGroundDamaged : MonoBehaviour
     {
         if (player != null)
         {
+            transition.SetTrigger("DeathFade");
             WarpPlayer();
         }
 
