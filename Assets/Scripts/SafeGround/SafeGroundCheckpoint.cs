@@ -40,18 +40,4 @@ public class SafeGroundCheckpoint : MonoBehaviour
        }
    }
 
-    /*
-   public void Update()
-   {
-       if(CharacterInteractions.characterHealth <= 0)
-       {
-           WarpPlayer();
-       }
-   }
-   public void WarpPlayer()
-   {
-       transform.position = safeGroundLocation;
-   }
-    */
-
 }

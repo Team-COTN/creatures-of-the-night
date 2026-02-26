@@ -11,24 +11,24 @@ public class SafeGroundDamaged : MonoBehaviour
 
     private void OnEnable()
     {
-        CharacterInteractions.AddCharacterDamagedObserver(TakeDamage);
+        CharacterInteractions.AddCharacterDamagedObserver(TakeTeleportDamage);
     }
     //when something idk subscribe and something happen, call take damage
     private void OnDisable()
     {
-        CharacterInteractions.RemoveCharacterDamagedObserver(TakeDamage);
+        CharacterInteractions.RemoveCharacterDamagedObserver(TakeTeleportDamage);
     }
 
 
-    public void TakeDamage(int characterHealth)
+    public void TakeTeleportDamage(int characterHealth)
     {
         if (player != null)
         {
             transition.SetTrigger("DeathFade");
             WarpPlayer();
         }
-
     }
+
     public void WarpPlayer()
     {
         if (player != null && SafeGroundCheckpoint != null)

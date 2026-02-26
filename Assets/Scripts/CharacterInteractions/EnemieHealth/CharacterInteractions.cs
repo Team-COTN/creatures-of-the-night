@@ -3,7 +3,7 @@ using System;
 using System.Collections; //events 
 using Player;
 
-public class CharacterInteractions : MonoBehaviour, IPlayerDamagable, ICharacter
+public class CharacterInteractions : MonoBehaviour, IPlayerDamagable, IPlayerTeleportable, ICharacter
 {
     private Color playerColor;
     public Color hitColor;
@@ -12,11 +12,15 @@ public class CharacterInteractions : MonoBehaviour, IPlayerDamagable, ICharacter
     [SerializeField] private PlayerCharacterController characterController;
     public int characterHealth = 3;
     public event Action<int> CharacterDamaged;
-    public event Action<int> DamagedState;
+    public event Action<int> CharacterTeleported;
+
 
     public void AddCharacterDamagedObserver(Action<int> observer) { CharacterDamaged += observer; }
     public void RemoveCharacterDamagedObserver(Action<int> observer) { CharacterDamaged -= observer; }
     
+    public void AddCharacterTeleportedObserver(Action<int> observer) { CharacterTeleported += observer; }
+    public void RemoveCharacterTeleportedObserver(Action<int> observer) { CharacterTeleported -= observer; }
+
     private void Awake()
     {
         characterController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerCharacterController>();
@@ -26,11 +30,8 @@ public class CharacterInteractions : MonoBehaviour, IPlayerDamagable, ICharacter
 
     public void PlayerTakeDamage(int damageAmount)
     {
-        characterHealth -= damageAmount;
-        characterController.Damage();
-        //invoke the CharacterDamaged event so the UI knows to do its job (play the heart animation)
         CharacterDamaged?.Invoke(characterHealth);
-        StartCoroutine(DamagedColor());
+        Damage(damageAmount);
     }
 
     public void EnterDamage(Vector2 hazardPosition)
@@ -38,6 +39,19 @@ public class CharacterInteractions : MonoBehaviour, IPlayerDamagable, ICharacter
         characterController._hazardPosition = hazardPosition;
     }
     
+    public void PlayerTakeTeleportDamage(int damageAmount)
+    {
+        CharacterDamaged?.Invoke(characterHealth);
+        CharacterTeleported?.Invoke(1);
+        Damage(damageAmount);
+    }
+
+    private void Damage(int damage)
+    {
+        characterHealth -= damage;
+        characterController.Damage();
+        StartCoroutine(DamagedColor());
+    }
     IEnumerator DamagedColor()
     {
         float duration = 2f;

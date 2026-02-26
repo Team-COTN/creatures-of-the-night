@@ -6,15 +6,9 @@ using System.Collections.Generic;
 public class SafeGround : MonoBehaviour
 {
    [SerializeField] private float saveFrequency = 3f;
-
-
    public Vector2 safeGroundLocation {get; private set;} = new Vector2(0f, 0f);
-
-
    private Character Character;
    private CharacterInteractions CharacterInteractions;
-
-
    private Coroutine coroutine;
 
 
@@ -26,11 +20,9 @@ public class SafeGround : MonoBehaviour
        safeGroundLocation = transform.position;
    }
 
-
    private IEnumerator SaveGroundLocation()
    {
        float elapsedTime = 0f;
-
 
        while (elapsedTime < saveFrequency)
        {
@@ -38,22 +30,13 @@ public class SafeGround : MonoBehaviour
            yield return null;
        }
 
-
        //saves new position every 3 secs
        if (Character.IsGrounded)
        {
            safeGroundLocation = transform.position;
-
-
        }
-
-
        coroutine = StartCoroutine(SaveGroundLocation());
    }
-
-
-
-
    public void Update()
    {
        if(CharacterInteractions.characterHealth <= 0)
@@ -64,12 +47,5 @@ public class SafeGround : MonoBehaviour
    public void WarpPlayer()
    {
        transform.position = safeGroundLocation;
-       CharacterInteractions.characterHealth = 3;
-
-
    }
-
-
-
-
 }
