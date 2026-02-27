@@ -16,8 +16,8 @@ public class HazardProjectileSpawner : MonoBehaviour
         GameObject projectile = objectPooler.SpawnFromPool(projectileTag, spawnPoint.position, spawnPoint.rotation);
         HazardProjectile hazardProjectile = projectile.GetComponent<HazardProjectile>();
         hazardProjectile.SetDirection(direction);
-        hazardProjectile.SetFadeStatis(false);
-        hazardProjectile.Reset();
+        // hazardProjectile.SetFadeStatis(false);
+        // hazardProjectile.Reset();
     }
 
     void Update()

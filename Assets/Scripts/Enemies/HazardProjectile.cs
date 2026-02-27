@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.VFX;
+using MoreMountains.Feedbacks;
 
 [RequireComponent(typeof(CircleCollider2D))]
 [RequireComponent(typeof(Rigidbody2D))]
@@ -7,33 +8,53 @@ public class HazardProjectile : MonoBehaviour
 {
     [SerializeField] public VisualEffect vfx;
     public float projectileSpeed = 3f;
+    public float secondsUntilFade = 3f;
+    public float secondsUntilDisable = 5f;
+    public float timer;
     private string direction;
     private bool faded = false;
     private bool hazardEnabled = false;
-    public FadeOut fade;
+    // public FadeOut fade;
+
+    public MMF_Player projectileFade;
+    public MMF_Player projectileReset;
 
     public void ReturnToPool() => ServiceLocator.Get<ObjectPooler>().ReturnToPool("HazardProjectile", gameObject);
     public void SetDirection(string d) { direction = d; }
-    public void SetFadeStatis(bool f) { faded = f; }
+    // public void SetFadeStatis(bool f) { faded = f; }
 
-    public bool GetEnabledStatis() { return hazardEnabled; }
+    // public bool GetEnabledStatis() { return hazardEnabled; }
 
-    public bool GetFadeStatis() { return faded; }
+    // public bool GetFadeStatis() { return faded; }
 
     private void OnEnable()
     {
-        hazardEnabled = true;
-        fade.ResetFade();
+        // hazardEnabled = true;
+        // fade.ResetFade();
+        projectileReset.PlayFeedbacks(); 
+        timer = 0;
     }
 
-    private void OnDisable()
-    {
-        hazardEnabled = false;
-    }
+    // private void OnDisable()
+    // {
+    //     hazardEnabled = false;
+    // }
 
 
     void Update()
     {
+        timer += Time.deltaTime;
+
+        if (timer >= secondsUntilFade)
+        {
+            projectileFade.PlayFeedbacks(); 
+        }
+
+        if (timer >= secondsUntilDisable)
+        {
+            ReturnToPool();
+        }
+
         if (direction == "right")
             transform.position += transform.right * projectileSpeed * Time.deltaTime;
         else if (direction == "left")
@@ -46,10 +67,10 @@ public class HazardProjectile : MonoBehaviour
             Debug.Log("Unknown direction?.");
 
 //ISSS getting called
-        if (faded)
-        {
-            ReturnToPool();
-        }
+        // if (faded)
+        // {
+        //     ReturnToPool();
+        // }
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -80,9 +101,9 @@ public class HazardProjectile : MonoBehaviour
         newVFX.SendEvent("Hit");
     }
 
-    public void Reset() 
-    {
-        fade.ResetFade(); 
-    }
+    // public void Reset() 
+    // {
+    //     fade.ResetFade(); 
+    // }
 
 }
