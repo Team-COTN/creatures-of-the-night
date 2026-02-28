@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 4813924779473823972}
   - component: {fileID: 8848630757677545510}
   - component: {fileID: 2022354748608980358}
-  - component: {fileID: 4978821959316770165}
   - component: {fileID: 1275635434489413482}
   m_Layer: 0
   m_Name: HazardProjectile
@@ -170,9 +169,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vfx: {fileID: 8356700481409397600, guid: a06d3fcc8168ea840ac952c9f520961e, type: 3}
-  projectileSpeed: 6
-  secondsUntilFade: 3
-  secondsUntilDisable: 3.2
+  projectileSpeed: 10
+  secondsUntilFade: 3.5
+  secondsUntilDisable: 3.65
   timer: 0
   projectileFade: {fileID: 1275635434489413482}
   projectileReset: {fileID: 2304699223250646896}
@@ -222,18 +221,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 0.5}
   m_EdgeRadius: 0
---- !u!114 &4978821959316770165
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1187837223486213113}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62ffd94e04e4d254c977ab454842767e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1275635434489413482
 MonoBehaviour:
   m_ObjectHideFlags: 0
