@@ -10,6 +10,7 @@ namespace Player.States.Locomotion
         public readonly Idle Idle; 
         public readonly Move Move;
         public readonly Dash Dash;
+        public readonly SwitchDash SwitchDash;
         public readonly Slash Slash;
 
         public float DashCooldownTimer;
@@ -22,6 +23,7 @@ namespace Player.States.Locomotion
             Idle = new Idle(m, this, player);
             Move = new Move(m, this, player);
             Dash = new Dash(m, this, player);
+            SwitchDash = new SwitchDash(m, this, player);
             Slash = new Slash(m, this, player);
         }
 
@@ -30,7 +32,7 @@ namespace Player.States.Locomotion
         protected override (State state, string reason) GetNextState()
         {
             // If we're dashing, return null
-            if (Leaf() == Dash) return (null, null);
+            if (Leaf() == Dash || Leaf() == SwitchDash) return (null, null);
             
             // If we're not grounded, fall
             if (!player.Grounded)
@@ -171,6 +173,9 @@ namespace Player.States.Locomotion
 
         protected override (State state, string reason) GetNextState()
         {
+            if (InputManager.GetSwitchdashWasPressedThisFrame())
+                return (Machine.GetState<SwitchDash>(), "Player pressed switch-dash");
+
             if (dashTimer >= player.locomotionData.dashDuration)
                 return (Machine.GetState<Idle>(), "Player is done dashing");
     
@@ -188,7 +193,6 @@ namespace Player.States.Locomotion
             // Gather inputs
             input = InputManager.GetMovement().x;
             isMoving = Mathf.Abs(input) > player.locomotionData.movementInputThreshold;
-
             dashTimer += deltaTime;
         }
 
@@ -199,7 +203,7 @@ namespace Player.States.Locomotion
             var duration = player.locomotionData.dashDuration;
             var finalVelocity = player.locomotionData.maxWalkSpeed;
             var initialVelocity = (2 * distance / duration) - finalVelocity;
-            var t = Mathf.Clamp01(dashTimer / player.locomotionData.dashDuration);
+            var t = Mathf.Clamp01(dashTimer / duration);
             var velocity = Mathf.Lerp(initialVelocity, finalVelocity, t);
             var direction = player.isFacingRight ? 1f : -1f;
             player.SetHorizontalVelocity(velocity * direction);
@@ -211,7 +215,56 @@ namespace Player.States.Locomotion
                 player.IncrementVerticalVelocity(player.locomotionData.Gravity * player.locomotionData.gravityFallMultiplier * fixedDeltaTime);
         }
     }
+
+    public class SwitchDash : State
+    {
+        readonly PlayerCharacterController player;
+        private float switchDashTimer;
+        
+        public SwitchDash(StateMachine m, State parent, PlayerCharacterController player) : base(m, parent)
+        {
+            this.player = player;
+        }
+
+        protected override (State state, string reason) GetNextState()
+        {
+            if (switchDashTimer >= player.locomotionData.switchDashDuration)
+                return (Machine.GetState<Idle>(), "Player is done switch-dashing");
     
+            return (null, null);
+        }
+        
+        protected override void OnEnter()
+        {
+            switchDashTimer = 0f;
+            player.transform.Rotate(0f, player.isFacingRight ? 180f : -180f, 0f);
+            player.isFacingRight = !player.isFacingRight;
+        }
+
+        protected override void OnUpdate(float deltaTime)
+        {
+            switchDashTimer += deltaTime;
+        }
+
+        protected override void OnFixedUpdate(float fixedDeltaTime)
+        {
+            // Horizontal Movement
+            var distance = player.locomotionData.switchDashDistance;
+            var duration = player.locomotionData.switchDashDuration;
+            var finalVelocity = player.locomotionData.maxWalkSpeed;
+            var initialVelocity = (2 * distance / duration) - finalVelocity;
+            var t = Mathf.Clamp01(switchDashTimer / duration);
+            var velocity = Mathf.Lerp(initialVelocity, finalVelocity, t);
+            var direction = player.isFacingRight ? 1f : -1f;
+            player.SetHorizontalVelocity(velocity * direction);
+            
+            // Vertical Movement
+            if (switchDashTimer <= player.locomotionData.airDashHangTime)
+                player.SetVerticalVelocity(0f);         
+            else
+                player.IncrementVerticalVelocity(player.locomotionData.Gravity * player.locomotionData.gravityFallMultiplier * fixedDeltaTime);
+        }
+    }
     
     public class Slash : State
     {

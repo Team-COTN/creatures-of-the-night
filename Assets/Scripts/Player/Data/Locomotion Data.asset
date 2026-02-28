@@ -25,6 +25,10 @@ MonoBehaviour:
   dashDuration: 0.2
   dashCooldown: 0.5
   airDashHangTime: 0.125
+  switchDashDistance: 4.5
+  switchDashDuration: 0.3
+  airSwitchDashHangTime: 0.125
   slashDuration: 0.5
+  knockbackForce: 6
   damagedDuration: 0.4
   knockbackDuration: 0.05
