@@ -35,7 +35,8 @@ public class SafeGroundDamaged : MonoBehaviour
         {
             player.transform.position = SafeGroundCheckpoint.safeGroundLocation;
         }
-        
+
     }
+
 
 }

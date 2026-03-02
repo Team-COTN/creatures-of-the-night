@@ -8,6 +8,9 @@ public class CharacterInteractions : MonoBehaviour, IPlayerDamagable, IPlayerTel
     private Color playerColor;
     public Color hitColor;
     [SerializeField] private SpriteRenderer playerSprite;
+    //---teleport variables---
+    public Animator transition;
+    public SafeGroundCheckpoint SafeGroundCheckpoint;
 
     [SerializeField] private PlayerCharacterController characterController;
     public int characterHealth = 3;
@@ -17,7 +20,7 @@ public class CharacterInteractions : MonoBehaviour, IPlayerDamagable, IPlayerTel
 
     public void AddCharacterDamagedObserver(Action<int> observer) { CharacterDamaged += observer; }
     public void RemoveCharacterDamagedObserver(Action<int> observer) { CharacterDamaged -= observer; }
-    
+
     public void AddCharacterTeleportedObserver(Action<int> observer) { CharacterTeleported += observer; }
     public void RemoveCharacterTeleportedObserver(Action<int> observer) { CharacterTeleported -= observer; }
 
@@ -38,9 +41,14 @@ public class CharacterInteractions : MonoBehaviour, IPlayerDamagable, IPlayerTel
     {
         characterController._hazardPosition = hazardPosition;
     }
-    
+
     public void PlayerTakeTeleportDamage(int damageAmount)
     {
+        if (gameObject != null)
+        {
+            transition.SetTrigger("DeathFade");
+            WarpPlayer();
+        }
         CharacterDamaged?.Invoke(characterHealth);
         CharacterTeleported?.Invoke(1);
         Damage(damageAmount);
@@ -62,5 +70,13 @@ public class CharacterInteractions : MonoBehaviour, IPlayerDamagable, IPlayerTel
             realTime += Time.deltaTime;
             yield return null;
         }
+    }
+    public void WarpPlayer()
+    {
+        if (gameObject != null && SafeGroundCheckpoint != null)
+        {
+            gameObject.transform.position = SafeGroundCheckpoint.safeGroundLocation;
+        }
+
     }
 }

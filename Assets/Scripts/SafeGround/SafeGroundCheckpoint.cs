@@ -26,7 +26,7 @@ public class SafeGroundCheckpoint : MonoBehaviour
    }
    void OnTriggerEnter2D(Collider2D collision)
    {
-       //if collision gameobject is withing checkpoint laytermask
+       //if collision gameobject is within checkpoint laytermask
 
 
        if ((isCheckpoint.value & (1 << collision.gameObject.layer)) > 0)

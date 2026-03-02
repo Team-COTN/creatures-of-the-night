@@ -184,8 +184,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2453230580498776840}
   - component: {fileID: 5010896052982194548}
-  - component: {fileID: 1008947825137466042}
   - component: {fileID: 3276641380208522121}
+  - component: {fileID: 1803833553540330617}
   m_Layer: 0
   m_Name: Spikes
   m_TagString: TempFloorHazard
@@ -260,19 +260,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.5577736, y: 0.97696114}
   m_EdgeRadius: 0
---- !u!114 &1008947825137466042
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6676021671584534952}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d33ca4da7ef49a42bcee17f820dddff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hazardStrength: 1
 --- !u!50 &3276641380208522121
 Rigidbody2D:
   serializedVersion: 5
@@ -300,6 +287,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!114 &1803833553540330617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6676021671584534952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d877bcd0222f91443b2ab1bb308fe17c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hazardStrength: 1
 --- !u!1 &7306343590429197213
 GameObject:
   m_ObjectHideFlags: 0
