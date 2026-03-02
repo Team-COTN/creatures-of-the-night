@@ -101,6 +101,7 @@ GameObject:
   - component: {fileID: 880933709111941123}
   - component: {fileID: 3542171643804033552}
   - component: {fileID: 6104132534688728150}
+  - component: {fileID: 7769016633448608019}
   m_Layer: 0
   m_Name: Moving Hazard (1)
   m_TagString: Untagged
@@ -186,8 +187,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4b0a48fc52773f47a35957d41d71c13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementDistance: 5
-  speed: 2
+  movementDistance: 10
+  speed: 3.5
 --- !u!50 &3542171643804033552
 Rigidbody2D:
   serializedVersion: 5
@@ -207,7 +208,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4294967295
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -267,6 +268,19 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!114 &7769016633448608019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3395277537259435709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1fbf35892b9b734ba1e4549b211309f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vfx: {fileID: 8356700481409397600, guid: a06d3fcc8168ea840ac952c9f520961e, type: 3}
 --- !u!1 &3421236593245556096
 GameObject:
   m_ObjectHideFlags: 0
