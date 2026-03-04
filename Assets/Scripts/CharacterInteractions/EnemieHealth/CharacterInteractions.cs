@@ -3,7 +3,7 @@ using System;
 using System.Collections; //events 
 using Player;
 
-public class CharacterInteractions : MonoBehaviour, IPlayerDamagable, IPlayerTeleportable, ICharacter
+public class CharacterInteractions : MonoBehaviour, IPlayerDamagable, IPlayerTeleportable, IPlayerShootable, ICharacter
 {
     private Color playerColor;
     public Color hitColor;
@@ -36,6 +36,14 @@ public class CharacterInteractions : MonoBehaviour, IPlayerDamagable, IPlayerTel
         CharacterDamaged?.Invoke(characterHealth);
         Damage(damageAmount);
     }
+
+    public void TakeShotDamage(int damageAmount)
+    {
+        characterHealth -= damageAmount;
+        characterController.Damage();
+        CharacterDamaged?.Invoke(characterHealth);
+    }
+    
 
     public void EnterDamage(Vector2 hazardPosition)
     {

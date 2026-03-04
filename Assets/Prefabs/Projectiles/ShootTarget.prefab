@@ -48,6 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vfx: {fileID: 8356700481409397600, guid: a06d3fcc8168ea840ac952c9f520961e, type: 3}
+  projectileSpeed: 8
   visual: {fileID: 0}
 --- !u!58 &3320844059805239557
 CircleCollider2D:

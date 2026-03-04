@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.VFX;
+using Player;
+// using Player.Data;
 
 //attatched to GO. WITH colider
 [RequireComponent(typeof(CircleCollider2D))]
@@ -9,14 +11,25 @@ using UnityEngine.VFX;
 public class FunctionalProjectiles : MonoBehaviour
 {
     [SerializeField] public VisualEffect vfx;
-    private float projectileSpeed = 3f;
+    private PlayerCharacterController character;
+
+    public float projectileSpeed = 3f;
     private bool enabled = false;
+    private bool direction;
+
     public VisualProjectiles visual;
     
+
     //gets instantiated on slash attack (button click)
     //A Shard will need to be assigned a projectile. The Large Shard should always go 1st and only enabled shards should be assigned. BUT can have more than 2 shards in total enabled
 
-    private void OnEnable() => enabled = true;
+    private void Awake() => character = GameObject.FindWithTag("Player").GetComponent<PlayerCharacterController>();
+
+    private void OnEnable()
+    {
+        enabled = true;
+        direction = character.isFacingRight;
+    }
 
     private void OnDisable() => enabled = false;
 
@@ -28,7 +41,10 @@ public class FunctionalProjectiles : MonoBehaviour
         if (enabled)
         {
             //wait until attack animation done? May or may not need bc transition speed
-            transform.position += transform.right * projectileSpeed * Time.deltaTime;
+            if (direction)
+                transform.position += transform.right * projectileSpeed * Time.deltaTime;
+            else
+                transform.position += transform.right * projectileSpeed * Time.deltaTime * -1f;
         }
     }
     

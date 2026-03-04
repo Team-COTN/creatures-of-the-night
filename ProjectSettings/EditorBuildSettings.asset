@@ -5,7 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Scenes/Oct/OctoberDemo.unity
     guid: 5730a650892206e43aa5ffd6cafcd44b
   - enabled: 0
@@ -29,6 +29,9 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/_Scenes/Load3rd.unity
     guid: 648b3fd4ca301cf4d84407f6f240cf60
+  - enabled: 1
+    path: Assets/_Scenes/ForestAssetTest.unity
+    guid: fac2261cbc9c28744b97c21d3c9f3edb
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
