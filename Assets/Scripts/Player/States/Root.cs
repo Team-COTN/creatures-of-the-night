@@ -11,6 +11,7 @@ namespace Player.States
         public readonly Airborne Airborne;
         public readonly Scrying Scrying;
         public readonly Damaged Damaged;
+        public readonly Cinematic Cinematic;
 
 
         public float JumpBufferTimer;
@@ -23,6 +24,7 @@ namespace Player.States
             Airborne = new Airborne(m, this, player);
             Scrying = new Scrying(m, this, player);
             Damaged = new Damaged(m, this, player);
+            Cinematic = new Cinematic(m, this, player);
         }
 
         protected override State GetDefaultChildState() => Grounded;
@@ -33,6 +35,9 @@ namespace Player.States
             //if CharacterInteractions invokes PlayerTakeDamage
             if (player.characterBeingDamaged)
                 return (Machine.GetState<Damaged>(), "Player got damaged!");
+
+            if (player.isInCinematic && Leaf() != Cinematic)
+                return (Machine.GetState<Cinematic>(), "Cinematic started");
 
             return (null, null);
         }
@@ -93,6 +98,27 @@ namespace Player.States
         protected override void OnExit()
         {
             player.characterBeingDamaged = false;
+        }
+    }
+
+        public class Cinematic : State
+    {
+        readonly PlayerCharacterController player;
+
+        public Cinematic(StateMachine m, State parent, PlayerCharacterController player) : base(m, parent) => this.player = player;
+
+        protected override (State state, string reason) GetNextState()
+        {            
+            if (!player.isInCinematic)
+                return (Machine.GetState<Grounded>(), "Cinematic is over");
+
+            return (null, null);
+        }
+
+        protected override void OnFixedUpdate(float fixedDeltaTime)
+        {
+            player.SetHorizontalVelocity(0);
+            player.SetVerticalVelocity(0);
         }
     }
 }
