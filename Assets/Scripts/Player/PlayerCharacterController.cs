@@ -7,7 +7,7 @@ using Player.Eye;
 using Player.States;
 using MoreMountains.Feedbacks;
 using Player.States.Locomotion;
-// using NaughtyAttributes;
+using NaughtyAttributes;
 
 namespace Player
 {
@@ -25,6 +25,9 @@ namespace Player
 
 
         public MMF_Player myParryFeedbacks;
+
+        //cinematic
+        public bool isInCinematic = false;
 
         //damaged
         public bool characterBeingDamaged = false;
@@ -108,7 +111,10 @@ namespace Player
         public void SetHorizontalVelocity(float value) => velocity = new Vector2(value, velocity.y);
         public void IncrementHorizontalVelocity(float value) => velocity += new Vector2(value, 0);
         public bool Grounded => motor.IsGrounded();
-
+        [Button]
+        public void EnterCinematic() => isInCinematic = true;
+        [Button]
+        public void ExitCinematic() => isInCinematic = false;
 
 
         public void Damage()
