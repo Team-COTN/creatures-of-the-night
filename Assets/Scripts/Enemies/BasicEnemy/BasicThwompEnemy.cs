@@ -12,6 +12,9 @@ namespace Enemies.BasicEnemy
     {
         private bool triggerReady = true;
 
+        public Animator Crusher;
+
+
         private void OnTriggerEnter2D(Collider2D other)
         {
 
@@ -28,6 +31,16 @@ namespace Enemies.BasicEnemy
             }
         }
 
+        void IdleAnim()
+       {
+           Crusher.SetTrigger("Reverse_Anim");
+       }
+       void CrusherAnim()
+       {
+           Crusher.SetTrigger("Crusher_Anim");
+       }
+
+
         private IEnumerator Transformation()
         {
             triggerReady = false;
@@ -35,6 +48,8 @@ namespace Enemies.BasicEnemy
             float duration = .5f;
             UnityEngine.Vector3 startPos = transform.position;
             UnityEngine.Vector3 destination = startPos + new UnityEngine.Vector3(0f, -6f, 0f);
+
+            CrusherAnim();
 
             while (realTime < duration)
             {
@@ -46,7 +61,9 @@ namespace Enemies.BasicEnemy
             }
        
 
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(1f);
+            IdleAnim();
+            yield return new WaitForSeconds(1f);
             realTime = 0f;
             duration = 1.5f;
             startPos = transform.position;
