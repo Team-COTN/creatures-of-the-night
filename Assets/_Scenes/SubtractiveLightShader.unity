@@ -2120,6 +2120,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 941937507}
   m_CullTransparentMesh: 1
+--- !u!1 &968862474
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 968862475}
+  m_Layer: 0
+  m_Name: Enter Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &968862475
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 968862474}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 562544190559395206}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1013721730
 GameObject:
   m_ObjectHideFlags: 0
@@ -2206,6 +2237,37 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1080822971
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1080822972}
+  m_Layer: 0
+  m_Name: Exit Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1080822972
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1080822971}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 869346983974033956}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1218254818
 GameObject:
@@ -2430,7 +2492,7 @@ PrefabInstance:
       objectReference: {fileID: 1546666540}
     - target: {fileID: 240951465702885810, guid: 4d93d5bc8b931fa478827d994f55d53b, type: 3}
       propertyPath: debug
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 240951465702885810, guid: 4d93d5bc8b931fa478827d994f55d53b, type: 3}
       propertyPath: animator
@@ -3106,6 +3168,37 @@ Transform:
   - {fileID: 459226669}
   - {fileID: 283385626}
   m_Father: {fileID: 527861904}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1568567657
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1568567658}
+  m_Layer: 0
+  m_Name: Exit Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1568567658
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1568567657}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 562544190559395206}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1573085315
 GameObject:
@@ -4568,11 +4661,35 @@ PrefabInstance:
       propertyPath: m_Name
       value: Scene Transition Right
       objectReference: {fileID: 0}
+    - target: {fileID: 2373722590402420785, guid: 72f7cfc17c2583a4cb2e0b308c05b386, type: 3}
+      propertyPath: exitPoint
+      value: 
+      objectReference: {fileID: 1568567658}
+    - target: {fileID: 2373722590402420785, guid: 72f7cfc17c2583a4cb2e0b308c05b386, type: 3}
+      propertyPath: enterPoint
+      value: 
+      objectReference: {fileID: 968862475}
+    - target: {fileID: 2373722590402420785, guid: 72f7cfc17c2583a4cb2e0b308c05b386, type: 3}
+      propertyPath: targetScene
+      value: SubtractiveLightShader
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 5370340559924023993, guid: 72f7cfc17c2583a4cb2e0b308c05b386, type: 3}
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 536086500574500362, guid: 72f7cfc17c2583a4cb2e0b308c05b386, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 968862475}
+    - targetCorrespondingSourceObject: {fileID: 536086500574500362, guid: 72f7cfc17c2583a4cb2e0b308c05b386, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1568567658}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72f7cfc17c2583a4cb2e0b308c05b386, type: 3}
+--- !u!4 &562544190559395206 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 536086500574500362, guid: 72f7cfc17c2583a4cb2e0b308c05b386, type: 3}
+  m_PrefabInstance: {fileID: 562544190559395205}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &869346983974033955
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4625,11 +4742,48 @@ PrefabInstance:
       propertyPath: m_Name
       value: Scene Transition Left
       objectReference: {fileID: 0}
+    - target: {fileID: 1781295998696602219, guid: 6b657b6c31c491e4cb87a748dc081899, type: 3}
+      propertyPath: m_Name
+      value: Enter Point
+      objectReference: {fileID: 0}
+    - target: {fileID: 8236172350669750520, guid: 6b657b6c31c491e4cb87a748dc081899, type: 3}
+      propertyPath: exitPoint
+      value: 
+      objectReference: {fileID: 1080822972}
+    - target: {fileID: 8236172350669750520, guid: 6b657b6c31c491e4cb87a748dc081899, type: 3}
+      propertyPath: faceRight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8236172350669750520, guid: 6b657b6c31c491e4cb87a748dc081899, type: 3}
+      propertyPath: enterPoint
+      value: 
+      objectReference: {fileID: 869346983974033957}
+    - target: {fileID: 8236172350669750520, guid: 6b657b6c31c491e4cb87a748dc081899, type: 3}
+      propertyPath: walkTarget
+      value: 
+      objectReference: {fileID: 1080822972}
+    - target: {fileID: 8236172350669750520, guid: 6b657b6c31c491e4cb87a748dc081899, type: 3}
+      propertyPath: targetScene
+      value: SubtractiveLightShader
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 834649938890884001, guid: 6b657b6c31c491e4cb87a748dc081899, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1080822972}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b657b6c31c491e4cb87a748dc081899, type: 3}
+--- !u!4 &869346983974033956 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 834649938890884001, guid: 6b657b6c31c491e4cb87a748dc081899, type: 3}
+  m_PrefabInstance: {fileID: 869346983974033955}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &869346983974033957 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9107079002087428205, guid: 6b657b6c31c491e4cb87a748dc081899, type: 3}
+  m_PrefabInstance: {fileID: 869346983974033955}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
