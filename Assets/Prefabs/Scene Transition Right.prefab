@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorNumber: 2
-  targetScene: SubtractiveLightShader
+  targetScene: ForestAssetTest
   targetDoor: 1
   spawnPoint: {fileID: 2070738679217116757}
 --- !u!1 &5370340559924023993
