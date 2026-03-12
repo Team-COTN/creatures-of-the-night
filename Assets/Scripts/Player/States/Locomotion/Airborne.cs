@@ -15,9 +15,6 @@ namespace Player.States.Locomotion
         public bool canParry = false;
         public bool CanDash;
 
-
-        protected override State GetDefaultChildState() => Fall;
-    
         public Airborne(StateMachine m, State parent, PlayerCharacterController player) : base(m, parent)
         {
             this.player = player;
@@ -27,6 +24,8 @@ namespace Player.States.Locomotion
             AirDash = new AirDash(m, this, player);
             AirSwitchDash = new AirSwitchDash(m, this, player);
         }
+
+        protected override State GetDefaultChildState() => player.velocity.y > 0 ? Jump : Fall;
 
         protected override (State state, string reason) GetNextState()
         {
@@ -115,6 +114,11 @@ namespace Player.States.Locomotion
             
             return (null, null);
         }
+
+        protected override void OnEnter()
+        {
+            player.PlayerAnimator.PlayFall();
+        }
     
         protected override void OnUpdate(float deltaTime)
         {
@@ -177,7 +181,8 @@ namespace Player.States.Locomotion
 
         protected override void OnEnter()
         {
-            player.SetVerticalVelocity(player.locomotionData.InitialJumpVelocity);
+            player.PlayerAnimator.PlayJump();
+            player.SetVerticalVelocity(player.locomotionData.InitialJumpVelocity);            
             apexTimer = 0f;
             jumpCancel = false;
             Machine.GetState<Root>().JumpBufferTimer = 0;
@@ -269,6 +274,7 @@ namespace Player.States.Locomotion
         {
             apexTimer = 0f;
             player.SetVerticalVelocity(player.locomotionData.InitialJumpVelocity);
+            player.PlayerAnimator.PlayJumpParry();
         }
 
         protected override void OnUpdate(float deltaTime)
@@ -347,6 +353,7 @@ namespace Player.States.Locomotion
         {
             dashTimer = 0f;
             Machine.GetState<Airborne>().CanDash = false;
+            player.PlayerAnimator.PlayAirDash();
         }
 
         protected override void OnUpdate(float deltaTime)
@@ -401,6 +408,7 @@ namespace Player.States.Locomotion
             switchDashTimer = 0f;
             player.transform.Rotate(0f, player.isFacingRight ? 180f : -180f, 0f);
             player.isFacingRight = !player.isFacingRight;
+            player.PlayerAnimator.PlayAirSwitchDash();
         }
 
         protected override void OnUpdate(float deltaTime)
