@@ -20,6 +20,11 @@ public class SceneTransitionUI : MonoBehaviour
         fadeOutFeedback.Events.OnComplete.RemoveListener(sceneTransitionManager.CompleteFadeOut);
     }
 
+    public void FadeIn()
+    {
+        fadeInFeedback.PlayFeedbacks();
+    }
+
     public void FadeOut()
     {
         fadeOutFeedback.PlayFeedbacks();

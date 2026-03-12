@@ -2,6 +2,7 @@ using UnityEngine;
 using System;
 using System.Collections; //events 
 using Player;
+using Language.Lua;
 
 public class CharacterInteractions : MonoBehaviour, IPlayerDamagable, IPlayerTeleportable, IPlayerShootable, ICharacter
 {
@@ -21,8 +22,8 @@ public class CharacterInteractions : MonoBehaviour, IPlayerDamagable, IPlayerTel
     public void AddCharacterDamagedObserver(Action<int> observer) { CharacterDamaged += observer; }
     public void RemoveCharacterDamagedObserver(Action<int> observer) { CharacterDamaged -= observer; }
 
-    public void AddCharacterTeleportedObserver(Action<int> observer) { CharacterTeleported += observer; }
-    public void RemoveCharacterTeleportedObserver(Action<int> observer) { CharacterTeleported -= observer; }
+    // public void AddCharacterTeleportedObserver(Action<int> observer) { CharacterTeleported += observer; }
+    // public void RemoveCharacterTeleportedObserver(Action<int> observer) { CharacterTeleported -= observer; }
 
     private void Awake()
     {
@@ -33,8 +34,8 @@ public class CharacterInteractions : MonoBehaviour, IPlayerDamagable, IPlayerTel
 
     public void PlayerTakeDamage(int damageAmount)
     {
-        CharacterDamaged?.Invoke(characterHealth);
         Damage(damageAmount);
+        CharacterDamaged?.Invoke(characterHealth);
     }
 
     public void TakeShotDamage(int damageAmount)
@@ -52,14 +53,19 @@ public class CharacterInteractions : MonoBehaviour, IPlayerDamagable, IPlayerTel
 
     public void PlayerTakeTeleportDamage(int damageAmount)
     {
-        if (gameObject != null)
-        {
-            transition.SetTrigger("DeathFade");
-            WarpPlayer();
-        }
+        // Player Take Damage
+        characterHealth -= damageAmount;
         CharacterDamaged?.Invoke(characterHealth);
-        CharacterTeleported?.Invoke(1);
-        Damage(damageAmount);
+        characterController.EnterCinematic(new Player.States.Cinematics.CinematicRequest());
+
+        // Fade In
+        var sceneTransitionUI = FindFirstObjectByType<SceneTransitionUI>();
+        sceneTransitionUI.FadeIn();
+
+        // Move Player
+        characterController.SetPosition(SafeGroundCheckpoint.safeGroundLocation);
+        StartCoroutine(DamagedColor());
+        characterController.ExitCinematic();
     }
 
     private void Damage(int damage)
@@ -78,13 +84,5 @@ public class CharacterInteractions : MonoBehaviour, IPlayerDamagable, IPlayerTel
             realTime += Time.deltaTime;
             yield return null;
         }
-    }
-    public void WarpPlayer()
-    {
-        if (gameObject != null && SafeGroundCheckpoint != null)
-        {
-            gameObject.transform.position = SafeGroundCheckpoint.safeGroundLocation;
-        }
-
     }
 }
