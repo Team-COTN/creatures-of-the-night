@@ -17,15 +17,12 @@ namespace Player
     {
         [Header("References")]
         public PhysicsMotor motor;
+        public PlayerAnimator PlayerAnimator;
         public StateMachine Machine;
         private State root;
         public EyeController eye;
         public Vector2 velocity;
         public bool isFacingRight = true;
-
-        [SerializeField] Animator animator;
-        public Animator Animator => animator;
-
 
         public MMF_Player myParryFeedbacks;
 
@@ -52,11 +49,11 @@ namespace Player
             var builder = new StateMachineBuilder(root);
             Machine = builder.Build();
 
-            Machine.OnStateEntered<Idle>(OnIdle);
-            Machine.OnStateEntered<States.Locomotion.Grounded>(OnIdle);
-            Machine.OnStateEntered<Move>(OnMove);
-            Machine.OnStateEntered<Jump>(OnJump);
-            Machine.OnStateEntered<JumpParry>(OnJumpParry);
+            // Machine.OnStateEntered<Idle>(OnIdle);
+            // Machine.OnStateEntered<States.Locomotion.Grounded>(OnIdle);
+            // Machine.OnStateEntered<Move>(OnMove);
+            // Machine.OnStateEntered<Jump>(OnJump);
+            // Machine.OnStateEntered<JumpParry>(OnJumpParry);
         }
 
         // --- Cinematic API ---
@@ -79,27 +76,27 @@ namespace Player
 
         // --- Animation callbacks ---
         
-        private void OnIdle() => animator.SetTrigger("Idle");
+        // private void OnIdle() => animator.SetTrigger("Idle");
 
-        private void OnMove()
-        {
-            if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Walk Cycle"))
-                animator.SetTrigger("Move");
-        }
+        // private void OnMove()
+        // {
+        //     if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Walk Cycle"))
+        //         animator.SetTrigger("Move");
+        // }
 
-        private void OnJump() => animator.SetTrigger("Jump");
+        // private void OnJump() => animator.SetTrigger("Jump");
 
-        private void OnJumpParry()
-        {
-            animator.SetTrigger("JumpParry");
-            myParryFeedbacks.PlayFeedbacks();
-        }
+        // private void OnJumpParry()
+        // {
+        //     animator.SetTrigger("JumpParry");
+        //     myParryFeedbacks.PlayFeedbacks();
+        // }
 
-        private void OnSlash()
-        {
-            animator.SetTrigger("Slash");
-            myParryFeedbacks.PlayFeedbacks();
-        }
+        // private void OnSlash()
+        // {
+        //     animator.SetTrigger("Slash");
+        //     myParryFeedbacks.PlayFeedbacks();
+        // }
 
         // --- Core loop ---
 

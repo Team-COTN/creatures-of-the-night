@@ -27,7 +27,7 @@ namespace Player.States.Locomotion
             Slash = new Slash(m, this, player);
         }
 
-        protected override State GetDefaultChildState() => Idle;
+        protected override State GetDefaultChildState() => Mathf.Abs(InputManager.GetMovement().x) > player.locomotionData.movementInputThreshold ? Move : Idle;
 
         protected override (State state, string reason) GetNextState()
         {
@@ -106,6 +106,7 @@ namespace Player.States.Locomotion
     
         protected override void OnEnter()
         {
+            player.PlayerAnimator.PlayIdle();
             player.SetHorizontalVelocity(0f);
         }
     }
@@ -127,6 +128,11 @@ namespace Player.States.Locomotion
                 return (Machine.GetState<Idle>(), "Player is not pressing movement buttons");
             
             return (null, null);
+        }
+
+        protected override void OnEnter()
+        {
+            player.PlayerAnimator.PlayWalk();
         }
 
         protected override void OnUpdate(float deltaTime)
@@ -186,6 +192,7 @@ namespace Player.States.Locomotion
         {
             dashTimer = 0f;
             Machine.GetState<Grounded>().DashCooldownTimer = player.locomotionData.dashCooldown;
+            player.PlayerAnimator.PlayDash();
         }
 
         protected override void OnUpdate(float deltaTime)
@@ -239,6 +246,7 @@ namespace Player.States.Locomotion
             switchDashTimer = 0f;
             player.transform.Rotate(0f, player.isFacingRight ? 180f : -180f, 0f);
             player.isFacingRight = !player.isFacingRight;
+            player.PlayerAnimator.PlaySwitchDash();
         }
 
         protected override void OnUpdate(float deltaTime)
@@ -285,7 +293,11 @@ namespace Player.States.Locomotion
     
             return (null, null);
         }
-        
+
+        protected override void OnEnter()
+        {
+            player.PlayerAnimator.PlaySlash();
+        }
 
         protected override void OnUpdate(float deltaTime)
         {

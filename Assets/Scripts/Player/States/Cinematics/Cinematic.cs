@@ -17,13 +17,13 @@ namespace Player.States.Cinematics
         public CinematicRequest ActiveRequest { get; private set; }
 
         public readonly MovingToTarget MovingToTarget;
-        public readonly PlayInPlace PlayInPlace;
+        public readonly Animating Animating;
 
         public Cinematic(StateMachine m, State parent, PlayerCharacterController player) : base(m, parent)
         {
             this.player = player;
             MovingToTarget = new MovingToTarget(m, this, player);
-            PlayInPlace = new PlayInPlace(m, this, player);
+            Animating = new Animating(m, this, player);
         }
 
         public void Enter(CinematicRequest request)
@@ -35,7 +35,7 @@ namespace Player.States.Cinematics
         protected override State GetDefaultChildState()
         {
             if (ActiveRequest?.MoveTarget.HasValue == true) return MovingToTarget;
-            if (ActiveRequest?.Clip != null) return PlayInPlace;
+            if (ActiveRequest?.Clip != null) return Animating;
             return null;
         }
 
@@ -48,15 +48,18 @@ namespace Player.States.Cinematics
         }
     }
 
-    public class PlayInPlace : State
+    public class Animating : State
     {
         readonly PlayerCharacterController player;
-        AnimatorOverrideController overrideController;
+        readonly State parent;
 
         Cinematic Cinematic => Machine.GetState<Cinematic>();
 
-        public PlayInPlace(StateMachine m, State parent, PlayerCharacterController player) : base(m, parent)
-            => this.player = player;
+        public Animating(StateMachine m, State parent, PlayerCharacterController player) : base(m, parent)
+        {
+            this.parent = parent;
+            this.player = player;
+        }
 
         protected override void OnEnter()
         {
@@ -64,28 +67,20 @@ namespace Player.States.Cinematics
             player.SetVerticalVelocity(0);
 
             var clip = Cinematic.ActiveRequest?.Clip;
-            if (clip == null) return;
-
-            overrideController = new AnimatorOverrideController(player.Animator.runtimeAnimatorController);
-            player.Animator.runtimeAnimatorController = overrideController;
-            overrideController["CinematicPlaceholder"] = clip;
-            player.Animator.Play("CinematicState");
+            if (clip != null)
+                player.PlayerAnimator.PlayClip(clip);
         }
 
         protected override (State state, string reason) GetNextState()
         {
-            var info = player.Animator.GetCurrentAnimatorStateInfo(0);
-            if (info.normalizedTime >= 1f && !info.loop)
-                return (Machine.GetState<Cinematic>(), "Animation complete");
-
+            if (Cinematic.ActiveRequest?.Clip == null) return (parent, "No clip");
+            if (player.PlayerAnimator.IsClipFinished()) return (parent, "Animation complete");
             return (null, null);
         }
 
         protected override void OnExit()
         {
-            if (overrideController != null)
-                player.Animator.runtimeAnimatorController = overrideController.runtimeAnimatorController;
-
+            player.PlayerAnimator.StopClip();
             Cinematic.ActiveRequest?.OnComplete?.Invoke();
             player.isInCinematic = false;
         }
@@ -164,6 +159,7 @@ namespace Player.States.Cinematics
 
         public Grounded(StateMachine m, State parent, PlayerCharacterController player) : base(m, parent) => this.player = player;
         protected override (State state, string reason) GetNextState() => !player.Grounded ? (Machine.GetState<Airborne>(), "Player is not grounded") : (null, null);
+        protected override void OnEnter() => player.PlayerAnimator.PlayWalk();
         protected override void OnFixedUpdate(float fixedDeltaTime) => player.SetVerticalVelocity(-0.01f);
     }
 
@@ -173,6 +169,7 @@ namespace Player.States.Cinematics
 
         public Airborne(StateMachine m, State parent, PlayerCharacterController player) : base(m, parent) => this.player = player;
         protected override (State state, string reason) GetNextState() => player.Grounded ? (Machine.GetState<Grounded>(), "Player is grounded") : (null, null);
+        protected override void OnEnter() => player.PlayerAnimator.PlayFall();
         protected override void OnFixedUpdate(float fixedDeltaTime) => player.IncrementVerticalVelocity(player.locomotionData.Gravity * player.locomotionData.gravityFallMultiplier * fixedDeltaTime);
     }
 }
