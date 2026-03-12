@@ -12,7 +12,7 @@ namespace Player.States.Locomotion
         public readonly AirDash AirDash;
         public readonly AirSwitchDash AirSwitchDash;
         public bool parried = false;
-        public bool canParry = false;
+        // public bool canParry = false;
         public bool CanDash;
 
         public Airborne(StateMachine m, State parent, PlayerCharacterController player) : base(m, parent)
@@ -25,7 +25,7 @@ namespace Player.States.Locomotion
             AirSwitchDash = new AirSwitchDash(m, this, player);
         }
 
-        protected override State GetDefaultChildState() => player.velocity.y > 0 ? Jump : Fall;
+        protected override State GetDefaultChildState() => Fall;
 
         protected override (State state, string reason) GetNextState()
         {
@@ -34,13 +34,27 @@ namespace Player.States.Locomotion
             if (InputManager.GetDashWasPressedThisFrame() && CanDash)
                 return (AirDash, "Player pressed dash");
 
-            if (parried)
-            {
-                parried = false;
-                return (JumpParry, "Player successfully JumpParried");
-            }
+            if (InputManager.GetJumpWasPressedThisFrame() && CanParry())
+                return (JumpParry, "Player parried object");
 
             return (null, null);
+        }
+
+        private bool CanParry()
+        {
+            var anyMatches = false;
+            float radius = 1f;
+            Vector2 parryColOrigin = player.parryCollider2D.bounds.center;
+            Collider2D[] otherCol = Physics2D.OverlapCircleAll(parryColOrigin, radius, ~0);
+            for (int i = 0; i < otherCol.Length; i++)
+            {
+                if (otherCol[i].gameObject.TryGetComponent(out IParryable parryable) && parryable.GetParryableNowState())
+                {
+                    parryable.Parry();
+                    anyMatches = true;
+                }
+            }
+            return anyMatches;
         }
 
         protected override void OnEnter()
@@ -60,36 +74,6 @@ namespace Player.States.Locomotion
             {
                 Machine.GetState<Root>().JumpBufferTimer -= deltaTime;
             }
-
-            if (InputManager.GetJumpWasPressedThisFrame())
-            {
-                canParry = true;
-            }
-
-        }
-
-        protected override void OnFixedUpdate(float fixedDeltaTime)
-        {
-            if (canParry)
-            {
-                float radius = 1f;
-                Vector2 parryColOrigin = player.parryCollider2D.bounds.center;
-                Collider2D[] otherCol = Physics2D.OverlapCircleAll(parryColOrigin, radius, ~0);
-                for (int i = 0; i < otherCol.Length; i++)
-                {
-                    Debug.Log(otherCol[i].gameObject);
-                    if (otherCol[i].gameObject.TryGetComponent(out IParryable parryable))
-                    {
-                        if(parryable.GetParryableNowState())
-                        {
-                            parryable.Parry();
-                            parried = true;
-                            canParry = false;
-                        }
-                    }
-                }
-            }
-
         }
     }
 

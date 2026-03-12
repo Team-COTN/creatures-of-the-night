@@ -15,6 +15,10 @@ public class ObjectPooler : MonoBehaviour
     public List<Pool> pools;
     public Dictionary<string, Queue<GameObject>> poolDictionary; 
     
+    private void Awake() {
+        ServiceLocator.Register(this);        
+    }
+
     //queue objects invisibly on Start
     void Start()
     {

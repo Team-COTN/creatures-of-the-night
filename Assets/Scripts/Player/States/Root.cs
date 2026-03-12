@@ -85,8 +85,6 @@ namespace Player.States
         {
             if (knockbackDuration <= player.locomotionData.knockbackDuration)
             {
-                // Debug.Log(knockbackDuration + " <= " + player.locomotionData.knockbackDuration);
-
                 Vector3 hazardPos3D = new Vector3(player._hazardPosition.x, player._hazardPosition.y, 0);
                 float magnitude = Mathf.Lerp(player.locomotionData.knockbackForce, 1f, knockbackDuration);
                 Vector3 direction = (player.transform.position - hazardPos3D).normalized;
@@ -94,7 +92,12 @@ namespace Player.States
 
                 player.SetHorizontalVelocity(velocity.x);
                 player.SetVerticalVelocity(velocity.y);
+            } else
+            {
+                player.IncrementVerticalVelocity(player.locomotionData.Gravity * player.locomotionData.gravityFallMultiplier * fixedDeltaTime);            
             }
+
+
         }
 
         protected override void OnExit()

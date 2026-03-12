@@ -9,7 +9,6 @@ public class Bootstrapper : PersistentSingleton<Bootstrapper>
     [SerializeField] SFXManager _sfxManager;
     [SerializeField] StudioEventEmitter _StudioEventEmitter;
     [SerializeField] ItemManager _itemManager;
-    [SerializeField] ObjectPooler _objectPooler;
     [SerializeField] SceneTransitionManager _sceneTransitionManager;
    
     protected override void Awake()
@@ -20,7 +19,6 @@ public class Bootstrapper : PersistentSingleton<Bootstrapper>
         ServiceLocator.Register(_sfxManager);
         ServiceLocator.Register(_StudioEventEmitter);
         ServiceLocator.Register(_itemManager);
-        ServiceLocator.Register(_objectPooler);
         ServiceLocator.Register(_sceneTransitionManager);
     }
 }

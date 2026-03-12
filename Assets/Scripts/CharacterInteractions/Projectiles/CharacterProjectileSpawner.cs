@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class CharacterProjectileSpawner : MonoBehaviour
 {
-    private ObjectPooler objectPooler;
+    [SerializeField] private ObjectPooler objectPooler;
     [SerializeField] private Transform largeProjectileIdleTarget;
     [SerializeField] private Transform smallProjectileIdleTarget;
     [SerializeField] private Transform projectileSpawnPoint;
@@ -14,7 +14,7 @@ public class CharacterProjectileSpawner : MonoBehaviour
     private float smallProjectileReloadTimer = 0.1f;
     private bool shootWasPressedThisFrame => InputManager.GetShootWasPressedThisFrame();
 
-    void Awake() => objectPooler = ServiceLocator.Get<ObjectPooler>();
+    void Start() => objectPooler = ServiceLocator.Get<ObjectPooler>();
     
     void SpawnNewLargeProjectile()
     {
