@@ -2,6 +2,7 @@ using UnityEngine;
 using System;
 using System.Collections; //events 
 using Player;
+using Language.Lua;
 
 public class CharacterInteractions : MonoBehaviour, IPlayerDamagable, IPlayerTeleportable, IPlayerShootable, ICharacter
 {
@@ -21,8 +22,8 @@ public class CharacterInteractions : MonoBehaviour, IPlayerDamagable, IPlayerTel
     public void AddCharacterDamagedObserver(Action<int> observer) { CharacterDamaged += observer; }
     public void RemoveCharacterDamagedObserver(Action<int> observer) { CharacterDamaged -= observer; }
 
-    public void AddCharacterTeleportedObserver(Action<int> observer) { CharacterTeleported += observer; }
-    public void RemoveCharacterTeleportedObserver(Action<int> observer) { CharacterTeleported -= observer; }
+    // public void AddCharacterTeleportedObserver(Action<int> observer) { CharacterTeleported += observer; }
+    // public void RemoveCharacterTeleportedObserver(Action<int> observer) { CharacterTeleported -= observer; }
 
     private void Awake()
     {
@@ -33,8 +34,8 @@ public class CharacterInteractions : MonoBehaviour, IPlayerDamagable, IPlayerTel
 
     public void PlayerTakeDamage(int damageAmount)
     {
-        CharacterDamaged?.Invoke(characterHealth);
         Damage(damageAmount);
+        CharacterDamaged?.Invoke(characterHealth);
     }
 
     public void TakeShotDamage(int damageAmount)
@@ -52,22 +53,19 @@ public class CharacterInteractions : MonoBehaviour, IPlayerDamagable, IPlayerTel
 
     public void PlayerTakeTeleportDamage(int damageAmount)
     {
-        
-        Damage(damageAmount);
+        // Player Take Damage
+        characterHealth -= damageAmount;
         CharacterDamaged?.Invoke(characterHealth);
-        CharacterTeleported?.Invoke(1);
+        characterController.EnterCinematic(new Player.States.Cinematics.CinematicRequest());
 
-        // Moving Player
-        // Calling Fade In
+        // Fade In
+        var sceneTransitionUI = FindFirstObjectByType<SceneTransitionUI>();
+        sceneTransitionUI.FadeIn();
 
-        // if (gameObject != null)
-        // {
-        //     transition.SetTrigger("DeathFade");
-        //     WarpPlayer();
-        // }
-        // CharacterDamaged?.Invoke(characterHealth);
-        // CharacterTeleported?.Invoke(1);
-        // Damage(damageAmount);
+        // Move Player
+        characterController.SetPosition(SafeGroundCheckpoint.safeGroundLocation);
+        StartCoroutine(DamagedColor());
+        characterController.ExitCinematic();
     }
 
     private void Damage(int damage)
@@ -76,7 +74,6 @@ public class CharacterInteractions : MonoBehaviour, IPlayerDamagable, IPlayerTel
         characterController.Damage();
         StartCoroutine(DamagedColor());
     }
-
     IEnumerator DamagedColor()
     {
         float duration = 2f;
@@ -88,12 +85,4 @@ public class CharacterInteractions : MonoBehaviour, IPlayerDamagable, IPlayerTel
             yield return null;
         }
     }
-    // public void WarpPlayer()
-    // {
-    //     if (gameObject != null && SafeGroundCheckpoint != null)
-    //     {
-    //         gameObject.transform.position = SafeGroundCheckpoint.safeGroundLocation;
-    //     }
-
-    // }
 }
