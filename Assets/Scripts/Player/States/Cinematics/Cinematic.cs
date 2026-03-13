@@ -107,7 +107,7 @@ namespace Player.States.Cinematics
         {
             var target = Cinematic.ActiveRequest?.MoveTarget;
             if (!target.HasValue) return (Machine.GetState<Cinematic>(), "No target");
-            if (Vector2.Distance(player.transform.position, target.Value) < 0.05f)
+            if (Vector2.Distance(player.transform.position, target.Value) < 0.5f)
                 return (Machine.GetState<Cinematic>(), "Arrived at target");
 
             return (null, null);
