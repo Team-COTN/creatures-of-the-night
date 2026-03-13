@@ -52,14 +52,22 @@ public class CharacterInteractions : MonoBehaviour, IPlayerDamagable, IPlayerTel
 
     public void PlayerTakeTeleportDamage(int damageAmount)
     {
-        if (gameObject != null)
-        {
-            transition.SetTrigger("DeathFade");
-            WarpPlayer();
-        }
+        
+        Damage(damageAmount);
         CharacterDamaged?.Invoke(characterHealth);
         CharacterTeleported?.Invoke(1);
-        Damage(damageAmount);
+
+        // Moving Player
+        // Calling Fade In
+
+        // if (gameObject != null)
+        // {
+        //     transition.SetTrigger("DeathFade");
+        //     WarpPlayer();
+        // }
+        // CharacterDamaged?.Invoke(characterHealth);
+        // CharacterTeleported?.Invoke(1);
+        // Damage(damageAmount);
     }
 
     private void Damage(int damage)
@@ -68,6 +76,7 @@ public class CharacterInteractions : MonoBehaviour, IPlayerDamagable, IPlayerTel
         characterController.Damage();
         StartCoroutine(DamagedColor());
     }
+
     IEnumerator DamagedColor()
     {
         float duration = 2f;
@@ -79,12 +88,12 @@ public class CharacterInteractions : MonoBehaviour, IPlayerDamagable, IPlayerTel
             yield return null;
         }
     }
-    public void WarpPlayer()
-    {
-        if (gameObject != null && SafeGroundCheckpoint != null)
-        {
-            gameObject.transform.position = SafeGroundCheckpoint.safeGroundLocation;
-        }
+    // public void WarpPlayer()
+    // {
+    //     if (gameObject != null && SafeGroundCheckpoint != null)
+    //     {
+    //         gameObject.transform.position = SafeGroundCheckpoint.safeGroundLocation;
+    //     }
 
-    }
+    // }
 }
