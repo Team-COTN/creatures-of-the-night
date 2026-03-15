@@ -3326,6 +3326,10 @@ PrefabInstance:
       propertyPath: targetDoor
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8236172350669750520, guid: 6b657b6c31c491e4cb87a748dc081899, type: 3}
+      propertyPath: targetScene
+      value: IR_Level
+      objectReference: {fileID: 0}
     - target: {fileID: 9107079002087428205, guid: 6b657b6c31c491e4cb87a748dc081899, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1
@@ -22552,7 +22556,7 @@ VideoPlayer:
   m_VideoClip: {fileID: 32900000, guid: 6bc38efb6b23c42ba863da92d189b749, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
-  m_TargetCamera: {fileID: 0}
+  m_TargetCamera: {fileID: 253446439}
   m_TargetTexture: {fileID: 0}
   m_TimeReference: 0
   m_TargetMaterialRenderer: {fileID: 0}
