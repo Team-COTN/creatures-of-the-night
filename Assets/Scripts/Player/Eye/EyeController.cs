@@ -83,6 +83,8 @@ namespace Player.Eye
         public void DeactivateEye() => eyeActive = false;
         public void ActivateRicochet()
         {
+
+            Debug.Log("ActivateRicochet");
             ricochetCollider.enabled = true;
             eyeAnimator.SetTrigger("Illuminate");
         }

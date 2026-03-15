@@ -14,10 +14,15 @@ public class HazardProjectileSpawner : MonoBehaviour
     void SpawnProjectile()
     {
         GameObject projectile = objectPooler.SpawnFromPool(projectileTag, spawnPoint.position, spawnPoint.rotation);
-        HazardProjectile hazardProjectile = projectile.GetComponent<HazardProjectile>();
-        hazardProjectile.SetDirection(direction);
-        // hazardProjectile.SetFadeStatis(false);
-        // hazardProjectile.Reset();
+
+        if (projectile != null && projectile.TryGetComponent<HazardProjectile>(out var hazardProjectile))
+        {
+            hazardProjectile.SetDirection(direction);
+        }
+        else if (projectile == null)
+        {
+            Debug.Log("projectile null");
+        }
     }
 
     void Update()

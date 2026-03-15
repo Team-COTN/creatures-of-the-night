@@ -32,6 +32,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Scenes/ForestAssetTest.unity
     guid: fac2261cbc9c28744b97c21d3c9f3edb
+  - enabled: 1
+    path: Assets/_Scenes/UltimateExample.unity
+    guid: 9483042de88d3468e9b8a80f28a294fd
+  - enabled: 1
+    path: Assets/_Scenes/IR_Level.unity
+    guid: 24a65b04e80e16849b3ca02b8099b1fd
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
