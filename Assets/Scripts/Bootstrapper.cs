@@ -1,7 +1,5 @@
 using UnityEngine;
-using System;
 using FMODUnity;
-using FMOD.Studio;
 
 [DefaultExecutionOrder(-1)]
 public class Bootstrapper : PersistentSingleton<Bootstrapper>
@@ -13,6 +11,7 @@ public class Bootstrapper : PersistentSingleton<Bootstrapper>
    
     protected override void Awake()
     {
+        transform.parent = null;
         base.Awake();
         if (Instance != this) return;
 

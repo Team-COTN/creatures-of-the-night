@@ -40,6 +40,15 @@ namespace Player.Eye
         public float TargetLightRadius => targetLightRadius;
         public bool EyeActive => eyeActive;
         public bool IlluminateActive;
+        public bool InFollowRange
+        {
+            get
+            {
+                var position = (Vector2)transform.position;
+                var targetPosition = (Vector2)EyeFollowTransform.position;
+                return Vector2.Distance(position, targetPosition) < 0.1f;
+            }
+        }
 
         public LayerMask DefaultCollisionMask => defaultCollisionMask;
         
@@ -50,6 +59,7 @@ namespace Player.Eye
         private float targetLightRadius;
         public StateMachine Machine;
         private State root;
+        private bool attachedToPlayer;
         
         private void Awake()
         {
@@ -75,12 +85,23 @@ namespace Player.Eye
         private void FixedUpdate()
         {
             Machine.FixedTick(Time.fixedDeltaTime);
-            Motor.Move(velocity * Time.fixedDeltaTime);
+            if (!attachedToPlayer)
+                Motor.Move(velocity * Time.fixedDeltaTime);
         }
 
         public void SetVelocity(Vector2 value) => velocity = value;
         public void ActivateEye() => eyeActive = true;
         public void DeactivateEye() => eyeActive = false;
+        public void AttachToPlayer()
+        {
+            attachedToPlayer = true;
+            transform.parent = eyeFollowTransform.transform;
+        }
+        public void DetachFromPlayer()
+        {
+            attachedToPlayer = false;
+            transform.parent = null;
+        }
         public void ActivateRicochet()
         {
 

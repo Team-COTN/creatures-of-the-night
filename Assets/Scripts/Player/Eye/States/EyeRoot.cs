@@ -32,15 +32,21 @@ namespace Player.Eye.States
     {
         readonly EyeController eye;
         public readonly Following Following;
-        
+        public readonly Returning Returning;
+
         public Inactive(StateMachine m, State parent, EyeController eye) : base(m, parent)
         {
             this.eye = eye;
             Following = new Following(m, this, eye);
+            Returning = new Returning(m, this, eye);
         }
-        
-        protected override State GetDefaultChildState() => Following;
-        
+
+        protected override State GetDefaultChildState()
+        {
+            Debug.Log(eye.InFollowRange);
+            return eye.InFollowRange ? Following : Returning;
+        }
+
         protected override (State state, string reason) GetNextState()
         {
             // If the eye is activated, set state to Active
@@ -95,14 +101,16 @@ namespace Player.Eye.States
     }
     
     // Passive following behavior when eye is inactive
-    public class Following : State
+    public class Returning : State
     {
         readonly EyeController eye;
 
-        public Following(StateMachine m, State parent, EyeController eye) : base(m, parent)
+        public Returning(StateMachine m, State parent, EyeController eye) : base(m, parent)
         {
             this.eye = eye;
         }
+
+        protected override (State state, string reason) GetNextState() => eye.InFollowRange ? (Machine.GetState<Following>(), "Eye returned") : (null, null);
 
         protected override void OnFixedUpdate(float fixedDeltaTime)
         {
@@ -120,6 +128,23 @@ namespace Player.Eye.States
         }
     }
 
+    public class Following : State
+    {
+        readonly EyeController eye;
+
+        public Following(StateMachine m, State parent, EyeController eye) : base(m, parent)
+        {
+            this.eye = eye;            
+        }
+
+        protected override void OnEnter() => eye.AttachToPlayer();
+
+        protected override void OnFixedUpdate(float fixedDeltaTime)
+        {
+            eye.transform.position = eye.EyeFollowTransform.position;
+        }
+    }
+
     // Player-controlled eye movement with tether mechanics
     public class Scrying : State
     {
@@ -129,6 +154,8 @@ namespace Player.Eye.States
         {
             this.eye = eye;            
         }
+
+        protected override void OnEnter() => eye.DetachFromPlayer();
 
         protected override void OnUpdate(float deltaTime)
         {

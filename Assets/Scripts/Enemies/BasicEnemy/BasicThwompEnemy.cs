@@ -15,7 +15,7 @@ namespace Enemies.BasicEnemy
         private void OnTriggerEnter2D(Collider2D other)
         {
 
-            Debug.Log("Entered Collision");
+            // Debug.Log("Entered Collision");
             // if (collision.gameObject.TryGetComponent<IPlayerDamagable>(out IPlayerDamagable playerDamageable))
             // if (other.attachedRigidbody.TryGetComponent(out Character character) && triggerReady)
             if (other.attachedRigidbody.TryGetComponent<IPlayerDamagable>(out IPlayerDamagable playerDamageable) && triggerReady)

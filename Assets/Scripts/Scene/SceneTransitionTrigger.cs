@@ -34,30 +34,31 @@ public class SceneTransitionTrigger : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject != player.gameObject) return;
-        col.enabled = false;
-
-        player.EnterCinematic(new CinematicRequest {
-            MoveTarget = exitPoint.position,
-            Clip = exitClip
-        });
-
-        Transition();
+        PlayExitCinematic();
     }
 
     public void PlayEntranceCinematic()
     {
         col.enabled = false;
         player.SetPosition(exitPoint.position);
-
         player.EnterCinematic(new CinematicRequest {
             MoveTarget = enterPoint.position,
+            FaceRight = enterPoint.position.x > exitPoint.position.x,
             Clip = entranceClip,
             OnComplete = () => col.enabled = true
         });
     }
 
-    [Button]
-    public void Transition() => sceneTransitionManager.TransitionScenes(targetScene, targetDoor);
+    public void PlayExitCinematic()
+    {
+        col.enabled = false;
+        player.EnterCinematic(new CinematicRequest {
+            MoveTarget = exitPoint.position,
+            FaceRight = enterPoint.position.x < exitPoint.position.x,
+            Clip = exitClip
+        });
+        sceneTransitionManager.TransitionScenes(targetScene, targetDoor);
+    }
 
 #if UNITY_EDITOR
     private void OnDrawGizmos()
