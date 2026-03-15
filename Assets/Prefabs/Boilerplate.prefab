@@ -2529,10 +2529,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   motor: {fileID: 6814162664116729027}
   PlayerAnimator: {fileID: 1474151729940205609}
-  eye: {fileID: 0}
+  eye: {fileID: 4656375531271019491}
   velocity: {x: 0, y: 0}
   isFacingRight: 1
-  myParryFeedbacks: {fileID: 0}
+  myParryFeedbacks: {fileID: 6743674281914336880}
   isInCinematic: 0
   characterBeingDamaged: 0
   _hazardPosition: {x: 0, y: 0}
