@@ -93,6 +93,8 @@ namespace Player.States.Cinematics
         public readonly Airborne Airborne;
 
         Cinematic Cinematic => Machine.GetState<Cinematic>();
+   
+        bool reachedTarget;
 
         public MovingToTarget(StateMachine m, State parent, PlayerCharacterController player) : base(m, parent)
         {
@@ -103,12 +105,13 @@ namespace Player.States.Cinematics
 
         protected override State GetDefaultChildState() => player.Grounded ? Grounded : Airborne;
 
+        protected override void OnEnter() => reachedTarget = false;
+
         protected override (State state, string reason) GetNextState()
         {
             var target = Cinematic.ActiveRequest?.MoveTarget;
             if (!target.HasValue) return (Machine.GetState<Cinematic>(), "No target");
-            if (Vector2.Distance(player.transform.position, target.Value) <= 0.1f)
-                return (Machine.GetState<Cinematic>(), "Arrived at target");
+            if (reachedTarget) return (Machine.GetState<Cinematic>(), "Arrived at target");
 
             return (null, null);
         }
@@ -117,6 +120,14 @@ namespace Player.States.Cinematics
         {
             var request = Cinematic.ActiveRequest;
             if (request == null) return;
+
+            // Snap to target position
+            if (request.MoveTarget.HasValue)
+            {
+                var target = request.MoveTarget.Value;
+                player.transform.position = new Vector3(target.x, player.transform.position.y, player.transform.position.z);
+                player.SetHorizontalVelocity(0f);
+            }
 
             // Snap to final facing direction
             if (request.FaceRight.HasValue && player.isFacingRight != request.FaceRight.Value)
@@ -146,6 +157,16 @@ namespace Player.States.Cinematics
             {
                 player.isFacingRight = movingRight;
                 player.transform.Rotate(0f, movingRight ? 180f : -180f, 0f);
+            }
+
+            float distanceToTarget = target.Value.x - (float)player.transform.position.x;
+
+            // Check if we've reached or overstepped
+            if (Mathf.Abs(distanceToTarget) <= 0.1f || (movingRight && distanceToTarget < 0) || (!movingRight && distanceToTarget > 0))
+            {
+                player.SetHorizontalVelocity(0f);
+                reachedTarget = true;
+                return;
             }
 
             float direction = movingRight ? 1f : -1f;
