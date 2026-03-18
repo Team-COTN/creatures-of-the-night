@@ -21,11 +21,11 @@ MonoBehaviour:
   jumpBufferTime: 0.125
   gravityOnReleaseMultiplier: 5
   gravityFallMultiplier: 1.5
-  dashDistance: 3
-  dashDuration: 0.2
-  dashCooldown: 0.5
+  dashDistance: 5
+  dashDuration: 0.35
+  dashCooldown: 0.4
   airDashHangTime: 0.125
-  switchDashDistance: 4.5
+  switchDashDistance: 5.5
   switchDashDuration: 0.3
   airSwitchDashHangTime: 0.125
   slashDuration: 0.5
