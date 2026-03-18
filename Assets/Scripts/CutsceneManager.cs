@@ -1,7 +1,9 @@
-using UnityEditor.Media;
+//using UnityEditor.Media;
 using UnityEngine;
 using UnityEngine.Video;
 
+#if UNITY_EDITOR
+using UnityEditor.Media;
 public class CutsceneManager : MonoBehaviour
 {
     public VideoPlayer videoPlayer;
@@ -50,3 +52,4 @@ public class CutsceneManager : MonoBehaviour
         cutscene.SetActive(false);
     }
 }
+#endif
