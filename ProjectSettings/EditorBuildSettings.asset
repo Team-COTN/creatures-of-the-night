@@ -29,15 +29,18 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/_Scenes/Load3rd.unity
     guid: 648b3fd4ca301cf4d84407f6f240cf60
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Scenes/ForestAssetTest.unity
     guid: fac2261cbc9c28744b97c21d3c9f3edb
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Scenes/UltimateExample.unity
     guid: 9483042de88d3468e9b8a80f28a294fd
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Scenes/IR_Level.unity
     guid: 24a65b04e80e16849b3ca02b8099b1fd
+  - enabled: 1
+    path: Assets/_Scenes/Star_Level.unity
+    guid: 95e6107a6eaeefa468168112351c566a
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
