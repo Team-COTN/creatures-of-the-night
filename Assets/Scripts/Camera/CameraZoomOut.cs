@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class CameraZoomOut : MonoBehaviour
 {
@@ -7,10 +8,21 @@ public class CameraZoomOut : MonoBehaviour
     public GameObject[] clusterObjects;
     private bool[] counted;
     private int counter = 0;
+    public CameraZone cameraZone;
+    private float zoomOutTimer = 5.0f;
+    private IEnumerator coroutine;
 
     void Start() 
     {
         counted = new bool[clusterObjects.Length];
+    }
+
+    IEnumerator WaitForUnzoom(float wait)
+    {
+        // suspend execution for 'wait' seconds
+        yield return new WaitForSeconds(wait);
+        print("UnzOOOOO0000m " + Time.time);
+        cameraZone.SetPriority(3);
     }
 
     void Update()
@@ -28,8 +40,11 @@ public class CameraZoomOut : MonoBehaviour
 
         if (counter == clusterObjects.Length)
         {
-            Debug.Log("cluster Complete");
-            
+            Debug.Log("SetPriority(10)");
+            cameraZone.SetPriority(10);
+            coroutine = WaitForUnzoom(5.0f);
+            StartCoroutine(coroutine);
+            counter = clusterObjects.Length + 1;
         }
     }
 }
