@@ -5,6 +5,8 @@ using UnityEngine;
 public class Collectable : MonoBehaviour
 {
     private GameObject player;
+    private GameObject eye;
+
     [SerializeField] private CollectableSOBase collectableSO;
     
     private SFXManager sfxManager;
@@ -14,7 +16,8 @@ public class Collectable : MonoBehaviour
     {
         //may replace w/ TryGetComponent
         player = GameObject.FindGameObjectWithTag("Player");
-        
+        player = GameObject.FindGameObjectWithTag("Eye");
+
         sfxManager = ServiceLocator.Get<SFXManager>();
         itemManager = ServiceLocator.Get<ItemManager>();
     }
@@ -22,7 +25,7 @@ public class Collectable : MonoBehaviour
     //refactor??
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.attachedRigidbody.gameObject == player)
+        if (other.attachedRigidbody.gameObject == player || other.attachedRigidbody.gameObject == eye)
         {
             Debug.Log("collected");
             // sfxManager.PlaySound(collectableSO.CollectClip);
