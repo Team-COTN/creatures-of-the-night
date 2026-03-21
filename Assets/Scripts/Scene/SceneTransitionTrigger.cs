@@ -6,7 +6,7 @@ using Player.States.Cinematics;
 
 public class SceneTransitionTrigger : MonoBehaviour
 {
-    public enum DoorNumber { None, One, Two, Three, Four }
+    public enum DoorNumber { None, One, Two, Three, Four, Five, Six }
 
     public DoorNumber doorNumber;
 
@@ -17,8 +17,6 @@ public class SceneTransitionTrigger : MonoBehaviour
     [Header("Cinematic")]
     [SerializeField] Transform enterPoint;
     [SerializeField] Transform exitPoint;
-    [SerializeField] AnimationClip exitClip;
-    [SerializeField] AnimationClip entranceClip;
 
     private SceneTransitionManager sceneTransitionManager;
     private PlayerCharacterController player;
@@ -33,6 +31,7 @@ public class SceneTransitionTrigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (targetScene == null || targetDoor == DoorNumber.None) return;
         if (other.gameObject != player.gameObject) return;
         PlayExitCinematic();
     }
@@ -44,7 +43,6 @@ public class SceneTransitionTrigger : MonoBehaviour
         player.EnterCinematic(new CinematicRequest {
             MoveTarget = enterPoint.position,
             FaceRight = enterPoint.position.x > exitPoint.position.x,
-            Clip = entranceClip,
             OnComplete = () => col.enabled = true
         });
     }
@@ -55,7 +53,6 @@ public class SceneTransitionTrigger : MonoBehaviour
         player.EnterCinematic(new CinematicRequest {
             MoveTarget = exitPoint.position,
             FaceRight = enterPoint.position.x < exitPoint.position.x,
-            Clip = exitClip
         });
         sceneTransitionManager.TransitionScenes(targetScene, targetDoor);
     }
