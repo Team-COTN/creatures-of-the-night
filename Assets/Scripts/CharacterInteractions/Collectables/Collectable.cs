@@ -25,7 +25,7 @@ public class Collectable : MonoBehaviour
     //refactor??
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.attachedRigidbody.gameObject == player || other.attachedRigidbody.gameObject == eye)
+        if (other.attachedRigidbody && (other.attachedRigidbody.gameObject == player || other.attachedRigidbody.gameObject == eye))
         {
             Debug.Log("collected");
             // sfxManager.PlaySound(collectableSO.CollectClip);
