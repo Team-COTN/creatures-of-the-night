@@ -11,8 +11,9 @@ public class SceneTransitionTrigger : MonoBehaviour
     public DoorNumber doorNumber;
 
     [Header("Transition Target")]
-    [Scene] [SerializeField] private string targetScene;
-    [SerializeField] private DoorNumber targetDoor;
+    [SerializeField] private bool transitionToScene = true;
+    [Scene] [SerializeField] [ShowIf("transitionToScene")] private string targetScene;
+    [SerializeField] [ShowIf("transitionToScene")] private DoorNumber targetDoor;
 
     [Header("Cinematic")]
     [SerializeField] Transform enterPoint;
@@ -24,14 +25,16 @@ public class SceneTransitionTrigger : MonoBehaviour
 
     void Start()
     {
-        sceneTransitionManager = ServiceLocator.Get<SceneTransitionManager>();
+        if (transitionToScene)
+            sceneTransitionManager = ServiceLocator.Get<SceneTransitionManager>();
+
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerCharacterController>();
         col = GetComponent<Collider2D>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (targetScene == null || targetDoor == DoorNumber.None) return;
+        if (!transitionToScene) return;
         if (other.gameObject != player.gameObject) return;
         PlayExitCinematic();
     }
@@ -54,7 +57,9 @@ public class SceneTransitionTrigger : MonoBehaviour
             MoveTarget = exitPoint.position,
             FaceRight = enterPoint.position.x < exitPoint.position.x,
         });
-        sceneTransitionManager.TransitionScenes(targetScene, targetDoor);
+
+        if (transitionToScene)
+            sceneTransitionManager.TransitionScenes(targetScene, targetDoor);
     }
 
 #if UNITY_EDITOR

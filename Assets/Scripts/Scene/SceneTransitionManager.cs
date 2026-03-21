@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Linq;
-using Player;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,10 +7,13 @@ public class SceneTransitionManager : MonoBehaviour
 {
     public delegate void TransitionEvent();
     public event TransitionEvent OnFadeOut;
+    public event TransitionEvent OnFadeIn;
+
     private bool fadeOutComplete = false;
     private bool _isTransitioning = false;
 
     public void CompleteFadeOut() => fadeOutComplete = true;
+    public void CompleteFadeIn() => OnFadeIn?.Invoke();
 
     public void TransitionScenes(string scene, SceneTransitionTrigger.DoorNumber doorNumber)
     {

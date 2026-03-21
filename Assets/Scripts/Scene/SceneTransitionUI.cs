@@ -12,12 +12,14 @@ public class SceneTransitionUI : MonoBehaviour
         sceneTransitionManager = ServiceLocator.Get<SceneTransitionManager>();
         sceneTransitionManager.OnFadeOut += FadeOut;
         fadeOutFeedback.Events.OnComplete.AddListener(sceneTransitionManager.CompleteFadeOut);
+        fadeInFeedback.Events.OnComplete.AddListener(sceneTransitionManager.CompleteFadeIn);
     }
 
     private void OnDisable()
     {
         sceneTransitionManager.OnFadeOut -= FadeOut;
         fadeOutFeedback.Events.OnComplete.RemoveListener(sceneTransitionManager.CompleteFadeOut);
+        fadeInFeedback.Events.OnComplete.RemoveListener(sceneTransitionManager.CompleteFadeIn);
     }
 
     public void FadeIn()

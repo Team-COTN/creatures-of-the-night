@@ -1,55 +1,100 @@
-//using UnityEditor.Media;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Video;
+using FMODUnity;
+using NaughtyAttributes;
 
-#if UNITY_EDITOR
-using UnityEditor.Media;
+[RequireComponent(typeof(VideoPlayer))]
 public class CutsceneManager : MonoBehaviour
 {
-    public VideoPlayer videoPlayer;
-    public GameObject cutscene;
-    bool play = true;
-    public bool playOnAwake;
+    public enum CutscenePlayTrigger { None, OnStart, OnFadeIn, OnEnable, OnTriggerEnter2D }
 
-    void Awake()
+    private VideoPlayer videoPlayer;
+    [SerializeField] private EventReference audioEvent;
+
+    [Header("Scene Transition")]
+    [SerializeField] private bool transitionOnFinish = false;
+    [Scene] [SerializeField] [ShowIf("transitionOnFinish")] private string targetScene;
+    [SerializeField] [ShowIf("transitionOnFinish")] private SceneTransitionTrigger.DoorNumber targetDoor;
+
+    [Header("Events")]
+    public CutscenePlayTrigger PlayTrigger = CutscenePlayTrigger.None;
+    [SerializeField] [ShowIf("isTrigger2D")] private string triggerTag = "Player";
+    public UnityEvent OnCutsceneStarted;
+    public UnityEvent OnCutsceneFinished;
+
+    private bool isTrigger2D => PlayTrigger == CutscenePlayTrigger.OnTriggerEnter2D;
+
+    private FMOD.Studio.EventInstance _audioInstance;
+    private SceneTransitionManager _sceneTransitionManager;
+
+    protected virtual void Start()
+    {
+        videoPlayer = GetComponent<VideoPlayer>();
+
+        if (transitionOnFinish || PlayTrigger == CutscenePlayTrigger.OnFadeIn)
+            _sceneTransitionManager = ServiceLocator.Get<SceneTransitionManager>();
+
+        if (PlayTrigger == CutscenePlayTrigger.OnFadeIn)
+            _sceneTransitionManager.OnFadeIn += Play;
+
+        videoPlayer.isLooping = false;
+        videoPlayer.loopPointReached += OnVideoFinished;
+
+        if (PlayTrigger == CutscenePlayTrigger.OnStart) Play();
+    }
+
+    protected virtual void OnEnable()
+    {
+        if (PlayTrigger == CutscenePlayTrigger.OnEnable) Play();
+    }
+
+    protected virtual void OnTriggerEnter2D(Collider2D other)
+    {
+        if (PlayTrigger == CutscenePlayTrigger.OnTriggerEnter2D && other.CompareTag(triggerTag)) Play();
+    }
+
+    protected virtual void OnDestroy()
     {
         if (videoPlayer != null)
+            videoPlayer.loopPointReached -= OnVideoFinished;
+
+        if (PlayTrigger == CutscenePlayTrigger.OnFadeIn && _sceneTransitionManager != null)
+            _sceneTransitionManager.OnFadeIn -= Play;
+
+        if (_audioInstance.isValid())
         {
-            videoPlayer.loopPointReached += OnVideoFinished;
-
-            videoPlayer.prepareCompleted += (player) =>
-            {
-                if (playOnAwake) PlayCutscene();
-            };
-
-            videoPlayer.Prepare();
+            _audioInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+            _audioInstance.release();
         }
-  
     }
-    public void PlayCutscene()
+
+    [Button]
+    public void Play()
     {
-        cutscene.SetActive(true);
+        _audioInstance = RuntimeManager.CreateInstance(audioEvent);
+        _audioInstance.start();
         videoPlayer.Play();
-        
+        OnCutsceneStarted?.Invoke();
     }
 
-    public void OnTriggerEnter2D(Collider2D other)
+    [Button]
+    public void Stop()
     {
-        if (other.attachedRigidbody.TryGetComponent(out Character character))
-        {
-            if (play)
-            {
-                PlayCutscene();
-                play = false;
-            }
-        }
-
+        videoPlayer.Stop();
+        _audioInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        _audioInstance.release();
     }
-    
-    void OnVideoFinished(VideoPlayer vp)
+
+    protected virtual void OnVideoFinished(VideoPlayer vp)
     {
-        vp.Stop();
-        cutscene.SetActive(false);
+        Debug.Log("Video Finished!");
+        _audioInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        _audioInstance.release();
+
+        if (transitionOnFinish)
+            _sceneTransitionManager.TransitionScenes(targetScene, targetDoor);
+
+        OnCutsceneFinished?.Invoke();
     }
 }
-#endif
