@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
+using Player;
 
 [RequireComponent(typeof(Light2D))]
 public class StayGlow : MonoBehaviour
@@ -26,7 +27,7 @@ public class StayGlow : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.attachedRigidbody && other.attachedRigidbody.TryGetComponent(out Character character))
+        if (other.attachedRigidbody && other.attachedRigidbody.TryGetComponent(out PlayerCharacterController playerCharacterController))
         {
             Glow();
         }

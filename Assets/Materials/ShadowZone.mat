@@ -54,11 +54,11 @@ Material:
     m_Ints: []
     m_Floats:
     - _EnableExternalAlpha: 0
-    - _FadeWidth: 0.079
+    - _FadeWidth: 0
     - _FadeWidth_1: 0.36
     - _Radius: 1
     - _Size: 1
-    - _Softness: 0.25
+    - _Softness: 0.347
     - _ZWrite: 0
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
