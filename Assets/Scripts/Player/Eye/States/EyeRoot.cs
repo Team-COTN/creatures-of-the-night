@@ -43,7 +43,6 @@ namespace Player.Eye.States
 
         protected override State GetDefaultChildState()
         {
-            Debug.Log(eye.InFollowRange);
             return eye.InFollowRange ? Following : Returning;
         }
 
