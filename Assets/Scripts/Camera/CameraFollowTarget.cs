@@ -4,7 +4,6 @@ using UnityEngine.Serialization;
 using Player;
 using Player.Eye;
 
-
 [ExecuteAlways]
 public class CameraFollowTarget : MonoBehaviour
 {
@@ -15,15 +14,11 @@ public class CameraFollowTarget : MonoBehaviour
     public bool trackPlayerX = true;
     public bool trackPlayerY = true;
     public bool trackPlayerRot = true;
+
     private void OnEnable()
     {
         character = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerCharacterController>();
         eye = GameObject.FindGameObjectWithTag("Eye").GetComponent<EyeController>();
-        // eye.AddEyeStateChangeObserver(TrackTarget);
-    }
-    private void OnDisable()
-    {
-        // eye.RemoveEyeStateChangeObserver(TrackTarget);
     }
 
     public void TrackTarget(Transform target)
@@ -38,6 +33,8 @@ public class CameraFollowTarget : MonoBehaviour
 
     private void Update()
     {
+        if (!character || !eye) return;
+        
         float x = trackPlayerX ? _target.position.x : transform.position.x;
         float y = trackPlayerY ? _target.position.y : transform.position.y;
         Vector3 rot = trackPlayerRot ? _target.rotation.eulerAngles : Vector3.zero;
@@ -48,6 +45,9 @@ public class CameraFollowTarget : MonoBehaviour
         if (eye.EyeActive)
         {
             TrackTarget(eye.transform);
+        } else
+        {
+            TrackTarget(character.transform);
         }
     }
 }

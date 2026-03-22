@@ -43,8 +43,6 @@ public class Gate : MonoBehaviour
             }
         }
 
-        Debug.Log("counter: " + counter);
-
         if (counter == clusterObjects.Length)
         {
             Debug.Log("cluster Complete");
