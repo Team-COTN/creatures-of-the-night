@@ -29,13 +29,14 @@ namespace Player.States.Locomotion
 
         protected override (State state, string reason) GetNextState()
         {
-            if (Leaf() == AirDash || Leaf() == AirSwitchDash) return (null, null);
+            if (InputManager.GetJumpWasPressedThisFrame() && CanParry())
+                return (JumpParry, "Player parried object");
+
+            if (Leaf() == AirDash || Leaf() == AirSwitchDash) 
+                return (null, null);
             
             if (InputManager.GetDashWasPressedThisFrame() && CanDash)
                 return (AirDash, "Player pressed dash");
-
-            if (InputManager.GetJumpWasPressedThisFrame() && CanParry())
-                return (JumpParry, "Player parried object");
 
             return (null, null);
         }
@@ -257,6 +258,7 @@ namespace Player.States.Locomotion
         protected override void OnEnter()
         {
             apexTimer = 0f;
+            Machine.GetState<Airborne>().CanDash = true;
             player.SetVerticalVelocity(player.locomotionData.InitialJumpVelocity);
             player.PlayerAnimator.PlayJumpParry();
         }
