@@ -16,7 +16,7 @@ public class Collectable : MonoBehaviour
     {
         //may replace w/ TryGetComponent
         player = GameObject.FindGameObjectWithTag("Player");
-        player = GameObject.FindGameObjectWithTag("Eye");
+        eye = GameObject.FindGameObjectWithTag("Eye");
 
         sfxManager = ServiceLocator.Get<SFXManager>();
         itemManager = ServiceLocator.Get<ItemManager>();
@@ -29,7 +29,7 @@ public class Collectable : MonoBehaviour
         {
             Debug.Log("collected");
             // sfxManager.PlaySound(collectableSO.CollectClip);
-            itemManager.Collect(collectableSO);
+            // itemManager.Collect(collectableSO);
             Destroy(gameObject); //self destruct
         }
     }
