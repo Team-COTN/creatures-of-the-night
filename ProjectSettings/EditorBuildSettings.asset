@@ -9,10 +9,10 @@ EditorBuildSettings:
     path: Assets/_Scenes/Oct/OctoberDemo.unity
     guid: 5730a650892206e43aa5ffd6cafcd44b
   - enabled: 0
-    path: Assets/_Scenes/MainMenu.unity
+    path: Assets/_Scenes/ToDepreciate/MainMenu.unity
     guid: 5991c00fecc860a479ce1ac4103334b7
   - enabled: 0
-    path: Assets/_Scenes/SampleScene.unity
+    path: Assets/_Scenes/ToDepreciate/SampleScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 0
     path: Assets/_Scenes/CameraExampleScene.unity
@@ -21,7 +21,7 @@ EditorBuildSettings:
     path: Assets/_Scenes/CollectableExample.unity
     guid: 5274e717ffa485d46a6bd016fdcf32c5
   - enabled: 0
-    path: Assets/_Scenes/LoadingScenesExample.unity
+    path: Assets/_Scenes/ToDepreciate/LoadingScenesExample.unity
     guid: c81c18c0957c5e647ade366770153229
   - enabled: 0
     path: Assets/_Scenes/Load2nd.unity
