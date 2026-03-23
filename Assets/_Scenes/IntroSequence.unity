@@ -7857,11 +7857,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4553978931751993324, guid: 4ff8a96b28774b74897a9fa03defa048, type: 3}
       propertyPath: targetDoor
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4553978931751993324, guid: 4ff8a96b28774b74897a9fa03defa048, type: 3}
       propertyPath: targetScene
-      value: IntroToStar
+      value: IntroEndCutscene
       objectReference: {fileID: 0}
     - target: {fileID: 4553978931751993324, guid: 4ff8a96b28774b74897a9fa03defa048, type: 3}
       propertyPath: transitionToScene
