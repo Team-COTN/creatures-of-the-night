@@ -114,6 +114,14 @@ namespace Player.States.Locomotion
             {
                 Machine.GetState<Root>().CoyoteTimer -= deltaTime;
             }
+
+            // Flip the player to the correct direction
+            bool movingRight = input > 0;
+            if (player.isFacingRight != movingRight)
+            {
+                player.isFacingRight = movingRight;
+                player.transform.Rotate(0f, movingRight ? 180f : -180f, 0f);
+            }
         }
     
         protected override void OnFixedUpdate(float fixedDeltaTime)
@@ -121,14 +129,6 @@ namespace Player.States.Locomotion
             // Horizontal Movement
             if (isMoving)
             {
-                // Flip the player to the correct direction
-                bool movingRight = input > 0;
-                if (player.isFacingRight != movingRight)
-                {
-                    player.isFacingRight = movingRight;
-                    player.transform.Rotate(0f, movingRight ? 180f : -180f, 0f);
-                }
-
                 float targetVelocity = input * player.locomotionData.maxWalkSpeed;
                 player.SetHorizontalVelocity(targetVelocity);
             }
@@ -183,6 +183,14 @@ namespace Player.States.Locomotion
             {
                 jumpCancel = true;
             }
+
+            // Flip the player to the correct direction
+            bool movingRight = input > 0;
+            if (player.isFacingRight != movingRight)
+            {
+                player.isFacingRight = movingRight;
+                player.transform.Rotate(0f, movingRight ? 180f : -180f, 0f);
+            }
         }
     
         protected override void OnFixedUpdate(float fixedDeltaTime)
@@ -190,14 +198,6 @@ namespace Player.States.Locomotion
             // Horizontal Movement
             if (isMoving)
             {
-                // Flip the player to the correct direction
-                bool movingRight = input > 0;
-                if (player.isFacingRight != movingRight)
-                {
-                    player.isFacingRight = movingRight;
-                    player.transform.Rotate(0f, movingRight ? 180f : -180f, 0f);
-                }
-
                 float targetVelocity = input * player.locomotionData.maxWalkSpeed;
                 player.SetHorizontalVelocity(targetVelocity);
             }
@@ -269,6 +269,13 @@ namespace Player.States.Locomotion
             input = InputManager.GetMovement().x;
             isMoving = Mathf.Abs(input) > player.locomotionData.movementInputThreshold;
 
+            // Flip the player to the correct direction
+            bool movingRight = input > 0;
+            if (player.isFacingRight != movingRight)
+            {
+                player.isFacingRight = movingRight;
+                player.transform.Rotate(0f, movingRight ? 180f : -180f, 0f);
+            }
         }
     
         protected override void OnFixedUpdate(float fixedDeltaTime)
@@ -276,14 +283,6 @@ namespace Player.States.Locomotion
             // Horizontal Movement
             if (isMoving)
             {
-                // Flip the player to the correct direction
-                bool movingRight = input > 0;
-                if (player.isFacingRight != movingRight)
-                {
-                    player.isFacingRight = movingRight;
-                    player.transform.Rotate(0f, movingRight ? 180f : -180f, 0f);
-                }
-
                 float targetVelocity = input * player.locomotionData.maxWalkSpeed;
                 player.SetHorizontalVelocity(targetVelocity);
             }
