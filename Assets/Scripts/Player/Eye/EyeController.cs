@@ -104,12 +104,16 @@ namespace Player.Eye
         }
         public void ActivateRicochet()
         {
-
-            Debug.Log("ActivateRicochet");
+            IlluminateActive = true;
             ricochetCollider.enabled = true;
             eyeAnimator.SetTrigger("Illuminate");
         }
-        public void DeactivateRicochet() => ricochetCollider.enabled = false;
+        public void DeactivateRicochet()
+        {
+            IlluminateActive = false;
+            ricochetCollider.enabled = false;
+        }
+
         public void ToggleRicochet() => IlluminateActive = !IlluminateActive;
         public void DimLight() => targetLightRadius = minLightRadius;
         public void BrightenLight() => targetLightRadius = maxLightRadius;
