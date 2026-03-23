@@ -143,7 +143,7 @@ namespace Player.States.Locomotion
 
             // Flip the player to the correct direction
             bool movingRight = input > 0;
-            if (player.isFacingRight != movingRight)
+            if (isMoving && player.isFacingRight != movingRight)
             {
                 player.isFacingRight = movingRight;
                 player.transform.Rotate(0f, movingRight ? 180f : -180f, 0f);
