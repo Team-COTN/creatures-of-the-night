@@ -75,7 +75,7 @@ GameObject:
   - component: {fileID: 2742306039906811309}
   - component: {fileID: 4553978931751993324}
   m_Layer: 0
-  m_Name: Scene Transition Left
+  m_Name: Scene Transition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -90,7 +90,7 @@ Transform:
   m_GameObject: {fileID: 7427149988249247593}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 42.57, y: -15.32, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -184,9 +184,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorNumber: 1
-  targetScene: IR_Level
-  targetDoor: 1
+  transitionToScene: 0
+  targetScene: IntroCutscene
+  targetDoor: 0
   enterPoint: {fileID: 1548960431679771090}
   exitPoint: {fileID: 737600207257312751}
-  exitClip: {fileID: 0}
-  entranceClip: {fileID: 0}
