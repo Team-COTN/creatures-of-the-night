@@ -39,4 +39,11 @@ public class DeveloperDebugCanvas : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;        
     }
 
+    public void JumpToScene(string scene, SceneTransitionTrigger.DoorNumber door) => ServiceLocator.Get<SceneTransitionManager>().TransitionScenes(scene, door);
+    public void JumpToIntroCutscene() => JumpToScene("IntroCutscene", SceneTransitionTrigger.DoorNumber.None);
+    public void JumpToDreamSequence() => JumpToScene("IntroSequence", SceneTransitionTrigger.DoorNumber.One);
+    public void JumpToIntroToStar() => JumpToScene("IntroToStar", SceneTransitionTrigger.DoorNumber.One);
+    public void JumpToIRLevel() => JumpToScene("IR_Level", SceneTransitionTrigger.DoorNumber.One);
+    public void JumpToSkyLevel() => JumpToScene("SkyLevel", SceneTransitionTrigger.DoorNumber.One);
+    public void JumpToStarLevel() => JumpToScene("Star_Level", SceneTransitionTrigger.DoorNumber.One);
 }
