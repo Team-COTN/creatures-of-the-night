@@ -46,9 +46,9 @@ Material:
     - _gradeintint: 1
     - _gradientPos: 1
     m_Colors:
-    - _BottomColor: {r: 0.6438948, g: 0.3150943, b: 1, a: 1}
+    - _BottomColor: {r: 1, g: 0.983102, b: 0, a: 1}
     - _GlowColor: {r: 0, g: 0, b: 0, a: 1}
-    - _TopColor: {r: 0.76862746, g: 0.9607843, b: 0.81902915, a: 1}
+    - _TopColor: {r: 0.9622641, g: 0.9612904, b: 0.7670878, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &1414570687238991868

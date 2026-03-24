@@ -26,6 +26,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Scenes/IR_Level.unity
     guid: 24a65b04e80e16849b3ca02b8099b1fd
+  - enabled: 1
+    path: Assets/_Scenes/SkyLevel.unity
+    guid: b2ea54a0531a59446924c2bc9ac305f5
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
