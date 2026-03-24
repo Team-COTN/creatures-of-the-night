@@ -11,9 +11,9 @@ public class CameraZoomOut : MonoBehaviour
     public CameraZone cameraZone;
     private float zoomOutTimer = 5.0f;
     private IEnumerator coroutine;
-    // public Light2D light2D1;
-    // public Light2D light2D2;
-    // public Light2D light2D3;
+    public EventGlow eventGlow1;
+    public EventGlow eventGlow2;
+    public EventGlow eventGlow3;
 
     void Start() 
     {
@@ -26,6 +26,12 @@ public class CameraZoomOut : MonoBehaviour
         yield return new WaitForSeconds(wait);
         print("UnzOOOOO0000m " + Time.time);
         cameraZone.SetPriority(3);
+    }
+    IEnumerator WaitToGlow(float wait, EventGlow glow)
+    {
+        // suspend execution for 'wait' seconds
+        yield return new WaitForSeconds(wait);
+        glow.Glow();
     }
 
     void Update()
@@ -45,8 +51,10 @@ public class CameraZoomOut : MonoBehaviour
         {
             Debug.Log("SetPriority(10)");
             cameraZone.SetPriority(10);
-
-            coroutine = WaitForUnzoom(7.0f);
+            StartCoroutine(WaitToGlow(2f, eventGlow1));
+            StartCoroutine(WaitToGlow(3.5f, eventGlow2));
+            StartCoroutine(WaitToGlow(5f, eventGlow3));
+            coroutine = WaitForUnzoom(5.5f);
             StartCoroutine(coroutine);
             counter = clusterObjects.Length + 1;
         }

@@ -34,18 +34,20 @@ public class TutorialCutscenes : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.attachedRigidbody.TryGetComponent(out Character character))
+        if (other != null)
         {
-            //timeline.Stop();
-            //tutorialGroup.SetActive(false);
-        }
+            if (other.attachedRigidbody.TryGetComponent(out Character character))
+            {
+                //timeline.Stop();
+                //tutorialGroup.SetActive(false);
+            }
 
-        if (other.CompareTag("Player"))
-        {
-            Debug.Log("whatTheHeck");
-            timeline.Stop();
-            tutorialGroup.SetActive(false);
-
+            if (other.CompareTag("Player"))
+            {
+                Debug.Log("whatTheHeck");
+                timeline.Stop();
+                tutorialGroup.SetActive(false);
+            }  
         }
     }
 }
