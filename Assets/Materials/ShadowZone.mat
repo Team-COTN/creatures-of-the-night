@@ -27,6 +27,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _BaseTexture:
+        m_Texture: {fileID: 2800000, guid: a75266bf44ced144ebff978d08932f0b, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -36,6 +40,14 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture2DAsset_07765459633f46cfa67cbf91a29aa9a9_Out_0_Texture2D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture2DAsset_f089e2db0dea4b6f9270133e2378e39f_Out_0_Texture2D:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -53,15 +65,26 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _Distortion_Noise_Scale: 1
+    - _Distortion_Noise_Speed: 0.5
+    - _Distortion_Noise_Strength: 3
+    - _Distortion_Size: 10
+    - _Distortion_Speed: 0.05
+    - _Distortion_Strength: 5
+    - _Edge_Fade: 0.032
     - _EnableExternalAlpha: 0
-    - _FadeWidth: 0
+    - _FadeWidth: 0.15
     - _FadeWidth_1: 0.36
-    - _Radius: 1
+    - _Offset: 0
+    - _Radius: 1.75
     - _Size: 1
-    - _Softness: 0.347
+    - _Softness: 0.6
+    - _Wave: 10
     - _ZWrite: 0
+    - _wave_speed: 1
     m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Color: {r: 0.11294993, g: 0, b: 0.18867922, a: 1}
+    - _Distortion_Direction: {r: -1, g: -1, b: 0, a: 0}
     - _PlaneSize: {r: 0, g: 0, b: 0, a: 0}
     - _Position: {r: 0, g: 0, b: 0, a: 0}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
