@@ -43,8 +43,8 @@ public class DeveloperDebugCanvas : MonoBehaviour
     public void JumpToIntroCutscene() => JumpToScene("IntroCutscene", SceneTransitionTrigger.DoorNumber.None);
     public void JumpToDreamSequence() => JumpToScene("IntroSequence", SceneTransitionTrigger.DoorNumber.One);
     public void JumpToIntroEndCutscene() => JumpToScene("IntroEndCutscene", SceneTransitionTrigger.DoorNumber.None);
+        public void JumpToStarLevel() => JumpToScene("Star_Level", SceneTransitionTrigger.DoorNumber.Four);
     public void JumpToIntroToStar() => JumpToScene("IntroToStar", SceneTransitionTrigger.DoorNumber.Four);
     public void JumpToIRLevel() => JumpToScene("IR_Level", SceneTransitionTrigger.DoorNumber.One);
-    public void JumpToSkyLevel() => JumpToScene("SkyLevel", SceneTransitionTrigger.DoorNumber.One);
-    public void JumpToStarLevel() => JumpToScene("Star_Level", SceneTransitionTrigger.DoorNumber.One);
+    public void JumpToSkyLevel() => JumpToScene("SkyLevel", SceneTransitionTrigger.DoorNumber.Six);
 }

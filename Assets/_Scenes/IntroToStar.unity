@@ -4142,6 +4142,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4656375531271019491, guid: 3f651ae463f1a734f94b6c9d5ad62f49, type: 3}
+      propertyPath: maxLightRadius
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4656375531271019491, guid: 3f651ae463f1a734f94b6c9d5ad62f49, type: 3}
+      propertyPath: minLightRadius
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 5096458948796576133, guid: 3f651ae463f1a734f94b6c9d5ad62f49, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -4185,6 +4193,10 @@ PrefabInstance:
     - target: {fileID: 6166040227673563234, guid: 3f651ae463f1a734f94b6c9d5ad62f49, type: 3}
       propertyPath: EventReference.Guid.Data4
       value: -2068573184
+      objectReference: {fileID: 0}
+    - target: {fileID: 7312058156436539219, guid: 3f651ae463f1a734f94b6c9d5ad62f49, type: 3}
+      propertyPath: m_PointLightOuterRadius
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 7830585124954602415, guid: 3f651ae463f1a734f94b6c9d5ad62f49, type: 3}
       propertyPath: m_LocalPosition.x

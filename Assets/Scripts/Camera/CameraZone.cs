@@ -10,16 +10,12 @@ public class CameraZone : MonoBehaviour
     
     public void SetPriority(int val)
     {
-        priority = val;
+        cam.Priority = val;
     }
     
     private void Start()
     {
         cam.Priority = activateOnStart ? priority : 0;
-    }
-    private void Update()
-    {
-        cam.Priority = priority;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
