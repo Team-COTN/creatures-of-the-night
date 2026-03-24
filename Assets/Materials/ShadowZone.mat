@@ -67,7 +67,7 @@ Material:
     m_Floats:
     - _Distortion_Noise_Scale: 1
     - _Distortion_Noise_Speed: 0.5
-    - _Distortion_Noise_Strength: 7
+    - _Distortion_Noise_Strength: 3
     - _Distortion_Size: 10
     - _Distortion_Speed: 0.05
     - _Distortion_Strength: 5
