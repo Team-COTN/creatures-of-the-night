@@ -65,13 +65,13 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Distortion_Noise_Scale: 1.5
-    - _Distortion_Noise_Speed: 0.25
-    - _Distortion_Noise_Strength: 5
+    - _Distortion_Noise_Scale: 1
+    - _Distortion_Noise_Speed: 0.5
+    - _Distortion_Noise_Strength: 7
     - _Distortion_Size: 10
     - _Distortion_Speed: 0.05
     - _Distortion_Strength: 5
-    - _Edge_Fade: 0.25
+    - _Edge_Fade: 0.032
     - _EnableExternalAlpha: 0
     - _FadeWidth: 0.15
     - _FadeWidth_1: 0.36
@@ -84,6 +84,7 @@ Material:
     - _wave_speed: 1
     m_Colors:
     - _Color: {r: 0.11294993, g: 0, b: 0.18867922, a: 1}
+    - _Distortion_Direction: {r: -1, g: -1, b: 0, a: 0}
     - _PlaneSize: {r: 0, g: 0, b: 0, a: 0}
     - _Position: {r: 0, g: 0, b: 0, a: 0}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
