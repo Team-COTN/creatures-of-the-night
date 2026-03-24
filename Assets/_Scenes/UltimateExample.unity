@@ -7280,6 +7280,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 471507232370459579, guid: 3f651ae463f1a734f94b6c9d5ad62f49, type: 3}
+      propertyPath: objectPooler
+      value: 
+      objectReference: {fileID: 703763023}
     - target: {fileID: 821356905556304479, guid: 3f651ae463f1a734f94b6c9d5ad62f49, type: 3}
       propertyPath: orthographic size
       value: 4
@@ -7300,18 +7304,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boilerplate
       objectReference: {fileID: 0}
-    - target: {fileID: 4656375531271019491, guid: 3f651ae463f1a734f94b6c9d5ad62f49, type: 3}
-      propertyPath: maxLightRadius
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 4656375531271019491, guid: 3f651ae463f1a734f94b6c9d5ad62f49, type: 3}
-      propertyPath: minLightRadius
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4656375531271019491, guid: 3f651ae463f1a734f94b6c9d5ad62f49, type: 3}
-      propertyPath: lightTransitionSpeed
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 6166040227673563234, guid: 3f651ae463f1a734f94b6c9d5ad62f49, type: 3}
       propertyPath: EventReference.Path
       value: event:/Bg_Level_2
@@ -7331,10 +7323,6 @@ PrefabInstance:
     - target: {fileID: 6166040227673563234, guid: 3f651ae463f1a734f94b6c9d5ad62f49, type: 3}
       propertyPath: EventReference.Guid.Data4
       value: 829555325
-      objectReference: {fileID: 0}
-    - target: {fileID: 7312058156436539219, guid: 3f651ae463f1a734f94b6c9d5ad62f49, type: 3}
-      propertyPath: m_PointLightOuterRadius
-      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7830585124954602415, guid: 3f651ae463f1a734f94b6c9d5ad62f49, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7389,6 +7377,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3f651ae463f1a734f94b6c9d5ad62f49, type: 3}
+--- !u!114 &703763023 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2760626170164008658, guid: 3f651ae463f1a734f94b6c9d5ad62f49, type: 3}
+  m_PrefabInstance: {fileID: 703763022}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e98d48463c3599499e09cdec15ffe97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &704088306
 GameObject:
   m_ObjectHideFlags: 0
@@ -24375,18 +24374,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4553978931751993324, guid: 72f7cfc17c2583a4cb2e0b308c05b386, type: 3}
-      propertyPath: doorNumber
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4553978931751993324, guid: 72f7cfc17c2583a4cb2e0b308c05b386, type: 3}
-      propertyPath: targetDoor
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4553978931751993324, guid: 72f7cfc17c2583a4cb2e0b308c05b386, type: 3}
-      propertyPath: targetScene
-      value: Star_Level
-      objectReference: {fileID: 0}
     - target: {fileID: 737600207257312751, guid: 4ff8a96b28774b74897a9fa03defa048, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1
@@ -24450,6 +24437,18 @@ PrefabInstance:
     - target: {fileID: 8281577933414957646, guid: 4ff8a96b28774b74897a9fa03defa048, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4553978931751993324, guid: 72f7cfc17c2583a4cb2e0b308c05b386, type: 3}
+      propertyPath: doorNumber
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4553978931751993324, guid: 72f7cfc17c2583a4cb2e0b308c05b386, type: 3}
+      propertyPath: targetDoor
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4553978931751993324, guid: 72f7cfc17c2583a4cb2e0b308c05b386, type: 3}
+      propertyPath: targetScene
+      value: Star_Level
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

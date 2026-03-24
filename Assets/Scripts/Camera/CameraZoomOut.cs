@@ -11,6 +11,9 @@ public class CameraZoomOut : MonoBehaviour
     public CameraZone cameraZone;
     private float zoomOutTimer = 5.0f;
     private IEnumerator coroutine;
+    public Light2D light2D1;
+    public Light2D light2D2;
+    public Light2D light2D3;
 
     void Start() 
     {
@@ -42,7 +45,8 @@ public class CameraZoomOut : MonoBehaviour
         {
             Debug.Log("SetPriority(10)");
             cameraZone.SetPriority(10);
-            coroutine = WaitForUnzoom(5.0f);
+
+            coroutine = WaitForUnzoom(7.0f);
             StartCoroutine(coroutine);
             counter = clusterObjects.Length + 1;
         }
