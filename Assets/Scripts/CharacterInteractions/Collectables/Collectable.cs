@@ -27,6 +27,7 @@ public class Collectable : MonoBehaviour
             Debug.Log("collected");
             // sfxManager.PlaySound(collectableSO.CollectClip);
             itemManager.Collect(collectableSO);
+            //itemManager.Instance.CollectOrb();
             Destroy(gameObject); //self destruct
         }
     }
