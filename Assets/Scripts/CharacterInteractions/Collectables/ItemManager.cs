@@ -6,25 +6,25 @@ public class ItemManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private int orbCount = 0;
     public TextMeshProUGUI orbText;
-    //public GameObject orbPrefab;
-    //public Transform orbParent;
-    //public Transform orbStart;
+    public GameObject orbPrefab;
+    public Transform orbParent;
+    public Transform orbStart;
 
     public void Collect(CollectableSOBase collectable)
     {
         if (collectable is CollectableOrbSO orb)
         {
-            //ShowOrb();
+            ShowOrb();
             IncrementOrbCount(orb.OrbAmount);
         }
     }
     
 
-   /* public void ShowOrb()
+    public void ShowOrb()
     {
         var orbObject=Instantiate(orbPrefab,orbParent);
         orbObject.transform.position = orbStart.transform.position;
-    }*/
+    }
 
     void IncrementOrbCount(int orbAmount)
     {
