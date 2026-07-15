@@ -323,4 +323,54 @@ namespace Player.States.Locomotion
         }
         
     }
+
+    public class Block : State
+    {
+        readonly PlayerCharacterController player;
+        private float blockTimer;
+        
+        public Block(StateMachine m, State parent, PlayerCharacterController player) : base(m, parent)
+        {
+            this.player = player;
+        }
+
+        protected override (State state, string reason) GetNextState()
+        {
+            if (blockTimer >= player.locomotionData.slashDuration)
+            { 
+                return (Machine.GetState<Idle>(), "Player finished grounded slash attack");
+            }
+    
+            return (null, null);
+        }
+
+        protected override void OnEnter()
+        {
+            player.PlayerAnimator.PlaySlash();
+        }
+
+        protected override void OnUpdate(float deltaTime)
+        {
+            //make damage collider
+            float radius = .5f;
+        
+            //need to find if the player has a weapon in hand
+            //if no weapon, the arm of the character is the weapon
+            Vector2 weaponColOrigin = player.attackCollider2D.bounds.center;
+            Collider2D[] otherCol = Physics2D.OverlapCircleAll(weaponColOrigin, radius, ~0);
+            for (int i = 0; i < otherCol.Length; i++)
+            {
+                Debug.Log("****Some Object Collided..");
+
+                if (otherCol[i].gameObject.TryGetComponent(out IDamagable damagable))
+                {
+                    Debug.Log("****Damagable Object Collided!");
+                    damagable.TakeDamage(1);
+                }
+            }
+
+            slashTimer += deltaTime;
+        }
+        
+    }
 }
