@@ -1,6 +1,8 @@
 using UnityEngine;
-using UnityEditor;
 using System.Linq;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 namespace HSM
 {
@@ -36,42 +38,57 @@ namespace HSM
 
         private void FixedUpdate()
         {
-            Machine.Tick(Time.fixedDeltaTime);
+            Machine.FixedTick(Time.fixedDeltaTime);
         }
         
 #if UNITY_EDITOR
-        private void OnValidate()
-        {
-            if (Machine != null)
-                Machine.debug = debug;
-        }
+        private State editorRootState;
         
         private void OnDrawGizmos()
         {
             if (!debug) return;
-            
-            DrawStatePathInfo();
-            DrawCustomGizmos();
-        }
-        
-        protected virtual void DrawStatePathInfo()
-        {
-            var debugInfoPanelText = "";
-            
+
+            // If the application is playing, draw the gizmos of the active states and print the path
             if (Application.isPlaying)
             {
-                var statePath = string.Join(" > ", 
-                    Machine.Root.Leaf().PathToRoot().Reverse().Skip(1).Select(n => n.GetType().Name));
-                debugInfoPanelText += statePath;
+                var debugInfoPanelText = "";
+                var states = Machine.ActiveStates.ToList();
+                
+                // Draw Gizmos for each active state
+                foreach (var state in states)
+                    state.DrawCustomGizmos();
+                
+                // Build state path (skipping root)
+                debugInfoPanelText = string.Join(" > ", 
+                    states.Skip(1).Select(s => s.GetType().Name));
+                
+                // Print the state path
+                GUIStyle centeredStyle = GUI.skin.GetStyle("Label");
+                centeredStyle.alignment = TextAnchor.LowerCenter;
+                centeredStyle.normal.textColor = debugTextColor;
+                Handles.Label(transform.position + Vector3.up * debugInfoPanelOffset, 
+                    debugInfoPanelText, centeredStyle);
             }
             
-            GUIStyle centeredStyle = GUI.skin.GetStyle("Label");
-            centeredStyle.alignment = TextAnchor.LowerCenter;
-            centeredStyle.normal.textColor = debugTextColor;
-            Handles.Label(transform.position + Vector3.up * debugInfoPanelOffset, debugInfoPanelText, centeredStyle);
+            // If the application isn't playing, draw the gizmos of the default states
+            else
+            {
+                editorRootState ??= CreateRootState();
+                State current = editorRootState;
+                while (current != null)
+                {
+                    current.DrawCustomGizmos();
+                    current = current.GetDefaultChildState();
+                }
+            }
         }
         
-        protected virtual void DrawCustomGizmos() { }
+        private void OnValidate()
+        {
+            editorRootState = null;
+            if (Machine != null)
+                Machine.debug = debug;
+        }
 #endif
     }    
 }
