@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class Enemy : MonoBehaviour, IDamagable, IShootable
+public class Enemy : MonoBehaviour, IDamagable, IShootable, IBlockable
 {
-    public int enemyStrength = 1;
+    // public int enemyStrength = 1;
     public int enemyHP = 5;
     public int damageTaken = 0;
 
@@ -13,13 +13,13 @@ public class Enemy : MonoBehaviour, IDamagable, IShootable
 
     }
 
-    public void OnCollisionEnter2D(Collision2D col)
-    {
-        Debug.Log("collision Occured");
-        IDamagable damagable = col.collider.GetComponent<IDamagable>();
-        if (damagable != null)
-            damagable.TakeDamage(enemyStrength);
-    }
+    // public void OnCollisionEnter2D(Collision2D col)
+    // {
+    //     Debug.Log("collision Occured");
+    //     IDamagable damagable = col.collider.GetComponent<IDamagable>();
+    //     if (damagable != null)
+    //         damagable.TakeDamage(enemyStrength);
+    // }
 
     public void TakeShotDamage(int damageAmount)
     {
@@ -34,4 +34,10 @@ public class Enemy : MonoBehaviour, IDamagable, IShootable
         damageTaken+= damageAmount;
         Debug.Log("OOF by:" + damageAmount);
     }
+
+    public void GetBlocked()
+    {
+        Debug.Log("I've been blocked!");
+    }
+
 }

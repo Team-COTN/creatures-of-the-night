@@ -138,6 +138,15 @@ public partial class @MyInputActions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
+                    ""name"": ""Block"",
+                    ""type"": ""Button"",
+                    ""id"": ""ff81f5ce-56a5-4950-989d-fb6fb87815db"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
                     ""name"": ""Shoot"",
                     ""type"": ""Button"",
                     ""id"": ""a98bb6f5-5077-4125-b752-31a35d9767e5"",
@@ -332,7 +341,7 @@ public partial class @MyInputActions: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""004d055f-6fda-4f74-80a3-b3f977ba947a"",
-                    ""path"": ""<Keyboard>/y"",
+                    ""path"": ""<Keyboard>/u"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -354,7 +363,7 @@ public partial class @MyInputActions: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""d76a4887-3eed-4d1d-b1c3-c0baa3164f18"",
-                    ""path"": ""<Keyboard>/h"",
+                    ""path"": ""<Keyboard>/j"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -370,6 +379,28 @@ public partial class @MyInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Slash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a72f3532-d1c8-4180-a46e-19447facbb6c"",
+                    ""path"": ""<Keyboard>/k"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Block"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e423c33f-1646-4302-a412-558584c5dc48"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Block"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -462,6 +493,7 @@ public partial class @MyInputActions: IInputActionCollection2, IDisposable
         m_Character_Dash = m_Character.FindAction("Dash", throwIfNotFound: true);
         m_Character_Switchdash = m_Character.FindAction("Switchdash", throwIfNotFound: true);
         m_Character_Slash = m_Character.FindAction("Slash", throwIfNotFound: true);
+        m_Character_Block = m_Character.FindAction("Block", throwIfNotFound: true);
         m_Character_Shoot = m_Character.FindAction("Shoot", throwIfNotFound: true);
         m_Character_Eye = m_Character.FindAction("Eye", throwIfNotFound: true);
         m_Character_Dialogue = m_Character.FindAction("Dialogue", throwIfNotFound: true);
@@ -551,6 +583,7 @@ public partial class @MyInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Character_Dash;
     private readonly InputAction m_Character_Switchdash;
     private readonly InputAction m_Character_Slash;
+    private readonly InputAction m_Character_Block;
     private readonly InputAction m_Character_Shoot;
     private readonly InputAction m_Character_Eye;
     private readonly InputAction m_Character_Dialogue;
@@ -586,6 +619,10 @@ public partial class @MyInputActions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Character/Slash".
         /// </summary>
         public InputAction @Slash => m_Wrapper.m_Character_Slash;
+        /// <summary>
+        /// Provides access to the underlying input action "Character/Block".
+        /// </summary>
+        public InputAction @Block => m_Wrapper.m_Character_Block;
         /// <summary>
         /// Provides access to the underlying input action "Character/Shoot".
         /// </summary>
@@ -643,6 +680,9 @@ public partial class @MyInputActions: IInputActionCollection2, IDisposable
             @Slash.started += instance.OnSlash;
             @Slash.performed += instance.OnSlash;
             @Slash.canceled += instance.OnSlash;
+            @Block.started += instance.OnBlock;
+            @Block.performed += instance.OnBlock;
+            @Block.canceled += instance.OnBlock;
             @Shoot.started += instance.OnShoot;
             @Shoot.performed += instance.OnShoot;
             @Shoot.canceled += instance.OnShoot;
@@ -681,6 +721,9 @@ public partial class @MyInputActions: IInputActionCollection2, IDisposable
             @Slash.started -= instance.OnSlash;
             @Slash.performed -= instance.OnSlash;
             @Slash.canceled -= instance.OnSlash;
+            @Block.started -= instance.OnBlock;
+            @Block.performed -= instance.OnBlock;
+            @Block.canceled -= instance.OnBlock;
             @Shoot.started -= instance.OnShoot;
             @Shoot.performed -= instance.OnShoot;
             @Shoot.canceled -= instance.OnShoot;
@@ -768,6 +811,13 @@ public partial class @MyInputActions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnSlash(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Block" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnBlock(InputAction.CallbackContext context);
         /// <summary>
         /// Method invoked when associated input action "Shoot" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>

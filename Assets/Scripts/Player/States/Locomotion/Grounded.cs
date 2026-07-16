@@ -12,6 +12,7 @@ namespace Player.States.Locomotion
         public readonly Dash Dash;
         public readonly SwitchDash SwitchDash;
         public readonly Slash Slash;
+        public readonly Block Block;
 
         public float DashCooldownTimer;
         [SerializeField] CharacterInteractions characterInteractions;
@@ -60,6 +61,10 @@ namespace Player.States.Locomotion
             // Slash attack on button press
             if (InputManager.GetSlashWasPressedThisFrame())
                 return (Machine.GetState<Slash>(), "Player pressed slash attack");
+
+            // Block on button press
+            if (InputManager.GetSlashWasPressedThisFrame())
+                return (Machine.GetState<Block>(), "Player pressed block");
 
             return (null, null);
         }
@@ -318,7 +323,6 @@ namespace Player.States.Locomotion
                     damagable.TakeDamage(1);
                 }
             }
-
             slashTimer += deltaTime;
         }
         
@@ -336,9 +340,9 @@ namespace Player.States.Locomotion
 
         protected override (State state, string reason) GetNextState()
         {
-            if (blockTimer >= player.locomotionData.slashDuration)
+            if (blockTimer >= player.locomotionData.blockDuration)
             { 
-                return (Machine.GetState<Idle>(), "Player finished grounded slash attack");
+                return (Machine.GetState<Idle>(), "Player finished grounded block");
             }
     
             return (null, null);
@@ -346,30 +350,31 @@ namespace Player.States.Locomotion
 
         protected override void OnEnter()
         {
+            //replace with block animation
             player.PlayerAnimator.PlaySlash();
         }
 
         protected override void OnUpdate(float deltaTime)
         {
-            //make damage collider
+            //make block collider
             float radius = .5f;
-        
-            //need to find if the player has a weapon in hand
-            //if no weapon, the arm of the character is the weapon
-            Vector2 weaponColOrigin = player.attackCollider2D.bounds.center;
-            Collider2D[] otherCol = Physics2D.OverlapCircleAll(weaponColOrigin, radius, ~0);
+                    
+            //need to find if the player has a sheild in hand
+            //if no sheild, the arm of the character is the sheild
+            Vector2 sheildColOrigin = player.attackCollider2D.bounds.center;
+            Collider2D[] otherCol = Physics2D.OverlapCircleAll(sheildColOrigin, radius, ~0);
             for (int i = 0; i < otherCol.Length; i++)
             {
                 Debug.Log("****Some Object Collided..");
 
-                if (otherCol[i].gameObject.TryGetComponent(out IDamagable damagable))
+                if (otherCol[i].gameObject.TryGetComponent(out IBlockable blockable))
                 {
-                    Debug.Log("****Damagable Object Collided!");
-                    damagable.TakeDamage(1);
+                    Debug.Log("****blockable Object Collided!");
+                    blockable.GetBlocked();
                 }
             }
 
-            slashTimer += deltaTime;
+            blockTimer += deltaTime;
         }
         
     }

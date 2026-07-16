@@ -1,6 +1,6 @@
 using System;
 using UnityEngine;
-
+//Depreciated?
 public class Character : MonoBehaviour
 {
     #region Properties & References

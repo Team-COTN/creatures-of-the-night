@@ -9,9 +9,9 @@ public class TeleportableHazard : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.TryGetComponent<IPlayerTeleportable>(out IPlayerTeleportable playerTeleportable))
+        if (collision.gameObject.TryGetComponent<ITeleportable>(out ITeleportable teleportable))
         {
-            playerTeleportable.PlayerTakeTeleportDamage(hazardStrength);
+            teleportable.TakeTeleportDamage(hazardStrength);
         }
     }
 }

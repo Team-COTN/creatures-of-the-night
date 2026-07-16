@@ -34,11 +34,15 @@ namespace Player.Data
         [Header("Slash")]
         public float slashDuration = .5f;
 
+        [Header("Block")]
+        public float blockDuration = .5f;
+
         [Header("Damage")] 
         
         public float knockbackForce = 6f;
         public float damagedDuration = .4f;
         public float knockbackDuration = 5f;
+        public float invincibleDuration = 10.8f;
         
         public float Gravity { get; private set; }
         public float InitialJumpVelocity { get; private set; }

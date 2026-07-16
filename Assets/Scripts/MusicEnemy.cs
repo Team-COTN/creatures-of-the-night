@@ -21,7 +21,7 @@ public class MusicEnemy : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.TryGetComponent<IPlayerDamagable>(out IPlayerDamagable playerDamageable)) ;
+        if (collision.gameObject.GetComponent<ICharacter>() != null && collision.gameObject.TryGetComponent<IDamagable>(out IDamagable playerDamageable)) ;
             enemyMode++;
     }
 }
