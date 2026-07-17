@@ -1,6 +1,6 @@
 using System;
 using UnityEngine;
-
+//Depreciated?
 public class Character : MonoBehaviour
 {
     #region Properties & References
@@ -463,15 +463,17 @@ public class Character : MonoBehaviour
         Collider2D[] otherCol = Physics2D.OverlapCircleAll(weaponColOrigin, radius, ~0);
         for (int i = 0; i < otherCol.Length; i++)
         {
-            Debug.Log("****Some Object Collided..");
 
-            if (otherCol[i].gameObject.TryGetComponent(out IDamagable damagable))
+            if(otherCol[i].gameObject.GetComponent<ICharacter>() != null)
             {
-                Debug.Log("****Damagable Object Collided!");
-                damagable.TakeDamage(1);
+                // if (otherCol[i].gameObject.TryGetComponent<IKnockable>(out IKnockable knockable))
+                //     knockable.TakeKnockback((Vector2)transform.position);             
+
+                if (otherCol[i].gameObject.TryGetComponent<IDamagable>(out IDamagable damageable))
+                    damageable.TakeDamage(1); 
             }
-        }
+        } 
     }
-    
+
     #endregion
 }
