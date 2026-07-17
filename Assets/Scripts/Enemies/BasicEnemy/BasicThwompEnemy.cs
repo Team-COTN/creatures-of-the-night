@@ -18,7 +18,9 @@ namespace Enemies.BasicEnemy
             // Debug.Log("Entered Collision");
             // if (collision.gameObject.TryGetComponent<IPlayerDamagable>(out IPlayerDamagable playerDamageable))
             // if (other.attachedRigidbody.TryGetComponent(out Character character) && triggerReady)
-            if (other.attachedRigidbody.TryGetComponent<IPlayerDamagable>(out IPlayerDamagable playerDamageable) && triggerReady)
+
+            //if it's the player and can be damaged
+            if (other.attachedRigidbody.TryGetComponent<IDamagable>(out IDamagable damageable) && triggerReady && other.gameObject.GetComponent<ICharacter>() != null)
             {
                 Debug.Log("Character triggered");
 

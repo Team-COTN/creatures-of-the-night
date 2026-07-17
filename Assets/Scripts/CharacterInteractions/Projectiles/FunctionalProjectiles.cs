@@ -14,7 +14,7 @@ public class FunctionalProjectiles : MonoBehaviour
     private PlayerCharacterController character;
 
     public float projectileSpeed = 3f;
-    private bool enabled = false;
+    new private bool enabled = false;
     private bool direction;
 
     public VisualProjectiles visual;
@@ -55,7 +55,9 @@ public class FunctionalProjectiles : MonoBehaviour
         if (other.gameObject.TryGetComponent<IShootable>(out IShootable shootable))
         {
             Debug.Log("shot " + shootable.GetType().Name);
-            shootable.TakeShotDamage(1);
+            //don't shoot yourself
+            if (other.gameObject.GetComponent<ICharacter>() == null)
+                shootable.TakeShotDamage(1);
             
             VisualEffect newVFX = Instantiate(vfx, transform.position, transform.rotation).GetComponent<VisualEffect>();
             newVFX.SendEvent("Hit");

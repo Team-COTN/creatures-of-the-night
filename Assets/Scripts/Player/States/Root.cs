@@ -18,6 +18,7 @@ namespace Player.States
 
         public float JumpBufferTimer;
         public float CoyoteTimer;
+        public float invincibleTimer;
         
         public Root(StateMachine m, PlayerCharacterController player) : base(m, null)
         {
@@ -29,13 +30,29 @@ namespace Player.States
             Cinematic = new Cinematic(m, this, player);
         }
 
+        public void setInvinsibleTimer(float time)
+        {
+            invincibleTimer = time;
+        }
+
         protected override State GetDefaultChildState() => Grounded;
+        
+        protected override void OnUpdate(float deltaTime)
+        {
+            // If the player has been damaged and is now invincible, count down the invincible timer
+            if (player.characterIsinvincibile)
+                invincibleTimer -= deltaTime;
+            // if invincibility runs out, no longer invincible (can be damaged)
+            if (invincibleTimer <= 0)
+                player.characterIsinvincibile = false;
+        }
         protected override (State state, string reason) GetNextState()
         {
             if (Leaf() == Damaged) return (null, null);
 
-            //if CharacterInteractions invokes PlayerTakeDamage
-            if (player.characterBeingDamaged)
+            //if CharacterInteractions invokes PlayerTakeDamage *** depricated. Now PlayerCharController does this!
+            // if (player.characterBeingDamaged && !player.characterIsinvincibile)
+            if (player.characterBeingDamaged && !player.characterIsinvincibile)
                 return (Machine.GetState<Damaged>(), "Player got damaged!");
 
             if (player.isInCinematic && !Leaf().PathToRoot().Contains(Machine.GetState<Cinematic>()))
@@ -50,9 +67,6 @@ namespace Player.States
         readonly PlayerCharacterController player;
         private float damagedDuration;
         private float knockbackDuration;
-
-        // private float invincibleDuration;
-
         
         public Damaged(StateMachine m, State parent, PlayerCharacterController player) : base(m, parent)
         {
@@ -73,6 +87,8 @@ namespace Player.States
         {
             damagedDuration = 0f;
             knockbackDuration = 0f;
+            player.characterIsinvincibile = true;
+            Machine.GetState<Root>().setInvinsibleTimer(player.locomotionData.invincibleDuration);
         }
 
         protected override void OnUpdate(float deltaTime)
@@ -96,8 +112,6 @@ namespace Player.States
             {
                 player.IncrementVerticalVelocity(player.locomotionData.Gravity * player.locomotionData.gravityFallMultiplier * fixedDeltaTime);            
             }
-
-
         }
 
         protected override void OnExit()

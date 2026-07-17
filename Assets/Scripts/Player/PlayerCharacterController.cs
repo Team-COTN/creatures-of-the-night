@@ -14,7 +14,7 @@ using System.Collections;
 
 namespace Player
 {
-    public class PlayerCharacterController : MonoBehaviour, ICharacter
+    public class PlayerCharacterController : MonoBehaviour, ICharacter, IDamagable, ITeleportable, IShootable, IKnockable
     {
         [Header("References")]
         public PhysicsMotor motor;
@@ -26,14 +26,30 @@ namespace Player
         public bool isFacingRight = true;
 
         public MMF_Player myParryFeedbacks;
+        public MMF_Player myDamagedFeedbacks;
 
         // Remove old cinematic fields - now lives in CinematicRequest
         public bool isInCinematic = false;
 
+
+        //---teleport variables---
+        public Animator transition;
+        public SafeGroundCheckpoint SafeGroundCheckpoint;
+
         //damaged
         public bool characterBeingDamaged = false;
+        public bool characterIsinvincibile = false;
         public Vector2 _hazardPosition;
 
+        //for UI to respond to damage
+        public int characterHealth = 3;
+        public event Action<int> CharacterDamaged;
+        public event Action<int> CharacterTeleported;
+
+        public void AddCharacterDamagedObserver(Action<int> observer) { CharacterDamaged += observer; }
+        public void RemoveCharacterDamagedObserver(Action<int> observer) { CharacterDamaged -= observer; }
+
+        //colliders
         [SerializeField] public Collider2D attackCollider2D;
         [SerializeField] public Collider2D parryCollider2D;
 
@@ -56,6 +72,7 @@ namespace Player
             // Machine.OnStateEntered<Jump>(OnJump);
             // Machine.OnStateEntered<JumpParry>(OnJumpParry);
         }
+
 
         // --- Cinematic API ---
 
@@ -132,11 +149,70 @@ namespace Player
             }
         }
 
-        public void Damage()
+        //do I need this??? //is this knockback?
+        // public void EnterDamage(Vector2 hazardPosition)
+        // {
+        //     characterController._hazardPosition = hazardPosition;
+        // }
+
+        public void EnterDamageState()
         {
-            if (Machine.Root.Leaf() != Machine.GetState<Damaged>())
-                characterBeingDamaged = true;
+            //is this logic being used twice??
+            if (!characterIsinvincibile)
+            {
+                if (Machine.Root.Leaf() != Machine.GetState<Damaged>())
+                    characterBeingDamaged = true;
+            }
         }
+        public void TakeDamage(int damageAmount)
+        {       
+            characterBeingDamaged = true;
+            if (!characterIsinvincibile)
+            {
+                characterHealth -= damageAmount;
+                CharacterDamaged?.Invoke(characterHealth);
+            }
+        }
+        //passes hazard position to OnFixedUpdate in the Damaged state
+        public void TakeKnockback(Vector2 hazardPosition)
+        {
+            if (!characterIsinvincibile)
+                _hazardPosition = hazardPosition;
+        }
+        public void TakeShotDamage(int damageAmount)
+        {
+            if (!characterIsinvincibile)
+            {
+                characterHealth -= damageAmount;
+                CharacterDamaged?.Invoke(characterHealth);
+            }
+        }
+        public void TakeTeleportDamage(int damageAmount)
+        {
+            //May remove? invincibility here might not make sense
+            if (!characterIsinvincibile)
+            {
+                // Player Take Damage
+                characterHealth -= damageAmount;
+                CharacterDamaged?.Invoke(characterHealth);
+                EnterCinematic(new Player.States.Cinematics.CinematicRequest());
+
+                // Fade In
+                var sceneTransitionUI = FindFirstObjectByType<SceneTransitionUI>();
+                sceneTransitionUI.FadeIn();
+
+                // Move Player
+                SetPosition(SafeGroundCheckpoint.safeGroundLocation);
+                ExitCinematic();
+            }
+        }
+        // private void Damage(int damage)
+        // {
+        //     characterHealth -= damage;
+        //     Damage();
+        // }
+
+
 
 #if UNITY_EDITOR
         private void OnDrawGizmos()

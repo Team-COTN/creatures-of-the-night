@@ -75,7 +75,7 @@ public class HazardProjectile : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.TryGetComponent<IPlayerShootable>(out IPlayerShootable playerShootable))
+        if (other.gameObject.GetComponent<ICharacter>() != null && other.gameObject.TryGetComponent<IShootable>(out IShootable playerShootable))
         {
             Debug.Log("shot " + playerShootable.GetType().Name);
             playerShootable.TakeShotDamage(1);

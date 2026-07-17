@@ -58,11 +58,16 @@ public class FadeHazardProjectile : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.TryGetComponent<IPlayerShootable>(out IPlayerShootable playerShootable))
+        //DO shoot player
+        if (other.gameObject.GetComponent<ICharacter>() != null)
         {
-            playerShootable.TakeShotDamage(1);
-            ShotFX();
-            StartCoroutine(FadeAndReturn());
+            if (other.gameObject.TryGetComponent<IShootable>(out IShootable shootable))
+            {
+
+                shootable.TakeShotDamage(1);
+                ShotFX();
+                StartCoroutine(FadeAndReturn());
+            }
         }
     }
 

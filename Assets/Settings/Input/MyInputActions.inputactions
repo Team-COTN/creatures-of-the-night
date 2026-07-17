@@ -52,6 +52,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "Block",
+                    "type": "Button",
+                    "id": "ff81f5ce-56a5-4950-989d-fb6fb87815db",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Shoot",
                     "type": "Button",
                     "id": "a98bb6f5-5077-4125-b752-31a35d9767e5",
@@ -246,7 +255,7 @@
                 {
                     "name": "",
                     "id": "004d055f-6fda-4f74-80a3-b3f977ba947a",
-                    "path": "<Keyboard>/y",
+                    "path": "<Keyboard>/u",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -268,7 +277,7 @@
                 {
                     "name": "",
                     "id": "d76a4887-3eed-4d1d-b1c3-c0baa3164f18",
-                    "path": "<Keyboard>/h",
+                    "path": "<Keyboard>/j",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -284,6 +293,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "Slash",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a72f3532-d1c8-4180-a46e-19447facbb6c",
+                    "path": "<Keyboard>/k",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Block",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e423c33f-1646-4302-a412-558584c5dc48",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Block",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
