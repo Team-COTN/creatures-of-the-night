@@ -33,29 +33,18 @@ namespace Player.States
         public void setInvinsibleTimer(float time)
         {
             invincibleTimer = time;
-            Debug.Log("setInvinsibleTimer: " + time);
         }
 
         protected override State GetDefaultChildState() => Grounded;
-        // protected override void OnEnter()
-        // {
-        //     invincibleTimer = player.locomotionData.invincibleDuration;
-        // }
         
         protected override void OnUpdate(float deltaTime)
         {
             // If the player has been damaged and is now invincible, count down the invincible timer
             if (player.characterIsinvincibile)
-            {
                 invincibleTimer -= deltaTime;
-                Debug.Log("invincibleTimer" + invincibleTimer);
-            }
             // if invincibility runs out, no longer invincible (can be damaged)
             if (invincibleTimer <= 0)
-            {
                 player.characterIsinvincibile = false;
-                Debug.Log("DONE invincible");
-            }   
         }
         protected override (State state, string reason) GetNextState()
         {
