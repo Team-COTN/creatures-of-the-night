@@ -43,20 +43,24 @@ namespace HSM
         
         internal void Update(float deltaTime)
         {
-            var result = GetNextState();
-            if (result.state != null)
-            {
-                Machine.ChangeState(this, result.state, result.reason);
-                return;
-            }
+            if (TryTransition()) return;
             if (ActiveChild != null) ActiveChild.Update(deltaTime);
             OnUpdate(deltaTime);
         }
 
         internal void FixedUpdate(float fixedDeltaTime)
         {
+            if (TryTransition()) return;
             if (ActiveChild != null) ActiveChild.FixedUpdate(fixedDeltaTime);
             OnFixedUpdate(fixedDeltaTime);
+        }
+
+        private bool TryTransition()
+        {
+            var result = GetNextState();
+            if (result.state == null) return false;
+            Machine.ChangeState(this, result.state, result.reason);
+            return true;
         }
 
         public State Leaf()

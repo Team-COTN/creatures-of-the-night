@@ -28,7 +28,7 @@ namespace Player.States.Locomotion
             Slash = new Slash(m, this, player);
         }
 
-        protected override State GetDefaultChildState() => Mathf.Abs(InputManager.GetMovement().x) > player.locomotionData.movementInputThreshold ? Move : Idle;
+        public override State GetDefaultChildState() => Mathf.Abs(InputManager.GetMovement().x) > player.locomotionData.movementInputThreshold ? Move : Idle;
 
         protected override (State state, string reason) GetNextState()
         {

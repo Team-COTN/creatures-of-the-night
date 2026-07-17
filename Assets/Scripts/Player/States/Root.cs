@@ -46,6 +46,7 @@ namespace Player.States
             if (invincibleTimer <= 0)
                 player.characterIsinvincibile = false;
         }
+        public override State GetDefaultChildState() => Grounded;
         protected override (State state, string reason) GetNextState()
         {
             if (Leaf() == Damaged) return (null, null);

@@ -25,7 +25,7 @@ namespace Player.States.Locomotion
             AirSwitchDash = new AirSwitchDash(m, this, player);
         }
 
-        protected override State GetDefaultChildState() => Fall;
+        public override State GetDefaultChildState() => Fall;
 
         protected override (State state, string reason) GetNextState()
         {

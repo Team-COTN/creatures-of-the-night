@@ -17,7 +17,7 @@ namespace Player.Eye.States
             Active = new Active(m, this, eye);
         }
 
-        protected override State GetDefaultChildState() => Inactive;
+        public override State GetDefaultChildState() => Inactive;
 
         protected override void OnUpdate(float deltaTime)
         {
@@ -41,7 +41,7 @@ namespace Player.Eye.States
             Returning = new Returning(m, this, eye);
         }
 
-        protected override State GetDefaultChildState()
+        public override State GetDefaultChildState()
         {
             return eye.InFollowRange ? Following : Returning;
         }
@@ -78,7 +78,7 @@ namespace Player.Eye.States
             Scrying = new Scrying(m, this, eye);
         }
         
-        protected override State GetDefaultChildState() => Scrying;
+        public override State GetDefaultChildState() => Scrying;
 
         protected override (State state, string reason) GetNextState()
         {

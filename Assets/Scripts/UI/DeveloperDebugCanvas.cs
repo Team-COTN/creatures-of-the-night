@@ -28,8 +28,8 @@ public class DeveloperDebugCanvas : MonoBehaviour
     public void HideDeveloperCanvas()
     {
         canvas.enabled = false;
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Confined;
+        // Cursor.visible = false;
+        // Cursor.lockState = CursorLockMode.Confined;
     }
 
     public void ShowDeveloperCanvas()
