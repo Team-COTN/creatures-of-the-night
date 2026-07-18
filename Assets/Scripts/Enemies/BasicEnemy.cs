@@ -1,0 +1,217 @@
+using HSM;
+using UnityEngine;
+
+namespace Enemies.Basic
+{
+
+[RequireComponent(typeof(PhysicsMotor))]
+public class BasicEnemy : StateMachineMonoBehaviour
+{
+    [Header("References")]
+    public Transform player;
+
+    [Header("Detection")]
+    public float detectionRange = 5f;
+    public float chaseDetectionRange = 7f;
+    public float wanderSightHeight = 1f;
+
+    [Header("Movement")]
+    public float chaseSpeed = 2f;
+    public float wanderSpeed = 1f;
+    public float gravity = 10f;
+
+    [Header("Timing")]
+    public float wanderDirectionChangeInterval = 2f;
+    public float rechaseDelay = 2f;
+    public float ledgeGiveUpDelay = 2f;
+
+    [Header("Ledge Detection")]
+    public float ledgeCheckAhead = 0.3f;
+    public float groundProbeDepth = 0.2f;
+
+    private PhysicsMotor _motor;
+    public PhysicsMotor Motor => _motor ??= GetComponent<PhysicsMotor>();
+    private Collider2D _col;
+    public Collider2D Col => _col ??= GetComponent<Collider2D>();
+
+    public Vector2 velocity;
+    public void SetHorizontalVelocity(float value) => velocity = new Vector2(value, velocity.y);
+    public void SetVerticalVelocity(float value) => velocity = new Vector2(velocity.x, value);
+
+    protected override State CreateRootState() => new Root(null, this);
+
+    public bool IsPlayerWithinRange(float range) =>
+        player != null && Vector2.Distance(transform.position, player.position) <= range;
+
+    public bool CanSeePlayerHorizontally(float range)
+    {
+        if (player == null) return false;
+        return Mathf.Abs(player.position.x - transform.position.x) <= range
+            && Mathf.Abs(player.position.y - transform.position.y) <= wanderSightHeight;
+    }
+
+    public bool IsGroundAheadOf(float direction) => IsGroundAheadOf(direction, out _, out _);
+
+    public bool IsGroundAheadOf(float direction, out Vector2 origin, out Vector2 checkPoint)
+    {
+        Vector2 probeOrigin = new Vector2(transform.position.x, Col.bounds.min.y);
+        RaycastHit2D groundHit = Physics2D.Raycast(probeOrigin, Vector2.down, groundProbeDepth, Motor.CollisionMask);
+
+        if (groundHit.collider == null)
+        {
+            origin = checkPoint = probeOrigin;
+            return false;
+        }
+
+        origin = groundHit.point;
+        float lookAhead = Mathf.Max(ledgeCheckAhead, chaseSpeed * Time.fixedDeltaTime);
+        checkPoint = new Vector2(groundHit.point.x + direction * lookAhead, groundHit.point.y - 0.05f);
+
+        return Physics2D.OverlapPoint(checkPoint, Motor.CollisionMask) != null;
+    }
+}
+
+public class Root : State
+{
+    public readonly BasicEnemy Enemy;
+    public readonly Wander Wander;
+    public readonly Chase Chase;
+
+    public Root(StateMachine m, BasicEnemy enemy) : base(m, null)
+    {
+        Enemy = enemy;
+        Wander = new Wander(m, this);
+        Chase = new Chase(m, this);
+    }
+
+    public override State GetDefaultChildState() => Wander;
+
+    protected override void OnFixedUpdate(float fixedDeltaTime)
+    {
+        Enemy.SetVerticalVelocity(Enemy.Motor.IsGrounded() ? 0f : Enemy.velocity.y - Enemy.gravity * fixedDeltaTime);
+        Enemy.Motor.Move(Enemy.velocity * fixedDeltaTime);
+    }
+
+    public override void DrawCustomGizmos()
+    {
+        Gizmos.color = Enemy.Motor.IsGrounded() ? Color.green : Color.red;
+        Vector3 feet = Enemy.transform.position + Vector3.down * Enemy.Col.bounds.extents.y;
+        Gizmos.DrawWireCube(feet, new Vector3(Enemy.Col.bounds.size.x, 0.05f, 0f));
+    }
+}
+
+public class Wander : State
+{
+    private Root Root => (Root)Parent;
+    private BasicEnemy Enemy => Root.Enemy;
+
+    private float _direction;
+    private float _directionTimer;
+    private float _rechaseCooldown;
+
+    public Wander(StateMachine m, State parent) : base(m, parent) { }
+
+    protected override void OnEnter()
+    {
+        PickNewDirection();
+        _rechaseCooldown = Enemy.rechaseDelay;
+    }
+
+    protected override void OnExit() => Enemy.SetHorizontalVelocity(0f);
+
+    protected override void OnFixedUpdate(float fixedDeltaTime)
+    {
+        _rechaseCooldown = Mathf.Max(0f, _rechaseCooldown - fixedDeltaTime);
+
+        _directionTimer -= fixedDeltaTime;
+        if (_directionTimer <= 0f) PickNewDirection();
+
+        bool hitWall = (_direction > 0f && Enemy.Motor.IsCollidingRight) ||
+                       (_direction < 0f && Enemy.Motor.IsCollidingLeft);
+
+        if (hitWall || !Enemy.IsGroundAheadOf(_direction))
+        {
+            PickNewDirection();
+            return;
+        }
+
+        Enemy.SetHorizontalVelocity(_direction * Enemy.wanderSpeed);
+    }
+
+    protected override (State state, string reason) GetNextState()
+    {
+        if (_rechaseCooldown <= 0f && Enemy.CanSeePlayerHorizontally(Enemy.detectionRange))
+            return (Root.Chase, "player detected");
+
+        return (null, null);
+    }
+
+    private void PickNewDirection()
+    {
+        _direction = Random.value < 0.5f ? -1f : 1f;
+        _directionTimer = Enemy.wanderDirectionChangeInterval;
+    }
+
+    public override void DrawCustomGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireCube(Enemy.transform.position,
+            new Vector3(Enemy.detectionRange * 2f, Enemy.wanderSightHeight * 2f, 0f));
+
+        bool groundAhead = Enemy.IsGroundAheadOf(_direction, out Vector2 origin, out Vector2 checkPoint);
+        Gizmos.color = groundAhead ? Color.cyan : Color.red;
+        Gizmos.DrawLine(origin, checkPoint);
+        Gizmos.DrawWireSphere(checkPoint, 0.05f);
+    }
+}
+
+public class Chase : State
+{
+    private Root Root => (Root)Parent;
+    private BasicEnemy Enemy => Root.Enemy;
+
+    private float _blockedTimer;
+
+    public Chase(StateMachine m, State parent) : base(m, parent) { }
+
+    protected override void OnEnter() => _blockedTimer = 0f;
+    protected override void OnExit() => Enemy.SetHorizontalVelocity(0f);
+
+    protected override void OnFixedUpdate(float fixedDeltaTime)
+    {
+        float moveDir = MoveDir();
+        bool groundAhead = Enemy.IsGroundAheadOf(moveDir);
+
+        Enemy.SetHorizontalVelocity(groundAhead ? moveDir * Enemy.chaseSpeed : 0f);
+        _blockedTimer = groundAhead ? 0f : _blockedTimer + fixedDeltaTime;
+    }
+
+    protected override (State state, string reason) GetNextState()
+    {
+        if (!Enemy.IsPlayerWithinRange(Enemy.chaseDetectionRange))
+            return (Root.Wander, "lost player");
+
+        if (_blockedTimer >= Enemy.ledgeGiveUpDelay)
+            return (Root.Wander, "couldn't reach player - gave up at the ledge");
+
+        return (null, null);
+    }
+
+    private float MoveDir() => Enemy.player.position.x >= Enemy.transform.position.x ? 1f : -1f;
+
+    public override void DrawCustomGizmos()
+    {
+        Gizmos.color = new Color(1f, 0.5f, 0f); // orange - visually distinct from Wander's yellow
+        Gizmos.DrawWireSphere(Enemy.transform.position, Enemy.chaseDetectionRange);
+
+        if (Enemy.player == null) return;
+
+        float moveDir = MoveDir();
+        bool groundAhead = Enemy.IsGroundAheadOf(moveDir, out Vector2 origin, out Vector2 checkPoint);
+
+        Gizmos.color = groundAhead ? Color.green : Color.red;
+        Gizmos.DrawLine(origin, checkPoint);
+        Gizmos.DrawWireSphere(checkPoint, 0.05f);
+    }
+}
+}

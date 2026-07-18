@@ -35,7 +35,7 @@ namespace Player.States
             invincibleTimer = time;
         }
 
-        protected override State GetDefaultChildState() => Grounded;
+        public override State GetDefaultChildState() => Grounded;
         
         protected override void OnUpdate(float deltaTime)
         {
@@ -46,7 +46,6 @@ namespace Player.States
             if (invincibleTimer <= 0)
                 player.characterIsinvincibile = false;
         }
-        public override State GetDefaultChildState() => Grounded;
         protected override (State state, string reason) GetNextState()
         {
             if (Leaf() == Damaged) return (null, null);
