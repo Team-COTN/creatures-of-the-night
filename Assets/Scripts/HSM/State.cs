@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 
 namespace HSM
 {
@@ -14,7 +15,7 @@ namespace HSM
             Parent = parent;
         }
         
-        protected virtual State GetDefaultChildState() => null;
+        public virtual State GetDefaultChildState() => null;
         protected virtual (State state, string reason) GetNextState() => (state: null, reason: null);
         
         // Lifecycle hooks
@@ -22,6 +23,8 @@ namespace HSM
         protected virtual void OnExit() { }
         protected virtual void OnUpdate(float deltaTime) { }
         protected virtual void OnFixedUpdate(float fixedDeltaTime) { }
+
+        public bool IsActive => Machine.Root.Leaf().PathToRoot().Contains(this);
 
         internal void Enter()
         {
@@ -40,20 +43,24 @@ namespace HSM
         
         internal void Update(float deltaTime)
         {
-            var result = GetNextState();
-            if (result.state != null)
-            {
-                Machine.ChangeState(this, result.state, result.reason);
-                return;
-            }
+            if (TryTransition()) return;
             if (ActiveChild != null) ActiveChild.Update(deltaTime);
             OnUpdate(deltaTime);
         }
 
         internal void FixedUpdate(float fixedDeltaTime)
         {
+            if (TryTransition()) return;
             if (ActiveChild != null) ActiveChild.FixedUpdate(fixedDeltaTime);
             OnFixedUpdate(fixedDeltaTime);
+        }
+
+        private bool TryTransition()
+        {
+            var result = GetNextState();
+            if (result.state == null) return false;
+            Machine.ChangeState(this, result.state, result.reason);
+            return true;
         }
 
         public State Leaf()
@@ -66,6 +73,11 @@ namespace HSM
         public IEnumerable<State> PathToRoot()
         {
             for (State s = this; s != null; s = s.Parent) yield return s;
+        }
+        
+        public virtual void DrawCustomGizmos()
+        {
+            
         }
     }
 }

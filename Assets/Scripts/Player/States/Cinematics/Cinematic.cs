@@ -32,7 +32,7 @@ namespace Player.States.Cinematics
             player.isInCinematic = true;
         }
 
-        protected override State GetDefaultChildState()
+        public override State GetDefaultChildState()
         {
             if (ActiveRequest?.MoveTarget.HasValue == true) return MovingToTarget;
             if (ActiveRequest?.Clip != null) return Animating;
@@ -103,7 +103,7 @@ namespace Player.States.Cinematics
             Airborne = new Airborne(m, this, player);
         }
 
-        protected override State GetDefaultChildState() => player.Grounded ? Grounded : Airborne;
+        public override State GetDefaultChildState() => player.Grounded ? Grounded : Airborne;
 
         protected override void OnEnter() => reachedTarget = false;
 

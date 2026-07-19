@@ -35,7 +35,7 @@ namespace Player.States
             invincibleTimer = time;
         }
 
-        protected override State GetDefaultChildState() => Grounded;
+        public override State GetDefaultChildState() => Grounded;
         
         protected override void OnUpdate(float deltaTime)
         {

@@ -48,6 +48,8 @@ namespace HSM
         {
             return states.OfType<T>().FirstOrDefault();
         }
+
+        public IEnumerable<State> ActiveStates => Root.Leaf().PathToRoot().Reverse();
         
         // Perform the actual switch from 'from' to 'to' by exiting up to the shared ancestor, then entering down to the target
         public void ChangeState(State from, State to, string reason = null)
