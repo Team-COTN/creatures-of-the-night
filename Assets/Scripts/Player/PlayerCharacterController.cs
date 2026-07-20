@@ -26,7 +26,7 @@ namespace Player
         public bool isFacingRight = true;
 
         public MMF_Player myParryFeedbacks;
-        public MMF_Player myDamagedFeedbacks;
+        public MMF_Player myDamageFeedbacks;
 
         // Remove old cinematic fields - now lives in CinematicRequest
         public bool isInCinematic = false;
@@ -104,11 +104,15 @@ namespace Player
 
         // private void OnJump() => animator.SetTrigger("Jump");
 
-        // private void OnJumpParry()
-        // {
-        //     animator.SetTrigger("JumpParry");
-        //     myParryFeedbacks.PlayFeedbacks();
-        // }
+        public void OnJumpParry()
+        {
+            // animator.SetTrigger("JumpParry");
+            myParryFeedbacks.PlayFeedbacks();
+        }
+        public void OnDamage()
+        {
+            myDamageFeedbacks.PlayFeedbacks();
+        }
 
         // private void OnSlash()
         // {
