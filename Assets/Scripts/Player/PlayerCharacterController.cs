@@ -170,9 +170,9 @@ namespace Player
         }
         public void TakeDamage(int damageAmount)
         {       
-            characterBeingDamaged = true;
             if (!characterIsinvincibile)
             {
+                characterBeingDamaged = true;
                 characterHealth -= damageAmount;
                 CharacterDamaged?.Invoke(characterHealth);
             }
