@@ -210,12 +210,6 @@ namespace Player
                 ExitCinematic();
             }
         }
-        // private void Damage(int damage)
-        // {
-        //     characterHealth -= damage;
-        //     Damage();
-        // }
-
 
 
 #if UNITY_EDITOR
