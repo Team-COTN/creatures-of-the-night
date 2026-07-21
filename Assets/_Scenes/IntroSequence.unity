@@ -374,6 +374,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5390144918298069785, guid: 3f651ae463f1a734f94b6c9d5ad62f49, type: 3}
   m_PrefabInstance: {fileID: 703763022}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &49491790 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 599282573205946664, guid: 3f651ae463f1a734f94b6c9d5ad62f49, type: 3}
+  m_PrefabInstance: {fileID: 703763022}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 49491786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5baa3744288a94971b33bce8022d99c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &81651295
 GameObject:
   m_ObjectHideFlags: 0
@@ -2451,7 +2462,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ComponentVersion: 2
+  m_ComponentVersion: 3
   m_LightType: 1
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
@@ -2758,7 +2769,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ComponentVersion: 2
+  m_ComponentVersion: 3
   m_LightType: 4
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
@@ -2914,7 +2925,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ComponentVersion: 2
+  m_ComponentVersion: 3
   m_LightType: 3
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.809
@@ -3733,7 +3744,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1795000534097578130, guid: 3f651ae463f1a734f94b6c9d5ad62f49, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.889729
+      value: 8.974032
       objectReference: {fileID: 0}
     - target: {fileID: 1795000534097578130, guid: 3f651ae463f1a734f94b6c9d5ad62f49, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3923,6 +3934,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8679525555557639008, guid: 3f651ae463f1a734f94b6c9d5ad62f49, type: 3}
+      propertyPath: SafeGroundCheckpoint
+      value: 
+      objectReference: {fileID: 49491790}
     - target: {fileID: 9134310670812706624, guid: 3f651ae463f1a734f94b6c9d5ad62f49, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -8469,7 +8484,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ComponentVersion: 2
+  m_ComponentVersion: 3
   m_LightType: 3
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.809

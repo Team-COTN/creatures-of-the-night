@@ -89,6 +89,8 @@ namespace Player.States
             knockbackDuration = 0f;
             player.characterIsinvincibile = true;
             Machine.GetState<Root>().setInvinsibleTimer(player.locomotionData.invincibleDuration);
+            //MM Feedbacks
+            player.OnDamage();
         }
 
         protected override void OnUpdate(float deltaTime)

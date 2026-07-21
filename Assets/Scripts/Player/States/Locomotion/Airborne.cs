@@ -261,6 +261,8 @@ namespace Player.States.Locomotion
             Machine.GetState<Airborne>().CanDash = true;
             player.SetVerticalVelocity(player.locomotionData.InitialJumpVelocity);
             player.PlayerAnimator.PlayJumpParry();
+            //MM Feedbacks
+            player.OnJumpParry();
         }
 
         protected override void OnUpdate(float deltaTime)

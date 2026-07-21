@@ -105,6 +105,11 @@ crashlytics-build.properties
 # Feel | https://assetstore.unity.com/packages/tools/particles-effects/feel-183370
 /[Aa]ssets/Feel
 
+# Pause Manager |https://assetstore.unity.com/packages/tools/utilities/pause-manager-167753
+/[Aa]ssets/Gabriel Pereira/Pause Manager
+/[Aa]ssets/Gabriel Pereira/Pause Manager.meta
+Assets/Gabriel Pereira.meta
+
 # FMOD | https://assetstore.unity.com/packages/tools/audio/fmod-for-unity-2-03-311497
 /[Aa]ssets/[Pp]lugins/FMOD
 
@@ -119,3 +124,5 @@ crashlytics-build.properties
 
 # Text Animator for Unity | https://assetstore.unity.com/packages/tools/gui/text-animator-for-unity-ui-toolkit-and-text-mesh-pro-341308
 /[Aa]ssets/[Pp]lugins/Febucci
+
+
