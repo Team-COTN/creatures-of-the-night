@@ -306,7 +306,7 @@ namespace Player.States.Locomotion
             player.PlayerAnimator.PlaySlash();
         }
 
-        protected override void OnUpdate(float deltaTime)
+        protected override void OnFixedUpdate(float fixedDeltaTime)
         {
             //make damage collider
             float radius = .5f;
@@ -323,7 +323,7 @@ namespace Player.States.Locomotion
                         damagable.TakeDamage(1);
                 }
             }
-            slashTimer += deltaTime;
+            slashTimer += fixedDeltaTime;
         }
     }
 

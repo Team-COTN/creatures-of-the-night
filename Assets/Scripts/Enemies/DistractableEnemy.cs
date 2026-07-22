@@ -6,19 +6,20 @@ namespace Enemies.Destractable
 {
 
 [RequireComponent(typeof(PhysicsMotor))]
-public class DestractableEnemy : StateMachineMonoBehaviour, IDamagable, IShootable, IKnockable
+public class DistractableEnemy : StateMachineMonoBehaviour, IDamagable, IShootable, IKnockable
 {
     [Header("References")]
     public Transform player;
 
     [Header("Detection")]
+    public float attackDetectionRange = 1f;
     public float detectionRange = 5f;
     public float chaseDetectionRange = 7f;
     public float wanderSightHeight = 1f;
     
 
     [Header("Movement")]
-    public float chaseSpeed = 2f;
+    public float chaseSpeed = 2.5f;
     public float wanderSpeed = 1f;
     public float gravity = 10f;
 
@@ -33,6 +34,13 @@ public class DestractableEnemy : StateMachineMonoBehaviour, IDamagable, IShootab
     public float knockbackForce = .3f;
 
     [Header("Attack")]
+    public Collider2D attackCollider2D;
+    public float attackRadius = 2f;
+    public float attackDuration = 0.5f;
+
+    public float attackCooldown = 1.5f;
+    public float attackCooldownTimer = 0f;
+
 
     [Header("Timing")]
     public float wanderDirectionChangeInterval = 2f;
@@ -123,17 +131,19 @@ public class DestractableEnemy : StateMachineMonoBehaviour, IDamagable, IShootab
 
 public class Root : State
 {
-    public readonly DestractableEnemy Enemy;
+    public readonly DistractableEnemy Enemy;
     public readonly Wander Wander;
     public readonly Chase Chase;
     public readonly Damaged Damaged;
+    public readonly Attack Attack;
 
-    public Root(StateMachine m, DestractableEnemy enemy) : base(m, null)
+    public Root(StateMachine m, DistractableEnemy enemy) : base(m, null)
     {
         Enemy = enemy;
         Wander = new Wander(m, this);
         Chase = new Chase(m, this);
         Damaged = new Damaged(m, this);
+        Attack = new Attack(m, this);
     }
 
     public override State GetDefaultChildState() => Wander;
@@ -143,6 +153,8 @@ public class Root : State
         Enemy.SetVerticalVelocity(Enemy.Motor.IsGrounded() ? 0f : Enemy.velocity.y - Enemy.gravity * fixedDeltaTime);
         Enemy.Motor.Move(Enemy.velocity * fixedDeltaTime);
         
+        Enemy.attackCooldownTimer -= fixedDeltaTime;
+
         if (Enemy.enemyHP <= Enemy.damageTaken)
             Enemy.Die();
     }
@@ -161,6 +173,12 @@ public class Root : State
             Enemy.canBeDamaged = false;
             return (Damaged, "enemy was damaged");
         }
+        //could be in chase? Since it will never be *very close* if it is not at least ~kinda close~
+        if (Enemy.IsPlayerWithinRange(Enemy.attackDetectionRange) && Enemy.attackCooldownTimer <= 0f)
+            return (Attack, "can attack player");
+
+        //outside root it would be:       return (Root.Attack, "can attack player");
+
         return (null, null);
     }
 }
@@ -168,7 +186,7 @@ public class Root : State
 public class Wander : State
 {
     private Root Root => (Root)Parent;
-    private DestractableEnemy Enemy => Root.Enemy;
+    private DistractableEnemy Enemy => Root.Enemy;
 
     private float _direction;
     private float _directionTimer;
@@ -233,7 +251,7 @@ public class Wander : State
 public class Chase : State
 {
     private Root Root => (Root)Parent;
-    private DestractableEnemy Enemy => Root.Enemy;
+    private DistractableEnemy Enemy => Root.Enemy;
 
     private float _blockedTimer;
 
@@ -327,4 +345,92 @@ public class Damaged : State
     }
 }
 
+public class Attack : State
+{
+    private Root Root => (Root)Parent;
+    private DistractableEnemy Enemy => Root.Enemy;
+
+    private float attackTimer;
+
+    public Attack(StateMachine m, State parent) : base(m, parent) { }
+
+    protected override void OnEnter()
+    {
+        Debug.Log("entered attack state");
+        Enemy.attackCooldownTimer = Enemy.attackCooldown;
+        attackTimer = 0f;
+    }
+    
+    protected override void OnFixedUpdate(float fixedDeltaTime)
+    {   
+        Vector2 weaponColOrigin = Enemy.attackCollider2D.bounds.center;
+        Collider2D[] otherCol = Physics2D.OverlapCircleAll(weaponColOrigin, Enemy.attackRadius, ~0);
+        for (int i = 0; i < otherCol.Length; i++)
+        {
+            if (otherCol[i].gameObject.TryGetComponent(out IDamagable damagable))
+            {
+                if (otherCol[i].gameObject != Enemy.gameObject)
+                    damagable.TakeDamage(1);
+            }
+        }
+        attackTimer += fixedDeltaTime;
+    }
+
+   
+    protected override (State state, string reason) GetNextState()
+    {
+        if (attackTimer >= Enemy.attackDuration)
+            return (Root.Chase, "done trying to attack");
+
+        return (null, null);
+    }
+}
+
+/*
+        readonly PlayerCharacterController player;
+        private float slashTimer;
+        
+        public Slash(StateMachine m, State parent, PlayerCharacterController player) : base(m, parent)
+        {
+            this.player = player;
+        }
+
+        protected override (State state, string reason) GetNextState()
+        {
+            if (slashTimer >= player.locomotionData.slashDuration)
+            { 
+                Debug.Log("Player finished SLASHlash attack");
+                return (Machine.GetState<Idle>(), "Player finished grounded slash attack");
+            }
+    
+            return (null, null);
+        }
+
+        protected override void OnEnter()
+        {
+            slashTimer = 0f;
+            player.PlayerAnimator.PlaySlash();
+        }
+
+        protected override void OnUpdate(float deltaTime)
+        {
+            //make damage collider
+            float radius = .5f;
+        
+            //need to find if the player has a weapon in hand
+            //if no weapon, the arm of the character is the weapon
+            Vector2 weaponColOrigin = player.attackCollider2D.bounds.center;
+            Collider2D[] otherCol = Physics2D.OverlapCircleAll(weaponColOrigin, radius, ~0);
+            for (int i = 0; i < otherCol.Length; i++)
+            {
+                if (otherCol[i].gameObject.TryGetComponent(out IDamagable damagable))
+                {
+                    if (otherCol[i].gameObject != player.gameObject)
+                        damagable.TakeDamage(1);
+                }
+            }
+            slashTimer += deltaTime;
+        }
+    }
+*/
 }
