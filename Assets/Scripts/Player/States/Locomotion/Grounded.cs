@@ -63,7 +63,7 @@ namespace Player.States.Locomotion
                 return (Machine.GetState<Slash>(), "Player pressed slash attack");
 
             // Block on button press
-            if (InputManager.GetSlashWasPressedThisFrame())
+            if (InputManager.GetBlockWasPressedThisFrame())
                 return (Machine.GetState<Block>(), "Player pressed block");
 
             return (null, null);
@@ -293,6 +293,7 @@ namespace Player.States.Locomotion
         {
             if (slashTimer >= player.locomotionData.slashDuration)
             { 
+                Debug.Log("Player finished SLASHlash attack");
                 return (Machine.GetState<Idle>(), "Player finished grounded slash attack");
             }
     
@@ -301,6 +302,7 @@ namespace Player.States.Locomotion
 
         protected override void OnEnter()
         {
+            slashTimer = 0f;
             player.PlayerAnimator.PlaySlash();
         }
 
@@ -315,17 +317,14 @@ namespace Player.States.Locomotion
             Collider2D[] otherCol = Physics2D.OverlapCircleAll(weaponColOrigin, radius, ~0);
             for (int i = 0; i < otherCol.Length; i++)
             {
-                Debug.Log("****Some Object Collided..");
-
                 if (otherCol[i].gameObject.TryGetComponent(out IDamagable damagable))
                 {
-                    Debug.Log("****Damagable Object Collided!");
-                    damagable.TakeDamage(1);
+                    if (otherCol[i].gameObject != player.gameObject)
+                        damagable.TakeDamage(1);
                 }
             }
             slashTimer += deltaTime;
         }
-        
     }
 
     public class Block : State
@@ -350,6 +349,7 @@ namespace Player.States.Locomotion
 
         protected override void OnEnter()
         {
+            blockTimer = 0f;
             //replace with block animation
             player.PlayerAnimator.PlaySlash();
         }

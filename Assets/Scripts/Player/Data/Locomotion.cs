@@ -32,7 +32,7 @@ namespace Player.Data
         public float airSwitchDashHangTime = 0.1f;
         
         [Header("Slash")]
-        public float slashDuration = .5f;
+        public float slashDuration = .25f;
 
         [Header("Block")]
         public float blockDuration = .5f;
