@@ -40,6 +40,9 @@ public class DistractableEnemy : StateMachineMonoBehaviour, IDamagable, IShootab
 
     public float attackCooldown = 1.5f;
     public float attackCooldownTimer = 0f;
+    public bool blockableNow = false;
+    public bool canGetBlocked = false;
+
 
 
     [Header("Timing")]
@@ -92,27 +95,24 @@ public class DistractableEnemy : StateMachineMonoBehaviour, IDamagable, IShootab
         return Physics2D.OverlapPoint(checkPoint, Motor.CollisionMask) != null;
     }
 
-    // public void Die() => Debug.Log("die");
     public void Die() => UnityEngine.Object.Destroy(this.gameObject);
 
     public void TakeShotDamage(int damageAmount)
     {
+        if (enemyIsinvincibile)
+            return;
+
+        enemyIsinvincibile = true;
         //transition to damaged state
         canBeDamaged = true;
-        Debug.Log("canBeDamaged = true");
-
-        //
-        if (enemyIsinvincibile) 
-            return;
-        damageTaken += damageAmount; 
+        //take damage
+        damageTaken += damageAmount;
     }
     
     public void TakeDamage(int damageAmount)
     {
-        Debug.Log("I am taking damage");
         if (enemyIsinvincibile)
             return;
-        Debug.Log("enemy not invincible");
 
         enemyIsinvincibile = true;
         //transition to damaged state
@@ -129,7 +129,14 @@ public class DistractableEnemy : StateMachineMonoBehaviour, IDamagable, IShootab
 
     public void GetBlocked()
     {
-        Debug.Log("My attack has been blocked!");
+        canGetBlocked = true;
+    }
+
+    public bool BlockableNow()
+    {
+        if (blockableNow)
+            return true;
+        return false;
     }
 }
 
@@ -316,7 +323,6 @@ public class Damaged : State
 
     protected override void OnEnter()
     {
-        Debug.Log("entered damaged state");
         Enemy.enemyIsinvincibile = true;
         damagedTimer = 0f;
         knockbacktimer = 0f;
@@ -360,33 +366,42 @@ public class Attack : State
 
     protected override void OnEnter()
     {
-        Debug.Log("entered attack state");
+        Enemy.blockableNow = true;
         Enemy.attackCooldownTimer = Enemy.attackCooldown;
         attackTimer = 0f;
     }
     
     protected override void OnFixedUpdate(float fixedDeltaTime)
     {   
-        Vector2 weaponColOrigin = Enemy.attackCollider2D.bounds.center;
-        Collider2D[] otherCol = Physics2D.OverlapCircleAll(weaponColOrigin, Enemy.attackRadius, ~0);
-        for (int i = 0; i < otherCol.Length; i++)
+        if(!Enemy.canGetBlocked)
         {
-            if (otherCol[i].gameObject.TryGetComponent(out IDamagable damagable))
+            Vector2 weaponColOrigin = Enemy.attackCollider2D.bounds.center;
+            Collider2D[] otherCol = Physics2D.OverlapCircleAll(weaponColOrigin, Enemy.attackRadius, ~0);
+            for (int i = 0; i < otherCol.Length; i++)
             {
-                if (otherCol[i].gameObject != Enemy.gameObject)
-                    damagable.TakeDamage(1);
+                if (otherCol[i].gameObject.TryGetComponent(out IDamagable damagable))
+                {
+                    if (otherCol[i].gameObject != Enemy.gameObject)
+                        damagable.TakeDamage(1);
+                }
             }
         }
         attackTimer += fixedDeltaTime;
     }
 
-   
     protected override (State state, string reason) GetNextState()
     {
         if (attackTimer >= Enemy.attackDuration)
             return (Root.Chase, "done trying to attack");
-
+        if (Enemy.canGetBlocked)
+            return (Root.Chase, "my attack has been blocked!");
         return (null, null);
+    }
+    
+    protected override void OnExit()
+    {
+        Enemy.blockableNow = false;
+        Enemy.canGetBlocked = false;
     }
 }
 }

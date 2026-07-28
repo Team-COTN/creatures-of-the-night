@@ -15,8 +15,7 @@ namespace Player.States.Locomotion
         public readonly Block Block;
 
         public float DashCooldownTimer;
-        [SerializeField] CharacterInteractions characterInteractions;
-        
+     
 
         public Grounded(StateMachine m, State parent, PlayerCharacterController player) : base(m, parent)
         {
@@ -26,6 +25,7 @@ namespace Player.States.Locomotion
             Dash = new Dash(m, this, player);
             SwitchDash = new SwitchDash(m, this, player);
             Slash = new Slash(m, this, player);
+            Block = new Block(m, this, player);
         }
 
         public override State GetDefaultChildState() => Mathf.Abs(InputManager.GetMovement().x) > player.locomotionData.movementInputThreshold ? Move : Idle;
@@ -348,7 +348,6 @@ namespace Player.States.Locomotion
 
         protected override void OnEnter()
         {
-            Debug.Log("entered Block");
             blockTimer = 0f;
             //replace with block animation
             player.PlayerAnimator.PlaySlash();
@@ -366,11 +365,9 @@ namespace Player.States.Locomotion
 
             for (int i = 0; i < otherCol.Length; i++)
             {
-                Debug.Log("****Some Object Collided..");
-
                 if (otherCol[i].gameObject.TryGetComponent(out IBlockable blockable))
                 {
-                    if (otherCol[i].gameObject != player.gameObject)
+                    if (otherCol[i].gameObject != player.gameObject && blockable.BlockableNow())
                         blockable.GetBlocked();
                 }
             }
