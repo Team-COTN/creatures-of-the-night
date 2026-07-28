@@ -6,7 +6,7 @@ namespace Enemies.Destractable
 {
 
 [RequireComponent(typeof(PhysicsMotor))]
-public class DistractableEnemy : StateMachineMonoBehaviour, IDamagable, IShootable, IKnockable
+public class DistractableEnemy : StateMachineMonoBehaviour, IDamagable, IShootable, IKnockable, IBlockable
 {
     [Header("References")]
     public Transform player;
@@ -127,6 +127,10 @@ public class DistractableEnemy : StateMachineMonoBehaviour, IDamagable, IShootab
         _hazardPosition = hazardPosition;
     }
 
+    public void GetBlocked()
+    {
+        Debug.Log("My attack has been blocked!");
+    }
 }
 
 public class Root : State
@@ -385,52 +389,4 @@ public class Attack : State
         return (null, null);
     }
 }
-
-/*
-        readonly PlayerCharacterController player;
-        private float slashTimer;
-        
-        public Slash(StateMachine m, State parent, PlayerCharacterController player) : base(m, parent)
-        {
-            this.player = player;
-        }
-
-        protected override (State state, string reason) GetNextState()
-        {
-            if (slashTimer >= player.locomotionData.slashDuration)
-            { 
-                Debug.Log("Player finished SLASHlash attack");
-                return (Machine.GetState<Idle>(), "Player finished grounded slash attack");
-            }
-    
-            return (null, null);
-        }
-
-        protected override void OnEnter()
-        {
-            slashTimer = 0f;
-            player.PlayerAnimator.PlaySlash();
-        }
-
-        protected override void OnUpdate(float deltaTime)
-        {
-            //make damage collider
-            float radius = .5f;
-        
-            //need to find if the player has a weapon in hand
-            //if no weapon, the arm of the character is the weapon
-            Vector2 weaponColOrigin = player.attackCollider2D.bounds.center;
-            Collider2D[] otherCol = Physics2D.OverlapCircleAll(weaponColOrigin, radius, ~0);
-            for (int i = 0; i < otherCol.Length; i++)
-            {
-                if (otherCol[i].gameObject.TryGetComponent(out IDamagable damagable))
-                {
-                    if (otherCol[i].gameObject != player.gameObject)
-                        damagable.TakeDamage(1);
-                }
-            }
-            slashTimer += deltaTime;
-        }
-    }
-*/
 }

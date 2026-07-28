@@ -293,7 +293,6 @@ namespace Player.States.Locomotion
         {
             if (slashTimer >= player.locomotionData.slashDuration)
             { 
-                Debug.Log("Player finished SLASHlash attack");
                 return (Machine.GetState<Idle>(), "Player finished grounded slash attack");
             }
     
@@ -349,12 +348,13 @@ namespace Player.States.Locomotion
 
         protected override void OnEnter()
         {
+            Debug.Log("entered Block");
             blockTimer = 0f;
             //replace with block animation
             player.PlayerAnimator.PlaySlash();
         }
 
-        protected override void OnUpdate(float deltaTime)
+        protected override void OnFixedUpdate(float fixedDeltaTime)
         {
             //make block collider
             float radius = .5f;
@@ -363,18 +363,19 @@ namespace Player.States.Locomotion
             //if no sheild, the arm of the character is the sheild
             Vector2 sheildColOrigin = player.attackCollider2D.bounds.center;
             Collider2D[] otherCol = Physics2D.OverlapCircleAll(sheildColOrigin, radius, ~0);
+
             for (int i = 0; i < otherCol.Length; i++)
             {
                 Debug.Log("****Some Object Collided..");
 
                 if (otherCol[i].gameObject.TryGetComponent(out IBlockable blockable))
                 {
-                    Debug.Log("****blockable Object Collided!");
-                    blockable.GetBlocked();
+                    if (otherCol[i].gameObject != player.gameObject)
+                        blockable.GetBlocked();
                 }
             }
 
-            blockTimer += deltaTime;
+            blockTimer += fixedDeltaTime;
         }
         
     }
