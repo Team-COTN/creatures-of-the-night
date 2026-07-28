@@ -26,7 +26,6 @@ public class Enemy : MonoBehaviour, IDamagable, IShootable, IBlockable
         damageTaken+= damageAmount;
         Debug.Log("OOF Shot by:" + damageAmount);
         Debug.Log("Total Damage Taken: " + damageTaken);
-
     }
 
     public void TakeDamage(int damageAmount)
@@ -38,6 +37,10 @@ public class Enemy : MonoBehaviour, IDamagable, IShootable, IBlockable
     public void GetBlocked()
     {
         Debug.Log("I've been blocked!");
+    }
+    public bool BlockableNow()
+    {
+        return true;
     }
 
 }

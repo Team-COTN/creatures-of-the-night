@@ -38,7 +38,6 @@ public class HealthUI : MonoBehaviour
 
     void Die()
     {
-        Debug.Log("You died.");
         dieScreenAnimator.SetTrigger("Die");
         Destroy(gameObject);
     }

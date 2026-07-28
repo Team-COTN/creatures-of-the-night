@@ -15,8 +15,7 @@ namespace Player.States.Locomotion
         public readonly Block Block;
 
         public float DashCooldownTimer;
-        [SerializeField] CharacterInteractions characterInteractions;
-        
+     
 
         public Grounded(StateMachine m, State parent, PlayerCharacterController player) : base(m, parent)
         {
@@ -26,6 +25,7 @@ namespace Player.States.Locomotion
             Dash = new Dash(m, this, player);
             SwitchDash = new SwitchDash(m, this, player);
             Slash = new Slash(m, this, player);
+            Block = new Block(m, this, player);
         }
 
         public override State GetDefaultChildState() => Mathf.Abs(InputManager.GetMovement().x) > player.locomotionData.movementInputThreshold ? Move : Idle;
@@ -63,7 +63,7 @@ namespace Player.States.Locomotion
                 return (Machine.GetState<Slash>(), "Player pressed slash attack");
 
             // Block on button press
-            if (InputManager.GetSlashWasPressedThisFrame())
+            if (InputManager.GetBlockWasPressedThisFrame())
                 return (Machine.GetState<Block>(), "Player pressed block");
 
             return (null, null);
@@ -301,10 +301,11 @@ namespace Player.States.Locomotion
 
         protected override void OnEnter()
         {
+            slashTimer = 0f;
             player.PlayerAnimator.PlaySlash();
         }
 
-        protected override void OnUpdate(float deltaTime)
+        protected override void OnFixedUpdate(float fixedDeltaTime)
         {
             //make damage collider
             float radius = .5f;
@@ -315,17 +316,14 @@ namespace Player.States.Locomotion
             Collider2D[] otherCol = Physics2D.OverlapCircleAll(weaponColOrigin, radius, ~0);
             for (int i = 0; i < otherCol.Length; i++)
             {
-                Debug.Log("****Some Object Collided..");
-
                 if (otherCol[i].gameObject.TryGetComponent(out IDamagable damagable))
                 {
-                    Debug.Log("****Damagable Object Collided!");
-                    damagable.TakeDamage(1);
+                    if (otherCol[i].gameObject != player.gameObject)
+                        damagable.TakeDamage(1);
                 }
             }
-            slashTimer += deltaTime;
+            slashTimer += fixedDeltaTime;
         }
-        
     }
 
     public class Block : State
@@ -350,11 +348,12 @@ namespace Player.States.Locomotion
 
         protected override void OnEnter()
         {
+            blockTimer = 0f;
             //replace with block animation
             player.PlayerAnimator.PlaySlash();
         }
 
-        protected override void OnUpdate(float deltaTime)
+        protected override void OnFixedUpdate(float fixedDeltaTime)
         {
             //make block collider
             float radius = .5f;
@@ -363,18 +362,17 @@ namespace Player.States.Locomotion
             //if no sheild, the arm of the character is the sheild
             Vector2 sheildColOrigin = player.attackCollider2D.bounds.center;
             Collider2D[] otherCol = Physics2D.OverlapCircleAll(sheildColOrigin, radius, ~0);
+
             for (int i = 0; i < otherCol.Length; i++)
             {
-                Debug.Log("****Some Object Collided..");
-
                 if (otherCol[i].gameObject.TryGetComponent(out IBlockable blockable))
                 {
-                    Debug.Log("****blockable Object Collided!");
-                    blockable.GetBlocked();
+                    if (otherCol[i].gameObject != player.gameObject && blockable.BlockableNow())
+                        blockable.GetBlocked();
                 }
             }
 
-            blockTimer += deltaTime;
+            blockTimer += fixedDeltaTime;
         }
         
     }

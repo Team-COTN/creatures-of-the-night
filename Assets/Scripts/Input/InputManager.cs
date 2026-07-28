@@ -16,6 +16,7 @@ public class InputManager : MonoBehaviour
     public static bool GetDashWasPressedThisFrame() => _inputActions.Character.Dash.WasPressedThisFrame();
     public static bool GetSwitchdashWasPressedThisFrame() => _inputActions.Character.Switchdash.WasPressedThisFrame();
     public static bool GetSlashWasPressedThisFrame() => _inputActions.Character.Slash.WasPressedThisFrame();
+    public static bool GetBlockWasPressedThisFrame() => _inputActions.Character.Block.WasPressedThisFrame();
     public static bool GetShootWasPressedThisFrame() => _inputActions.Character.Shoot.WasPressedThisFrame();
 
     public static bool GetEyeWasPressedThisFrame() => _inputActions.Character.Eye.WasPressedThisFrame();

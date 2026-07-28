@@ -44,7 +44,7 @@ namespace Player
         //for UI to respond to damage
         public int characterHealth = 3;
         public event Action<int> CharacterDamaged;
-        public event Action<int> CharacterTeleported;
+        // public event Action<int> CharacterTeleported;
 
         public void AddCharacterDamagedObserver(Action<int> observer) { CharacterDamaged += observer; }
         public void RemoveCharacterDamagedObserver(Action<int> observer) { CharacterDamaged -= observer; }
