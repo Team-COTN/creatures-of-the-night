@@ -1,13 +1,22 @@
 fileFormatVersion: 2
-guid: 103511a74ff7b114ab8b9d4615266c37
+guid: c3bf1aa96e89ac145b1f77e7bc372dc6
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -9012472786929064513
-    second: COTN-Enemy-Basic1_0
+      213: 5129376544457247635
+    second: Blocked-9_0
   - first:
-      213: 2902233328684073207
-    second: COTN-Enemy-Basic1_1
+      213: -3304112091187847326
+    second: Blocked-9_1
+  - first:
+      213: 4232192119166508946
+    second: Blocked-9_2
+  - first:
+      213: -8559729870383939699
+    second: Blocked-9_3
+  - first:
+      213: -630973070183936207
+    second: Blocked-9_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +60,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 1
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 275
@@ -103,13 +112,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: COTN-Enemy-Basic1_0
+      name: Blocked-9_0
       rect:
         serializedVersion: 2
-        x: 165
-        y: 113
-        width: 359
-        height: 221
+        x: 196
+        y: 403
+        width: 10
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,19 +127,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fb5e73b10c34de280800000000000000
-      internalID: -9012472786929064513
+      spriteID: 39b48936ac43f2740800000000000000
+      internalID: 5129376544457247635
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: COTN-Enemy-Basic1_1
+      name: Blocked-9_1
       rect:
         serializedVersion: 2
-        x: 514
-        y: 256
-        width: 11
+        x: 198
+        y: 390
+        width: 14
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26fdcaa1f8f6522d0800000000000000
+      internalID: -3304112091187847326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blocked-9_2
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 218
+        width: 13
         height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -140,8 +171,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7f08383f5ddc64820800000000000000
-      internalID: 2902233328684073207
+      spriteID: 29f902c2f44cbba30800000000000000
+      internalID: 4232192119166508946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blocked-9_3
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 113
+        width: 353
+        height: 251
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8ff676c80bb53980800000000000000
+      internalID: -8559729870383939699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blocked-9_4
+      rect:
+        serializedVersion: 2
+        x: 422
+        y: 180
+        width: 101
+        height: 119
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13f49d0f5555e37f0800000000000000
+      internalID: -630973070183936207
       vertices: []
       indices: 
       edges: []
@@ -160,8 +235,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      COTN-Enemy-Basic1_0: -9012472786929064513
-      COTN-Enemy-Basic1_1: 2902233328684073207
+      Blocked-9_0: 5129376544457247635
+      Blocked-9_1: -3304112091187847326
+      Blocked-9_2: 4232192119166508946
+      Blocked-9_3: -8559729870383939699
+      Blocked-9_4: -630973070183936207
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -10,6 +10,8 @@ public class DistractableEnemy : StateMachineMonoBehaviour, IDamagable, IShootab
 {
     [Header("References")]
     public Transform player;
+    public Animator animator;
+
 
     [Header("Detection")]
     public float attackDetectionRange = 1f;
@@ -207,6 +209,7 @@ public class Wander : State
 
     protected override void OnEnter()
     {
+        Enemy.animator.Play("Idle");
         PickNewDirection();
         _rechaseCooldown = Enemy.rechaseDelay;
     }
@@ -268,7 +271,12 @@ public class Chase : State
 
     public Chase(StateMachine m, State parent) : base(m, parent) { }
 
-    protected override void OnEnter() => _blockedTimer = 0f;
+    protected override void OnEnter() 
+    {
+        if(!Enemy.animator.GetCurrentAnimatorStateInfo(0).IsName("Blocked"))
+            Enemy.animator.Play("Move");
+        _blockedTimer = 0f;
+    }
     protected override void OnExit() => Enemy.SetHorizontalVelocity(0f);
 
     protected override void OnFixedUpdate(float fixedDeltaTime)
@@ -323,6 +331,7 @@ public class Damaged : State
 
     protected override void OnEnter()
     {
+        Enemy.animator.Play("Damaged");
         Enemy.enemyIsinvincibile = true;
         damagedTimer = 0f;
         knockbacktimer = 0f;
@@ -366,6 +375,7 @@ public class Attack : State
 
     protected override void OnEnter()
     {
+        Enemy.animator.Play("Attack");
         Enemy.blockableNow = true;
         Enemy.attackCooldownTimer = Enemy.attackCooldown;
         attackTimer = 0f;
@@ -394,7 +404,11 @@ public class Attack : State
         if (attackTimer >= Enemy.attackDuration)
             return (Root.Chase, "done trying to attack");
         if (Enemy.canGetBlocked)
+        {
+            //never plays?
+            Enemy.animator.Play("Blocked");
             return (Root.Chase, "my attack has been blocked!");
+        }
         return (null, null);
     }
     

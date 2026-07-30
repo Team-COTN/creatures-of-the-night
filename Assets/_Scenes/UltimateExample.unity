@@ -370,12 +370,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 102116443}
     m_Modifications:
     - target: {fileID: 2876872473372385148, guid: 0e3f1428057690146a32937b95426df6, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2876872473372385148, guid: 0e3f1428057690146a32937b95426df6, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2876872473372385148, guid: 0e3f1428057690146a32937b95426df6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.12
+      value: 3.1
       objectReference: {fileID: 0}
     - target: {fileID: 2876872473372385148, guid: 0e3f1428057690146a32937b95426df6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.98
+      value: -5.84
       objectReference: {fileID: 0}
     - target: {fileID: 2876872473372385148, guid: 0e3f1428057690146a32937b95426df6, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5367,7 +5375,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ComponentVersion: 2
+  m_ComponentVersion: 3
   m_LightType: 4
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
@@ -6069,7 +6077,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ComponentVersion: 2
+  m_ComponentVersion: 3
   m_LightType: 3
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.759
@@ -6753,7 +6761,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ComponentVersion: 2
+  m_ComponentVersion: 3
   m_LightType: 3
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.195
@@ -7244,7 +7252,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1795000534097578130, guid: 3f651ae463f1a734f94b6c9d5ad62f49, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 38.17899
+      value: 36.89102
       objectReference: {fileID: 0}
     - target: {fileID: 1795000534097578130, guid: 3f651ae463f1a734f94b6c9d5ad62f49, type: 3}
       propertyPath: m_LocalPosition.y
@@ -8969,12 +8977,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 1345497735}
     m_Modifications:
     - target: {fileID: 2876872473372385148, guid: 0e3f1428057690146a32937b95426df6, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2876872473372385148, guid: 0e3f1428057690146a32937b95426df6, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2876872473372385148, guid: 0e3f1428057690146a32937b95426df6, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.1500206
       objectReference: {fileID: 0}
     - target: {fileID: 2876872473372385148, guid: 0e3f1428057690146a32937b95426df6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -9.90672
+      value: -9.81
       objectReference: {fileID: 0}
     - target: {fileID: 2876872473372385148, guid: 0e3f1428057690146a32937b95426df6, type: 3}
       propertyPath: m_LocalPosition.z
@@ -11218,6 +11234,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shadow (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2380376225275816121, guid: 52fadd645d960d24ab5fd52b523b5596, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3701224828758765189, guid: 52fadd645d960d24ab5fd52b523b5596, type: 3}
       propertyPath: m_LocalScale.x
       value: 16.126738
@@ -13220,7 +13240,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ComponentVersion: 2
+  m_ComponentVersion: 3
   m_LightType: 3
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.809
@@ -13476,7 +13496,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ComponentVersion: 2
+  m_ComponentVersion: 3
   m_LightType: 3
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.759
@@ -17376,7 +17396,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ComponentVersion: 2
+  m_ComponentVersion: 3
   m_LightType: 3
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.759
@@ -19208,12 +19228,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 102116443}
     m_Modifications:
     - target: {fileID: 2876872473372385148, guid: 0e3f1428057690146a32937b95426df6, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2876872473372385148, guid: 0e3f1428057690146a32937b95426df6, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2876872473372385148, guid: 0e3f1428057690146a32937b95426df6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.2570934
+      value: -2.33
       objectReference: {fileID: 0}
     - target: {fileID: 2876872473372385148, guid: 0e3f1428057690146a32937b95426df6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.4259677
+      value: -1.29
       objectReference: {fileID: 0}
     - target: {fileID: 2876872473372385148, guid: 0e3f1428057690146a32937b95426df6, type: 3}
       propertyPath: m_LocalPosition.z
@@ -22320,7 +22348,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ComponentVersion: 2
+  m_ComponentVersion: 3
   m_LightType: 3
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.759
@@ -23983,7 +24011,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ComponentVersion: 2
+  m_ComponentVersion: 3
   m_LightType: 3
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.759
@@ -24455,12 +24483,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 1345497735}
     m_Modifications:
     - target: {fileID: 2876872473372385148, guid: 0e3f1428057690146a32937b95426df6, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2876872473372385148, guid: 0e3f1428057690146a32937b95426df6, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2876872473372385148, guid: 0e3f1428057690146a32937b95426df6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 13.87998
       objectReference: {fileID: 0}
     - target: {fileID: 2876872473372385148, guid: 0e3f1428057690146a32937b95426df6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.4032803
+      value: 2.48
       objectReference: {fileID: 0}
     - target: {fileID: 2876872473372385148, guid: 0e3f1428057690146a32937b95426df6, type: 3}
       propertyPath: m_LocalPosition.z
