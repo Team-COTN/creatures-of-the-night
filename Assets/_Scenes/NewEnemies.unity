@@ -263,6 +263,8 @@ MonoBehaviour:
   attackDuration: 0.5
   attackCooldown: 1.5
   attackCooldownTimer: 0
+  blockableNow: 0
+  canGetBlocked: 0
   wanderDirectionChangeInterval: 2
   rechaseDelay: 2
   ledgeGiveUpDelay: 2
@@ -1166,26 +1168,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6166040227673563234, guid: 3f651ae463f1a734f94b6c9d5ad62f49, type: 3}
-      propertyPath: EventReference.Path
-      value: event:/New Event
-      objectReference: {fileID: 0}
-    - target: {fileID: 6166040227673563234, guid: 3f651ae463f1a734f94b6c9d5ad62f49, type: 3}
-      propertyPath: EventReference.Guid.Data1
-      value: -1792707703
-      objectReference: {fileID: 0}
-    - target: {fileID: 6166040227673563234, guid: 3f651ae463f1a734f94b6c9d5ad62f49, type: 3}
-      propertyPath: EventReference.Guid.Data2
-      value: 1123541348
-      objectReference: {fileID: 0}
-    - target: {fileID: 6166040227673563234, guid: 3f651ae463f1a734f94b6c9d5ad62f49, type: 3}
-      propertyPath: EventReference.Guid.Data3
-      value: -1760274285
-      objectReference: {fileID: 0}
-    - target: {fileID: 6166040227673563234, guid: 3f651ae463f1a734f94b6c9d5ad62f49, type: 3}
-      propertyPath: EventReference.Guid.Data4
-      value: -1472517025
-      objectReference: {fileID: 0}
     - target: {fileID: 7830585124954602415, guid: 3f651ae463f1a734f94b6c9d5ad62f49, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.38
@@ -1517,6 +1499,8 @@ MonoBehaviour:
   attackDuration: 0.5
   attackCooldown: 1.5
   attackCooldownTimer: 0
+  blockableNow: 0
+  canGetBlocked: 0
   wanderDirectionChangeInterval: 2
   rechaseDelay: 2
   ledgeGiveUpDelay: 2
