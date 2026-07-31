@@ -44,6 +44,7 @@ public class DistractableEnemy : StateMachineMonoBehaviour, IDamagable, IShootab
     public float attackCooldownTimer = 0f;
     public bool blockableNow = false;
     public bool canGetBlocked = false;
+    public bool windUp = true;
 
 
 
@@ -140,6 +141,16 @@ public class DistractableEnemy : StateMachineMonoBehaviour, IDamagable, IShootab
             return true;
         return false;
     }
+    //true while enemy is not yet actually attacking, 
+    // //to indicate to the player it *will* attack _before_ it actually does
+    public void windUpStatus(int integ)
+    {
+        if (integ <= 0)
+            windUp = false;
+        else
+            windUp = true;
+    }
+
 }
 
 public class Root : State
@@ -273,8 +284,7 @@ public class Chase : State
 
     protected override void OnEnter() 
     {
-        if(!Enemy.animator.GetCurrentAnimatorStateInfo(0).IsName("Blocked"))
-            Enemy.animator.Play("Move");
+        Enemy.animator.Play("Move");
         _blockedTimer = 0f;
     }
     protected override void OnExit() => Enemy.SetHorizontalVelocity(0f);
@@ -292,7 +302,7 @@ public class Chase : State
     {
         if (!Enemy.IsPlayerWithinRange(Enemy.chaseDetectionRange))
             return (Root.Wander, "lost player");
-
+    
         if (_blockedTimer >= Enemy.ledgeGiveUpDelay)
             return (Root.Wander, "couldn't reach player - gave up at the ledge");
 
@@ -385,6 +395,8 @@ public class Attack : State
     {   
         if(!Enemy.canGetBlocked)
         {
+            if(!Enemy.windUp)
+            {
             Vector2 weaponColOrigin = Enemy.attackCollider2D.bounds.center;
             Collider2D[] otherCol = Physics2D.OverlapCircleAll(weaponColOrigin, Enemy.attackRadius, ~0);
             for (int i = 0; i < otherCol.Length; i++)
@@ -394,6 +406,7 @@ public class Attack : State
                     if (otherCol[i].gameObject != Enemy.gameObject)
                         damagable.TakeDamage(1);
                 }
+            }
             }
         }
         attackTimer += fixedDeltaTime;
