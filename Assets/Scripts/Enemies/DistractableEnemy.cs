@@ -361,6 +361,11 @@ public class Damaged : State
             Enemy.SetHorizontalVelocity(velocity.x);
             Enemy.SetVerticalVelocity(velocity.y);
         }
+        else //fixed slow knockback?
+        {
+            Enemy.SetVerticalVelocity(Enemy.Motor.IsGrounded() ? 0f : Enemy.velocity.y - Enemy.gravity * fixedDeltaTime);
+            Enemy.Motor.Move(Enemy.velocity * fixedDeltaTime);
+        }
     }
 
     protected override void OnExit() => Enemy.enemyIsinvincibile = false;
