@@ -10,6 +10,7 @@ using Player;
 //just adjust functionality depending on abilities unlocked
 public class FunctionalProjectiles : MonoBehaviour
 {
+    // readonly PlayerCharacterController player;
     [SerializeField] public VisualEffect vfx;
     private PlayerCharacterController character;
 
@@ -56,8 +57,8 @@ public class FunctionalProjectiles : MonoBehaviour
         {
             Debug.Log("shot " + shootable.GetType().Name);
             //don't shoot yourself
-            if (other.gameObject.GetComponent<ICharacter>() == null)
-                shootable.TakeShotDamage(1);
+                if (other.gameObject != character.gameObject)
+                    shootable.TakeShotDamage(1);
             
             VisualEffect newVFX = Instantiate(vfx, transform.position, transform.rotation).GetComponent<VisualEffect>();
             newVFX.SendEvent("Hit");

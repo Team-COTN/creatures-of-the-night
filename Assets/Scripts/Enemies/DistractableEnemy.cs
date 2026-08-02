@@ -1,6 +1,7 @@
 
 using HSM;
 using UnityEngine;
+using MoreMountains.Feedbacks;
 
 namespace Enemies.Destractable
 {
@@ -11,7 +12,7 @@ public class DistractableEnemy : StateMachineMonoBehaviour, IDamagable, IShootab
     [Header("References")]
     public Transform player;
     public Animator animator;
-
+    public MMFeedbacks damagedFeedback;
 
     [Header("Detection")]
     public float attackDetectionRange = 1f;
@@ -342,6 +343,7 @@ public class Damaged : State
     protected override void OnEnter()
     {
         Enemy.animator.Play("Damaged");
+        Enemy.damagedFeedback.PlayFeedbacks();
         Enemy.enemyIsinvincibile = true;
         damagedTimer = 0f;
         knockbacktimer = 0f;
