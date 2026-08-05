@@ -29,15 +29,6 @@ public class BasicEnemy : StateMachineMonoBehaviour
     public float ledgeCheckAhead = 0.3f;
     public float groundProbeDepth = 0.2f;
 
-    private PhysicsMotor _motor;
-    public PhysicsMotor Motor => _motor ??= GetComponent<PhysicsMotor>();
-    private Collider2D _col;
-    public Collider2D Col => _col ??= GetComponent<Collider2D>();
-
-    public Vector2 velocity;
-    public void SetHorizontalVelocity(float value) => velocity = new Vector2(value, velocity.y);
-    public void SetVerticalVelocity(float value) => velocity = new Vector2(velocity.x, value);
-
     protected override State CreateRootState() => new Root(null, this);
 
     public bool IsPlayerWithinRange(float range) =>
@@ -88,8 +79,7 @@ public class Root : State
 
     protected override void OnFixedUpdate(float fixedDeltaTime)
     {
-        Enemy.SetVerticalVelocity(Enemy.Motor.IsGrounded() ? 0f : Enemy.velocity.y - Enemy.gravity * fixedDeltaTime);
-        Enemy.Motor.Move(Enemy.velocity * fixedDeltaTime);
+        Enemy.SetVerticalVelocity(Enemy.Motor.IsGrounded() ? 0f : Enemy.Velocity.y - Enemy.gravity * fixedDeltaTime);
     }
 
     public override void DrawCustomGizmos()

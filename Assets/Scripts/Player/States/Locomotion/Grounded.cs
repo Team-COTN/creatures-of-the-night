@@ -321,6 +321,12 @@ namespace Player.States.Locomotion
                     if (otherCol[i].gameObject != player.gameObject)
                         damagable.TakeDamage(1);
                 }
+
+                if (otherCol[i].gameObject.TryGetComponent(out IKnockable knockable))
+                {
+                    if (otherCol[i].gameObject != player.gameObject)
+                        knockable.TakeKnockback((Vector2)player.transform.position);
+                }
             }
             slashTimer += fixedDeltaTime;
         }

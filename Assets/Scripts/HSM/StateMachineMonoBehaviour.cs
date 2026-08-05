@@ -14,6 +14,16 @@ namespace HSM
         [SerializeField, Tooltip("Vertical offset for state path display")] 
         private float debugInfoPanelOffset = -0.25f;
         
+        private PhysicsMotor _motor;
+        public PhysicsMotor Motor => _motor ??= GetComponent<PhysicsMotor>();
+        private Collider2D _col;
+        public Collider2D Col => _col ??= GetComponent<Collider2D>();
+
+        private Vector2 _velocity;
+        public Vector2 Velocity => _velocity;
+        public void SetHorizontalVelocity(float value) => _velocity = new Vector2(value, _velocity.y);
+        public void SetVerticalVelocity(float value) => _velocity = new Vector2(_velocity.x, value);
+
         public StateMachine Machine { get; private set; }
         protected abstract State CreateRootState();
         
@@ -39,6 +49,7 @@ namespace HSM
         private void FixedUpdate()
         {
             Machine.FixedTick(Time.fixedDeltaTime);
+            Motor.Move(_velocity * Time.fixedDeltaTime);
         }
         
 #if UNITY_EDITOR

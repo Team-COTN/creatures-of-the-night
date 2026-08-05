@@ -13,6 +13,7 @@ public class DistractableEnemy : StateMachineMonoBehaviour, IDamagable, IShootab
     public Transform player;
     public Animator animator;
     public MMFeedbacks damagedFeedback;
+    public bool isFacingRight = false;
 
     [Header("Detection")]
     public float attackDetectionRange = 1f;
@@ -58,14 +59,6 @@ public class DistractableEnemy : StateMachineMonoBehaviour, IDamagable, IShootab
     public float ledgeCheckAhead = 0.3f;
     public float groundProbeDepth = 0.2f;
 
-    private PhysicsMotor _motor;
-    public PhysicsMotor Motor => _motor ??= GetComponent<PhysicsMotor>();
-    private Collider2D _col;
-    public Collider2D Col => _col ??= GetComponent<Collider2D>();
-
-    public Vector2 velocity;
-    public void SetHorizontalVelocity(float value) => velocity = new Vector2(value, velocity.y);
-    public void SetVerticalVelocity(float value) => velocity = new Vector2(velocity.x, value);
 
     protected override State CreateRootState() => new Root(null, this);
 
@@ -128,6 +121,7 @@ public class DistractableEnemy : StateMachineMonoBehaviour, IDamagable, IShootab
 
     public void TakeKnockback(Vector2 hazardPosition)
     {
+        Debug.Log("DistractableEnemy received knockback from hazard at: " + hazardPosition);
         _hazardPosition = hazardPosition;
     }
 
@@ -175,9 +169,6 @@ public class Root : State
 
     protected override void OnFixedUpdate(float fixedDeltaTime)
     {
-        Enemy.SetVerticalVelocity(Enemy.Motor.IsGrounded() ? 0f : Enemy.velocity.y - Enemy.gravity * fixedDeltaTime);
-        Enemy.Motor.Move(Enemy.velocity * fixedDeltaTime);
-        
         Enemy.attackCooldownTimer -= fixedDeltaTime;
 
         if (Enemy.enemyHP <= Enemy.damageTaken)
@@ -244,7 +235,16 @@ public class Wander : State
             return;
         }
 
+        // Flip the enemy to the correct direction
+        bool movingRight = _direction > 0f;
+        if (Enemy.isFacingRight != movingRight)
+        {
+            Enemy.isFacingRight = movingRight;
+            Enemy.transform.Rotate(0f, movingRight ? 180f : -180f, 0f);
+        }
+
         Enemy.SetHorizontalVelocity(_direction * Enemy.wanderSpeed);
+        Enemy.SetVerticalVelocity(Enemy.Motor.IsGrounded() ? 0f : Enemy.Velocity.y - Enemy.gravity * fixedDeltaTime);
     }
 
     protected override (State state, string reason) GetNextState()
@@ -295,7 +295,16 @@ public class Chase : State
         float moveDir = MoveDir();
         bool groundAhead = Enemy.IsGroundAheadOf(moveDir);
 
+        // Flip the enemy to the correct direction
+        bool movingRight = moveDir > 0f;
+        if (Enemy.isFacingRight != movingRight)
+        {
+            Enemy.isFacingRight = movingRight;
+            Enemy.transform.Rotate(0f, movingRight ? 180f : -180f, 0f);
+        }
+
         Enemy.SetHorizontalVelocity(groundAhead ? moveDir * Enemy.chaseSpeed : 0f);
+        Enemy.SetVerticalVelocity(Enemy.Motor.IsGrounded() ? 0f : Enemy.Velocity.y - Enemy.gravity * fixedDeltaTime);
         _blockedTimer = groundAhead ? 0f : _blockedTimer + fixedDeltaTime;
     }
 
@@ -357,16 +366,17 @@ public class Damaged : State
         if (knockbacktimer <= Enemy.knockbackDuration)
         {
             Vector3 hazardPos3D = new Vector3(Enemy._hazardPosition.x, Enemy._hazardPosition.y, 0);
-            float magnitude = Mathf.Lerp(Enemy.knockbackForce, 1f, Enemy.knockbackDuration);
+            Debug.Log(hazardPos3D);
+            float magnitude = Mathf.Lerp(Enemy.knockbackForce, 0f, knockbacktimer / Enemy.knockbackDuration);
             Vector3 direction = (Enemy.transform.position - hazardPos3D).normalized;
             Vector3 velocity = direction * magnitude;
             Enemy.SetHorizontalVelocity(velocity.x);
             Enemy.SetVerticalVelocity(velocity.y);
-        }
-        else //fixed slow knockback?
+        } 
+        else
         {
-            Enemy.SetVerticalVelocity(Enemy.Motor.IsGrounded() ? 0f : Enemy.velocity.y - Enemy.gravity * fixedDeltaTime);
-            Enemy.Motor.Move(Enemy.velocity * fixedDeltaTime);
+            Enemy.SetHorizontalVelocity(0f);
+            Enemy.SetVerticalVelocity(Enemy.Motor.IsGrounded() ? 0f : Enemy.Velocity.y - Enemy.gravity * fixedDeltaTime);
         }
     }
 
