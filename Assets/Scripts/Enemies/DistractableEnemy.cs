@@ -431,14 +431,14 @@ public class Attack : State
 
     protected override (State state, string reason) GetNextState()
     {
-        if (attackTimer >= Enemy.attackDuration)
-            return (Root.Chase, "done trying to attack");
         if (Enemy.canGetBlocked)
         {
             //never plays?
             Enemy.animator.Play("Blocked");
             return (Root.Chase, "my attack has been blocked!");
         }
+        if (attackTimer >= Enemy.attackDuration)
+            return (Root.Chase, "done trying to attack");
         return (null, null);
     }
     
