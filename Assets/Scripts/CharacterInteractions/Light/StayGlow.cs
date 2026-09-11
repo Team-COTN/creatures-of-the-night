@@ -11,12 +11,15 @@ public class StayGlow : MonoBehaviour
     public float transitionSpeed; // Speed of fading
     public Light2D spotlight;
     private float targetIntensity; // Where the light should move to
+    [SerializeField] string vineID;
+
 
     public void Awake()
     {
         spotlight = GetComponent<Light2D>();
         spotlight.intensity = dimIntensity;
-        targetIntensity = spotlight.intensity;
+        float savedIntensity = ES3.Load(SaveKey, dimIntensity);
+        targetIntensity = savedIntensity;
     }
     
     private void Update()
@@ -33,6 +36,12 @@ public class StayGlow : MonoBehaviour
         }
     }
 
-    public void Glow() => targetIntensity = brightIntensity;
+    public void Glow()
+    {
+        targetIntensity = brightIntensity;
+        ES3.Save(SaveKey, brightIntensity);
+    }
+
+    private string SaveKey => "vineLight_" + vineID;
 
 }

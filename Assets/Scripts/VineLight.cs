@@ -8,10 +8,13 @@ using UnityEngine.Rendering.Universal;
 public class VineLight : MonoBehaviour
 {
     [SerializeField] Light2D vinePointLight;
+    [SerializeField] string vineID;
 
     void Start()
     {
-            vinePointLight.pointLightOuterRadius = .2f;
+            float savedRadius = ES3.Load(SaveKey, .2f);
+            // ES3.Load("pointLightOuterRadius", .2f);
+            vinePointLight.pointLightOuterRadius = savedRadius;
     }
     
     private void OnTriggerExit2D(Collider2D other)
@@ -19,7 +22,8 @@ public class VineLight : MonoBehaviour
         if (other.attachedRigidbody.TryGetComponent(out Character character))
         {
             vinePointLight.pointLightOuterRadius = 3f;
+            ES3.Save(SaveKey, 3f);
         }
     }
-
+    private string SaveKey => "vineLight_" + vineID;
 }
